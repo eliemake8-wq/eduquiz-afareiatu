@@ -8,6 +8,7 @@
   <!-- Firebase Auth CDN -->
   <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
   <style>
     /* === MODAL === */
     .modal-overlay {
@@ -216,29 +217,41 @@
     <!-- ONGLET RÉSULTATS         -->
     <!-- ======================== -->
     <div id="resultats" style="display:none">
+
+      <!-- Résumé + filtres classe -->
       <div class="card mb-2">
-        <div class="card-titre">📊 Résultats des élèves</div>
-        <p class="text-petit" style="color:#555; margin-bottom:1rem">
-          Les résultats sont stockés anonymement sur cet appareil.
-          Pour les récupérer : ouvre cette page sur le même navigateur que les élèves.
-        </p>
-        <div id="stats-resume" style="margin-bottom:1rem">
-          <!-- Rempli ci-dessous -->
-        </div>
-        <div class="flex flex-wrap">
-          <button class="btn btn-primaire" onclick="Admin.exporterResultatsCSV()">
-            📥 Exporter CSV
-          </button>
-          <button class="btn btn-rouge" onclick="Admin.effacerResultats()">
-            🗑️ Effacer résultats
-          </button>
+        <div class="card-titre">📊 Tableau de bord pédagogique</div>
+        <div id="filtre-classe-stats" style="display:flex;gap:8px;flex-wrap:wrap;margin:10px 0 4px"></div>
+        <div id="stats-resume" style="margin-top:10px"></div>
+      </div>
+
+      <!-- Compétences -->
+      <div class="card mb-2">
+        <div class="card-titre">🎯 Compétences — taux de réussite</div>
+        <div id="stats-competences"><p style="color:#aaa;font-size:.85rem">Connexion en cours...</p></div>
+      </div>
+
+      <!-- Élèves en difficulté -->
+      <div class="card mb-2">
+        <div class="card-titre">🆘 Élèves en difficulté (&lt; 50%)</div>
+        <div id="stats-difficulte"></div>
+      </div>
+
+      <!-- Chapitres difficiles -->
+      <div class="card mb-2">
+        <div class="card-titre">📚 Chapitres les plus difficiles</div>
+        <div id="stats-chapitres"></div>
+      </div>
+
+      <!-- Derniers résultats -->
+      <div class="card">
+        <div class="card-titre">📋 Derniers résultats (20)</div>
+        <div id="table-resultats"></div>
+        <div style="margin-top:12px">
+          <button class="btn btn-primaire" onclick="exporterCSVResultats()">📥 Exporter CSV</button>
         </div>
       </div>
 
-      <div class="card">
-        <div class="card-titre">📋 Derniers résultats</div>
-        <div id="table-resultats"></div>
-      </div>
     </div>
 
   </main>
@@ -345,6 +358,11 @@
 
   <!-- ══ FIREBASE AUTH ══ -->
   <script>
+    // 🔐 Vérification accès prof — doit passer par le mot de passe de index.html
+    if (!sessionStorage.getItem('prof_ok')) {
+      window.location.replace('index.html');
+    }
+
     const firebaseConfig = {
       apiKey: "AIzaSyCScOehvaVclSj12mhOPOOdWECBwSiMkFI",
       authDomain: "eduquiz-afareiatu.firebaseapp.com",
@@ -355,6 +373,7 @@
     };
     firebase.initializeApp(firebaseConfig);
     const auth = firebase.auth();
+    const db = firebase.firestore();
 
     // ── Observateur d'état ──
     auth.onAuthStateChanged(user => {
@@ -428,42 +447,171 @@
       if (id === 'bibliotheque') Admin.afficherBibliotheque();
     }
 
-    // === STATS RÉSULTATS ===
+    // === DASHBOARD RÉSULTATS FIRESTORE (temps réel) ===
+    let unsubResultats = null;
+    let tousResultats = [];
+    let classeFiltre = 'toutes';
+
     function afficherStatsResultats() {
-      const resultats = JSON.parse(localStorage.getItem('spc_resultats') || '[]');
-      const resume = document.getElementById('stats-resume');
-      const table = document.getElementById('table-resultats');
+      if (unsubResultats) return; // listener déjà actif
+      document.getElementById('stats-competences').innerHTML = '<p style="color:#aaa;font-size:.85rem">Connexion Firestore...</p>';
+      unsubResultats = db.collection('resultats').orderBy('date','desc').limit(500)
+        .onSnapshot(snap => {
+          tousResultats = snap.docs.map(d => d.data());
+          renderDashboard();
+        }, err => {
+          document.getElementById('stats-competences').innerHTML =
+            `<p style="color:#d93025;font-size:.85rem">❌ ${err.message}</p>`;
+        });
+    }
 
-      if (resultats.length === 0) {
-        resume.innerHTML = '<p class="text-petit" style="color:#888">Aucun résultat enregistré.</p>';
-        table.innerHTML = '';
-        return;
-      }
+    function renderDashboard() {
+      const f = classeFiltre==='toutes' ? tousResultats : tousResultats.filter(r=>r.classe===classeFiltre);
+      renderFiltresClasse();
+      renderResume(f);
+      renderCompetences(f);
+      renderDifficulte(f);
+      renderChapitres(f);
+      renderDerniersResultats(f);
+    }
 
-      const total = resultats.length;
-      const moyPct = Math.round(resultats.reduce((s, r) => s + r.pct, 0) / total);
-      resume.innerHTML = `
-        <div class="flex flex-wrap">
-          <div class="badge">${total} session(s)</div>
-          <div class="badge vert">Moyenne : ${moyPct}%</div>
+    function renderFiltresClasse() {
+      const classes = [...new Set(tousResultats.map(r=>r.classe))].filter(Boolean).sort();
+      const div = document.getElementById('filtre-classe-stats');
+      div.innerHTML = `<button class="filtre-btn ${classeFiltre==='toutes'?'actif':''}" onclick="setClasseFiltre('toutes',this)">Toutes</button>`;
+      classes.forEach(cl => {
+        div.innerHTML += `<button class="filtre-btn ${classeFiltre===cl?'actif':''}" onclick="setClasseFiltre('${cl}',this)">${cl.replace(/(\d)e(\d)/,'$1ème $2')}</button>`;
+      });
+    }
+
+    function setClasseFiltre(cl, btn) {
+      classeFiltre = cl;
+      document.querySelectorAll('#filtre-classe-stats .filtre-btn').forEach(b=>b.classList.remove('actif'));
+      btn.classList.add('actif');
+      renderDashboard();
+    }
+
+    function renderResume(f) {
+      const div = document.getElementById('stats-resume');
+      if (!f.length) { div.innerHTML='<p style="color:#aaa;font-size:.85rem">Aucun résultat.</p>'; return; }
+      const moy = Math.round(f.reduce((s,r)=>s+r.pct,0)/f.length);
+      const enDiff = f.filter(r=>r.pct<50).length;
+      const eleves = new Set(f.map(r=>r.prenom+'_'+r.classe)).size;
+      const mc = moy>=70?'#0f9d58':'#d93025', mb = moy>=70?'#e6f4ea':'#fce8e6';
+      div.innerHTML = `<div class="flex flex-wrap" style="gap:8px">
+        <div class="badge">${f.length} sessions</div>
+        <div class="badge" style="background:${mb};color:${mc}">Moy. ${moy}%</div>
+        <div class="badge">${eleves} élève(s)</div>
+        ${enDiff?`<div class="badge" style="background:#fff3e0;color:#f29900">⚠️ ${enDiff} en difficulté</div>`:''}
+      </div>`;
+    }
+
+    function renderCompetences(f) {
+      const ICONS={"S'approprier":'📘',"Analyser/Raisonner":'🔍',"Réaliser":'⚗️',"Valider":'✅',"Communiquer":'💬'};
+      const cs={};
+      f.forEach(r=>{
+        if(!r.competences)return;
+        Object.entries(r.competences).forEach(([c,v])=>{
+          if(!cs[c])cs[c]={ok:0,t:0};
+          cs[c].ok+=v.ok||0; cs[c].t+=v.t||0;
+        });
+      });
+      const entries=Object.entries(cs).sort((a,b)=>(a[1].ok/a[1].t)-(b[1].ok/b[1].t));
+      const div=document.getElementById('stats-competences');
+      if(!entries.length){div.innerHTML='<p style="color:#aaa;font-size:.85rem">Pas encore de données.</p>';return;}
+      div.innerHTML=entries.map(([c,v])=>{
+        const pct=Math.round(v.ok/v.t*100);
+        const col=pct>=70?'#0f9d58':pct>=50?'#f29900':'#d93025';
+        const bg=pct>=70?'#e6f4ea':pct>=50?'#fff3e0':'#fce8e6';
+        return `<div style="margin-bottom:14px">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:5px">
+            <span style="font-size:.88rem;font-weight:600">${ICONS[c]||'📘'} ${c}</span>
+            <span style="font-size:.82rem;font-weight:700;color:${col};background:${bg};padding:2px 10px;border-radius:20px">${pct}% (${v.ok}/${v.t})</span>
+          </div>
+          <div style="height:8px;background:#eee;border-radius:4px;overflow:hidden">
+            <div style="width:${pct}%;height:100%;background:${col};border-radius:4px;transition:.5s"></div>
+          </div>
         </div>`;
+      }).join('');
+    }
 
-      // Table des 20 derniers
-      const derniers = resultats.slice(-20).reverse();
-      let html = '<table style="width:100%; border-collapse:collapse; font-size:0.85rem">';
-      html += '<tr style="border-bottom:2px solid #eee"><th style="text-align:left;padding:0.4rem">QCM</th><th>Classe</th><th>Score</th><th>Date</th></tr>';
-      derniers.forEach(r => {
-        const d = new Date(r.date).toLocaleDateString('fr-FR');
-        const couleur = r.pct >= 80 ? '#1a9e4a' : r.pct >= 50 ? '#f08c00' : '#d93232';
-        html += `<tr style="border-bottom:1px solid #f0f0f0">
-          <td style="padding:0.4rem">${r.qcmTitre.substring(0, 30)}...</td>
-          <td style="text-align:center">${r.classe}</td>
-          <td style="text-align:center; color:${couleur}; font-weight:700">${r.pct}%</td>
-          <td style="text-align:center; color:#888">${d}</td>
+    function renderDifficulte(f) {
+      const map={};
+      f.forEach(r=>{
+        const k=r.prenom+' '+(r.nom||'')+'·'+(r.classe||'');
+        if(!map[k])map[k]={s:0,t:0};
+        map[k].s++; map[k].t+=r.pct;
+      });
+      const enDiff=Object.entries(map)
+        .map(([n,v])=>({nom:n,moy:Math.round(v.t/v.s),nb:v.s}))
+        .filter(e=>e.moy<50).sort((a,b)=>a.moy-b.moy);
+      const div=document.getElementById('stats-difficulte');
+      if(!enDiff.length){div.innerHTML='<p style="color:#0f9d58;font-size:.85rem">✅ Tous les élèves sont au-dessus de 50% !</p>';return;}
+      div.innerHTML=enDiff.map(e=>`
+        <div style="display:flex;align-items:center;justify-content:space-between;padding:8px 0;border-bottom:1px solid #f0f0f0">
+          <span style="font-size:.88rem;font-weight:600">👤 ${e.nom}</span>
+          <span style="font-size:.82rem;font-weight:700;color:#d93025;background:#fce8e6;padding:2px 10px;border-radius:20px">${e.moy}% · ${e.nb} session(s)</span>
+        </div>`).join('');
+    }
+
+    function renderChapitres(f) {
+      const map={};
+      f.forEach(r=>{
+        const t=r.qcmTitre||r.qcmId;
+        if(!map[t])map[t]={total:0,nb:0};
+        map[t].total+=r.pct; map[t].nb++;
+      });
+      const list=Object.entries(map)
+        .map(([t,v])=>({titre:t,moy:Math.round(v.total/v.nb),nb:v.nb}))
+        .sort((a,b)=>a.moy-b.moy).slice(0,8);
+      const div=document.getElementById('stats-chapitres');
+      if(!list.length){div.innerHTML='<p style="color:#aaa;font-size:.85rem">Pas encore de données.</p>';return;}
+      div.innerHTML=list.map(c=>{
+        const col=c.moy>=70?'#0f9d58':c.moy>=50?'#f29900':'#d93025';
+        return `<div style="display:flex;align-items:center;gap:12px;padding:7px 0;border-bottom:1px solid #f0f0f0">
+          <div style="width:38px;height:38px;border-radius:50%;background:#f0f4ff;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:.82rem;flex-shrink:0;color:${col}">${c.moy}%</div>
+          <div style="flex:1">
+            <div style="font-size:.85rem;font-weight:600">${c.titre.substring(0,38)}</div>
+            <div style="font-size:.72rem;color:#888">${c.nb} tentative(s)</div>
+          </div>
+          <div style="width:80px;height:6px;background:#eee;border-radius:3px;overflow:hidden">
+            <div style="width:${c.moy}%;height:100%;background:${col};border-radius:3px"></div>
+          </div>
+        </div>`;
+      }).join('');
+    }
+
+    function renderDerniersResultats(f) {
+      const div=document.getElementById('table-resultats');
+      if(!f.length){div.innerHTML='<p style="color:#aaa;font-size:.85rem">Aucun résultat.</p>';return;}
+      let html='<table style="width:100%;border-collapse:collapse;font-size:.82rem">';
+      html+='<tr style="border-bottom:2px solid #eee"><th style="text-align:left;padding:6px">Élève</th><th>Classe</th><th>Chapitre</th><th>Niv.</th><th>Score</th></tr>';
+      f.slice(0,20).forEach(r=>{
+        const col=r.pct>=70?'#0f9d58':r.pct>=50?'#f29900':'#d93025';
+        const niv=['','⭐','⭐⭐','⭐⭐⭐'][r.niveau]||'';
+        html+=`<tr style="border-bottom:1px solid #f5f5f5">
+          <td style="padding:6px">${r.prenom} ${r.nom||''}</td>
+          <td style="text-align:center">${r.classe||'-'}</td>
+          <td style="max-width:130px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;padding:6px">${(r.qcmTitre||'').substring(0,22)}</td>
+          <td style="text-align:center">${niv}</td>
+          <td style="text-align:center;font-weight:700;color:${col}">${r.pct}%</td>
         </tr>`;
       });
-      html += '</table>';
-      table.innerHTML = html;
+      div.innerHTML=html+'</table>';
+    }
+
+    function exporterCSVResultats() {
+      if(!tousResultats.length){alert('Aucun résultat.');return;}
+      const f=classeFiltre==='toutes'?tousResultats:tousResultats.filter(r=>r.classe===classeFiltre);
+      let csv='Prenom;Nom;Classe;QCM;Niveau;Score%;Date\n';
+      f.forEach(r=>{
+        const niv=['','Facile','Moyen','Difficile'][r.niveau]||'';
+        const d=new Date(r.date).toLocaleDateString('fr-FR');
+        csv+=`${r.prenom};${r.nom||''};${r.classe||''};${r.qcmTitre||r.qcmId};${niv};${r.pct};${d}\n`;
+      });
+      const blob=new Blob(['﻿'+csv],{type:'text/csv;charset=utf-8;'});
+      const a=document.createElement('a');a.href=URL.createObjectURL(blob);
+      a.download=`EduQuiz_${new Date().toLocaleDateString('fr-FR').replace(/\//g,'-')}.csv`;a.click();
     }
   </script>
 

@@ -136,6 +136,19 @@ main{max-width:680px;margin:0 auto;padding:20px 16px 80px;}
     </div>
   </div>
 </main>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+<script>
+try{firebase.initializeApp({
+  apiKey:"AIzaSyCScOehvaVclSj12mhOPOOdWECBwSiMkFI",
+  authDomain:"eduquiz-afareiatu.firebaseapp.com",
+  projectId:"eduquiz-afareiatu",
+  storageBucket:"eduquiz-afareiatu.firebasestorage.app",
+  messagingSenderId:"81343437894",
+  appId:"1:81343437894:web:ef5fc2e7b1f474e40cbe47"
+});}catch(e){}
+const db=firebase.firestore();
+</script>
 <script>
 const NIVEAUX={1:{label:'⭐ Facile',pts:1},2:{label:'⭐⭐ Moyen',pts:2},3:{label:'⭐⭐⭐ Difficile',pts:3}};
 const COMP_ICONS={"S'approprier":'📘',"Analyser/Raisonner":'🔍',"Réaliser":'⚗️',"Valider":'✅',"Communiquer":'💬'};
@@ -260,6 +273,16 @@ function sauvegarder(pct,xp,cs){
   eleve.serieMax=Math.max(eleve.serie||0,eleve.serieMax||0);
   localStorage.setItem('eduquiz_eleve',JSON.stringify(eleve));
   localStorage.setItem('eduquiz_score_'+eleve.prenom+'_'+eleve.classe,JSON.stringify({nom:eleve.prenom+' '+(eleve.nom||''),classe:eleve.classe,xp:eleve.xp}));
+  // 🔥 Firestore — envoyer résultat au prof
+  if(typeof db!=='undefined'){
+    db.collection('resultats').add({
+      prenom:eleve.prenom, nom:eleve.nom||'', classe:eleve.classe,
+      qcmId:fichier, qcmTitre:qcm.titre||fichier,
+      niveau:niveau, pct:pct, xp:xp,
+      competences:cs,
+      date:new Date().toISOString()
+    }).catch(()=>{});
+  }
 }
 
 function exporterPronote(){

@@ -261,6 +261,23 @@ header{background:linear-gradient(135deg,#0077b6,#00b4d8);color:#fff;padding:20p
 
 </div>
 
+<!-- MODAL MOT DE PASSE PROF -->
+<div class="modal-overlay" id="modal-prof" onclick="fermerModalProf(event)">
+  <div class="modal">
+    <h3>🔐 Accès Professeur</h3>
+    <p>Entre le mot de passe pour continuer</p>
+    <input type="password" id="inp-mdp-prof" placeholder="Mot de passe"
+      style="width:100%;padding:12px 16px;border:2px solid #e0e3e8;border-radius:12px;
+      font-size:.95rem;margin-bottom:12px;box-sizing:border-box;"
+      onkeydown="if(event.key==='Enter')validerMdpProf()"/>
+    <div id="mdp-erreur" style="color:#d93025;font-size:.82rem;margin-bottom:10px;display:none">
+      ❌ Mot de passe incorrect
+    </div>
+    <button class="btn-primary" onclick="validerMdpProf()">Valider</button>
+    <button class="btn-cancel" onclick="document.getElementById('modal-prof').classList.remove('visible')">Annuler</button>
+  </div>
+</div>
+
 <!-- MODAL SÉLECTEUR NIVEAU -->
 <div class="modal-overlay" id="modal-niveau" onclick="fermerModal(event)">
   <div class="modal">
@@ -336,8 +353,29 @@ function choisirEleve() {
   document.getElementById('ecran-inscription').style.display = 'block';
 }
 
+const MOT_DE_PASSE_PROF = 'afareiatu2025'; // ← Change ce mot de passe !
+
 function choisirProf() {
-  window.location.href = 'admin.html';
+  document.getElementById('inp-mdp-prof').value = '';
+  document.getElementById('mdp-erreur').style.display = 'none';
+  document.getElementById('modal-prof').classList.add('visible');
+  setTimeout(() => document.getElementById('inp-mdp-prof').focus(), 100);
+}
+
+function validerMdpProf() {
+  const mdp = document.getElementById('inp-mdp-prof').value;
+  if (mdp === MOT_DE_PASSE_PROF) {
+    sessionStorage.setItem('prof_ok', '1');
+    window.location.href = 'admin.html';
+  } else {
+    document.getElementById('mdp-erreur').style.display = 'block';
+    document.getElementById('inp-mdp-prof').value = '';
+    document.getElementById('inp-mdp-prof').focus();
+  }
+}
+
+function fermerModalProf(e) {
+  if (e.target.id === 'modal-prof') document.getElementById('modal-prof').classList.remove('visible');
 }
 
 // ─── INSCRIPTION ───
