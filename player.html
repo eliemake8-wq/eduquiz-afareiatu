@@ -4,6 +4,7 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
 <title>EduQuiz — Question</title>
+<link rel="stylesheet" href="css/polynesian.css"/>
 <style>
 :root{
   --ocean:#0077b6;--ocean-cl:#caf0f8;--turquoise:#00b4d8;
@@ -13,9 +14,13 @@
   --texte:#1a1a2e;--ombre:0 4px 20px rgba(0,119,182,.12);
 }
 *{box-sizing:border-box;margin:0;padding:0;}
-body{font-family:'Segoe UI',Arial,sans-serif;background:#f0f4ff;color:var(--texte);min-height:100vh;}
-header{background:linear-gradient(135deg,#0077b6,#00b4d8);color:#fff;padding:14px 20px;
-  display:flex;align-items:center;gap:12px;}
+body{
+  font-family:'Nunito','Segoe UI',Arial,sans-serif;
+  background:linear-gradient(180deg,#e8f6fb 0%,#caf0f8 40%,#f0f8ff 100%);
+  color:var(--texte);min-height:100vh;
+}
+header{background:var(--grad-ocean,linear-gradient(135deg,#023e8a,#0077b6,#00b4d8));color:#fff;padding:14px 20px;
+  display:flex;align-items:center;gap:12px;box-shadow:0 4px 20px rgba(0,0,0,.18);}
 .back-btn{background:rgba(255,255,255,.2);border:none;color:#fff;border-radius:20px;
   padding:6px 14px;cursor:pointer;font-size:.82rem;}
 .header-info{flex:1;}
