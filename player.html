@@ -1,17 +1,669 @@
-🔥 COMBO x2!
-🏆
-Nouveau badge !
-Tu as débloqué un badge !
-Super ! 🎉
-← Retour
-Chargement...
-EduQuiz Afareiatu
-⭐
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>EduQuiz — Question</title>
+<link rel="stylesheet" href="../eduquiz-afareiatu/css/polynesian.css" onerror="this.remove()"/>
+<style>
+:root{
+  --ocean:#0077b6;--ocean-cl:#caf0f8;--turquoise:#00b4d8;
+  --vert:#0f9d58;--vert-cl:#e6f4ea;
+  --rouge:#d93025;--rouge-cl:#fce8e6;
+  --orange:#f29900;--orange-cl:#fff3e0;
+  --texte:#1a1a2e;--ombre:0 4px 20px rgba(0,119,182,.12);
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{
+  font-family:'Nunito','Segoe UI',Arial,sans-serif;
+  background:linear-gradient(180deg,#e8f6fb 0%,#caf0f8 40%,#f0f8ff 100%);
+  color:var(--texte);min-height:100vh;
+}
 
-30
-🔊
-Q 1/5
+/* HEADER */
+header{background:linear-gradient(135deg,#023e8a,#0077b6,#00b4d8);color:#fff;padding:12px 16px;
+  display:flex;align-items:center;gap:10px;box-shadow:0 4px 20px rgba(0,0,0,.18);}
+.back-btn{background:rgba(255,255,255,.2);border:none;color:#fff;border-radius:20px;
+  padding:6px 12px;cursor:pointer;font-size:.82rem;flex-shrink:0;}
+.header-info{flex:1;min-width:0;}
+.header-info h1{font-size:.95rem;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.header-info p{font-size:.72rem;opacity:.8;}
+.niveau-badge{background:rgba(255,255,255,.25);border-radius:12px;padding:4px 10px;
+  font-size:.75rem;font-weight:700;flex-shrink:0;}
 
-✓ 0
-📘 S'approprier
-...
+/* TIMER */
+.timer-container{position:relative;width:44px;height:44px;flex-shrink:0;display:flex;align-items:center;justify-content:center;}
+.timer-ring{width:44px;height:44px;transform:rotate(-90deg);}
+.timer-bg{fill:none;stroke:rgba(255,255,255,.2);stroke-width:4;}
+.timer-fill{fill:none;stroke:#fff;stroke-width:4;stroke-dasharray:113;stroke-dashoffset:0;
+  stroke-linecap:round;transition:stroke-dashoffset 1s linear,stroke .3s;}
+.timer-num{position:absolute;font-size:.75rem;font-weight:800;color:#fff;line-height:1;}
+.timer-urgent .timer-fill{stroke:#f4c430;}
+.timer-critique .timer-fill{stroke:#ff6b6b;animation:pulse-timer .5s infinite alternate;}
+@keyframes pulse-timer{from{opacity:1;}to{opacity:.4;}}
+
+/* SOUND BUTTON */
+.sound-btn{background:rgba(255,255,255,.2);border:1.5px solid rgba(255,255,255,.4);
+  color:#fff;border-radius:50%;width:34px;height:34px;cursor:pointer;font-size:1rem;
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.sound-btn.muted{opacity:.5;}
+
+/* COMBO */
+.combo-badge{position:fixed;top:70px;left:50%;transform:translateX(-50%) scale(0);z-index:200;
+  background:linear-gradient(135deg,#f4c430,#ff9800);border-radius:24px;
+  padding:10px 24px;font-size:1.1rem;font-weight:800;color:#fff;
+  box-shadow:0 6px 20px rgba(255,152,0,.5);transition:transform .35s cubic-bezier(.175,.885,.32,1.275),opacity .35s;
+  white-space:nowrap;opacity:0;}
+.combo-badge.show{transform:translateX(-50%) scale(1);opacity:1;}
+.combo-badge.hide{transform:translateX(-50%) scale(.6);opacity:0;}
+
+/* XP FLASH */
+.xp-flash{position:fixed;font-size:1.4rem;font-weight:800;color:#f4c430;
+  text-shadow:0 2px 8px rgba(0,0,0,.3);pointer-events:none;z-index:300;
+  animation:xp-fly 1s ease-out forwards;}
+@keyframes xp-fly{0%{opacity:1;transform:translateY(0) scale(1);}100%{opacity:0;transform:translateY(-60px) scale(1.3);}}
+
+/* MAIN */
+main{max-width:680px;margin:0 auto;padding:16px 16px 80px;}
+.progress-wrap{background:#fff;border-radius:12px;padding:12px 16px;margin-bottom:14px;
+  box-shadow:var(--ombre);display:flex;align-items:center;gap:12px;}
+.progress-bar{flex:1;height:8px;background:#e0e3e8;border-radius:4px;overflow:hidden;}
+.progress-fill{height:100%;background:linear-gradient(90deg,var(--ocean),var(--turquoise));border-radius:4px;transition:.4s;}
+.q-num{font-size:.8rem;font-weight:700;color:var(--ocean);white-space:nowrap;}
+.score-live{font-size:.8rem;font-weight:700;color:var(--vert);}
+.combo-live{font-size:.78rem;font-weight:800;color:#ff9800;display:none;}
+
+/* QUESTION */
+.comp-badge{display:inline-flex;align-items:center;gap:5px;background:var(--ocean-cl);
+  color:var(--ocean);border-radius:20px;padding:4px 12px;font-size:.72rem;font-weight:700;margin-bottom:12px;}
+.q-card{background:#fff;border-radius:18px;padding:22px;box-shadow:var(--ombre);margin-bottom:14px;}
+.q-enonce{font-size:1rem;font-weight:600;line-height:1.6;margin-bottom:18px;}
+.options-list{list-style:none;display:flex;flex-direction:column;gap:10px;}
+.opt-btn{width:100%;display:flex;align-items:center;gap:12px;padding:13px 16px;
+  border:2px solid #e0e3e8;border-radius:14px;background:#fff;cursor:pointer;
+  font-size:.9rem;text-align:left;transition:.2s;}
+.opt-btn:hover:not(:disabled){border-color:var(--ocean);background:var(--ocean-cl);transform:translateX(4px);}
+.opt-letter{width:30px;height:30px;border-radius:50%;background:#f0f4ff;
+  display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.82rem;
+  flex-shrink:0;color:var(--ocean);}
+.opt-btn.correct{border-color:var(--vert);background:var(--vert-cl);animation:bounce-in .3s;}
+.opt-btn.correct .opt-letter{background:var(--vert);color:#fff;}
+.opt-btn.incorrect{border-color:var(--rouge);background:var(--rouge-cl);animation:shake .4s;}
+.opt-btn.incorrect .opt-letter{background:var(--rouge);color:#fff;}
+.opt-btn.timeout{border-color:#aaa;background:#f5f5f5;}
+.opt-btn.timeout .opt-letter{background:#aaa;color:#fff;}
+@keyframes bounce-in{0%{transform:scale(.95);}50%{transform:scale(1.03);}100%{transform:scale(1);}}
+@keyframes shake{0%,100%{transform:translateX(0);}25%{transform:translateX(-6px);}75%{transform:translateX(6px);}}
+
+.feedback{border-radius:14px;padding:14px 16px;margin-top:12px;font-size:.88rem;line-height:1.7;display:none;}
+.feedback.show{display:block;}
+.feedback.ok{background:var(--vert-cl);border-left:4px solid var(--vert);}
+.feedback.ko{background:var(--rouge-cl);border-left:4px solid var(--rouge);}
+.feedback.timeout{background:#f5f5f5;border-left:4px solid #aaa;}
+
+.btn-suivant{width:100%;padding:14px;background:linear-gradient(135deg,var(--ocean),var(--turquoise));
+  color:#fff;border:none;border-radius:14px;font-size:1rem;font-weight:700;cursor:pointer;
+  margin-top:12px;display:none;transition:.2s;box-shadow:0 4px 15px rgba(0,119,182,.3);}
+.btn-suivant:hover{transform:translateY(-2px);}
+.btn-suivant.show{display:block;}
+
+/* SCORE */
+#zone-score{display:none;}
+.score-card{background:#fff;border-radius:20px;padding:32px 24px;box-shadow:var(--ombre);text-align:center;margin-bottom:14px;}
+.score-cercle{width:110px;height:110px;border-radius:50%;margin:0 auto 14px;
+  display:flex;align-items:center;justify-content:center;font-size:2rem;font-weight:800;
+  border:6px solid var(--ocean);color:var(--ocean);transition:all .5s;}
+.score-cercle.or{border-color:#f4c430;color:#f4c430;}
+.score-cercle.vert{border-color:var(--vert);color:var(--vert);}
+.score-cercle.rouge{border-color:var(--rouge);color:var(--rouge);}
+.score-titre{font-size:1.3rem;font-weight:800;margin-bottom:6px;}
+.score-msg{font-size:.9rem;color:#666;margin-bottom:16px;}
+.xp-gained{background:linear-gradient(135deg,#fff9c4,#fffde7);border-radius:14px;
+  padding:12px 20px;margin:14px 0;font-size:1rem;font-weight:700;color:#b36b00;}
+.xp-detail{font-size:.78rem;color:#b36b00;opacity:.8;margin-top:4px;}
+
+/* STATS COMBO */
+.stats-combo{display:flex;gap:10px;justify-content:center;margin:14px 0;flex-wrap:wrap;}
+.stat-chip-score{background:#f0f4ff;border-radius:12px;padding:8px 14px;
+  font-size:.8rem;font-weight:700;color:var(--ocean);}
+
+/* COMPÉTENCES */
+.comp-resume{background:#f8f9fa;border-radius:14px;padding:14px;margin:14px 0;text-align:left;}
+.comp-resume h4{font-size:.8rem;font-weight:800;color:var(--ocean);margin-bottom:10px;text-transform:uppercase;}
+.comp-row{display:flex;align-items:center;gap:8px;margin-bottom:8px;}
+.comp-bar{flex:1;height:6px;background:#e0e3e8;border-radius:3px;overflow:hidden;}
+.comp-bar-fill{height:100%;border-radius:3px;}
+.comp-label{font-size:.73rem;width:130px;color:#555;}
+.comp-pct{font-size:.73rem;font-weight:700;color:var(--ocean);width:32px;text-align:right;}
+
+/* DÉTAIL */
+.detail-section{background:#fff;border-radius:16px;padding:18px;box-shadow:var(--ombre);margin-bottom:14px;}
+.detail-titre{font-size:.8rem;font-weight:800;color:var(--ocean);text-transform:uppercase;margin-bottom:10px;}
+.detail-item{display:flex;align-items:flex-start;gap:10px;padding:8px 0;border-bottom:1px solid #f0f0f0;font-size:.82rem;}
+.detail-item:last-child{border-bottom:none;}
+.detail-comp{font-size:.7rem;background:var(--ocean-cl);color:var(--ocean);border-radius:10px;padding:1px 8px;display:inline-block;margin-top:2px;}
+
+/* ACTIONS */
+.actions{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:16px;}
+.btn-action{flex:1;min-width:110px;padding:12px;border-radius:12px;font-size:.88rem;font-weight:700;cursor:pointer;border:none;transition:.2s;}
+.btn-action.primary{background:linear-gradient(135deg,var(--ocean),var(--turquoise));color:#fff;}
+.btn-action.secondary{background:#fff;color:var(--ocean);border:2px solid var(--ocean);}
+.btn-action.csv{background:#fff;color:var(--vert);border:2px solid var(--vert);}
+.btn-action:hover{transform:translateY(-2px);}
+
+/* CONFETTI */
+.confetti-piece{position:fixed;border-radius:2px;animation:confetti-fall 1.2s ease-in forwards;pointer-events:none;z-index:999;}
+@keyframes confetti-fall{0%{transform:translateY(-20px) rotate(0deg);opacity:1;}100%{transform:translateY(100vh) rotate(720deg);opacity:0;}}
+@keyframes pop-in{from{transform:scale(0.5);opacity:0;}to{transform:scale(1);opacity:1;}}
+.pop-in{animation:pop-in .4s cubic-bezier(.175,.885,.32,1.275);}
+
+/* BADGE UNLOCK */
+.badge-unlock-overlay{position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:500;
+  display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:.3s;}
+.badge-unlock-overlay.show{opacity:1;pointer-events:all;}
+.badge-unlock-card{background:#fff;border-radius:24px;padding:36px 32px;text-align:center;
+  transform:scale(0.5);transition:.4s cubic-bezier(.175,.885,.32,1.275);}
+.badge-unlock-overlay.show .badge-unlock-card{transform:scale(1);}
+.badge-unlock-icon{font-size:4rem;margin-bottom:12px;}
+.badge-unlock-title{font-size:1.3rem;font-weight:800;color:var(--ocean);margin-bottom:6px;}
+.badge-unlock-sub{font-size:.88rem;color:#666;margin-bottom:20px;}
+
+@media(max-width:520px){
+  .actions{flex-direction:column;}
+  header{gap:8px;}
+}
+</style>
+</head>
+<body>
+
+<div class="combo-badge" id="combo-badge">🔥 COMBO x2!</div>
+
+<!-- BADGE UNLOCK -->
+<div class="badge-unlock-overlay" id="badge-unlock-overlay" onclick="fermerBadgeUnlock()">
+  <div class="badge-unlock-card">
+    <div class="badge-unlock-icon" id="badge-unlock-icon">🏆</div>
+    <div class="badge-unlock-title">Nouveau badge !</div>
+    <div class="badge-unlock-sub" id="badge-unlock-sub">Tu as débloqué un badge !</div>
+    <button onclick="fermerBadgeUnlock()" style="background:linear-gradient(135deg,var(--ocean),var(--turquoise));color:#fff;border:none;border-radius:12px;padding:10px 24px;font-size:.9rem;font-weight:700;cursor:pointer;">Super ! 🎉</button>
+  </div>
+</div>
+
+<header>
+  <button class="back-btn" onclick="history.back()">← Retour</button>
+  <div class="header-info">
+    <h1 id="h-titre">Chargement...</h1>
+    <p id="h-eleve">EduQuiz Afareiatu</p>
+  </div>
+  <span class="niveau-badge" id="h-niveau">⭐</span>
+  <div class="timer-container" id="timer-container">
+    <svg class="timer-ring" viewBox="0 0 44 44">
+      <circle class="timer-bg" cx="22" cy="22" r="18"/>
+      <circle class="timer-fill" id="timer-circle" cx="22" cy="22" r="18"/>
+    </svg>
+    <span class="timer-num" id="timer-num">30</span>
+  </div>
+  <button class="sound-btn" id="sound-btn" onclick="toggleSound()" title="Son on/off">🔊</button>
+</header>
+
+<main>
+  <div class="progress-wrap">
+    <div class="q-num" id="q-num">Q 1/5</div>
+    <div class="progress-bar"><div class="progress-fill" id="prog-fill" style="width:0%"></div></div>
+    <div class="score-live" id="score-live">✓ 0</div>
+    <div class="combo-live" id="combo-live">🔥x1</div>
+  </div>
+
+  <div id="zone-question">
+    <div class="comp-badge" id="comp-badge">📘 S'approprier</div>
+    <div class="q-card">
+      <div class="q-enonce" id="q-enonce">...</div>
+      <ul class="options-list" id="options-liste"></ul>
+      <div class="feedback" id="feedback-zone"></div>
+    </div>
+    <button class="btn-suivant" id="btn-suivant" onclick="suivant()">Question suivante ➡️</button>
+  </div>
+
+  <div id="zone-score">
+    <div class="score-card pop-in">
+      <div class="score-cercle" id="score-cercle">0/5</div>
+      <div class="score-titre" id="score-titre">Résultat</div>
+      <div class="score-msg" id="score-msg"></div>
+      <div class="stats-combo" id="stats-combo"></div>
+      <div class="xp-gained" id="xp-gained">⚡ +0 XP</div>
+    </div>
+    <div class="comp-resume">
+      <h4>🎯 Compétences du BO</h4>
+      <div id="comp-rows"></div>
+    </div>
+    <div class="detail-section">
+      <div class="detail-titre">📋 Détail des réponses</div>
+      <div id="detail-liste"></div>
+    </div>
+    <div class="actions">
+      <button class="btn-action primary" onclick="recommencer()">🔄 Rejouer</button>
+      <button class="btn-action secondary" onclick="window.location.href='index.html'">🏠 Accueil</button>
+      <button class="btn-action csv" onclick="exporterPronote()">📤 Pronote CSV</button>
+    </div>
+  </div>
+</main>
+
+<!-- Firebase -->
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+<script>
+try{firebase.initializeApp({
+  apiKey:"AIzaSyCScOehvaVclSj12mhOPOOdWECBwSiMkFI",
+  authDomain:"eduquiz-afareiatu.firebaseapp.com",
+  projectId:"eduquiz-afareiatu",
+  storageBucket:"eduquiz-afareiatu.firebasestorage.app",
+  messagingSenderId:"81343437894",
+  appId:"1:81343437894:web:ef5fc2e7b1f474e40cbe47"
+});}catch(e){}
+const db = typeof firebase !== 'undefined' ? firebase.firestore() : null;
+</script>
+
+<script>
+// ─── CONSTANTES ───
+const NIVEAUX = {1:{label:'⭐ Facile',pts:1,time:30},2:{label:'⭐⭐ Moyen',pts:2,time:25},3:{label:'⭐⭐⭐ Difficile',pts:3,time:20}};
+const COMP_ICONS = {"S'approprier":'📘',"Analyser/Raisonner":'🔍',"Réaliser":'⚗️',"Valider":'✅',"Communiquer":'💬'};
+const CONFETTI_COLORS = ['#0077b6','#00b4d8','#0f9d58','#f29900','#d93025','#f4c430','#9c27b0'];
+const TIMER_CIRCUMFERENCE = 113; // 2 * π * 18
+
+const BADGES_DEF = [
+  {id:'premier',icon:'🎯',label:'Premier QCM',cond:e=>Object.keys(e.scores||{}).length>=1},
+  {id:'bronze',icon:'🥉',label:'Bronze',cond:e=>Object.values(e.scores||{}).some(s=>s.pct>=40)},
+  {id:'argent',icon:'🥈',label:'Argent',cond:e=>Object.values(e.scores||{}).some(s=>s.pct>=70)},
+  {id:'or',icon:'🥇',label:'Or',cond:e=>Object.values(e.scores||{}).some(s=>s.pct>=90)},
+  {id:'diamant',icon:'💎',label:'Diamant',cond:e=>Object.values(e.scores||{}).some(s=>s.pct>=100)},
+  {id:'5qcm',icon:'📚',label:'5 QCMs',cond:e=>Object.keys(e.scores||{}).length>=5},
+  {id:'10qcm',icon:'🏆',label:'10 QCMs',cond:e=>Object.keys(e.scores||{}).length>=10},
+  {id:'serie3',icon:'🔥',label:'Série x3',cond:e=>(e.serieMax||0)>=3},
+  {id:'difficile',icon:'⚡',label:'Difficile !',cond:e=>Object.keys(e.scores||{}).some(k=>k.includes('_n3'))},
+  {id:'parfait',icon:'🌟',label:'Parfait !',cond:e=>Object.values(e.scores||{}).some(s=>s.pct===100)},
+  {id:'combo',icon:'🎯',label:'Combo x3',cond:e=>(e.maxComboEver||0)>=3},
+];
+
+// ─── ÉTAT ───
+let qcm, questions, idx=0, score=0, reponses=[], niveau, eleve;
+let combo=0, maxCombo=0, xpTotal=0;
+let timerInterval=null, timerVal=0;
+let soundEnabled=true, audioCtx=null;
+let badgesAvant=[];
+
+const params = new URLSearchParams(location.search);
+const fichier = params.get('qcm');
+niveau = parseInt(params.get('niveau'))||1;
+
+// ─── INIT ───
+document.addEventListener('DOMContentLoaded', () => {
+  eleve = JSON.parse(localStorage.getItem('eduquiz_eleve')||'null');
+  if(!fichier){document.querySelector('main').innerHTML='<p style="text-align:center;padding:40px">Aucun QCM. <a href="index.html">Retour</a></p>';return;}
+  document.getElementById('h-niveau').textContent = NIVEAUX[niveau].label;
+  if(eleve) document.getElementById('h-eleve').textContent = eleve.prenom+' · '+eleve.classe.replace(/(\d)e(\d)/,'$1ème $2');
+  // Mémoriser badges avant pour détecter les nouveaux
+  badgesAvant = BADGES_DEF.filter(b=>eleve&&b.cond(eleve)).map(b=>b.id);
+  charger();
+});
+
+// ─── SON ───
+function initAudio() {
+  if(!audioCtx) {
+    try { audioCtx = new (window.AudioContext||window.webkitAudioContext)(); } catch(e){}
+  }
+}
+function toggleSound() {
+  soundEnabled = !soundEnabled;
+  const btn = document.getElementById('sound-btn');
+  btn.textContent = soundEnabled ? '🔊' : '🔇';
+  btn.classList.toggle('muted', !soundEnabled);
+}
+function playSound(type) {
+  if(!soundEnabled||!audioCtx) return;
+  try {
+    const now = audioCtx.currentTime;
+    if(type==='correct') {
+      playTone(523,0,0.08,0.12,'sine');
+      playTone(659,0.1,0.08,0.12,'sine');
+    } else if(type==='incorrect') {
+      playTone(220,0,0.15,0.25,'sawtooth');
+    } else if(type==='combo') {
+      [523,659,784,1047].forEach((f,i)=>playTone(f,i*0.08,0.08,0.15,'sine'));
+    } else if(type==='timeout') {
+      playTone(330,0,0.1,0.2,'triangle');
+      playTone(220,0.2,0.1,0.3,'sawtooth');
+    }
+  } catch(e){}
+}
+function playTone(freq, delay, vol, dur, type='sine') {
+  if(!audioCtx) return;
+  const osc = audioCtx.createOscillator();
+  const gain = audioCtx.createGain();
+  osc.type = type;
+  osc.frequency.setValueAtTime(freq, audioCtx.currentTime+delay);
+  gain.gain.setValueAtTime(vol, audioCtx.currentTime+delay);
+  gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime+delay+dur);
+  osc.connect(gain); gain.connect(audioCtx.destination);
+  osc.start(audioCtx.currentTime+delay);
+  osc.stop(audioCtx.currentTime+delay+dur+0.05);
+}
+
+// ─── TIMER ───
+function startTimer() {
+  stopTimer();
+  timerVal = NIVEAUX[niveau].time;
+  updateTimerDisplay();
+  timerInterval = setInterval(() => {
+    timerVal--;
+    updateTimerDisplay();
+    if(timerVal <= 0) { stopTimer(); timeUp(); }
+  }, 1000);
+}
+function stopTimer() {
+  if(timerInterval) { clearInterval(timerInterval); timerInterval=null; }
+}
+function updateTimerDisplay() {
+  const el = document.getElementById('timer-num');
+  const circle = document.getElementById('timer-circle');
+  const container = document.getElementById('timer-container');
+  const max = NIVEAUX[niveau].time;
+  const pct = timerVal / max;
+  const offset = TIMER_CIRCUMFERENCE * (1 - pct);
+  if(circle) circle.style.strokeDashoffset = offset;
+  if(el) el.textContent = timerVal;
+  if(container) {
+    container.className = 'timer-container';
+    if(pct <= 0.25) container.classList.add('timer-critique');
+    else if(pct <= 0.5) container.classList.add('timer-urgent');
+  }
+}
+function timeUp() {
+  playSound('timeout');
+  const q = questions[idx];
+  // Révéler la bonne réponse
+  document.querySelectorAll('.opt-btn').forEach((b,i) => {
+    b.disabled = true;
+    if(i===q.reponse) b.classList.add('correct');
+    else b.classList.add('timeout');
+  });
+  combo = 0; // Reset combo
+  updateComboDisplay();
+  const fb = document.getElementById('feedback-zone');
+  fb.className = 'feedback show timeout';
+  fb.innerHTML = '⏱️ Temps écoulé ! La bonne réponse était : <strong>'+q.options[q.reponse]+'</strong><br><br>'+(q.feedback_correct||'');
+  document.getElementById('btn-suivant').className = 'btn-suivant show';
+  reponses.push({q, choix:-1, ok:false, timeout:true});
+}
+
+// ─── CHARGEMENT ───
+async function charger() {
+  try {
+    const r = await fetch('data/'+fichier);
+    if(!r.ok) throw new Error('Fichier introuvable: '+fichier);
+    qcm = await r.json();
+    document.getElementById('h-titre').textContent = qcm.titre||qcm.chapitre;
+    const all = qcm.questions.filter(q=>(q.niveau||1)===niveau);
+    questions = shuffle(all.length>=3 ? all : qcm.questions).slice(0,5);
+    idx=0; score=0; reponses=[]; combo=0; maxCombo=0; xpTotal=0;
+    afficherQuestion();
+  } catch(e) {
+    document.querySelector('main').innerHTML=`<p style="text-align:center;padding:40px;color:red">Erreur: ${e.message}. <a href="index.html">Retour</a></p>`;
+  }
+}
+
+function shuffle(arr) { return [...arr].sort(()=>Math.random()-.5); }
+
+// ─── AFFICHAGE QUESTION ───
+function afficherQuestion() {
+  if(idx >= questions.length) { afficherScore(); return; }
+  const q = questions[idx];
+  document.getElementById('prog-fill').style.width = (idx/questions.length*100)+'%';
+  document.getElementById('q-num').textContent = 'Q '+(idx+1)+'/'+questions.length;
+  document.getElementById('score-live').textContent = '✓ '+score;
+  const comp = q.competence||"S'approprier";
+  document.getElementById('comp-badge').textContent = (COMP_ICONS[comp]||'📘')+' '+comp;
+  document.getElementById('q-enonce').textContent = q.enonce;
+  const liste = document.getElementById('options-liste');
+  liste.innerHTML = '';
+  ['A','B','C','D'].forEach((l,i) => {
+    if(!q.options[i]) return;
+    const li = document.createElement('li');
+    const btn = document.createElement('button');
+    btn.className = 'opt-btn';
+    btn.innerHTML = `<span class="opt-letter">${l}</span><span>${q.options[i]}</span>`;
+    btn.addEventListener('click', () => { initAudio(); repondre(i,q); });
+    li.appendChild(btn); liste.appendChild(li);
+  });
+  const fb = document.getElementById('feedback-zone');
+  fb.className = 'feedback'; fb.innerHTML = '';
+  document.getElementById('btn-suivant').className = 'btn-suivant';
+  document.getElementById('zone-question').style.display = 'block';
+  document.getElementById('zone-score').style.display = 'none';
+  startTimer();
+}
+
+// ─── RÉPONSE ───
+function repondre(choix, q) {
+  stopTimer();
+  document.querySelectorAll('.opt-btn').forEach(b=>b.disabled=true);
+  const ok = choix === q.reponse;
+
+  if(ok) {
+    score++;
+    combo++;
+    maxCombo = Math.max(combo, maxCombo);
+    const mult = combo >= 3 ? 2 : combo === 2 ? 1.5 : 1;
+    const xpQ = Math.round(NIVEAUX[niveau].pts * 10 * mult);
+    xpTotal += xpQ;
+    showXpFlash('+'+xpQ+(mult>1?' x'+mult+'!':''));
+    playSound(combo>=3 ? 'combo' : 'correct');
+    confettis(combo>=3 ? 20 : 8);
+  } else {
+    combo = 0;
+    xpTotal += 0;
+    playSound('incorrect');
+  }
+  updateComboDisplay();
+
+  document.querySelectorAll('.opt-btn').forEach((b,i) => {
+    if(i===q.reponse) b.classList.add('correct');
+    else if(i===choix&&!ok) b.classList.add('incorrect');
+  });
+  const fb = document.getElementById('feedback-zone');
+  fb.className = 'feedback show '+(ok?'ok':'ko');
+  fb.innerHTML = ok ? q.feedback_correct : q.feedback_incorrect;
+  document.getElementById('btn-suivant').className = 'btn-suivant show';
+  reponses.push({q, choix, ok});
+}
+
+function updateComboDisplay() {
+  const el = document.getElementById('combo-live');
+  if(combo >= 2) {
+    el.style.display = 'block';
+    el.textContent = '🔥x'+combo;
+  } else {
+    el.style.display = 'none';
+  }
+  // Badge combo flottant
+  const badge = document.getElementById('combo-badge');
+  if(combo >= 2) {
+    badge.textContent = combo >= 3 ? '🔥 MEGA COMBO x'+combo+'!' : '🔥 COMBO x'+combo+'!';
+    badge.className = 'combo-badge show';
+    setTimeout(() => badge.className='combo-badge hide', 1500);
+  }
+}
+
+function showXpFlash(txt) {
+  const el = document.createElement('div');
+  el.className = 'xp-flash';
+  el.textContent = '⚡ '+txt;
+  el.style.cssText = `left:${40+Math.random()*20}%;top:${30+Math.random()*20}%;`;
+  document.body.appendChild(el);
+  setTimeout(() => el.remove(), 1000);
+}
+
+function suivant() { idx++; afficherQuestion(); }
+function recommencer() { location.reload(); }
+
+// ─── SCORE FINAL ───
+function afficherScore() {
+  stopTimer();
+  document.getElementById('zone-question').style.display = 'none';
+  document.getElementById('zone-score').style.display = 'block';
+  document.getElementById('prog-fill').style.width = '100%';
+  document.getElementById('timer-container').style.display = 'none';
+
+  const total = questions.length, pct = Math.round(score/total*100);
+
+  const cercle = document.getElementById('score-cercle');
+  cercle.textContent = '0/'+total;
+  cercle.className = 'score-cercle pop-in '+(pct>=90?'or':pct>=60?'vert':'rouge');
+  // Animation count-up
+  let n=0;
+  const anim = setInterval(()=>{
+    n++;
+    cercle.textContent = n+'/'+total;
+    if(n>=score) clearInterval(anim);
+  }, 150);
+
+  let titre, msg;
+  if(pct===100){titre='🌟 Parfait !';msg='Score parfait ! Tu es incroyable !';confettis(40);}
+  else if(pct>=80){titre='🎉 Excellent !';msg='Superbe ! Continue comme ça !';confettis(20);}
+  else if(pct>=60){titre='👍 Bien !';msg='Bon résultat ! Relis les réponses incorrectes.';}
+  else if(pct>=40){titre='📚 Courage !';msg='Revois le cours et réessaie !';}
+  else{titre='💪 Ne lâche pas !';msg='Retourne voir le cours avant de réessayer.';}
+
+  document.getElementById('score-titre').textContent = titre;
+  document.getElementById('score-msg').textContent = msg;
+  document.getElementById('xp-gained').innerHTML = '⚡ +'+xpTotal+' XP gagnés !'
+    +(maxCombo>=2?'<div class="xp-detail">🔥 Meilleur combo: x'+maxCombo+'</div>':'');
+
+  // Stats
+  const statsEl = document.getElementById('stats-combo');
+  statsEl.innerHTML = `
+    <div class="stat-chip-score">⏱️ Temps écoulé</div>
+    <div class="stat-chip-score">🔥 Combo max: x${maxCombo}</div>
+    <div class="stat-chip-score">📊 ${pct}%</div>
+  `;
+
+  // Compétences
+  const cs = {};
+  reponses.forEach(r => {
+    const c = r.q.competence||"S'approprier";
+    if(!cs[c]) cs[c]={ok:0,t:0};
+    cs[c].t++;
+    if(r.ok) cs[c].ok++;
+  });
+  const cr = document.getElementById('comp-rows'); cr.innerHTML='';
+  Object.entries(cs).forEach(([c,s]) => {
+    const p = Math.round(s.ok/s.t*100);
+    const col = p>=80?'var(--vert)':p>=50?'var(--orange)':'var(--rouge)';
+    cr.innerHTML += `<div class="comp-row">
+      <div class="comp-label">${COMP_ICONS[c]||'📘'} ${c}</div>
+      <div class="comp-bar"><div class="comp-bar-fill" style="width:${p}%;background:${col}"></div></div>
+      <div class="comp-pct">${p}%</div>
+    </div>`;
+  });
+
+  // Détail
+  const dl = document.getElementById('detail-liste'); dl.innerHTML='';
+  reponses.forEach((r,i) => {
+    const icon = COMP_ICONS[r.q.competence]||'📘';
+    const rep = r.timeout ? '⏱️' : r.ok ? '✅' : '❌';
+    dl.innerHTML += `<div class="detail-item"><div>${rep}</div>
+      <div><strong>Q${i+1}.</strong> ${r.q.enonce.substring(0,65)}...
+      <br><span class="detail-comp">${icon} ${r.q.competence||"S'approprier"}</span></div></div>`;
+  });
+
+  sauvegarder(pct, xpTotal, cs);
+}
+
+// ─── SAUVEGARDE ───
+function sauvegarder(pct, xp, cs) {
+  if(!eleve) return;
+  const key = fichier+'_n'+niveau;
+  if(!eleve.scores) eleve.scores = {};
+  if(!eleve.scores[key]||pct>eleve.scores[key].pct) {
+    eleve.scores[key] = {pct, date:new Date().toISOString(), competences:cs};
+  }
+  eleve.xp = (eleve.xp||0) + xp;
+  eleve.serie = pct>=60 ? (eleve.serie||0)+1 : 0;
+  eleve.serieMax = Math.max(eleve.serie||0, eleve.serieMax||0);
+  eleve.maxComboEver = Math.max(eleve.maxComboEver||0, maxCombo);
+  localStorage.setItem('eduquiz_eleve', JSON.stringify(eleve));
+  localStorage.setItem('eduquiz_score_'+eleve.prenom+'_'+eleve.classe,
+    JSON.stringify({nom:eleve.prenom+' '+(eleve.nom||''), classe:eleve.classe, xp:eleve.xp}));
+
+  // Firebase Firestore
+  if(db) {
+    // Résultat de la session
+    db.collection('resultats').add({
+      prenom:eleve.prenom, nom:eleve.nom||'', classe:eleve.classe,
+      qcmId:fichier, qcmTitre:qcm.titre||fichier,
+      niveau:niveau, pct:pct, xp:xp, maxCombo:maxCombo,
+      competences:cs, date:new Date().toISOString()
+    }).catch(()=>{});
+    // Profil joueur (pour le classement global)
+    db.collection('joueurs').doc(eleve.prenom+'_'+eleve.classe).set({
+      prenom:eleve.prenom, nom:eleve.nom||'', classe:eleve.classe,
+      xp:eleve.xp, serie:eleve.serie||0, updated:new Date().toISOString()
+    }, {merge:true}).catch(()=>{});
+  }
+
+  // Vérifier nouveaux badges
+  setTimeout(() => verifierNouveauxBadges(), 800);
+}
+
+// ─── BADGES ───
+function verifierNouveauxBadges() {
+  const badgesApres = BADGES_DEF.filter(b=>b.cond(eleve)).map(b=>b.id);
+  const nouveaux = badgesApres.filter(id=>!badgesAvant.includes(id));
+  if(nouveaux.length > 0) {
+    const badge = BADGES_DEF.find(b=>b.id===nouveaux[0]);
+    if(badge) afficherBadgeUnlock(badge);
+  }
+}
+function afficherBadgeUnlock(badge) {
+  document.getElementById('badge-unlock-icon').textContent = badge.icon;
+  document.getElementById('badge-unlock-sub').textContent = 'Tu as débloqué : '+badge.label+' !';
+  document.getElementById('badge-unlock-overlay').classList.add('show');
+  confettis(15);
+}
+function fermerBadgeUnlock() {
+  document.getElementById('badge-unlock-overlay').classList.remove('show');
+}
+
+// ─── CONFETTI ───
+function confettis(n=10) {
+  for(let i=0;i<n;i++) setTimeout(()=>{
+    const c=document.createElement('div');
+    c.className='confetti-piece';
+    c.style.cssText=`left:${Math.random()*100}vw;top:-10px;background:${CONFETTI_COLORS[Math.floor(Math.random()*CONFETTI_COLORS.length)]};animation-duration:${.8+Math.random()*.8}s;width:${6+Math.random()*8}px;height:${6+Math.random()*8}px;`;
+    document.body.appendChild(c);
+    setTimeout(()=>c.remove(),1500);
+  }, i*50);
+}
+
+// ─── EXPORT PRONOTE ───
+function exporterPronote() {
+  if(!eleve){alert('Connecte-toi d\'abord.');return;}
+  const d = new Date().toLocaleDateString('fr-FR');
+  let csv = 'Nom;Prenom;Classe;Chapitre;Niveau;Competence;Score;Note/20;Maitrise;Date\n';
+  const total = questions.length, note20 = (score/total*20).toFixed(1);
+  const niv = ['','Facile','Moyen','Difficile'][niveau];
+  const cs = {};
+  reponses.forEach(r=>{const c=r.q.competence||"S'approprier";if(!cs[c])cs[c]={ok:0,t:0};cs[c].t++;if(r.ok)cs[c].ok++;});
+  Object.entries(cs).forEach(([c,s])=>{
+    const noteC=(s.ok/s.t*4).toFixed(1);
+    const m=s.ok/s.t>=0.8?'Maitrisé':s.ok/s.t>=0.5?'En cours':'Non maitrisé';
+    csv+=`${eleve.nom||''};${eleve.prenom};${eleve.classe.replace(/(\d)e(\d)/,'$1ème $2')};${qcm.titre};${niv};${c};${s.ok}/${s.t};${noteC}/4;${m};${d}\n`;
+  });
+  csv+=`${eleve.nom||''};${eleve.prenom};${eleve.classe.replace(/(\d)e(\d)/,'$1ème $2')};${qcm.titre};${niv};GLOBAL;${score}/${total};${note20}/20;;${d}\n`;
+  const blob=new Blob(['﻿'+csv],{type:'text/csv;charset=utf-8;'});
+  const a=document.createElement('a');
+  a.href=URL.createObjectURL(blob);
+  a.download=`EduQuiz_${eleve.classe}_${eleve.prenom}_N${niveau}_${d.replace(/\//g,'-')}.csv`;
+  a.click();
+}
+</script>
+</body>
+</html>

@@ -1,3 +1,776 @@
-🌺
-EduQuiz Afareiatu
-Physique-Chimie · Collège de Afareiatu · Moorea
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>EduQuiz Afareiatu 🌺</title>
+<link rel="stylesheet" href="../eduquiz-afareiatu/css/polynesian.css" onerror="this.remove()"/>
+<style>
+:root{
+  --ocean:#0077b6;--ocean-cl:#caf0f8;--turquoise:#00b4d8;
+  --vert:#0f9d58;--vert-cl:#e6f4ea;
+  --orange:#f29900;--rouge:#d93025;
+  --gold:#f4c430;--silver:#c0c0c0;--bronze:#cd7f32;
+  --texte:#1a1a2e;--gris:#f0f4ff;--ombre:0 4px 20px rgba(0,119,182,.15);
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{
+  font-family:'Nunito','Segoe UI',Arial,sans-serif;
+  background:linear-gradient(180deg,#e8f6fb 0%,#caf0f8 40%,#f0f8ff 100%);
+  color:var(--texte);min-height:100vh;
+}
+
+/* HEADER */
+header{background:linear-gradient(135deg,#0077b6,#00b4d8);color:#fff;padding:18px 22px;
+  display:flex;align-items:center;justify-content:space-between;
+  box-shadow:0 4px 20px rgba(0,0,0,.2);}
+.logo{display:flex;align-items:center;gap:10px;}
+.logo-icon{font-size:2rem;}
+.logo h1{font-size:1.25rem;font-weight:800;}
+.logo p{font-size:.76rem;opacity:.85;}
+#btn-deconnexion{background:rgba(255,255,255,.2);border:1.5px solid rgba(255,255,255,.5);
+  color:#fff;border-radius:20px;padding:6px 14px;cursor:pointer;font-size:.82rem;font-weight:600;}
+
+/* LANDING */
+#ecran-landing{max-width:480px;margin:50px auto;padding:0 16px;text-align:center;}
+.landing-titre{font-size:1.5rem;font-weight:800;color:var(--ocean);margin-bottom:6px;}
+.landing-sous{font-size:.88rem;color:#666;margin-bottom:30px;}
+.landing-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+.landing-card{background:#fff;border-radius:20px;padding:28px 16px;box-shadow:var(--ombre);
+  cursor:pointer;transition:.25s;border:2.5px solid transparent;text-decoration:none;color:var(--texte);}
+.landing-card:hover{transform:translateY(-4px);box-shadow:0 8px 30px rgba(0,119,182,.2);}
+.landing-card.eleve:hover{border-color:var(--ocean);}
+.landing-card.prof:hover{border-color:var(--vert);}
+.landing-icon{font-size:2.8rem;margin-bottom:10px;}
+.landing-card h3{font-size:1.1rem;font-weight:800;margin-bottom:4px;}
+.landing-card p{font-size:.78rem;color:#777;}
+
+/* INSCRIPTION */
+#ecran-inscription{max-width:480px;margin:50px auto;padding:0 16px;}
+.card-inscription{background:#fff;border-radius:20px;padding:32px 28px;box-shadow:var(--ombre);text-align:center;}
+.card-inscription .emoji-top{font-size:3rem;margin-bottom:10px;}
+.card-inscription h2{font-size:1.3rem;color:var(--ocean);margin-bottom:4px;}
+.card-inscription p{font-size:.86rem;color:#666;margin-bottom:24px;}
+.form-group{text-align:left;margin-bottom:14px;}
+.form-group label{font-size:.82rem;font-weight:700;color:#555;display:block;margin-bottom:5px;}
+.form-group input,.form-group select{width:100%;padding:11px 14px;border:2px solid #e0e3e8;
+  border-radius:12px;font-size:.93rem;transition:.2s;}
+.form-group input:focus,.form-group select:focus{outline:none;border-color:var(--ocean);}
+
+/* AVATAR PICKER */
+.avatar-picker{display:grid;grid-template-columns:repeat(8,1fr);gap:6px;margin-top:6px;}
+.avatar-opt{background:#f8f9fa;border:2px solid transparent;border-radius:10px;
+  padding:6px;font-size:1.4rem;cursor:pointer;transition:.15s;aspect-ratio:1;
+  display:flex;align-items:center;justify-content:center;}
+.avatar-opt:hover{border-color:var(--ocean);background:var(--ocean-cl);}
+.avatar-opt.sel{border-color:var(--ocean);background:var(--ocean-cl);transform:scale(1.15);box-shadow:0 2px 10px rgba(0,119,182,.3);}
+
+.btn-primary{width:100%;padding:13px;background:linear-gradient(135deg,var(--ocean),var(--turquoise));
+  color:#fff;border:none;border-radius:14px;font-size:1rem;font-weight:700;cursor:pointer;
+  margin-top:8px;transition:.2s;box-shadow:0 4px 15px rgba(0,119,182,.3);}
+.btn-primary:hover{transform:translateY(-2px);}
+
+/* APP */
+#ecran-app{display:none;max-width:860px;margin:0 auto;padding:18px 16px 60px;}
+
+/* PROFIL */
+.profil-card{background:linear-gradient(135deg,var(--ocean),var(--turquoise));
+  color:#fff;border-radius:20px;padding:20px 24px;margin-bottom:16px;
+  display:flex;align-items:center;gap:16px;box-shadow:var(--ombre);}
+.avatar{width:58px;height:58px;border-radius:50%;background:rgba(255,255,255,.3);
+  display:flex;align-items:center;justify-content:center;font-size:1.7rem;
+  border:3px solid rgba(255,255,255,.6);flex-shrink:0;}
+.profil-info{flex:1;min-width:0;}
+.profil-info h2{font-size:1.05rem;font-weight:700;}
+.profil-info p{font-size:.82rem;opacity:.85;}
+.stats-row{display:flex;gap:8px;margin-top:10px;flex-wrap:wrap;}
+.stat-chip{background:rgba(255,255,255,.2);border-radius:20px;padding:4px 12px;font-size:.8rem;font-weight:600;}
+
+/* RANG */
+.rang-section{margin-top:12px;}
+.rang-label{font-size:.78rem;font-weight:700;opacity:.9;margin-bottom:5px;}
+.rang-bar-bg{background:rgba(255,255,255,.2);border-radius:10px;height:8px;overflow:hidden;}
+.rang-bar-fill{height:100%;background:#fff;border-radius:10px;transition:width .8s ease;}
+.rang-next{font-size:.7rem;opacity:.75;margin-top:3px;}
+
+/* DÉFI DU JOUR */
+.defi-card{background:linear-gradient(135deg,#7b2ff7,#f107a3);
+  color:#fff;border-radius:18px;padding:18px 20px;margin-bottom:16px;
+  cursor:pointer;transition:.25s;box-shadow:0 4px 20px rgba(123,47,247,.3);
+  display:flex;align-items:center;gap:16px;}
+.defi-card:hover{transform:translateY(-3px);box-shadow:0 8px 30px rgba(123,47,247,.4);}
+.defi-icon{font-size:2.5rem;flex-shrink:0;}
+.defi-info h3{font-size:1rem;font-weight:800;margin-bottom:3px;}
+.defi-info p{font-size:.8rem;opacity:.85;}
+.defi-badge{background:rgba(255,255,255,.25);border-radius:12px;padding:3px 10px;
+  font-size:.72rem;font-weight:700;display:inline-block;margin-top:5px;}
+
+/* PROGRESSION GLOBALE */
+.progression-card{background:#fff;border-radius:16px;padding:16px 20px;
+  box-shadow:var(--ombre);margin-bottom:16px;}
+.prog-titre{font-size:.78rem;font-weight:800;color:var(--ocean);text-transform:uppercase;letter-spacing:.08em;margin-bottom:12px;}
+.prog-ligne{display:flex;align-items:center;gap:10px;margin-bottom:8px;}
+.prog-ligne-label{font-size:.8rem;font-weight:700;width:60px;color:#555;}
+.prog-ligne-bar{flex:1;height:8px;background:#e8eaf6;border-radius:4px;overflow:hidden;}
+.prog-ligne-fill{height:100%;border-radius:4px;transition:width .8s ease;}
+.prog-ligne-pct{font-size:.75rem;font-weight:700;color:var(--ocean);width:35px;text-align:right;}
+
+/* BADGES */
+.badges-section{background:#fff;border-radius:16px;padding:18px 20px;box-shadow:var(--ombre);margin-bottom:16px;}
+.badges-grid{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px;}
+.badge-item{text-align:center;padding:8px 12px;border-radius:12px;background:#f8f9fa;min-width:65px;}
+.badge-item.earned{background:linear-gradient(135deg,#fff9c4,#fffde7);box-shadow:0 2px 8px rgba(244,196,48,.3);}
+.badge-item .b-icon{font-size:1.5rem;}
+.badge-item .b-label{font-size:.65rem;color:#555;margin-top:3px;font-weight:600;}
+
+/* FILTRES */
+.filtres{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px;}
+.filtre-btn{padding:7px 16px;border:2px solid var(--ocean);border-radius:20px;
+  background:#fff;color:var(--ocean);font-weight:600;font-size:.83rem;cursor:pointer;transition:.2s;}
+.filtre-btn.actif{background:var(--ocean);color:#fff;}
+
+/* SECTION TITRE */
+.section-titre{font-size:.78rem;font-weight:800;color:var(--ocean);text-transform:uppercase;
+  letter-spacing:1px;margin-bottom:10px;display:flex;align-items:center;gap:6px;}
+
+/* GRILLE QCM */
+.qcm-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:14px;margin-bottom:28px;}
+.qcm-card{background:#fff;border-radius:16px;padding:18px;box-shadow:var(--ombre);
+  text-decoration:none;color:var(--texte);transition:.25s;border-top:4px solid var(--ocean);
+  position:relative;overflow:hidden;cursor:pointer;}
+.qcm-card:hover{transform:translateY(-4px);box-shadow:0 8px 30px rgba(0,119,182,.2);}
+.qcm-card.done{border-top-color:var(--vert);}
+.qcm-card h3{font-size:.92rem;font-weight:700;margin-bottom:5px;padding-right:50px;}
+.qcm-card p{font-size:.78rem;color:#666;}
+.badge-classe{position:absolute;top:12px;right:12px;background:var(--ocean-cl);
+  color:var(--ocean);border-radius:12px;padding:2px 8px;font-size:.73rem;font-weight:700;}
+.badge-done{position:absolute;bottom:10px;right:12px;font-size:.95rem;}
+.progress-mini{height:4px;background:#eee;border-radius:4px;margin-top:8px;overflow:hidden;}
+.progress-mini-fill{height:100%;background:linear-gradient(90deg,var(--ocean),var(--turquoise));border-radius:4px;transition:.5s;}
+
+/* MODAL */
+.modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:100;
+  align-items:center;justify-content:center;padding:20px;}
+.modal-overlay.visible{display:flex;}
+.modal{background:#fff;border-radius:20px;padding:28px;max-width:420px;width:100%;
+  box-shadow:0 20px 60px rgba(0,0,0,.3);text-align:center;max-height:90vh;overflow-y:auto;}
+.modal h3{font-size:1.1rem;color:var(--ocean);margin-bottom:4px;}
+.modal p{font-size:.83rem;color:#666;margin-bottom:20px;}
+.niveau-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-bottom:16px;}
+.niveau-btn{padding:14px 6px;border-radius:14px;border:2px solid #e0e3e8;
+  background:#fff;cursor:pointer;transition:.2s;text-align:center;}
+.niveau-btn:hover{border-color:var(--ocean);background:var(--ocean-cl);}
+.niveau-btn .n-icon{font-size:1.5rem;display:block;margin-bottom:5px;}
+.niveau-btn .n-label{font-size:.76rem;font-weight:700;color:#555;}
+.niveau-btn .n-desc{font-size:.68rem;color:#888;margin-top:2px;}
+.niveau-btn.n1:hover{border-color:#0f9d58;background:#e6f4ea;}
+.niveau-btn.n2:hover{border-color:#f29900;background:#fff3e0;}
+.niveau-btn.n3:hover{border-color:#d93025;background:#fce8e6;}
+.btn-cancel{background:none;border:none;color:#999;font-size:.83rem;cursor:pointer;margin-top:6px;}
+
+/* RESSOURCES */
+.ressources-section{border-top:1px solid #eee;margin-top:14px;padding-top:12px;}
+.ressources-titre{font-size:.75rem;font-weight:700;color:#aaa;text-transform:uppercase;letter-spacing:.08em;margin-bottom:8px!important;}
+.ressources-liens{display:flex;gap:6px;flex-wrap:wrap;justify-content:center;}
+.ressources-liens a{flex:1;min-width:75px;padding:7px 4px;border-radius:10px;
+  text-decoration:none;font-size:.78rem;font-weight:700;border:1.5px solid #e0e3e8;
+  color:#444;background:#f8f9fa;transition:.15s;}
+.ressources-liens a:hover{background:var(--ocean-cl);border-color:var(--ocean);color:var(--ocean);}
+
+/* CLASSEMENT */
+.classement{background:#fff;border-radius:16px;padding:18px 22px;box-shadow:var(--ombre);margin-bottom:16px;}
+.rank-item{display:flex;align-items:center;gap:10px;padding:9px 0;border-bottom:1px solid #f0f0f0;}
+.rank-item:last-child{border-bottom:none;}
+.rank-num{width:26px;height:26px;border-radius:50%;display:flex;align-items:center;
+  justify-content:center;font-weight:700;font-size:.8rem;background:#eee;flex-shrink:0;}
+.rank-1{background:var(--gold);color:#fff;}
+.rank-2{background:var(--silver);color:#fff;}
+.rank-3{background:var(--bronze);color:#fff;}
+.rank-nom{flex:1;font-size:.86rem;font-weight:600;}
+.rank-score{font-size:.83rem;color:var(--ocean);font-weight:700;}
+
+.vide{text-align:center;padding:30px;color:#aaa;}
+.vide .icone{font-size:2.2rem;margin-bottom:6px;}
+
+/* MOT DE PASSE PROF */
+#modal-prof input{width:100%;padding:11px 14px;border:2px solid #e0e3e8;border-radius:12px;
+  font-size:.93rem;margin-bottom:10px;box-sizing:border-box;}
+
+/* RESPONSIVE */
+@media(max-width:520px){
+  .qcm-grid{grid-template-columns:1fr;}
+  .stats-row{flex-wrap:wrap;}
+  .niveau-grid{grid-template-columns:1fr;}
+  .landing-grid{grid-template-columns:1fr;}
+  .avatar-picker{grid-template-columns:repeat(6,1fr);}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">
+    <span class="logo-icon">🌺</span>
+    <div>
+      <h1>EduQuiz Afareiatu</h1>
+      <p>Physique-Chimie · Collège de Afareiatu · Moorea</p>
+    </div>
+  </div>
+  <button id="btn-deconnexion" onclick="deconnecter()" style="display:none">🚪 Changer</button>
+</header>
+
+<!-- LANDING -->
+<div id="ecran-landing" style="display:none">
+  <div style="font-size:2.8rem;text-align:center;margin-top:44px;">🌺</div>
+  <h2 class="landing-titre" style="text-align:center;margin-top:8px;">EduQuiz Afareiatu</h2>
+  <p class="landing-sous">Qui es-tu ?</p>
+  <div class="landing-grid">
+    <div class="landing-card eleve" onclick="choisirEleve()">
+      <div class="landing-icon">🎓</div>
+      <h3>Élève</h3>
+      <p>Révise tes chapitres et gagne des XP !</p>
+    </div>
+    <div class="landing-card prof" onclick="choisirProf()">
+      <div class="landing-icon">👨‍🏫</div>
+      <h3>Professeur</h3>
+      <p>Suivi des élèves en temps réel</p>
+    </div>
+  </div>
+</div>
+
+<!-- INSCRIPTION -->
+<div id="ecran-inscription" style="display:none">
+  <div class="card-inscription">
+    <div class="emoji-top">🎓</div>
+    <h2>Bienvenue sur EduQuiz !</h2>
+    <p>Entre tes infos pour commencer à réviser</p>
+    <div class="form-group">
+      <label>👤 Prénom</label>
+      <input type="text" id="inp-prenom" placeholder="Ton prénom" autocomplete="given-name"/>
+    </div>
+    <div class="form-group">
+      <label>✏️ Nom</label>
+      <input type="text" id="inp-nom" placeholder="Ton nom" autocomplete="family-name"/>
+    </div>
+    <div class="form-group">
+      <label>🏫 Classe</label>
+      <select id="inp-classe">
+        <option value="">-- Choisis ta classe --</option>
+        <optgroup label="5ème">
+          <option value="5e1">5ème 1</option><option value="5e2">5ème 2</option>
+          <option value="5e3">5ème 3</option><option value="5e4">5ème 4</option>
+          <option value="5e5">5ème 5</option><option value="5e6">5ème 6</option>
+        </optgroup>
+        <optgroup label="4ème">
+          <option value="4e1">4ème 1</option><option value="4e2">4ème 2</option>
+          <option value="4e3">4ème 3</option><option value="4e4">4ème 4</option>
+          <option value="4e5">4ème 5</option><option value="4e6">4ème 6</option>
+        </optgroup>
+      </select>
+    </div>
+    <div class="form-group">
+      <label>🎨 Mon avatar</label>
+      <div class="avatar-picker" id="avatar-picker"></div>
+    </div>
+    <button class="btn-primary" onclick="inscrire()">C'est parti ! 🚀</button>
+  </div>
+</div>
+
+<!-- APP -->
+<div id="ecran-app">
+  <!-- PROFIL -->
+  <div class="profil-card">
+    <div class="avatar" id="avatar-emoji">😊</div>
+    <div class="profil-info">
+      <h2 id="profil-nom">Élève</h2>
+      <p id="profil-classe">Classe</p>
+      <div class="stats-row">
+        <span class="stat-chip" id="stat-qcm">0 QCM</span>
+        <span class="stat-chip" id="stat-xp">⚡ 0 XP</span>
+        <span class="stat-chip" id="stat-serie">🔥 Série: 0</span>
+        <span class="stat-chip" id="stat-rang">🌱 Apprenti</span>
+      </div>
+      <div class="rang-section">
+        <div class="rang-label" id="rang-label">Niveau : Apprenti</div>
+        <div class="rang-bar-bg"><div class="rang-bar-fill" id="rang-bar" style="width:0%"></div></div>
+        <div class="rang-next" id="rang-next"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PROGRESSION GLOBALE -->
+  <div class="progression-card">
+    <div class="prog-titre">📊 Ma progression</div>
+    <div id="prog-lignes"></div>
+  </div>
+
+  <!-- DÉFI DU JOUR -->
+  <div id="defi-card-container"></div>
+
+  <!-- BADGES -->
+  <div class="badges-section">
+    <div class="section-titre">🏅 Mes badges</div>
+    <div class="badges-grid" id="badges-grid"></div>
+  </div>
+
+  <!-- FILTRES -->
+  <div class="filtres" id="filtres">
+    <button class="filtre-btn actif" onclick="filtrer(this,'auto')">Ma classe</button>
+    <button class="filtre-btn" onclick="filtrer(this,'5e')">5ème</button>
+    <button class="filtre-btn" onclick="filtrer(this,'4e')">4ème</button>
+  </div>
+
+  <!-- LISTE QCM -->
+  <div class="section-titre">📚 Chapitres</div>
+  <div class="qcm-grid" id="qcm-grid"></div>
+
+  <!-- CLASSEMENT -->
+  <div class="classement">
+    <div class="section-titre">🏆 Classement de ma classe</div>
+    <div id="classement-liste"></div>
+  </div>
+</div>
+
+<!-- MODAL MOT DE PASSE PROF -->
+<div class="modal-overlay" id="modal-prof" onclick="fermerModalProf(event)">
+  <div class="modal">
+    <h3>🔐 Accès Professeur</h3>
+    <p>Entre le mot de passe pour continuer</p>
+    <input type="password" id="inp-mdp-prof" placeholder="Mot de passe"
+      onkeydown="if(event.key==='Enter')validerMdpProf()"/>
+    <div id="mdp-erreur" style="color:#d93025;font-size:.82rem;margin-bottom:10px;display:none">❌ Mot de passe incorrect</div>
+    <button class="btn-primary" onclick="validerMdpProf()">Valider</button>
+    <button class="btn-cancel" onclick="document.getElementById('modal-prof').classList.remove('visible')">Annuler</button>
+  </div>
+</div>
+
+<!-- MODAL NIVEAU -->
+<div class="modal-overlay" id="modal-niveau" onclick="fermerModal(event)">
+  <div class="modal">
+    <h3 id="modal-titre-qcm">Choisir le niveau</h3>
+    <p id="modal-sous-titre">Quel niveau veux-tu tenter ?</p>
+    <div class="niveau-grid">
+      <button class="niveau-btn n1" onclick="lancerQCM(1)">
+        <span class="n-icon">⭐</span>
+        <span class="n-label">Facile</span>
+        <span class="n-desc">5 questions · 30s</span>
+      </button>
+      <button class="niveau-btn n2" onclick="lancerQCM(2)">
+        <span class="n-icon">⭐⭐</span>
+        <span class="n-label">Moyen</span>
+        <span class="n-desc">5 questions · 25s</span>
+      </button>
+      <button class="niveau-btn n3" onclick="lancerQCM(3)">
+        <span class="n-icon">⭐⭐⭐</span>
+        <span class="n-label">Difficile</span>
+        <span class="n-desc">5 questions · 20s</span>
+      </button>
+    </div>
+    <button class="btn-cancel" onclick="document.getElementById('modal-niveau').classList.remove('visible')">Annuler</button>
+    <div class="ressources-section">
+      <p class="ressources-titre">📚 Ressources du chapitre</p>
+      <div class="ressources-liens">
+        <a id="lien-cours" href="#" target="_blank">📖 Cours</a>
+        <a id="lien-exercices" href="#" target="_blank">✏️ Exercices</a>
+        <a id="lien-fiche" href="#" target="_blank">📄 Fiche</a>
+        <a id="lien-flashcards" href="#" target="_blank" style="display:none">🃏 Flashcards</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Firebase -->
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+<script>
+try{firebase.initializeApp({
+  apiKey:"AIzaSyCScOehvaVclSj12mhOPOOdWECBwSiMkFI",
+  authDomain:"eduquiz-afareiatu.firebaseapp.com",
+  projectId:"eduquiz-afareiatu",
+  storageBucket:"eduquiz-afareiatu.firebasestorage.app",
+  messagingSenderId:"81343437894",
+  appId:"1:81343437894:web:ef5fc2e7b1f474e40cbe47"
+});}catch(e){}
+const db = typeof firebase !== 'undefined' ? firebase.firestore() : null;
+</script>
+
+<script>
+// ─── CATALOGUE ───
+const CATALOGUE = [
+  {f:"qcm-4e-ch01.json",t:"Composition et qualité de l'air",cl:"4e",ch:"Ch01",dir:"Ch01_Qualite_Air",flash:true},
+  {f:"qcm-4e-ch02.json",t:"Solubilité et purification de l'eau",cl:"4e",ch:"Ch02",dir:"Ch02_Solubilite_Eau",flash:true},
+  {f:"qcm-4e-ch03.json",t:"Transformations chimiques",cl:"4e",ch:"Ch03",dir:"Ch03_Transformations_Chimiques",flash:true},
+  {f:"qcm-4e-ch04.json",t:"Mouvement et vitesse",cl:"4e",ch:"Ch04",dir:"Ch04_Mouvement_Vitesse",flash:true},
+  {f:"qcm-4e-ch05.json",t:"Forces et interactions",cl:"4e",ch:"Ch05",dir:"Ch05_Forces_Interactions",flash:true},
+  {f:"qcm-4e-ch06.json",t:"Transferts et conversions d'énergie",cl:"4e",ch:"Ch06",dir:"Ch06_Energie_Transferts",flash:true},
+  {f:"qcm-4e-ch07.json",t:"Circuits électriques et loi d'Ohm",cl:"4e",ch:"Ch07",dir:"Ch07_Circuits_Electriques",flash:true},
+  {f:"qcm-4e-ch08.json",t:"Propagation de la lumière",cl:"4e",ch:"Ch08",dir:"Ch08_Lumiere",flash:true},
+  {f:"qcm-4e-ch09.json",t:"Propagation du son",cl:"4e",ch:"Ch09",dir:"Ch09_Son",flash:true},
+  {f:"qcm-4e-ch10.json",t:"Structure de l'Univers",cl:"4e",ch:"Ch10",dir:"Ch10_Univers",flash:true},
+  {f:"qcm-4e-ch11.json",t:"Atomes et molécules",cl:"4e",ch:"Ch11",dir:"Ch11_Atomes_Molecules",flash:true},
+  {f:"qcm-4e-ch12.json",t:"Réactions chimiques",cl:"4e",ch:"Ch12",dir:"Ch12_Reactions_Chimiques",flash:true},
+  {f:"qcm-4e-ch13.json",t:"Circuit électrique",cl:"4e",ch:"Ch13",dir:"Ch13_Circuit_Electrique",flash:true},
+  {f:"qcm-4e-ch14.json",t:"Pression des fluides",cl:"4e",ch:"Ch14",dir:"Ch14_Pression_Fluides",flash:true},
+  {f:"qcm-4e-ch15.json",t:"Lumière et réfraction",cl:"4e",ch:"Ch15",dir:"Ch15_Lumiere_Refraction",flash:true},
+  {f:"qcm-4e-ch16.json",t:"Puissance et énergie électrique",cl:"4e",ch:"Ch16",dir:"Ch16_Puissance_Energie",flash:true},
+  {f:"qcm-5e-ch01.json",t:"Les états de la matière",cl:"5e",ch:"Ch01",dir:"Ch01_Etats_Matiere",flash:true},
+  {f:"qcm-5e-ch02.json",t:"Mélanges et solubilité",cl:"5e",ch:"Ch02",dir:"Ch02_Melanges_Solubilite",flash:true},
+  {f:"qcm-5e-ch03.json",t:"Masse volumique",cl:"5e",ch:"Ch03",dir:"Ch03_Masse_Volume",flash:true},
+  {f:"qcm-5e-ch04.json",t:"Mouvements et vitesse",cl:"5e",ch:"Ch04",dir:"Ch04_Mouvements_Vitesse",flash:true},
+  {f:"qcm-5e-ch05.json",t:"Forces et leurs effets",cl:"5e",ch:"Ch05",dir:"Ch05_Forces_Effets",flash:true},
+  {f:"qcm-5e-ch06.json",t:"Énergie : formes et transferts",cl:"5e",ch:"Ch06",dir:"Ch06_Energie",flash:true},
+  {f:"qcm-5e-ch07.json",t:"Propagation du son",cl:"5e",ch:"Ch07",dir:"Ch07_Son",flash:true},
+  {f:"qcm-5e-ch08.json",t:"Mélanges et corps purs",cl:"5e",ch:"Ch08",dir:"Ch08_Melanges_Corps_Purs",flash:true},
+  {f:"qcm-5e-ch09.json",t:"Changements d'état",cl:"5e",ch:"Ch09",dir:"Ch09_Etats_Matiere",flash:true},
+  {f:"qcm-5e-ch10.json",t:"Lumière et vision",cl:"5e",ch:"Ch10",dir:"Ch10_Lumiere_Vision",flash:true},
+  {f:"qcm-5e-ch11.json",t:"Les sons",cl:"5e",ch:"Ch11",dir:"Ch11_Les_Sons",flash:true},
+  {f:"qcm-5e-ch12.json",t:"L'énergie et ses transferts",cl:"5e",ch:"Ch12",dir:"Ch12_Energie",flash:true},
+  {f:"qcm-5e-ch13.json",t:"Propagation de la lumière",cl:"5e",ch:"Ch13",dir:"Ch13_Lumiere",flash:true}
+];
+
+// ─── RANG SYSTÈME ───
+const RANGS = [
+  {label:'🌱 Apprenti',   min:0,    max:99,   color:'#8bc34a', next:'Scientifique'},
+  {label:'🔬 Scientifique',min:100,  max:299,  color:'#00b4d8', next:'Chercheur'},
+  {label:'⚗️ Chercheur',  min:300,  max:599,  color:'#7c4dff', next:'Expert'},
+  {label:'🏆 Expert',     min:600,  max:999,  color:'#ff9800', next:'Légende'},
+  {label:'⭐ Légende',    min:1000, max:Infinity, color:'#f4c430', next:null},
+];
+
+function getRang(xp) {
+  return RANGS.find(r=>xp>=r.min&&xp<=r.max) || RANGS[RANGS.length-1];
+}
+
+// ─── AVATARS ───
+const AVATARS = ['😊','🦁','🐠','🌺','🦋','🐢','🦈','🌴','⭐','🚀','🔥','💎','🐬','🦀','🌊','🐙'];
+let avatarChoisi = '😊';
+
+function initAvatarPicker() {
+  const picker = document.getElementById('avatar-picker');
+  if(!picker) return;
+  picker.innerHTML = '';
+  AVATARS.forEach(a => {
+    const btn = document.createElement('button');
+    btn.className = 'avatar-opt'+(a===avatarChoisi?' sel':'');
+    btn.textContent = a;
+    btn.type = 'button';
+    btn.onclick = () => {
+      document.querySelectorAll('.avatar-opt').forEach(b=>b.classList.remove('sel'));
+      btn.classList.add('sel');
+      avatarChoisi = a;
+    };
+    picker.appendChild(btn);
+  });
+}
+
+// ─── ÉTAT ───
+const MOT_DE_PASSE_PROF = 'afareiatu2025';
+let eleve = null, filtreCourant = 'auto', qcmChoisi = null;
+
+// ─── INIT ───
+window.addEventListener('DOMContentLoaded', () => {
+  const saved = localStorage.getItem('eduquiz_eleve');
+  if(saved) { eleve = JSON.parse(saved); afficherApp(); }
+  else { document.getElementById('ecran-landing').style.display = 'block'; }
+  initAvatarPicker();
+});
+
+// ─── NAVIGATION ───
+function choisirEleve() {
+  document.getElementById('ecran-landing').style.display = 'none';
+  document.getElementById('ecran-inscription').style.display = 'block';
+}
+function choisirProf() {
+  document.getElementById('inp-mdp-prof').value = '';
+  document.getElementById('mdp-erreur').style.display = 'none';
+  document.getElementById('modal-prof').classList.add('visible');
+  setTimeout(() => document.getElementById('inp-mdp-prof').focus(), 100);
+}
+function validerMdpProf() {
+  if(document.getElementById('inp-mdp-prof').value === MOT_DE_PASSE_PROF) {
+    sessionStorage.setItem('prof_ok','1');
+    window.location.href = 'admin.html';
+  } else {
+    document.getElementById('mdp-erreur').style.display = 'block';
+    document.getElementById('inp-mdp-prof').value = '';
+    document.getElementById('inp-mdp-prof').focus();
+  }
+}
+function fermerModalProf(e) {
+  if(e.target.id==='modal-prof') document.getElementById('modal-prof').classList.remove('visible');
+}
+
+// ─── INSCRIPTION ───
+function inscrire() {
+  const prenom = document.getElementById('inp-prenom').value.trim();
+  const nom = document.getElementById('inp-nom').value.trim();
+  const classe = document.getElementById('inp-classe').value;
+  if(!prenom||!classe){alert('Merci de remplir ton prénom et ta classe !');return;}
+  eleve = {
+    prenom, nom, classe,
+    avatar: avatarChoisi,
+    xp:0, serie:0, serieMax:0,
+    scores:{}, badges:[],
+    dateInscription: new Date().toISOString()
+  };
+  sauvegarder();
+  afficherApp();
+}
+
+function deconnecter() {
+  if(!confirm('Changer d\'élève ? Les scores sont sauvegardés.')) return;
+  eleve=null;
+  localStorage.removeItem('eduquiz_eleve');
+  document.getElementById('ecran-app').style.display='none';
+  document.getElementById('ecran-landing').style.display='block';
+  document.getElementById('btn-deconnexion').style.display='none';
+}
+
+function sauvegarder() { localStorage.setItem('eduquiz_eleve',JSON.stringify(eleve)); }
+
+// ─── AFFICHAGE APP ───
+function afficherApp() {
+  document.getElementById('ecran-inscription').style.display='none';
+  document.getElementById('ecran-app').style.display='block';
+  document.getElementById('btn-deconnexion').style.display='block';
+
+  // Profil
+  const xp = eleve.xp||0;
+  const rang = getRang(xp);
+  document.getElementById('profil-nom').textContent = eleve.prenom+(eleve.nom?' '+eleve.nom:'');
+  document.getElementById('profil-classe').textContent = '🏫 '+eleve.classe.replace(/(\d)e(\d)/,'$1ème $2');
+  document.getElementById('avatar-emoji').textContent = eleve.avatar||'😊';
+  const nbTermines = Object.keys(eleve.scores||{}).length;
+  document.getElementById('stat-qcm').textContent = nbTermines+' QCM'+(nbTermines>1?'s':'');
+  document.getElementById('stat-xp').textContent = '⚡ '+xp+' XP';
+  document.getElementById('stat-serie').textContent = '🔥 Série: '+(eleve.serie||0);
+  document.getElementById('stat-rang').textContent = rang.label;
+
+  // Rang progress bar
+  document.getElementById('rang-label').textContent = 'Rang : '+rang.label;
+  let pctRang = 100;
+  if(rang.max !== Infinity) {
+    pctRang = Math.round((xp-rang.min)/(rang.max-rang.min)*100);
+  }
+  document.getElementById('rang-bar').style.width = pctRang+'%';
+  document.getElementById('rang-bar').style.background = '#fff';
+  if(rang.next) {
+    document.getElementById('rang-next').textContent = (rang.max+1-xp)+' XP pour '+rang.next;
+  } else {
+    document.getElementById('rang-next').textContent = '🌟 Rang maximum atteint !';
+  }
+
+  afficherProgression();
+  afficherDefiDuJour();
+  afficherBadges();
+  afficherQCMs();
+  afficherClassement();
+}
+
+// ─── PROGRESSION GLOBALE ───
+function afficherProgression() {
+  const el = document.getElementById('prog-lignes');
+  const niveauEleve = eleve.classe.startsWith('5')?'5e':'4e';
+  const niveaux = [{cl:'5e',label:'5ème',color:'#00b4d8'},{cl:'4e',label:'4ème',color:'#7c4dff'}];
+  el.innerHTML = '';
+  niveaux.forEach(n => {
+    const chaps = CATALOGUE.filter(q=>q.cl===n.cl);
+    const done = chaps.filter(q=>
+      eleve.scores[q.f+'_n1']||eleve.scores[q.f+'_n2']||eleve.scores[q.f+'_n3']
+    ).length;
+    const pct = Math.round(done/chaps.length*100);
+    el.innerHTML += `<div class="prog-ligne">
+      <div class="prog-ligne-label">${n.label}</div>
+      <div class="prog-ligne-bar"><div class="prog-ligne-fill" style="width:${pct}%;background:${n.color}"></div></div>
+      <div class="prog-ligne-pct">${done}/${chaps.length}</div>
+    </div>`;
+  });
+}
+
+// ─── DÉFI DU JOUR ───
+function afficherDefiDuJour() {
+  const container = document.getElementById('defi-card-container');
+  const today = new Date().toDateString();
+  const hash = [...today].reduce((a,c)=>a+c.charCodeAt(0),0);
+  const niveauEleve = eleve.classe.startsWith('5')?'5e':'4e';
+  const chapsCl = CATALOGUE.filter(q=>q.cl===niveauEleve);
+  const defi = chapsCl[hash % chapsCl.length];
+  const deja = eleve.scores[defi.f+'_n1']||eleve.scores[defi.f+'_n2']||eleve.scores[defi.f+'_n3'];
+  container.innerHTML = `<div class="defi-card" onclick="ouvrirModal(${JSON.stringify(defi).split('"').join("'")})">
+    <div class="defi-icon">${deja?'✅':'⚡'}</div>
+    <div class="defi-info">
+      <h3>⭐ Défi du jour</h3>
+      <p>${defi.t}</p>
+      <span class="defi-badge">${deja?'Déjà fait ! Améliore ton score 🏆':'Relève le défi aujourd\'hui !'}</span>
+    </div>
+  </div>`;
+}
+
+// ─── BADGES ───
+const BADGES_DEF = [
+  {id:'premier',icon:'🎯',label:'Premier QCM',cond:e=>Object.keys(e.scores||{}).length>=1},
+  {id:'bronze',icon:'🥉',label:'Bronze 40%',cond:e=>Object.values(e.scores||{}).some(s=>s.pct>=40)},
+  {id:'argent',icon:'🥈',label:'Argent 70%',cond:e=>Object.values(e.scores||{}).some(s=>s.pct>=70)},
+  {id:'or',icon:'🥇',label:'Or 90%',cond:e=>Object.values(e.scores||{}).some(s=>s.pct>=90)},
+  {id:'diamant',icon:'💎',label:'Diamant 100%',cond:e=>Object.values(e.scores||{}).some(s=>s.pct>=100)},
+  {id:'5qcm',icon:'📚',label:'5 QCMs',cond:e=>Object.keys(e.scores||{}).length>=5},
+  {id:'10qcm',icon:'🏆',label:'10 QCMs',cond:e=>Object.keys(e.scores||{}).length>=10},
+  {id:'serie3',icon:'🔥',label:'Série x3',cond:e=>(e.serieMax||0)>=3},
+  {id:'difficile',icon:'⚡',label:'Difficile !',cond:e=>Object.keys(e.scores||{}).some(k=>k.includes('_n3'))},
+  {id:'all5e',icon:'🌊',label:'Tous 5ème',cond:e=>CATALOGUE.filter(q=>q.cl==='5e').every(q=>e.scores[q.f+'_n1']||e.scores[q.f+'_n2']||e.scores[q.f+'_n3'])},
+  {id:'all4e',icon:'⚗️',label:'Tous 4ème',cond:e=>CATALOGUE.filter(q=>q.cl==='4e').every(q=>e.scores[q.f+'_n1']||e.scores[q.f+'_n2']||e.scores[q.f+'_n3'])},
+  {id:'parfait',icon:'🌟',label:'Parfait !',cond:e=>Object.values(e.scores||{}).some(s=>s.pct===100)},
+  {id:'combo',icon:'🎯',label:'Combo x3',cond:e=>(e.maxComboEver||0)>=3},
+  {id:'legende',icon:'👑',label:'Légende',cond:e=>(e.xp||0)>=1000},
+];
+
+function afficherBadges() {
+  const grid = document.getElementById('badges-grid');
+  grid.innerHTML = '';
+  BADGES_DEF.forEach(b => {
+    const earned = b.cond(eleve);
+    const div = document.createElement('div');
+    div.className = 'badge-item'+(earned?' earned':'');
+    div.innerHTML = `<div class="b-icon">${earned?b.icon:'🔒'}</div><div class="b-label">${b.label}</div>`;
+    div.title = earned ? 'Badge obtenu !' : 'À débloquer';
+    grid.appendChild(div);
+  });
+}
+
+// ─── LISTE QCM ───
+function filtrer(btn, f) {
+  document.querySelectorAll('.filtre-btn').forEach(b=>b.classList.remove('actif'));
+  btn.classList.add('actif');
+  filtreCourant = f;
+  afficherQCMs();
+}
+
+function afficherQCMs() {
+  const grid = document.getElementById('qcm-grid');
+  grid.innerHTML = '';
+  const niveauEleve = eleve.classe.startsWith('5')?'5e':'4e';
+  let liste;
+  if(filtreCourant==='auto') liste = CATALOGUE.filter(q=>q.cl===niveauEleve);
+  else liste = CATALOGUE.filter(q=>q.cl===filtreCourant);
+
+  liste.forEach(qcm => {
+    const scoreN1 = eleve.scores[qcm.f+'_n1'];
+    const scoreN2 = eleve.scores[qcm.f+'_n2'];
+    const scoreN3 = eleve.scores[qcm.f+'_n3'];
+    const meilleur = [scoreN1,scoreN2,scoreN3].filter(Boolean).sort((a,b)=>b.pct-a.pct)[0];
+    const done = !!meilleur;
+    const pct = done ? meilleur.pct : 0;
+    const card = document.createElement('div');
+    card.className = 'qcm-card'+(done?' done':'');
+    card.onclick = () => ouvrirModal(qcm);
+    card.innerHTML = `
+      <span class="badge-classe">${qcm.cl.replace('e','ème')}</span>
+      <h3>${qcm.t}</h3>
+      <p>${qcm.ch} · 3 niveaux · 15 questions</p>
+      <div class="progress-mini"><div class="progress-mini-fill" style="width:${pct}%"></div></div>
+      <p style="font-size:.7rem;color:#999;margin-top:5px;">${done?'✅ Meilleur: '+pct+'%':'🔵 Non commencé'}</p>
+      ${done&&pct>=90?'<span class="badge-done">🥇</span>':done&&pct>=70?'<span class="badge-done">🥈</span>':done&&pct>=40?'<span class="badge-done">🥉</span>':''}
+    `;
+    grid.appendChild(card);
+  });
+}
+
+// ─── MODAL NIVEAU ───
+function ouvrirModal(qcm) {
+  qcmChoisi = qcm;
+  document.getElementById('modal-titre-qcm').textContent = qcm.t;
+  document.getElementById('modal-sous-titre').textContent = qcm.ch+' · Quel niveau veux-tu tenter ?';
+  const niv = qcm.cl==='4e'?'4eme':'5eme';
+  const base = `https://eliemake8-wq.github.io/SPMAN/${niv}/${qcm.dir}/`;
+  document.getElementById('lien-cours').href = base+'cours.html';
+  document.getElementById('lien-exercices').href = base+'exercices.html';
+  document.getElementById('lien-fiche').href = base+'fiche.html';
+  const flashEl = document.getElementById('lien-flashcards');
+  if(qcm.flash){flashEl.href=base+'flashcards.html';flashEl.style.display='';}
+  else flashEl.style.display='none';
+  document.getElementById('modal-niveau').classList.add('visible');
+}
+function fermerModal(e) {
+  if(e.target.id==='modal-niveau') document.getElementById('modal-niveau').classList.remove('visible');
+}
+function lancerQCM(niveau) {
+  if(!qcmChoisi) return;
+  document.getElementById('modal-niveau').classList.remove('visible');
+  window.location.href = `player.html?qcm=${qcmChoisi.f}&niveau=${niveau}`;
+}
+
+// ─── CLASSEMENT (Firestore + localStorage fallback) ───
+function afficherClassement() {
+  const liste = document.getElementById('classement-liste');
+  // Essayer Firestore d'abord
+  if(db && eleve) {
+    db.collection('joueurs')
+      .where('classe','==',eleve.classe)
+      .orderBy('xp','desc')
+      .limit(10)
+      .get()
+      .then(snap => {
+        const joueurs = [];
+        snap.forEach(d => joueurs.push(d.data()));
+        // Assurer que l'élève actuel est dedans
+        const moi = eleve.prenom+' '+(eleve.nom||'');
+        if(!joueurs.find(j=>j.prenom===eleve.prenom&&j.classe===eleve.classe)) {
+          joueurs.push({prenom:eleve.prenom,nom:eleve.nom||'',classe:eleve.classe,xp:eleve.xp||0});
+          joueurs.sort((a,b)=>b.xp-a.xp);
+        }
+        afficherRankItems(joueurs.slice(0,10), moi);
+      })
+      .catch(() => classementLocalStorage());
+  } else {
+    classementLocalStorage();
+  }
+}
+
+function classementLocalStorage() {
+  const liste = document.getElementById('classement-liste');
+  let tous = [];
+  const xpEleve = {nom:eleve.prenom+' '+(eleve.nom||''),classe:eleve.classe,xp:eleve.xp||0};
+  for(let i=0;i<localStorage.length;i++) {
+    const key = localStorage.key(i);
+    if(key&&key.startsWith('eduquiz_score_')) {
+      try { const d=JSON.parse(localStorage.getItem(key)); if(d&&d.classe===eleve.classe) tous.push(d); } catch(e){}
+    }
+  }
+  if(!tous.find(t=>t.nom===xpEleve.nom)) tous.push(xpEleve);
+  tous.sort((a,b)=>b.xp-a.xp);
+  afficherRankItems(tous.slice(0,10), xpEleve.nom);
+}
+
+function afficherRankItems(joueurs, monNom) {
+  const liste = document.getElementById('classement-liste');
+  if(!joueurs||joueurs.length===0) {
+    liste.innerHTML='<div class="vide"><div class="icone">🏆</div><p>Sois le premier de ta classe !</p></div>';
+    return;
+  }
+  liste.innerHTML = '';
+  joueurs.forEach((j,i) => {
+    const nom = j.nom||(j.prenom+' '+(j.nom||''));
+    const isMe = (j.prenom===eleve.prenom&&j.classe===eleve.classe)||nom===monNom;
+    const div = document.createElement('div');
+    div.className = 'rank-item';
+    div.innerHTML = `
+      <div class="rank-num rank-${i<3?i+1:'x'}">${i+1}</div>
+      <div class="rank-nom" style="${isMe?'color:var(--ocean);font-weight:800;':''}">${j.prenom||nom}${isMe?' 👈':''}</div>
+      <div class="rank-score">⚡ ${j.xp||0} XP</div>
+    `;
+    liste.appendChild(div);
+  });
+}
+
+// ─── RÉCEPTION SCORE (depuis player.html via storage event) ───
+window.addEventListener('storage', e => {
+  if(e.key==='eduquiz_last_result') {
+    const res = JSON.parse(e.newValue);
+    if(!res) return;
+    eleve = JSON.parse(localStorage.getItem('eduquiz_eleve')||'null');
+    if(eleve) afficherApp();
+  }
+});
+</script>
+</body>
+</html>
