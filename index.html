@@ -1,119 +1,486 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>EduQuiz Afareiatu — QCM Interactifs</title>
-  <link rel="stylesheet" href="css/style.css">
-  <meta name="description" content="QCM interactifs de physique-chimie — Collège de Afareiatu">
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>EduQuiz Afareiatu 🌺</title>
+<style>
+:root{
+  --ocean:#0077b6;--ocean-cl:#caf0f8;--turquoise:#00b4d8;
+  --vert:#0f9d58;--vert-cl:#e6f4ea;
+  --orange:#f29900;--rouge:#d93025;
+  --gold:#f4c430;--silver:#c0c0c0;--bronze:#cd7f32;--diamond:#b9f2ff;
+  --texte:#1a1a2e;--gris:#f0f4ff;
+  --ombre:0 4px 20px rgba(0,119,182,.15);
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Segoe UI',Arial,sans-serif;background:var(--gris);color:var(--texte);min-height:100vh;}
+
+/* HEADER */
+header{background:linear-gradient(135deg,#0077b6,#00b4d8);color:#fff;padding:20px 24px;
+  display:flex;align-items:center;justify-content:space-between;
+  box-shadow:0 4px 20px rgba(0,0,0,.2);}
+.logo{display:flex;align-items:center;gap:12px;text-decoration:none;color:#fff;}
+.logo-icon{font-size:2rem;}
+.logo h1{font-size:1.3rem;font-weight:800;letter-spacing:-.5px;}
+.logo p{font-size:.78rem;opacity:.85;}
+#btn-deconnexion{background:rgba(255,255,255,.2);border:1.5px solid rgba(255,255,255,.5);
+  color:#fff;border-radius:20px;padding:6px 16px;cursor:pointer;font-size:.82rem;font-weight:600;}
+
+/* INSCRIPTION */
+#ecran-inscription{max-width:480px;margin:60px auto;padding:0 16px;}
+.card-inscription{background:#fff;border-radius:20px;padding:36px 32px;box-shadow:var(--ombre);text-align:center;}
+.card-inscription .emoji-top{font-size:3.5rem;margin-bottom:12px;}
+.card-inscription h2{font-size:1.4rem;color:var(--ocean);margin-bottom:6px;}
+.card-inscription p{font-size:.88rem;color:#666;margin-bottom:28px;}
+.form-group{text-align:left;margin-bottom:16px;}
+.form-group label{font-size:.82rem;font-weight:700;color:#555;display:block;margin-bottom:6px;}
+.form-group input,.form-group select{width:100%;padding:12px 16px;border:2px solid #e0e3e8;
+  border-radius:12px;font-size:.95rem;transition:.2s;}
+.form-group input:focus,.form-group select:focus{outline:none;border-color:var(--ocean);}
+.btn-primary{width:100%;padding:14px;background:linear-gradient(135deg,var(--ocean),var(--turquoise));
+  color:#fff;border:none;border-radius:14px;font-size:1rem;font-weight:700;cursor:pointer;
+  margin-top:8px;transition:.2s;box-shadow:0 4px 15px rgba(0,119,182,.3);}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(0,119,182,.4);}
+
+/* TABLEAU DE BORD */
+#ecran-app{display:none;max-width:860px;margin:0 auto;padding:20px 16px 60px;}
+.profil-card{background:linear-gradient(135deg,var(--ocean),var(--turquoise));
+  color:#fff;border-radius:20px;padding:24px 28px;margin-bottom:20px;
+  display:flex;align-items:center;gap:20px;box-shadow:var(--ombre);}
+.avatar{width:60px;height:60px;border-radius:50%;background:rgba(255,255,255,.3);
+  display:flex;align-items:center;justify-content:center;font-size:1.8rem;border:3px solid rgba(255,255,255,.6);}
+.profil-info h2{font-size:1.1rem;font-weight:700;}
+.profil-info p{font-size:.85rem;opacity:.85;}
+.stats-row{display:flex;gap:16px;margin-top:12px;}
+.stat-chip{background:rgba(255,255,255,.2);border-radius:20px;padding:4px 14px;font-size:.82rem;font-weight:600;}
+
+/* FILTRES */
+.filtres{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:20px;}
+.filtre-btn{padding:8px 18px;border:2px solid var(--ocean);border-radius:20px;
+  background:#fff;color:var(--ocean);font-weight:600;font-size:.85rem;cursor:pointer;transition:.2s;}
+.filtre-btn.actif{background:var(--ocean);color:#fff;}
+
+/* SECTION TITRE */
+.section-titre{font-size:.8rem;font-weight:800;color:var(--ocean);text-transform:uppercase;
+  letter-spacing:1px;margin-bottom:12px;display:flex;align-items:center;gap:8px;}
+
+/* GRILLE QCM */
+.qcm-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px;margin-bottom:32px;}
+.qcm-card{background:#fff;border-radius:16px;padding:20px;box-shadow:var(--ombre);
+  text-decoration:none;color:var(--texte);transition:.25s;border-top:4px solid var(--ocean);position:relative;overflow:hidden;}
+.qcm-card:hover{transform:translateY(-4px);box-shadow:0 8px 30px rgba(0,119,182,.2);}
+.qcm-card.done{border-top-color:var(--vert);}
+.qcm-card h3{font-size:.95rem;font-weight:700;margin-bottom:6px;}
+.qcm-card p{font-size:.8rem;color:#666;}
+.badge-classe{position:absolute;top:14px;right:14px;background:var(--ocean-cl);
+  color:var(--ocean);border-radius:12px;padding:2px 10px;font-size:.75rem;font-weight:700;}
+.badge-done{position:absolute;bottom:12px;right:14px;font-size:1rem;}
+.progress-mini{height:4px;background:#eee;border-radius:4px;margin-top:10px;overflow:hidden;}
+.progress-mini-fill{height:100%;background:linear-gradient(90deg,var(--ocean),var(--turquoise));border-radius:4px;transition:.5s;}
+
+/* SÉLECTEUR NIVEAU */
+.modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:100;
+  align-items:center;justify-content:center;padding:20px;}
+.modal-overlay.visible{display:flex;}
+.modal{background:#fff;border-radius:20px;padding:32px;max-width:420px;width:100%;
+  box-shadow:0 20px 60px rgba(0,0,0,.3);text-align:center;}
+.modal h3{font-size:1.2rem;color:var(--ocean);margin-bottom:6px;}
+.modal p{font-size:.85rem;color:#666;margin-bottom:24px;}
+.niveau-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-bottom:20px;}
+.niveau-btn{padding:16px 8px;border-radius:14px;border:2px solid #e0e3e8;
+  background:#fff;cursor:pointer;transition:.2s;text-align:center;}
+.niveau-btn:hover{border-color:var(--ocean);background:var(--ocean-cl);}
+.niveau-btn .n-icon{font-size:1.6rem;display:block;margin-bottom:6px;}
+.niveau-btn .n-label{font-size:.78rem;font-weight:700;color:#555;}
+.niveau-btn .n-desc{font-size:.7rem;color:#888;margin-top:2px;}
+.niveau-btn.n1:hover,.niveau-btn.n1.sel{border-color:#0f9d58;background:#e6f4ea;}
+.niveau-btn.n2:hover,.niveau-btn.n2.sel{border-color:#f29900;background:#fff3e0;}
+.niveau-btn.n3:hover,.niveau-btn.n3.sel{border-color:#d93025;background:#fce8e6;}
+.btn-cancel{background:none;border:none;color:#999;font-size:.85rem;cursor:pointer;margin-top:8px;}
+
+/* BADGES */
+.badges-section{background:#fff;border-radius:16px;padding:20px 24px;
+  box-shadow:var(--ombre);margin-bottom:20px;}
+.badges-grid{display:flex;gap:12px;flex-wrap:wrap;margin-top:12px;}
+.badge-item{text-align:center;padding:10px 14px;border-radius:12px;background:#f8f9fa;min-width:70px;}
+.badge-item.earned{background:linear-gradient(135deg,#fff9c4,#fffde7);}
+.badge-item .b-icon{font-size:1.6rem;}
+.badge-item .b-label{font-size:.68rem;color:#555;margin-top:4px;font-weight:600;}
+
+/* CLASSEMENT */
+.classement{background:#fff;border-radius:16px;padding:20px 24px;box-shadow:var(--ombre);margin-bottom:20px;}
+.rank-item{display:flex;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid #f0f0f0;}
+.rank-item:last-child{border-bottom:none;}
+.rank-num{width:28px;height:28px;border-radius:50%;display:flex;align-items:center;
+  justify-content:center;font-weight:700;font-size:.82rem;background:#eee;}
+.rank-1{background:var(--gold);color:#fff;}
+.rank-2{background:var(--silver);color:#fff;}
+.rank-3{background:var(--bronze);color:#fff;}
+.rank-nom{flex:1;font-size:.88rem;font-weight:600;}
+.rank-score{font-size:.85rem;color:var(--ocean);font-weight:700;}
+
+/* VIDE */
+.vide{text-align:center;padding:40px;color:#aaa;}
+.vide .icone{font-size:2.5rem;margin-bottom:8px;}
+
+/* RESPONSIVE */
+@media(max-width:520px){
+  .qcm-grid{grid-template-columns:1fr;}
+  .stats-row{flex-wrap:wrap;}
+  .niveau-grid{grid-template-columns:1fr;}
+}
+</style>
 </head>
 <body>
 
-  <header>
-    <a class="logo" href="index.html">
-      <span>🎓</span>
+<header>
+  <div class="logo">
+    <span class="logo-icon">🌺</span>
+    <div>
       <h1>EduQuiz Afareiatu</h1>
-    </a>
-    <nav>
-      <a href="index.html" class="active">Accueil</a>
-      <a href="admin.html">Admin</a>
-    </nav>
-  </header>
-
-  <main>
-
-    <div class="card mb-2">
-      <h2 style="margin-bottom:0.4rem">📋 QCM de révision</h2>
-      <p class="text-petit" style="color:#555">
-        Physique-Chimie — Collège de Afareiatu, Moorea
-      </p>
+      <p>Physique-Chimie · Collège de Afareiatu</p>
     </div>
+  </div>
+  <button id="btn-deconnexion" onclick="deconnecter()" style="display:none">🚪 Changer</button>
+</header>
 
-    <div class="filtres" id="filtres-classes">
-      <button class="filtre-btn actif" data-classe="tous" onclick="filtrerClasse(this, 'tous')">Toutes</button>
-      <button class="filtre-btn" data-classe="5e" onclick="filtrerClasse(this, '5e')">5ème</button>
-      <button class="filtre-btn" data-classe="4e" onclick="filtrerClasse(this, '4e')">4ème</button>
+<!-- ÉCRAN INSCRIPTION -->
+<div id="ecran-inscription">
+  <div class="card-inscription">
+    <div class="emoji-top">🎓</div>
+    <h2>Bienvenue sur EduQuiz !</h2>
+    <p>Entre ton prénom et ta classe pour commencer à réviser</p>
+    <div class="form-group">
+      <label>👤 Prénom</label>
+      <input type="text" id="inp-prenom" placeholder="Ton prénom" autocomplete="given-name"/>
     </div>
-
-    <div class="qcm-liste" id="qcm-liste">
-      <div class="vide"><div class="icone">⏳</div><p>Chargement...</p></div>
+    <div class="form-group">
+      <label>✏️ Nom</label>
+      <input type="text" id="inp-nom" placeholder="Ton nom" autocomplete="family-name"/>
     </div>
+    <div class="form-group">
+      <label>🏫 Classe</label>
+      <select id="inp-classe">
+        <option value="">-- Choisis ta classe --</option>
+        <optgroup label="5ème">
+          <option value="5e1">5ème 1</option>
+          <option value="5e2">5ème 2</option>
+          <option value="5e3">5ème 3</option>
+          <option value="5e4">5ème 4</option>
+          <option value="5e5">5ème 5</option>
+          <option value="5e6">5ème 6</option>
+        </optgroup>
+        <optgroup label="4ème">
+          <option value="4e1">4ème 1</option>
+          <option value="4e2">4ème 2</option>
+          <option value="4e3">4ème 3</option>
+          <option value="4e4">4ème 4</option>
+          <option value="4e5">4ème 5</option>
+          <option value="4e6">4ème 6</option>
+        </optgroup>
+      </select>
+    </div>
+    <button class="btn-primary" onclick="inscrire()">C'est parti ! 🚀</button>
+  </div>
+</div>
 
-  </main>
+<!-- ÉCRAN APPLICATION -->
+<div id="ecran-app">
 
-  <footer>
-    Collège de Afareiatu — Physique-Chimie · EduQuiz 2026
-  </footer>
+  <!-- PROFIL -->
+  <div class="profil-card" id="profil-card">
+    <div class="avatar" id="avatar-emoji">😊</div>
+    <div class="profil-info">
+      <h2 id="profil-nom">Élève</h2>
+      <p id="profil-classe">Classe</p>
+      <div class="stats-row">
+        <span class="stat-chip" id="stat-qcm">0 QCM terminés</span>
+        <span class="stat-chip" id="stat-xp">⚡ 0 XP</span>
+        <span class="stat-chip" id="stat-serie">🔥 Série: 0</span>
+      </div>
+    </div>
+  </div>
 
-  <script>
-    const CATALOGUE = [
-      { fichier: "qcm-4e-ch01.json", titre: "Composition et qualité de l'air", classe: "4e", chapitre: "Ch01", nbQuestions: 8, difficulte: "⭐⭐"},
-      { fichier: "qcm-4e-ch02.json", titre: "Solubilité et purification de l'eau", classe: "4e", chapitre: "Ch02", nbQuestions: 8, difficulte: "⭐⭐"},
-      { fichier: "qcm-4e-ch03.json", titre: "Transformations chimiques", classe: "4e", chapitre: "Ch03", nbQuestions: 8, difficulte: "⭐⭐"},
-      { fichier: "qcm-4e-ch04.json", titre: "Mouvement et vitesse", classe: "4e", chapitre: "Ch04", nbQuestions: 8, difficulte: "⭐⭐"},
-      { fichier: "qcm-4e-ch05.json", titre: "Forces et interactions", classe: "4e", chapitre: "Ch05", nbQuestions: 8, difficulte: "⭐⭐"},
-      { fichier: "qcm-4e-ch06.json", titre: "Transferts et conversions d'énergie", classe: "4e", chapitre: "Ch06", nbQuestions: 8, difficulte: "⭐⭐"},
-      { fichier: "qcm-4e-ch07.json", titre: "Circuits électriques et loi d'Ohm", classe: "4e", chapitre: "Ch07", nbQuestions: 8, difficulte: "⭐⭐"},
-      { fichier: "qcm-4e-ch08.json", titre: "Propagation de la lumière", classe: "4e", chapitre: "Ch08", nbQuestions: 8, difficulte: "⭐⭐"},
-      { fichier: "qcm-4e-ch09.json", titre: "Propagation du son", classe: "4e", chapitre: "Ch09", nbQuestions: 8, difficulte: "⭐⭐"},
-      { fichier: "qcm-4e-ch10.json", titre: "Structure de l'Univers", classe: "4e", chapitre: "Ch10", nbQuestions: 8, difficulte: "⭐⭐"},
-      { fichier: "qcm-4e-ch11.json", titre: "Atomes et molécules", classe: "4e", chapitre: "Ch11", nbQuestions: 8, difficulte: "⭐⭐"},
-      { fichier: "qcm-4e-ch12.json", titre: "Réactions chimiques", classe: "4e", chapitre: "Ch12", nbQuestions: 8, difficulte: "⭐⭐"},
-      { fichier: "qcm-4e-ch13.json", titre: "Circuit électrique", classe: "4e", chapitre: "Ch13", nbQuestions: 8, difficulte: "⭐⭐"},
-      { fichier: "qcm-4e-ch14.json", titre: "Pression des fluides", classe: "4e", chapitre: "Ch14", nbQuestions: 8, difficulte: "⭐⭐"},
-      { fichier: "qcm-4e-ch15.json", titre: "Lumière et réfraction", classe: "4e", chapitre: "Ch15", nbQuestions: 8, difficulte: "⭐⭐"},
-      { fichier: "qcm-4e-ch16.json", titre: "Puissance et énergie électrique", classe: "4e", chapitre: "Ch16", nbQuestions: 8, difficulte: "⭐⭐"},
-      { fichier: "qcm-5e-ch01.json", titre: "Les états de la matière", classe: "5e", chapitre: "Ch01", nbQuestions: 8, difficulte: "⭐⭐"},
-      { fichier: "qcm-5e-ch02.json", titre: "Mélanges et solubilité", classe: "5e", chapitre: "Ch02", nbQuestions: 8, difficulte: "⭐⭐"},
-      { fichier: "qcm-5e-ch03.json", titre: "Masse volumique", classe: "5e", chapitre: "Ch03", nbQuestions: 8, difficulte: "⭐⭐"},
-      { fichier: "qcm-5e-ch04.json", titre: "Mouvements et vitesse", classe: "5e", chapitre: "Ch04", nbQuestions: 8, difficulte: "⭐⭐"},
-      { fichier: "qcm-5e-ch05.json", titre: "Forces et leurs effets", classe: "5e", chapitre: "Ch05", nbQuestions: 8, difficulte: "⭐⭐"},
-      { fichier: "qcm-5e-ch06.json", titre: "Énergie : formes et transferts", classe: "5e", chapitre: "Ch06", nbQuestions: 8, difficulte: "⭐⭐"},
-      { fichier: "qcm-5e-ch07.json", titre: "Propagation du son", classe: "5e", chapitre: "Ch07", nbQuestions: 8, difficulte: "⭐⭐"},
-      { fichier: "qcm-5e-ch08.json", titre: "Mélanges et corps purs", classe: "5e", chapitre: "Ch08", nbQuestions: 12, difficulte: "⭐⭐⭐"},
-      { fichier: "qcm-5e-ch09.json", titre: "Changements d'état", classe: "5e", chapitre: "Ch09", nbQuestions: 8, difficulte: "⭐⭐"},
-      { fichier: "qcm-5e-ch10.json", titre: "Lumière et vision", classe: "5e", chapitre: "Ch10", nbQuestions: 8, difficulte: "⭐⭐"},
-      { fichier: "qcm-5e-ch11.json", titre: "Les sons", classe: "5e", chapitre: "Ch11", nbQuestions: 8, difficulte: "⭐⭐"},
-      { fichier: "qcm-5e-ch12.json", titre: "L'énergie et ses transferts", classe: "5e", chapitre: "Ch12", nbQuestions: 8, difficulte: "⭐⭐"},
-      { fichier: "qcm-5e-ch13.json", titre: "Propagation de la lumière", classe: "5e", chapitre: "Ch13", nbQuestions: 8, difficulte: "⭐⭐"}
-    ];
+  <!-- BADGES -->
+  <div class="badges-section">
+    <div class="section-titre">🏅 Mes badges</div>
+    <div class="badges-grid" id="badges-grid"></div>
+  </div>
 
-    let classeFiltree = 'tous';
+  <!-- FILTRES -->
+  <div class="filtres" id="filtres">
+    <button class="filtre-btn actif" data-f="tous" onclick="filtrer(this,'tous')">Tous</button>
+    <button class="filtre-btn" data-f="5e" onclick="filtrer(this,'5e')">5ème</button>
+    <button class="filtre-btn" data-f="4e" onclick="filtrer(this,'4e')">4ème</button>
+  </div>
 
-    function afficherListe() {
-      const liste = document.getElementById('qcm-liste');
-      const qcms = classeFiltree === 'tous' ? CATALOGUE : CATALOGUE.filter(q => q.classe === classeFiltree);
+  <!-- LISTE QCM -->
+  <div class="section-titre">📚 Chapitres</div>
+  <div class="qcm-grid" id="qcm-grid"></div>
 
-      if (qcms.length === 0) {
-        liste.innerHTML = `<div class="vide"><div class="icone">📭</div><p>Aucun QCM pour la ${classeFiltree}.</p></div>`;
-        return;
-      }
+  <!-- CLASSEMENT -->
+  <div class="classement">
+    <div class="section-titre">🏆 Classement de ma classe</div>
+    <div id="classement-liste"></div>
+  </div>
 
-      liste.innerHTML = '';
-      qcms.forEach(qcm => {
-        const a = document.createElement('a');
-        a.className = 'qcm-item';
-        a.href = 'player.html?qcm=' + qcm.fichier;
-        a.innerHTML = `
-          <div class="qcm-item-info">
-            <h3>${qcm.titre}</h3>
-            <p>${qcm.nbQuestions} questions · ${qcm.difficulte}</p>
-          </div>
-          <span class="badge">${qcm.classe}</span>
-        `;
-        liste.appendChild(a);
-      });
+</div>
+
+<!-- MODAL SÉLECTEUR NIVEAU -->
+<div class="modal-overlay" id="modal-niveau" onclick="fermerModal(event)">
+  <div class="modal">
+    <h3 id="modal-titre-qcm">Choisir le niveau</h3>
+    <p id="modal-sous-titre">Quel niveau veux-tu tenter ?</p>
+    <div class="niveau-grid">
+      <button class="niveau-btn n1" onclick="lancerQCM(1)">
+        <span class="n-icon">⭐</span>
+        <span class="n-label">Facile</span>
+        <span class="n-desc">5 questions</span>
+      </button>
+      <button class="niveau-btn n2" onclick="lancerQCM(2)">
+        <span class="n-icon">⭐⭐</span>
+        <span class="n-label">Moyen</span>
+        <span class="n-desc">5 questions</span>
+      </button>
+      <button class="niveau-btn n3" onclick="lancerQCM(3)">
+        <span class="n-icon">⭐⭐⭐</span>
+        <span class="n-label">Difficile</span>
+        <span class="n-desc">5 questions</span>
+      </button>
+    </div>
+    <button class="btn-cancel" onclick="document.getElementById('modal-niveau').classList.remove('visible')">Annuler</button>
+  </div>
+</div>
+
+<script>
+const CATALOGUE = [
+  {f:"qcm-4e-ch01.json",t:"Composition et qualité de l'air",cl:"4e",ch:"Ch01"},
+  {f:"qcm-4e-ch02.json",t:"Solubilité et purification de l'eau",cl:"4e",ch:"Ch02"},
+  {f:"qcm-4e-ch03.json",t:"Transformations chimiques",cl:"4e",ch:"Ch03"},
+  {f:"qcm-4e-ch04.json",t:"Mouvement et vitesse",cl:"4e",ch:"Ch04"},
+  {f:"qcm-4e-ch05.json",t:"Forces et interactions",cl:"4e",ch:"Ch05"},
+  {f:"qcm-4e-ch06.json",t:"Transferts et conversions d'énergie",cl:"4e",ch:"Ch06"},
+  {f:"qcm-4e-ch07.json",t:"Circuits électriques et loi d'Ohm",cl:"4e",ch:"Ch07"},
+  {f:"qcm-4e-ch08.json",t:"Propagation de la lumière",cl:"4e",ch:"Ch08"},
+  {f:"qcm-4e-ch09.json",t:"Propagation du son",cl:"4e",ch:"Ch09"},
+  {f:"qcm-4e-ch10.json",t:"Structure de l'Univers",cl:"4e",ch:"Ch10"},
+  {f:"qcm-4e-ch11.json",t:"Atomes et molécules",cl:"4e",ch:"Ch11"},
+  {f:"qcm-4e-ch12.json",t:"Réactions chimiques",cl:"4e",ch:"Ch12"},
+  {f:"qcm-4e-ch13.json",t:"Circuit électrique",cl:"4e",ch:"Ch13"},
+  {f:"qcm-4e-ch14.json",t:"Pression des fluides",cl:"4e",ch:"Ch14"},
+  {f:"qcm-4e-ch15.json",t:"Lumière et réfraction",cl:"4e",ch:"Ch15"},
+  {f:"qcm-4e-ch16.json",t:"Puissance et énergie électrique",cl:"4e",ch:"Ch16"},
+  {f:"qcm-5e-ch01.json",t:"Les états de la matière",cl:"5e",ch:"Ch01"},
+  {f:"qcm-5e-ch02.json",t:"Mélanges et solubilité",cl:"5e",ch:"Ch02"},
+  {f:"qcm-5e-ch03.json",t:"Masse volumique",cl:"5e",ch:"Ch03"},
+  {f:"qcm-5e-ch04.json",t:"Mouvements et vitesse",cl:"5e",ch:"Ch04"},
+  {f:"qcm-5e-ch05.json",t:"Forces et leurs effets",cl:"5e",ch:"Ch05"},
+  {f:"qcm-5e-ch06.json",t:"Énergie : formes et transferts",cl:"5e",ch:"Ch06"},
+  {f:"qcm-5e-ch07.json",t:"Propagation du son",cl:"5e",ch:"Ch07"},
+  {f:"qcm-5e-ch08.json",t:"Mélanges et corps purs",cl:"5e",ch:"Ch08"},
+  {f:"qcm-5e-ch09.json",t:"Changements d'état",cl:"5e",ch:"Ch09"},
+  {f:"qcm-5e-ch10.json",t:"Lumière et vision",cl:"5e",ch:"Ch10"},
+  {f:"qcm-5e-ch11.json",t:"Les sons",cl:"5e",ch:"Ch11"},
+  {f:"qcm-5e-ch12.json",t:"L'énergie et ses transferts",cl:"5e",ch:"Ch12"},
+  {f:"qcm-5e-ch13.json",t:"Propagation de la lumière",cl:"5e",ch:"Ch13"}
+];
+
+const AVATARS = ['😊','🦁','🐠','🌺','🦋','🐢','🦈','🌴','⭐','🚀','🔥','💎'];
+const NIVEAUX_LABEL = {1:'⭐ Facile',2:'⭐⭐ Moyen',3:'⭐⭐⭐ Difficile'};
+let eleve = null, filtreCourant = 'tous', qcmChoisi = null;
+
+// ─── INIT ───
+window.addEventListener('DOMContentLoaded', () => {
+  const saved = localStorage.getItem('eduquiz_eleve');
+  if (saved) { eleve = JSON.parse(saved); afficherApp(); }
+  else { document.getElementById('ecran-inscription').style.display = 'block'; }
+});
+
+// ─── INSCRIPTION ───
+function inscrire() {
+  const prenom = document.getElementById('inp-prenom').value.trim();
+  const nom = document.getElementById('inp-nom').value.trim();
+  const classe = document.getElementById('inp-classe').value;
+  if (!prenom || !classe) { alert('Merci de remplir ton prénom et ta classe !'); return; }
+  eleve = {
+    prenom, nom, classe,
+    avatar: AVATARS[Math.floor(Math.random()*AVATARS.length)],
+    xp: 0, serie: 0, serieMax: 0,
+    scores: {}, badges: [],
+    dateInscription: new Date().toISOString()
+  };
+  sauvegarder();
+  afficherApp();
+}
+
+function deconnecter() {
+  if (!confirm('Changer d\'élève ? Les scores sont sauvegardés.')) return;
+  eleve = null; localStorage.removeItem('eduquiz_eleve');
+  document.getElementById('ecran-app').style.display = 'none';
+  document.getElementById('ecran-inscription').style.display = 'block';
+  document.getElementById('btn-deconnexion').style.display = 'none';
+}
+
+function sauvegarder() { localStorage.setItem('eduquiz_eleve', JSON.stringify(eleve)); }
+
+// ─── AFFICHAGE APP ───
+function afficherApp() {
+  document.getElementById('ecran-inscription').style.display = 'none';
+  document.getElementById('ecran-app').style.display = 'block';
+  document.getElementById('btn-deconnexion').style.display = 'block';
+  // Profil
+  const classeLabel = eleve.classe.replace('e','ème ').replace('1','1').replace('2','2')
+    .replace('3','3').replace('4','4').replace('5','5').replace('6','6');
+  document.getElementById('profil-nom').textContent = eleve.prenom + (eleve.nom ? ' ' + eleve.nom : '');
+  document.getElementById('profil-classe').textContent = '🏫 ' + eleve.classe.replace(/(\d)e(\d)/,'$1ème $2');
+  document.getElementById('avatar-emoji').textContent = eleve.avatar;
+  const nbTermines = Object.keys(eleve.scores).length;
+  document.getElementById('stat-qcm').textContent = nbTermines + ' QCM terminé' + (nbTermines>1?'s':'');
+  document.getElementById('stat-xp').textContent = '⚡ ' + (eleve.xp||0) + ' XP';
+  document.getElementById('stat-serie').textContent = '🔥 Série: ' + (eleve.serie||0);
+  afficherBadges();
+  afficherQCMs();
+  afficherClassement();
+}
+
+// ─── BADGES ───
+const BADGES_DEF = [
+  {id:'premier',icon:'🎯',label:'Premier QCM',cond:e=>Object.keys(e.scores).length>=1},
+  {id:'bronze',icon:'🥉',label:'Bronze',cond:e=>Object.values(e.scores).some(s=>s.pct>=40)},
+  {id:'argent',icon:'🥈',label:'Argent',cond:e=>Object.values(e.scores).some(s=>s.pct>=70)},
+  {id:'or',icon:'🥇',label:'Or',cond:e=>Object.values(e.scores).some(s=>s.pct>=90)},
+  {id:'diamant',icon:'💎',label:'Diamant',cond:e=>Object.values(e.scores).some(s=>s.pct>=100)},
+  {id:'5qcm',icon:'📚',label:'5 QCMs',cond:e=>Object.keys(e.scores).length>=5},
+  {id:'10qcm',icon:'🏆',label:'10 QCMs',cond:e=>Object.keys(e.scores).length>=10},
+  {id:'serie3',icon:'🔥',label:'Série x3',cond:e=>(e.serieMax||0)>=3},
+  {id:'difficile',icon:'⚡',label:'Difficile !',cond:e=>Object.keys(e.scores).some(k=>k.includes('_n3'))},
+  {id:'all5e',icon:'🌊',label:'Tous 5ème',cond:e=>CATALOGUE.filter(q=>q.cl==='5e').every(q=>e.scores[q.f+'_n1']||e.scores[q.f+'_n2']||e.scores[q.f+'_n3'])},
+  {id:'all4e',icon:'⚗️',label:'Tous 4ème',cond:e=>CATALOGUE.filter(q=>q.cl==='4e').every(q=>e.scores[q.f+'_n1']||e.scores[q.f+'_n2']||e.scores[q.f+'_n3'])},
+  {id:'parfait',icon:'🌟',label:'Parfait !',cond:e=>Object.values(e.scores).some(s=>s.pct===100)},
+];
+
+function afficherBadges() {
+  const grid = document.getElementById('badges-grid');
+  grid.innerHTML = '';
+  BADGES_DEF.forEach(b => {
+    const earned = b.cond(eleve);
+    const div = document.createElement('div');
+    div.className = 'badge-item' + (earned?' earned':'');
+    div.innerHTML = `<div class="b-icon">${earned?b.icon:'🔒'}</div><div class="b-label">${b.label}</div>`;
+    div.title = earned ? 'Badge obtenu !' : 'À débloquer';
+    grid.appendChild(div);
+  });
+}
+
+// ─── LISTE QCM ───
+function filtrer(btn, f) {
+  document.querySelectorAll('.filtre-btn').forEach(b=>b.classList.remove('actif'));
+  btn.classList.add('actif'); filtreCourant = f; afficherQCMs();
+}
+
+function afficherQCMs() {
+  const grid = document.getElementById('qcm-grid');
+  grid.innerHTML = '';
+  const niveau = eleve.classe.startsWith('5') ? '5e' : '4e';
+  const liste = CATALOGUE.filter(q => {
+    if (filtreCourant === 'tous') return q.cl === niveau; // Par défaut sa classe
+    return q.cl === filtreCourant;
+  });
+  // Si filtre "tous" = montrer les deux
+  const listeFinale = filtreCourant === 'tous' ? CATALOGUE.filter(q=>q.cl===niveau) : CATALOGUE.filter(q=>q.cl===filtreCourant);
+  listeFinale.forEach(qcm => {
+    const scoreN1 = eleve.scores[qcm.f+'_n1'];
+    const scoreN2 = eleve.scores[qcm.f+'_n2'];
+    const scoreN3 = eleve.scores[qcm.f+'_n3'];
+    const meilleur = [scoreN1,scoreN2,scoreN3].filter(Boolean).sort((a,b)=>b.pct-a.pct)[0];
+    const done = !!meilleur;
+    const pct = done ? meilleur.pct : 0;
+    const card = document.createElement('div');
+    card.className = 'qcm-card' + (done?' done':'');
+    card.onclick = () => ouvrirModal(qcm);
+    card.style.cursor = 'pointer';
+    card.innerHTML = `
+      <span class="badge-classe">${qcm.cl.replace('e','ème')}</span>
+      <h3>${qcm.t}</h3>
+      <p>${qcm.ch} · 3 niveaux · 15 questions</p>
+      <div class="progress-mini"><div class="progress-mini-fill" style="width:${pct}%"></div></div>
+      <p style="font-size:.72rem;color:#999;margin-top:6px;">${done?'✅ Meilleur score: '+pct+'%':'🔵 Non commencé'}</p>
+      ${done&&pct>=90?'<span class="badge-done">🥇</span>':done&&pct>=70?'<span class="badge-done">🥈</span>':done&&pct>=40?'<span class="badge-done">🥉</span>':''}
+    `;
+    grid.appendChild(card);
+  });
+}
+
+// ─── MODAL NIVEAU ───
+function ouvrirModal(qcm) {
+  qcmChoisi = qcm;
+  document.getElementById('modal-titre-qcm').textContent = qcm.t;
+  document.getElementById('modal-sous-titre').textContent = qcm.ch + ' · Quel niveau veux-tu tenter ?';
+  document.getElementById('modal-niveau').classList.add('visible');
+}
+function fermerModal(e) {
+  if (e.target.id === 'modal-niveau') document.getElementById('modal-niveau').classList.remove('visible');
+}
+function lancerQCM(niveau) {
+  if (!qcmChoisi) return;
+  document.getElementById('modal-niveau').classList.remove('visible');
+  window.location.href = `player.html?qcm=${qcmChoisi.f}&niveau=${niveau}`;
+}
+
+// ─── CLASSEMENT ───
+function afficherClassement() {
+  const liste = document.getElementById('classement-liste');
+  // Récupérer tous les scores de la même classe depuis localStorage
+  const classeEleve = eleve.classe;
+  let tous = [];
+  // Chercher les autres élèves dans localStorage (clés eduquiz_score_*)
+  for (let i=0; i<localStorage.length; i++) {
+    const key = localStorage.key(i);
+    if (key && key.startsWith('eduquiz_score_')) {
+      try {
+        const d = JSON.parse(localStorage.getItem(key));
+        if (d && d.classe === classeEleve) tous.push(d);
+      } catch(e){}
     }
+  }
+  // Toujours inclure l'élève actuel
+  const xpEleve = { nom: eleve.prenom + ' ' + (eleve.nom||''), classe: classeEleve, xp: eleve.xp||0 };
+  if (!tous.find(t=>t.nom===xpEleve.nom)) tous.push(xpEleve);
+  tous.sort((a,b)=>b.xp-a.xp);
+  const top5 = tous.slice(0,5);
+  if (top5.length === 0) { liste.innerHTML = '<div class="vide"><div class="icone">🏆</div><p>Sois le premier de ta classe !</p></div>'; return; }
+  liste.innerHTML = '';
+  top5.forEach((e,i) => {
+    const div = document.createElement('div');
+    div.className = 'rank-item';
+    const isMe = e.nom === xpEleve.nom;
+    div.innerHTML = `
+      <div class="rank-num rank-${i+1<=3?i+1:'x'}">${i+1}</div>
+      <div class="rank-nom" style="${isMe?'color:var(--ocean);font-weight:800;':''}">${e.nom}${isMe?' 👈':''}</div>
+      <div class="rank-score">⚡ ${e.xp} XP</div>
+    `;
+    liste.appendChild(div);
+  });
+}
 
-    function filtrerClasse(btn, classe) {
-      document.querySelectorAll('.filtre-btn').forEach(b => b.classList.remove('actif'));
-      btn.classList.add('actif');
-      classeFiltree = classe;
-      afficherListe();
+// ─── RÉCEPTION SCORE (depuis player.html) ───
+window.addEventListener('storage', e => {
+  if (e.key === 'eduquiz_last_result') {
+    const res = JSON.parse(e.newValue);
+    if (!res) return;
+    const key = res.qcmId + '_n' + res.niveau;
+    if (!eleve.scores[key] || res.pct > eleve.scores[key].pct) {
+      eleve.scores[key] = { pct: res.pct, date: res.date, competences: res.competences };
     }
-
-    document.addEventListener('DOMContentLoaded', () => afficherListe());
-  </script>
-
+    eleve.xp = (eleve.xp||0) + res.xpGagne;
+    eleve.serie = (eleve.serie||0) + (res.pct >= 60 ? 1 : 0);
+    if (res.pct < 60) eleve.serie = 0;
+    eleve.serieMax = Math.max(eleve.serie, eleve.serieMax||0);
+    sauvegarder();
+    afficherApp();
+  }
+});
+</script>
 </body>
 </html>

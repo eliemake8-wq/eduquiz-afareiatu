@@ -20,7 +20,9 @@
       "feedback_correct": "✅ d = v × t = 90 × 2 = 180 km.",
       "feedback_incorrect": "❌ d = v × t = 90 × 2 = 180 km.",
       "code_socle": "D4-4",
-      "difficulte": 1
+      "difficulte": 1,
+      "niveau": 1,
+      "competence": "S'approprier"
     },
     {
       "id": 2,
@@ -35,7 +37,9 @@
       "feedback_correct": "✅ 72 ÷ 3,6 = 20 m/s.",
       "feedback_incorrect": "❌ 72 ÷ 3,6 = 20 m/s.",
       "code_socle": "D4-4",
-      "difficulte": 1
+      "difficulte": 1,
+      "niveau": 1,
+      "competence": "Analyser/Raisonner"
     },
     {
       "id": 3,
@@ -50,7 +54,9 @@
       "feedback_correct": "✅ Droite sur d=f(t) → vitesse constante → mouvement uniforme.",
       "feedback_incorrect": "❌ Droite sur d=f(t) → vitesse constante → mouvement uniforme.",
       "code_socle": "D4-4",
-      "difficulte": 1
+      "difficulte": 1,
+      "niveau": 1,
+      "competence": "Réaliser"
     },
     {
       "id": 4,
@@ -65,7 +71,9 @@
       "feedback_correct": "✅ v = 36/1,5 = 24 km/h.",
       "feedback_incorrect": "❌ v = 36/1,5 = 24 km/h.",
       "code_socle": "D4-4",
-      "difficulte": 2
+      "difficulte": 2,
+      "niveau": 2,
+      "competence": "Valider"
     },
     {
       "id": 5,
@@ -80,7 +88,9 @@
       "feedback_correct": "✅ La vitesse instantanée est lue sur le compteur de vitesse (à un instant précis).",
       "feedback_incorrect": "❌ La vitesse instantanée est lue sur le compteur de vitesse (à un instant précis).",
       "code_socle": "D4-4",
-      "difficulte": 2
+      "difficulte": 2,
+      "niveau": 2,
+      "competence": "Communiquer"
     },
     {
       "id": 6,
@@ -95,7 +105,9 @@
       "feedback_correct": "✅ Rectiligne uniforme : trajectoire droite + vitesse constante.",
       "feedback_incorrect": "❌ Rectiligne uniforme : trajectoire droite + vitesse constante.",
       "code_socle": "D4-4",
-      "difficulte": 2
+      "difficulte": 2,
+      "niveau": 2,
+      "competence": "S'approprier"
     },
     {
       "id": 7,
@@ -110,7 +122,9 @@
       "feedback_correct": "✅ v = 400/50 = 8 m/s ; 8 × 3,6 = 28,8 km/h.",
       "feedback_incorrect": "❌ v = 400/50 = 8 m/s ; 8 × 3,6 = 28,8 km/h.",
       "code_socle": "D4-4",
-      "difficulte": 3
+      "difficulte": 3,
+      "niveau": 3,
+      "competence": "Analyser/Raisonner"
     },
     {
       "id": 8,
@@ -125,6 +139,127 @@
       "feedback_correct": "✅ Même vitesse, même direction → immobiles l'une par rapport à l'autre.",
       "feedback_incorrect": "❌ Même vitesse, même direction → immobiles l'une par rapport à l'autre.",
       "code_socle": "D4-4",
+      "difficulte": 3,
+      "niveau": 3,
+      "competence": "Réaliser"
+    },
+    {
+      "id": 9,
+      "niveau": 3,
+      "competence": "Réaliser",
+      "enonce": "Une voiture parcourt 120 km en 1h30min. Quelle est sa vitesse moyenne en km/h ?",
+      "options": [
+        "80 km/h",
+        "90 km/h",
+        "120 km/h",
+        "60 km/h"
+      ],
+      "reponse": 0,
+      "feedback_correct": "✅ v = d/t = 120km / 1,5h = 80 km/h. Attention : 1h30min = 1,5h et non 1,3h !",
+      "feedback_incorrect": "❌ Convertir 1h30min en heures : 1,5h. Puis v = 120 ÷ 1,5 = 80 km/h.",
+      "code_socle": "qcm-4e-ch04-9",
+      "difficulte": 3
+    },
+    {
+      "id": 10,
+      "niveau": 3,
+      "competence": "Réaliser",
+      "enonce": "Un requin nage à 40 km/h. En combien de secondes parcourt-il 100m ?",
+      "options": [
+        "9 secondes",
+        "40 secondes",
+        "0,25 secondes",
+        "2,5 secondes"
+      ],
+      "reponse": 0,
+      "feedback_correct": "✅ 40km/h = 40000m/3600s ≈ 11,1m/s. t = d/v = 100/11,1 ≈ 9s. Les requins sont de redoutables nageurs !",
+      "feedback_incorrect": "❌ Convertir 40km/h → m/s : ÷3,6 = 11,1m/s. Puis t = 100m ÷ 11,1m/s ≈ 9s.",
+      "code_socle": "qcm-4e-ch04-10",
+      "difficulte": 3
+    },
+    {
+      "id": 11,
+      "niveau": 3,
+      "competence": "Analyser/Raisonner",
+      "enonce": "Sur un chronophotographie, les positions successives d'un objet sont de plus en plus espacées. L'objet est en mouvement :",
+      "options": [
+        "Uniforme",
+        "Accéléré",
+        "Décéléré",
+        "Circulaire"
+      ],
+      "reponse": 1,
+      "feedback_correct": "✅ Positions de plus en plus espacées = distances parcourue croissantes à intervalles égaux = vitesse qui augmente = mouvement accéléré.",
+      "feedback_incorrect": "❌ Espacement croissant → vitesse croissante → accélération. Espacement constant → vitesse constante → mouvement uniforme.",
+      "code_socle": "qcm-4e-ch04-11",
+      "difficulte": 3
+    },
+    {
+      "id": 12,
+      "niveau": 3,
+      "competence": "Réaliser",
+      "enonce": "La vitesse de la lumière est 3×10⁸ m/s. Le Soleil est à 1,5×10¹¹ m de la Terre. La lumière met :",
+      "options": [
+        "500 secondes ≈ 8 minutes",
+        "3 secondes",
+        "1 heure",
+        "1 an"
+      ],
+      "reponse": 0,
+      "feedback_correct": "✅ t = d/v = 1,5×10¹¹ / 3×10⁸ = 500s ≈ 8min20s. La lumière que tu vois vient du Soleil tel qu'il était il y a 8 minutes !",
+      "feedback_incorrect": "❌ t = d ÷ v = 1,5×10¹¹ ÷ 3×10⁸ = 5×10² = 500s ≈ 8min. La lumière du Soleil met 8 minutes pour nous atteindre.",
+      "code_socle": "qcm-4e-ch04-12",
+      "difficulte": 3
+    },
+    {
+      "id": 13,
+      "niveau": 3,
+      "competence": "Réaliser",
+      "enonce": "Un cycliste ralentit de 36 km/h à 0 km/h en 5 secondes. Convertis 36km/h en m/s :",
+      "options": [
+        "36 m/s",
+        "3,6 m/s",
+        "10 m/s",
+        "0,1 m/s"
+      ],
+      "reponse": 2,
+      "feedback_correct": "✅ Conversion km/h → m/s : diviser par 3,6. 36 ÷ 3,6 = 10 m/s. Retenir : 36km/h = 10m/s (utile au bac !).",
+      "feedback_incorrect": "❌ Pour convertir km/h en m/s, diviser par 3,6. 36 ÷ 3,6 = 10 m/s. ",
+      "code_socle": "qcm-4e-ch04-13",
+      "difficulte": 3
+    },
+    {
+      "id": 14,
+      "niveau": 3,
+      "competence": "Réaliser",
+      "enonce": "La distance Terre-Lune est 384 000 km. Une sonde spatiale y voyage à 28 000 km/h. Durée du trajet ?",
+      "options": [
+        "13,7 heures",
+        "3,84 heures",
+        "28 heures",
+        "100 heures"
+      ],
+      "reponse": 0,
+      "feedback_correct": "✅ t = d/v = 384 000 / 28 000 ≈ 13,7h ≈ 14 heures. La mission Apollo 11 a mis 3 jours car elle voyageait moins vite.",
+      "feedback_incorrect": "❌ t = 384 000 ÷ 28 000 ≈ 13,7h. Bien vérifier les unités : km ÷ km/h = heures. ✓",
+      "code_socle": "qcm-4e-ch04-14",
+      "difficulte": 3
+    },
+    {
+      "id": 15,
+      "niveau": 3,
+      "competence": "Analyser/Raisonner",
+      "enonce": "Un graphique d=f(t) est une droite passant par l'origine. La pente représente :",
+      "options": [
+        "La distance totale",
+        "La vitesse (constante)",
+        "L'accélération",
+        "Le temps de trajet"
+      ],
+      "reponse": 1,
+      "feedback_correct": "✅ Sur d=f(t), la pente = Δd/Δt = vitesse. Si c'est une droite → vitesse constante → mouvement rectiligne uniforme (MRU).",
+      "feedback_incorrect": "❌ La pente d'un graphique d=f(t) est toujours Δd/Δt = vitesse. Droite = vitesse constante = mouvement uniforme.",
+      "code_socle": "qcm-4e-ch04-15",
       "difficulte": 3
     }
   ]

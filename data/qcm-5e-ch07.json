@@ -20,7 +20,9 @@
       "feedback_correct": "✅ Le son est une vibration mécanique : il ne peut pas se propager dans le vide.",
       "feedback_incorrect": "❌ Le son est une vibration mécanique : il ne peut pas se propager dans le vide.",
       "code_socle": "D5-7",
-      "difficulte": 1
+      "difficulte": 1,
+      "niveau": 1,
+      "competence": "S'approprier"
     },
     {
       "id": 2,
@@ -35,7 +37,9 @@
       "feedback_correct": "✅ La vitesse du son dans l'air à 20 °C est d'environ 340 m/s.",
       "feedback_incorrect": "❌ La vitesse du son dans l'air à 20 °C est d'environ 340 m/s.",
       "code_socle": "D5-7",
-      "difficulte": 1
+      "difficulte": 1,
+      "niveau": 1,
+      "competence": "Analyser/Raisonner"
     },
     {
       "id": 3,
@@ -50,7 +54,9 @@
       "feedback_correct": "✅ La hauteur (grave/aigu) d'un son est liée à sa fréquence.",
       "feedback_incorrect": "❌ La hauteur (grave/aigu) d'un son est liée à sa fréquence.",
       "code_socle": "D5-7",
-      "difficulte": 1
+      "difficulte": 1,
+      "niveau": 1,
+      "competence": "Réaliser"
     },
     {
       "id": 4,
@@ -65,7 +71,9 @@
       "feedback_correct": "✅ Le son se propage plus vite dans les solides que dans les liquides et les gaz.",
       "feedback_incorrect": "❌ Le son se propage plus vite dans les solides que dans les liquides et les gaz.",
       "code_socle": "D5-7",
-      "difficulte": 2
+      "difficulte": 2,
+      "niveau": 2,
+      "competence": "Valider"
     },
     {
       "id": 5,
@@ -80,7 +88,9 @@
       "feedback_correct": "✅ d = v × t = 340 × 5 = 1 700 m = 1,7 km.",
       "feedback_incorrect": "❌ d = v × t = 340 × 5 = 1 700 m = 1,7 km.",
       "code_socle": "D5-7",
-      "difficulte": 2
+      "difficulte": 2,
+      "niveau": 2,
+      "competence": "Communiquer"
     },
     {
       "id": 6,
@@ -95,7 +105,9 @@
       "feedback_correct": "✅ L'intensité sonore se mesure en décibels (dB).",
       "feedback_incorrect": "❌ L'intensité sonore se mesure en décibels (dB).",
       "code_socle": "D5-7",
-      "difficulte": 2
+      "difficulte": 2,
+      "niveau": 2,
+      "competence": "S'approprier"
     },
     {
       "id": 7,
@@ -110,7 +122,9 @@
       "feedback_correct": "✅ Les ultrasons ont une fréquence supérieure à 20 000 Hz : ils ne sont pas audibles par l'humain.",
       "feedback_incorrect": "❌ Les ultrasons ont une fréquence supérieure à 20 000 Hz : ils ne sont pas audibles par l'humain.",
       "code_socle": "D5-7",
-      "difficulte": 3
+      "difficulte": 3,
+      "niveau": 3,
+      "competence": "Analyser/Raisonner"
     },
     {
       "id": 8,
@@ -125,6 +139,127 @@
       "feedback_correct": "✅ L'échographie envoie des ultrasons qui se réfléchissent sur les organes ; l'analyse des échos forme une image.",
       "feedback_incorrect": "❌ L'échographie envoie des ultrasons qui se réfléchissent sur les organes ; l'analyse des échos forme une image.",
       "code_socle": "D5-7",
+      "difficulte": 3,
+      "niveau": 3,
+      "competence": "Réaliser"
+    },
+    {
+      "id": 9,
+      "niveau": 3,
+      "competence": "Valider",
+      "enonce": "[Propagation du son — 5E] Une expérience donne des résultats inattendus. Quelle est la première chose à faire ?",
+      "options": [
+        "Ignorer les résultats",
+        "Vérifier et recommencer l'expérience",
+        "Changer les données",
+        "Déclarer une erreur du prof"
+      ],
+      "reponse": 1,
+      "feedback_correct": "✅ En sciences, des résultats inattendus imposent de vérifier la démarche et de recommencer l'expérience avant toute conclusion.",
+      "feedback_incorrect": "❌ La démarche scientifique impose de vérifier et répéter. Des résultats reproductibles et inattendus peuvent mener à de grandes découvertes !",
+      "code_socle": "qcm-5e-ch07-9",
+      "difficulte": 3
+    },
+    {
+      "id": 10,
+      "niveau": 3,
+      "competence": "Communiquer",
+      "enonce": "[Propagation du son — 5E] Pour communiquer un résultat scientifique, il faut :",
+      "options": [
+        "Juste donner le chiffre",
+        "Donner la valeur + unité + incertitude si possible",
+        "Faire un dessin",
+        "Écrire en rouge"
+      ],
+      "reponse": 1,
+      "feedback_correct": "✅ Un résultat scientifique complet = valeur numérique + unité. Ex: v = 10 m/s (pas juste '10').",
+      "feedback_incorrect": "❌ Sans unité, un résultat scientifique n'a pas de sens. 10 km/h ≠ 10 m/s ≠ 10 km. Toujours préciser l'unité !",
+      "code_socle": "qcm-5e-ch07-10",
+      "difficulte": 3
+    },
+    {
+      "id": 11,
+      "niveau": 3,
+      "competence": "Analyser/Raisonner",
+      "enonce": "[Propagation du son — 5E] La démarche scientifique comprend dans l'ordre :",
+      "options": [
+        "Conclusion → Hypothèse → Expérience",
+        "Observation → Hypothèse → Expérience → Conclusion",
+        "Expérience → Hypothèse → Observation",
+        "Au hasard, l'ordre n'importe pas"
+      ],
+      "reponse": 1,
+      "feedback_correct": "✅ La démarche scientifique : Observer → Questionner → Hypothèse → Protocole → Expérience → Analyser → Conclure.",
+      "feedback_incorrect": "❌ La démarche scientifique a un ordre logique : on observe d'abord, on émet une hypothèse, on expérimente, puis on conclut.",
+      "code_socle": "qcm-5e-ch07-11",
+      "difficulte": 3
+    },
+    {
+      "id": 12,
+      "niveau": 3,
+      "competence": "S'approprier",
+      "enonce": "[Propagation du son — 5E] Un modèle scientifique est :",
+      "options": [
+        "Une maquette en plastique",
+        "Une représentation simplifiée de la réalité pour l'expliquer",
+        "Une copie exacte de la réalité",
+        "Une erreur de calcul"
+      ],
+      "reponse": 1,
+      "feedback_correct": "✅ Un modèle scientifique est une représentation simplifiée et utile de la réalité. Ex: le modèle atomique, le modèle du circuit électrique.",
+      "feedback_incorrect": "❌ Les modèles scientifiques simplifient la réalité pour la comprendre et prévoir. Ils sont utiles même s'ils ne sont pas parfaits.",
+      "code_socle": "qcm-5e-ch07-12",
+      "difficulte": 3
+    },
+    {
+      "id": 13,
+      "niveau": 3,
+      "competence": "Réaliser",
+      "enonce": "[Propagation du son — 5E] L'incertitude de mesure signifie :",
+      "options": [
+        "Qu'on ne sait pas mesurer",
+        "Que toute mesure a une limite de précision liée à l'instrument",
+        "Que les résultats sont faux",
+        "Que le protocole est mauvais"
+      ],
+      "reponse": 1,
+      "feedback_correct": "✅ Toute mesure est imparfaite. Une règle graduée au mm donne ±0,5mm d'incertitude. C'est normal et inévitable en sciences expérimentales.",
+      "feedback_incorrect": "❌ L'incertitude n'est pas une erreur ! C'est la limite de précision de l'instrument. Ex: règle au mm → précision ±0,5mm.",
+      "code_socle": "qcm-5e-ch07-13",
+      "difficulte": 3
+    },
+    {
+      "id": 14,
+      "niveau": 3,
+      "competence": "Valider",
+      "enonce": "[Propagation du son — 5E] Deux élèves mesurent la même longueur : 12,3 cm et 12,4 cm. Leurs mesures sont :",
+      "options": [
+        "L'une est fausse",
+        "Incompatibles",
+        "Compatibles (écart dans l'incertitude)",
+        "Sans signification"
+      ],
+      "reponse": 2,
+      "feedback_correct": "✅ Un écart de 0,1cm est dans la marge d'incertitude d'une règle. Les deux mesures sont compatibles — c'est normal !",
+      "feedback_incorrect": "❌ En sciences, deux mesures proches sont compatibles si leur écart est dans l'incertitude de mesure. 0,1cm est normal avec une règle.",
+      "code_socle": "qcm-5e-ch07-14",
+      "difficulte": 3
+    },
+    {
+      "id": 15,
+      "niveau": 3,
+      "competence": "Communiquer",
+      "enonce": "[Propagation du son — 5E] Pour tracer le graphique d'une expérience, on met en abscisse (axe horizontal) :",
+      "options": [
+        "Les valeurs les plus grandes",
+        "La grandeur que l'on fait varier (variable indépendante)",
+        "Le résultat",
+        "N'importe quelle grandeur"
+      ],
+      "reponse": 1,
+      "feedback_correct": "✅ Convention : axe des abscisses = variable indépendante (ce qu'on contrôle/fait varier). Axe des ordonnées = variable mesurée (le résultat).",
+      "feedback_incorrect": "❌ Convention scientifique : abscisse = ce qu'on fait varier (cause), ordonnée = ce qu'on mesure (effet). Ex: temps en abscisse, distance en ordonnée.",
+      "code_socle": "qcm-5e-ch07-15",
       "difficulte": 3
     }
   ]

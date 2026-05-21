@@ -20,7 +20,9 @@
       "feedback_correct": "✅ Le diazote N₂ représente environ 78 % de l'air.",
       "feedback_incorrect": "❌ Le diazote N₂ représente environ 78 % de l'air.",
       "code_socle": "D4-1",
-      "difficulte": 1
+      "difficulte": 1,
+      "niveau": 1,
+      "competence": "S'approprier"
     },
     {
       "id": 2,
@@ -35,7 +37,9 @@
       "feedback_correct": "✅ L'eau de chaux se trouble en présence de dioxyde de carbone.",
       "feedback_incorrect": "❌ L'eau de chaux se trouble en présence de dioxyde de carbone.",
       "code_socle": "D4-1",
-      "difficulte": 1
+      "difficulte": 1,
+      "niveau": 1,
+      "competence": "Analyser/Raisonner"
     },
     {
       "id": 3,
@@ -50,7 +54,9 @@
       "feedback_correct": "✅ Le méthane (CH₄) est produit notamment lors de la digestion des ruminants.",
       "feedback_incorrect": "❌ Le méthane (CH₄) est produit notamment lors de la digestion des ruminants.",
       "code_socle": "D4-1",
-      "difficulte": 1
+      "difficulte": 1,
+      "niveau": 1,
+      "competence": "Réaliser"
     },
     {
       "id": 4,
@@ -65,7 +71,9 @@
       "feedback_correct": "✅ Le dioxygène O₂ représente environ 21 % de l'air.",
       "feedback_incorrect": "❌ Le dioxygène O₂ représente environ 21 % de l'air.",
       "code_socle": "D4-1",
-      "difficulte": 2
+      "difficulte": 2,
+      "niveau": 2,
+      "competence": "Valider"
     },
     {
       "id": 5,
@@ -80,7 +88,9 @@
       "feedback_correct": "✅ L'ozone formé près du sol par réactions chimiques est un polluant secondaire.",
       "feedback_incorrect": "❌ L'ozone formé près du sol par réactions chimiques est un polluant secondaire.",
       "code_socle": "D4-1",
-      "difficulte": 2
+      "difficulte": 2,
+      "niveau": 2,
+      "competence": "Communiquer"
     },
     {
       "id": 6,
@@ -95,7 +105,9 @@
       "feedback_correct": "✅ Le dioxygène pur favorise la combustion : une braise se ravive.",
       "feedback_incorrect": "❌ Le dioxygène pur favorise la combustion : une braise se ravive.",
       "code_socle": "D4-1",
-      "difficulte": 2
+      "difficulte": 2,
+      "niveau": 2,
+      "competence": "S'approprier"
     },
     {
       "id": 7,
@@ -110,7 +122,9 @@
       "feedback_correct": "✅ L'effet de serre naturel est indispensable : sans lui, T° moyenne serait -18°C.",
       "feedback_incorrect": "❌ L'effet de serre naturel est indispensable : sans lui, T° moyenne serait -18°C.",
       "code_socle": "D4-1",
-      "difficulte": 3
+      "difficulte": 3,
+      "niveau": 3,
+      "competence": "Analyser/Raisonner"
     },
     {
       "id": 8,
@@ -125,6 +139,127 @@
       "feedback_correct": "✅ Les particules fines (PM2.5, PM10) viennent des moteurs diesel, chauffage au bois.",
       "feedback_incorrect": "❌ Les particules fines (PM2.5, PM10) viennent des moteurs diesel, chauffage au bois.",
       "code_socle": "D4-1",
+      "difficulte": 3,
+      "niveau": 3,
+      "competence": "Réaliser"
+    },
+    {
+      "id": 9,
+      "niveau": 3,
+      "competence": "Réaliser",
+      "enonce": "La composition de l'air sec est approximativement : N₂=78%, O₂=21%, Ar=0,9%, CO₂=0,04%. Quel volume de N₂ dans 1000L d'air ?",
+      "options": [
+        "21 L",
+        "780 L",
+        "9 L",
+        "0,4 L"
+      ],
+      "reponse": 1,
+      "feedback_correct": "✅ 78% de 1000L = 780L de diazote N₂. Le diazote est de loin le gaz majoritaire de l'air.",
+      "feedback_incorrect": "❌ 78% × 1000L = 780L. Ne pas confondre avec O₂ (21% → 210L).",
+      "code_socle": "qcm-4e-ch01-9",
+      "difficulte": 3
+    },
+    {
+      "id": 10,
+      "niveau": 3,
+      "competence": "Analyser/Raisonner",
+      "enonce": "Le CO₂ atmosphérique est passé de 280 ppm (1850) à 420 ppm (2024). Quelle est l'augmentation en % ?",
+      "options": [
+        "50%",
+        "140 ppm de plus seulement",
+        "50% d'augmentation",
+        "Diminution de 50%"
+      ],
+      "reponse": 2,
+      "feedback_correct": "✅ (420-280)/280 × 100 = 140/280 × 100 = 50% d'augmentation. En 170 ans, le CO₂ a augmenté de 50% à cause des activités humaines.",
+      "feedback_incorrect": "❌ Calcul : (420-280)/280 × 100 = 140/280 × 100 = 50%. Il y a 50% plus de CO₂ qu'avant l'ère industrielle.",
+      "code_socle": "qcm-4e-ch01-10",
+      "difficulte": 3
+    },
+    {
+      "id": 11,
+      "niveau": 3,
+      "competence": "S'approprier",
+      "enonce": "L'eau de chaux (Ca(OH)₂) trouble en présence de CO₂. La réaction produit du carbonate de calcium (CaCO₃). Cette réaction est :",
+      "options": [
+        "Une dissolution",
+        "Une transformation chimique",
+        "Un changement d'état",
+        "Une filtration"
+      ],
+      "reponse": 1,
+      "feedback_correct": "✅ Formation d'une nouvelle substance (CaCO₃ = calcaire, précipité blanc) → transformation chimique irréversible.",
+      "feedback_incorrect": "❌ Quand de nouvelles substances sont formées, c'est une transformation chimique. Le CaCO₃ (calcaire) est une substance différente de Ca(OH)₂ et CO₂.",
+      "code_socle": "qcm-4e-ch01-11",
+      "difficulte": 3
+    },
+    {
+      "id": 12,
+      "niveau": 3,
+      "competence": "Communiquer",
+      "enonce": "L'ozone stratosphérique (couche d'ozone) est bénéfique. L'ozone troposphérique (sol) est nocif. Pourquoi cette différence ?",
+      "options": [
+        "Ce sont deux molécules différentes",
+        "C'est la même molécule O₃ mais à des altitudes différentes avec des effets différents",
+        "L'ozone du sol est artificiel",
+        "L'ozone stratosphérique est plus concentré"
+      ],
+      "reponse": 1,
+      "feedback_correct": "✅ Même molécule O₃, mais la couche d'ozone stratosphérique protège des UV, tandis que l'ozone au sol (formé par pollution) irrite les poumons.",
+      "feedback_incorrect": "❌ C'est la même molécule O₃ ! Sa localisation change tout : en haute altitude → bouclier UV bénéfique ; au sol → polluant respiratoire.",
+      "code_socle": "qcm-4e-ch01-12",
+      "difficulte": 3
+    },
+    {
+      "id": 13,
+      "niveau": 3,
+      "competence": "Réaliser",
+      "enonce": "Un arbre absorbe 22kg de CO₂ par an. En Polynésie, si on plante 1000 cocotiers, combien de CO₂ absorbé par an ?",
+      "options": [
+        "22 kg",
+        "22 000 kg = 22 tonnes",
+        "220 kg",
+        "2 200 000 kg"
+      ],
+      "reponse": 1,
+      "feedback_correct": "✅ 1000 × 22kg = 22 000kg = 22 tonnes de CO₂. La reforestation est une solution contre le réchauffement climatique !",
+      "feedback_incorrect": "❌ 1000 arbres × 22kg = 22 000kg = 22 tonnes de CO₂ absorbé. Les forêts tropicales de Polynésie jouent un rôle crucial.",
+      "code_socle": "qcm-4e-ch01-13",
+      "difficulte": 3
+    },
+    {
+      "id": 14,
+      "niveau": 3,
+      "competence": "Analyser/Raisonner",
+      "enonce": "L'effet de serre est dû à des gaz qui absorbent le rayonnement infrarouge émis par la Terre. Sans effet de serre naturel, la T° moyenne serait :",
+      "options": [
+        "La même qu'aujourd'hui (15°C)",
+        "−18°C (Terre gelée)",
+        "50°C (Terre torride)",
+        "0°C exactement"
+      ],
+      "reponse": 1,
+      "feedback_correct": "✅ Sans l'effet de serre naturel (H₂O, CO₂, CH₄...), la T° moyenne serait −18°C. L'effet de serre naturel est indispensable à la vie !",
+      "feedback_incorrect": "❌ L'effet de serre naturel maintient la Terre à +15°C en moyenne. Sans lui : −18°C. C'est son renforcement par l'activité humaine qui pose problème.",
+      "code_socle": "qcm-4e-ch01-14",
+      "difficulte": 3
+    },
+    {
+      "id": 15,
+      "niveau": 3,
+      "competence": "S'approprier",
+      "enonce": "Les particules fines PM2.5 (diamètre < 2,5 μm) sont dangereuses car :",
+      "options": [
+        "Elles bloquent la lumière solaire",
+        "Elles pénètrent profondément dans les poumons et le sang",
+        "Elles réagissent avec l'ozone",
+        "Elles sont radioactives"
+      ],
+      "reponse": 1,
+      "feedback_correct": "✅ Les PM2.5 sont si petites qu'elles traversent les voies respiratoires, atteignent les alvéoles pulmonaires et passent dans le sang → maladies cardiovasculaires.",
+      "feedback_incorrect": "❌ La dangerosité des PM2.5 vient de leur taille ultra-fine : elles pénètrent jusqu'aux alvéoles et dans le sang, causant maladies cardiaques et respiratoires.",
+      "code_socle": "qcm-4e-ch01-15",
       "difficulte": 3
     }
   ]

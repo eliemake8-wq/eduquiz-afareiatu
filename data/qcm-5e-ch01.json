@@ -20,7 +20,9 @@
       "feedback_correct": "✅ L'eau est liquide entre 0 °C et 100 °C à pression normale.",
       "feedback_incorrect": "❌ L'eau est liquide entre 0 °C et 100 °C à pression normale.",
       "code_socle": "D5-1",
-      "difficulte": 1
+      "difficulte": 1,
+      "niveau": 1,
+      "competence": "S'approprier"
     },
     {
       "id": 2,
@@ -35,7 +37,9 @@
       "feedback_correct": "✅ La solidification est le passage de l'état liquide à l'état solide.",
       "feedback_incorrect": "❌ La solidification est le passage de l'état liquide à l'état solide.",
       "code_socle": "D5-1",
-      "difficulte": 1
+      "difficulte": 1,
+      "niveau": 1,
+      "competence": "Analyser/Raisonner"
     },
     {
       "id": 3,
@@ -50,7 +54,9 @@
       "feedback_correct": "✅ L'eau bout à 100 °C à pression atmosphérique normale.",
       "feedback_incorrect": "❌ L'eau bout à 100 °C à pression atmosphérique normale.",
       "code_socle": "D5-1",
-      "difficulte": 1
+      "difficulte": 1,
+      "niveau": 1,
+      "competence": "Réaliser"
     },
     {
       "id": 4,
@@ -65,7 +71,9 @@
       "feedback_correct": "✅ La masse est toujours conservée lors d'un changement d'état.",
       "feedback_incorrect": "❌ La masse est toujours conservée lors d'un changement d'état.",
       "code_socle": "D5-1",
-      "difficulte": 2
+      "difficulte": 2,
+      "niveau": 2,
+      "competence": "Valider"
     },
     {
       "id": 5,
@@ -80,7 +88,9 @@
       "feedback_correct": "✅ Dans l'état gazeux, les molécules sont très éloignées et désordonnées.",
       "feedback_incorrect": "❌ Dans l'état gazeux, les molécules sont très éloignées et désordonnées.",
       "code_socle": "D5-1",
-      "difficulte": 2
+      "difficulte": 2,
+      "niveau": 2,
+      "competence": "Communiquer"
     },
     {
       "id": 6,
@@ -95,7 +105,9 @@
       "feedback_correct": "✅ La sublimation est le passage direct solide → gaz (ex : neige carbonique).",
       "feedback_incorrect": "❌ La sublimation est le passage direct solide → gaz (ex : neige carbonique).",
       "code_socle": "D5-1",
-      "difficulte": 2
+      "difficulte": 2,
+      "niveau": 2,
+      "competence": "S'approprier"
     },
     {
       "id": 7,
@@ -110,7 +122,9 @@
       "feedback_correct": "✅ Pendant un changement d'état, la température reste constante (palier).",
       "feedback_incorrect": "❌ Pendant un changement d'état, la température reste constante (palier).",
       "code_socle": "D5-1",
-      "difficulte": 3
+      "difficulte": 3,
+      "niveau": 3,
+      "competence": "Analyser/Raisonner"
     },
     {
       "id": 8,
@@ -125,6 +139,127 @@
       "feedback_correct": "✅ Un liquide prend la forme de son récipient mais son volume reste constant.",
       "feedback_incorrect": "❌ Un liquide prend la forme de son récipient mais son volume reste constant.",
       "code_socle": "D5-1",
+      "difficulte": 3,
+      "niveau": 3,
+      "competence": "Réaliser"
+    },
+    {
+      "id": 9,
+      "niveau": 3,
+      "competence": "Valider",
+      "enonce": "L'eau est chauffée de 20°C à 100°C puis continue à bouillir. Que se passe-t-il à la température pendant l'ébullition ?",
+      "options": [
+        "Elle continue d'augmenter",
+        "Elle reste constante à 100°C",
+        "Elle diminue légèrement",
+        "Elle monte à 120°C"
+      ],
+      "reponse": 1,
+      "feedback_correct": "✅ Pendant un changement d'état d'un corps pur, la température reste constante : c'est le palier d'ébullition à 100°C.",
+      "feedback_incorrect": "❌ Lors d'un changement d'état, la température est fixe (palier). Pour l'eau pure : 100°C pendant toute l'ébullition.",
+      "code_socle": "qcm-5e-ch01-9",
+      "difficulte": 3
+    },
+    {
+      "id": 10,
+      "niveau": 3,
+      "competence": "Réaliser",
+      "enonce": "Un glaçon de 50g fond complètement. Quelle est la masse de l'eau obtenue ?",
+      "options": [
+        "Moins de 50g (perte par évaporation)",
+        "50g exactement",
+        "Plus de 50g (l'eau prend de la place)",
+        "Impossible à savoir"
+      ],
+      "reponse": 1,
+      "feedback_correct": "✅ La masse se conserve lors d'un changement d'état : 50g de glace → 50g d'eau liquide.",
+      "feedback_incorrect": "❌ Lors d'un changement d'état, la MASSE se conserve. Seul le volume peut changer. 50g de glace = 50g d'eau.",
+      "code_socle": "qcm-5e-ch01-10",
+      "difficulte": 3
+    },
+    {
+      "id": 11,
+      "niveau": 3,
+      "competence": "Analyser/Raisonner",
+      "enonce": "Sur un graphique T=f(t), comment reconnaît-on qu'un corps pur est en train de se solidifier ?",
+      "options": [
+        "La courbe monte rapidement",
+        "La courbe présente un palier horizontal",
+        "La courbe descend en zigzag",
+        "La courbe est une droite oblique"
+      ],
+      "reponse": 1,
+      "feedback_correct": "✅ Un palier horizontal sur T=f(t) indique un changement d'état à température constante — caractéristique d'un corps pur.",
+      "feedback_incorrect": "❌ Le palier horizontal est la signature d'un changement d'état d'un corps pur. Sans palier → mélange.",
+      "code_socle": "qcm-5e-ch01-11",
+      "difficulte": 3
+    },
+    {
+      "id": 12,
+      "niveau": 3,
+      "competence": "Analyser/Raisonner",
+      "enonce": "La glace a une masse volumique de 0,92 g/cm³ et l'eau liquide 1,00 g/cm³. Qu'est-ce que cela implique ?",
+      "options": [
+        "La glace coule dans l'eau",
+        "La glace flotte sur l'eau",
+        "Elles ont la même densité",
+        "La glace se dissout dans l'eau"
+      ],
+      "reponse": 1,
+      "feedback_correct": "✅ Comme ρ(glace) < ρ(eau), la glace flotte. C'est pour ça que les icebergs flottent et que les lacs gèlent par le haut !",
+      "feedback_incorrect": "❌ Un solide flotte si sa masse volumique est inférieure à celle du liquide. 0,92 < 1,00 → la glace flotte.",
+      "code_socle": "qcm-5e-ch01-12",
+      "difficulte": 3
+    },
+    {
+      "id": 13,
+      "niveau": 3,
+      "competence": "S'approprier",
+      "enonce": "L'eau bout à 100°C à la pression atmosphérique normale. À Moorea, au niveau de la mer, l'eau bout à :",
+      "options": [
+        "Moins de 100°C car il fait chaud",
+        "Exactement 100°C",
+        "Plus de 100°C car l'air est humide",
+        "50°C car l'eau de mer est salée"
+      ],
+      "reponse": 1,
+      "feedback_correct": "✅ La température d'ébullition de l'eau pure ne dépend que de la pression. Au niveau de la mer (pression normale) : 100°C.",
+      "feedback_incorrect": "❌ La température d'ébullition dépend de la pression, pas de la chaleur ambiante. Au niveau de la mer → 100°C.",
+      "code_socle": "qcm-5e-ch01-13",
+      "difficulte": 3
+    },
+    {
+      "id": 14,
+      "niveau": 3,
+      "competence": "S'approprier",
+      "enonce": "Lors de la sublimation de la glace carbonique (CO₂ solide), quelle transformation se produit ?",
+      "options": [
+        "Solide → Liquide",
+        "Liquide → Gaz",
+        "Solide → Gaz directement",
+        "Gaz → Solide"
+      ],
+      "reponse": 2,
+      "feedback_correct": "✅ La sublimation est le passage direct de l'état solide à l'état gazeux, sans passer par l'état liquide.",
+      "feedback_incorrect": "❌ La sublimation = solide → gaz DIRECTEMENT. La glace carbonique passe solide → gaz sans se liquéfier.",
+      "code_socle": "qcm-5e-ch01-14",
+      "difficulte": 3
+    },
+    {
+      "id": 15,
+      "niveau": 3,
+      "competence": "Valider",
+      "enonce": "Un élève chauffe de l'eau salée. La courbe T=f(t) ne montre pas de palier net à 100°C. Pourquoi ?",
+      "options": [
+        "Le thermomètre est cassé",
+        "L'eau salée est un mélange : T°ébullition variable",
+        "L'eau salée bout plus vite",
+        "Le sel empêche la vaporisation"
+      ],
+      "reponse": 1,
+      "feedback_correct": "✅ L'eau salée est un mélange : sa température d'ébullition varie (augmente) au fur et à mesure que l'eau s'évapore et que le sel se concentre.",
+      "feedback_incorrect": "❌ Un mélange n'a pas de palier fixe. L'eau salée est un mélange → T°ébullition variable, légèrement supérieure à 100°C et qui monte.",
+      "code_socle": "qcm-5e-ch01-15",
       "difficulte": 3
     }
   ]

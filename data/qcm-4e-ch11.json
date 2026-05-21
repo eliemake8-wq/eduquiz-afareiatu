@@ -20,7 +20,9 @@
       "feedback_correct": "✅ Atome = noyau (protons + neutrons) + électrons en orbite.",
       "feedback_incorrect": "❌ Atome = noyau (protons + neutrons) + électrons en orbite.",
       "code_socle": "D4-11",
-      "difficulte": 1
+      "difficulte": 1,
+      "niveau": 1,
+      "competence": "S'approprier"
     },
     {
       "id": 2,
@@ -35,7 +37,9 @@
       "feedback_correct": "✅ Z = nombre de protons dans le noyau.",
       "feedback_incorrect": "❌ Z = nombre de protons dans le noyau.",
       "code_socle": "D4-11",
-      "difficulte": 1
+      "difficulte": 1,
+      "niveau": 1,
+      "competence": "Analyser/Raisonner"
     },
     {
       "id": 3,
@@ -50,7 +54,9 @@
       "feedback_correct": "✅ H₂O = 2 atomes d'hydrogène (H) et 1 atome d'oxygène (O).",
       "feedback_incorrect": "❌ H₂O = 2 atomes d'hydrogène (H) et 1 atome d'oxygène (O).",
       "code_socle": "D4-11",
-      "difficulte": 1
+      "difficulte": 1,
+      "niveau": 1,
+      "competence": "Réaliser"
     },
     {
       "id": 4,
@@ -65,7 +71,9 @@
       "feedback_correct": "✅ Cation = ion positif (a perdu des électrons).",
       "feedback_incorrect": "❌ Cation = ion positif (a perdu des électrons).",
       "code_socle": "D4-11",
-      "difficulte": 2
+      "difficulte": 2,
+      "niveau": 2,
+      "competence": "Valider"
     },
     {
       "id": 5,
@@ -80,7 +88,9 @@
       "feedback_correct": "✅ O₂ est une molécule diatomique composée de 2 atomes d'oxygène.",
       "feedback_incorrect": "❌ O₂ est une molécule diatomique composée de 2 atomes d'oxygène.",
       "code_socle": "D4-11",
-      "difficulte": 2
+      "difficulte": 2,
+      "niveau": 2,
+      "competence": "Communiquer"
     },
     {
       "id": 6,
@@ -95,7 +105,9 @@
       "feedback_correct": "✅ CH₄ = 1 C + 4 H = 5 atomes en tout.",
       "feedback_incorrect": "❌ CH₄ = 1 C + 4 H = 5 atomes en tout.",
       "code_socle": "D4-11",
-      "difficulte": 2
+      "difficulte": 2,
+      "niveau": 2,
+      "competence": "S'approprier"
     },
     {
       "id": 7,
@@ -110,7 +122,9 @@
       "feedback_correct": "✅ Atome neutre : nb protons = nb électrons.",
       "feedback_incorrect": "❌ Atome neutre : nb protons = nb électrons.",
       "code_socle": "D4-11",
-      "difficulte": 3
+      "difficulte": 3,
+      "niveau": 3,
+      "competence": "Analyser/Raisonner"
     },
     {
       "id": 8,
@@ -125,6 +139,127 @@
       "feedback_correct": "✅ Na → Na⁺ + e⁻ (perte d'un électron → charge positive).",
       "feedback_incorrect": "❌ Na → Na⁺ + e⁻ (perte d'un électron → charge positive).",
       "code_socle": "D4-11",
+      "difficulte": 3,
+      "niveau": 3,
+      "competence": "Réaliser"
+    },
+    {
+      "id": 9,
+      "niveau": 3,
+      "competence": "Valider",
+      "enonce": "[Atomes et molécules — 4E] Une expérience donne des résultats inattendus. Quelle est la première chose à faire ?",
+      "options": [
+        "Ignorer les résultats",
+        "Vérifier et recommencer l'expérience",
+        "Changer les données",
+        "Déclarer une erreur du prof"
+      ],
+      "reponse": 1,
+      "feedback_correct": "✅ En sciences, des résultats inattendus imposent de vérifier la démarche et de recommencer l'expérience avant toute conclusion.",
+      "feedback_incorrect": "❌ La démarche scientifique impose de vérifier et répéter. Des résultats reproductibles et inattendus peuvent mener à de grandes découvertes !",
+      "code_socle": "qcm-4e-ch11-9",
+      "difficulte": 3
+    },
+    {
+      "id": 10,
+      "niveau": 3,
+      "competence": "Communiquer",
+      "enonce": "[Atomes et molécules — 4E] Pour communiquer un résultat scientifique, il faut :",
+      "options": [
+        "Juste donner le chiffre",
+        "Donner la valeur + unité + incertitude si possible",
+        "Faire un dessin",
+        "Écrire en rouge"
+      ],
+      "reponse": 1,
+      "feedback_correct": "✅ Un résultat scientifique complet = valeur numérique + unité. Ex: v = 10 m/s (pas juste '10').",
+      "feedback_incorrect": "❌ Sans unité, un résultat scientifique n'a pas de sens. 10 km/h ≠ 10 m/s ≠ 10 km. Toujours préciser l'unité !",
+      "code_socle": "qcm-4e-ch11-10",
+      "difficulte": 3
+    },
+    {
+      "id": 11,
+      "niveau": 3,
+      "competence": "Analyser/Raisonner",
+      "enonce": "[Atomes et molécules — 4E] La démarche scientifique comprend dans l'ordre :",
+      "options": [
+        "Conclusion → Hypothèse → Expérience",
+        "Observation → Hypothèse → Expérience → Conclusion",
+        "Expérience → Hypothèse → Observation",
+        "Au hasard, l'ordre n'importe pas"
+      ],
+      "reponse": 1,
+      "feedback_correct": "✅ La démarche scientifique : Observer → Questionner → Hypothèse → Protocole → Expérience → Analyser → Conclure.",
+      "feedback_incorrect": "❌ La démarche scientifique a un ordre logique : on observe d'abord, on émet une hypothèse, on expérimente, puis on conclut.",
+      "code_socle": "qcm-4e-ch11-11",
+      "difficulte": 3
+    },
+    {
+      "id": 12,
+      "niveau": 3,
+      "competence": "S'approprier",
+      "enonce": "[Atomes et molécules — 4E] Un modèle scientifique est :",
+      "options": [
+        "Une maquette en plastique",
+        "Une représentation simplifiée de la réalité pour l'expliquer",
+        "Une copie exacte de la réalité",
+        "Une erreur de calcul"
+      ],
+      "reponse": 1,
+      "feedback_correct": "✅ Un modèle scientifique est une représentation simplifiée et utile de la réalité. Ex: le modèle atomique, le modèle du circuit électrique.",
+      "feedback_incorrect": "❌ Les modèles scientifiques simplifient la réalité pour la comprendre et prévoir. Ils sont utiles même s'ils ne sont pas parfaits.",
+      "code_socle": "qcm-4e-ch11-12",
+      "difficulte": 3
+    },
+    {
+      "id": 13,
+      "niveau": 3,
+      "competence": "Réaliser",
+      "enonce": "[Atomes et molécules — 4E] L'incertitude de mesure signifie :",
+      "options": [
+        "Qu'on ne sait pas mesurer",
+        "Que toute mesure a une limite de précision liée à l'instrument",
+        "Que les résultats sont faux",
+        "Que le protocole est mauvais"
+      ],
+      "reponse": 1,
+      "feedback_correct": "✅ Toute mesure est imparfaite. Une règle graduée au mm donne ±0,5mm d'incertitude. C'est normal et inévitable en sciences expérimentales.",
+      "feedback_incorrect": "❌ L'incertitude n'est pas une erreur ! C'est la limite de précision de l'instrument. Ex: règle au mm → précision ±0,5mm.",
+      "code_socle": "qcm-4e-ch11-13",
+      "difficulte": 3
+    },
+    {
+      "id": 14,
+      "niveau": 3,
+      "competence": "Valider",
+      "enonce": "[Atomes et molécules — 4E] Deux élèves mesurent la même longueur : 12,3 cm et 12,4 cm. Leurs mesures sont :",
+      "options": [
+        "L'une est fausse",
+        "Incompatibles",
+        "Compatibles (écart dans l'incertitude)",
+        "Sans signification"
+      ],
+      "reponse": 2,
+      "feedback_correct": "✅ Un écart de 0,1cm est dans la marge d'incertitude d'une règle. Les deux mesures sont compatibles — c'est normal !",
+      "feedback_incorrect": "❌ En sciences, deux mesures proches sont compatibles si leur écart est dans l'incertitude de mesure. 0,1cm est normal avec une règle.",
+      "code_socle": "qcm-4e-ch11-14",
+      "difficulte": 3
+    },
+    {
+      "id": 15,
+      "niveau": 3,
+      "competence": "Communiquer",
+      "enonce": "[Atomes et molécules — 4E] Pour tracer le graphique d'une expérience, on met en abscisse (axe horizontal) :",
+      "options": [
+        "Les valeurs les plus grandes",
+        "La grandeur que l'on fait varier (variable indépendante)",
+        "Le résultat",
+        "N'importe quelle grandeur"
+      ],
+      "reponse": 1,
+      "feedback_correct": "✅ Convention : axe des abscisses = variable indépendante (ce qu'on contrôle/fait varier). Axe des ordonnées = variable mesurée (le résultat).",
+      "feedback_incorrect": "❌ Convention scientifique : abscisse = ce qu'on fait varier (cause), ordonnée = ce qu'on mesure (effet). Ex: temps en abscisse, distance en ordonnée.",
+      "code_socle": "qcm-4e-ch11-15",
       "difficulte": 3
     }
   ]

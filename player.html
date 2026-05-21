@@ -1,130 +1,294 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Lecteur QCM — SPC Afareiatu</title>
-  <link rel="stylesheet" href="css/style.css">
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>EduQuiz — Question</title>
+<style>
+:root{
+  --ocean:#0077b6;--ocean-cl:#caf0f8;--turquoise:#00b4d8;
+  --vert:#0f9d58;--vert-cl:#e6f4ea;
+  --rouge:#d93025;--rouge-cl:#fce8e6;
+  --orange:#f29900;--orange-cl:#fff3e0;
+  --texte:#1a1a2e;--ombre:0 4px 20px rgba(0,119,182,.12);
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Segoe UI',Arial,sans-serif;background:#f0f4ff;color:var(--texte);min-height:100vh;}
+header{background:linear-gradient(135deg,#0077b6,#00b4d8);color:#fff;padding:14px 20px;
+  display:flex;align-items:center;gap:12px;}
+.back-btn{background:rgba(255,255,255,.2);border:none;color:#fff;border-radius:20px;
+  padding:6px 14px;cursor:pointer;font-size:.82rem;}
+.header-info{flex:1;}
+.header-info h1{font-size:1rem;font-weight:700;}
+.header-info p{font-size:.75rem;opacity:.8;}
+.niveau-badge{background:rgba(255,255,255,.25);border-radius:12px;padding:4px 12px;font-size:.78rem;font-weight:700;}
+main{max-width:680px;margin:0 auto;padding:20px 16px 80px;}
+.progress-wrap{background:#fff;border-radius:12px;padding:14px 18px;margin-bottom:16px;
+  box-shadow:var(--ombre);display:flex;align-items:center;gap:14px;}
+.progress-bar{flex:1;height:8px;background:#e0e3e8;border-radius:4px;overflow:hidden;}
+.progress-fill{height:100%;background:linear-gradient(90deg,var(--ocean),var(--turquoise));border-radius:4px;transition:.4s;}
+.q-num{font-size:.8rem;font-weight:700;color:var(--ocean);white-space:nowrap;}
+.score-live{font-size:.8rem;font-weight:700;color:var(--vert);}
+.comp-badge{display:inline-flex;align-items:center;gap:5px;background:var(--ocean-cl);
+  color:var(--ocean);border-radius:20px;padding:4px 12px;font-size:.72rem;font-weight:700;margin-bottom:12px;}
+.q-card{background:#fff;border-radius:18px;padding:24px;box-shadow:var(--ombre);margin-bottom:16px;}
+.q-enonce{font-size:1rem;font-weight:600;line-height:1.6;margin-bottom:20px;}
+.options-list{list-style:none;display:flex;flex-direction:column;gap:10px;}
+.opt-btn{width:100%;display:flex;align-items:center;gap:14px;padding:14px 18px;
+  border:2px solid #e0e3e8;border-radius:14px;background:#fff;cursor:pointer;
+  font-size:.92rem;text-align:left;transition:.2s;}
+.opt-btn:hover:not(:disabled){border-color:var(--ocean);background:var(--ocean-cl);transform:translateX(4px);}
+.opt-letter{width:30px;height:30px;border-radius:50%;background:#f0f4ff;
+  display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.82rem;
+  flex-shrink:0;color:var(--ocean);}
+.opt-btn.correct{border-color:var(--vert);background:var(--vert-cl);}
+.opt-btn.correct .opt-letter{background:var(--vert);color:#fff;}
+.opt-btn.incorrect{border-color:var(--rouge);background:var(--rouge-cl);}
+.opt-btn.incorrect .opt-letter{background:var(--rouge);color:#fff;}
+.feedback{border-radius:14px;padding:16px 18px;margin-top:14px;font-size:.88rem;line-height:1.7;display:none;}
+.feedback.show{display:block;}
+.feedback.ok{background:var(--vert-cl);border-left:4px solid var(--vert);}
+.feedback.ko{background:var(--rouge-cl);border-left:4px solid var(--rouge);}
+.btn-suivant{width:100%;padding:15px;background:linear-gradient(135deg,var(--ocean),var(--turquoise));
+  color:#fff;border:none;border-radius:14px;font-size:1rem;font-weight:700;cursor:pointer;
+  margin-top:14px;display:none;transition:.2s;box-shadow:0 4px 15px rgba(0,119,182,.3);}
+.btn-suivant:hover{transform:translateY(-2px);}
+.btn-suivant.show{display:block;}
+#zone-score{display:none;}
+.score-card{background:#fff;border-radius:20px;padding:36px 28px;box-shadow:var(--ombre);text-align:center;margin-bottom:16px;}
+.score-cercle{width:110px;height:110px;border-radius:50%;margin:0 auto 16px;
+  display:flex;align-items:center;justify-content:center;font-size:2rem;font-weight:800;
+  border:6px solid var(--ocean);color:var(--ocean);}
+.score-cercle.or{border-color:#f4c430;color:#f4c430;}
+.score-cercle.vert{border-color:var(--vert);color:var(--vert);}
+.score-cercle.rouge{border-color:var(--rouge);color:var(--rouge);}
+.score-titre{font-size:1.3rem;font-weight:800;margin-bottom:6px;}
+.score-msg{font-size:.9rem;color:#666;margin-bottom:20px;}
+.xp-gained{background:linear-gradient(135deg,#fff9c4,#fffde7);border-radius:14px;
+  padding:12px 20px;margin:16px 0;font-size:1rem;font-weight:700;color:#b36b00;}
+.comp-resume{background:#f8f9fa;border-radius:14px;padding:16px;margin:16px 0;text-align:left;}
+.comp-resume h4{font-size:.8rem;font-weight:800;color:var(--ocean);margin-bottom:10px;text-transform:uppercase;}
+.comp-row{display:flex;align-items:center;gap:10px;margin-bottom:8px;}
+.comp-bar{flex:1;height:6px;background:#e0e3e8;border-radius:3px;overflow:hidden;}
+.comp-bar-fill{height:100%;border-radius:3px;}
+.comp-label{font-size:.75rem;width:140px;color:#555;}
+.comp-pct{font-size:.75rem;font-weight:700;color:var(--ocean);width:35px;text-align:right;}
+.actions{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:16px;}
+.btn-action{flex:1;min-width:120px;padding:12px;border-radius:12px;font-size:.88rem;font-weight:700;cursor:pointer;border:none;transition:.2s;}
+.btn-action.primary{background:linear-gradient(135deg,var(--ocean),var(--turquoise));color:#fff;}
+.btn-action.secondary{background:#fff;color:var(--ocean);border:2px solid var(--ocean);}
+.btn-action.csv{background:#fff;color:var(--vert);border:2px solid var(--vert);}
+.btn-action:hover{transform:translateY(-2px);}
+.detail-section{background:#fff;border-radius:16px;padding:20px;box-shadow:var(--ombre);margin-bottom:16px;}
+.detail-titre{font-size:.8rem;font-weight:800;color:var(--ocean);text-transform:uppercase;margin-bottom:12px;}
+.detail-item{display:flex;align-items:flex-start;gap:10px;padding:8px 0;border-bottom:1px solid #f0f0f0;font-size:.83rem;}
+.detail-item:last-child{border-bottom:none;}
+.detail-comp{font-size:.7rem;background:var(--ocean-cl);color:var(--ocean);border-radius:10px;padding:1px 8px;display:inline-block;margin-top:2px;}
+.confetti-piece{position:fixed;border-radius:2px;animation:confetti-fall 1.2s ease-in forwards;pointer-events:none;z-index:999;}
+@keyframes confetti-fall{0%{transform:translateY(-20px) rotate(0deg);opacity:1;}100%{transform:translateY(100vh) rotate(720deg);opacity:0;}}
+@keyframes pop-in{from{transform:scale(0.5);opacity:0;}to{transform:scale(1);opacity:1;}}
+.pop-in{animation:pop-in .4s cubic-bezier(.175,.885,.32,1.275);}
+</style>
 </head>
 <body>
-
-  <!-- HEADER -->
-  <header>
-    <a class="logo" href="index.html">
-      <span>⚗️</span>
-      <h1>SPC Afareiatu</h1>
-    </a>
-    <nav>
-      <a href="index.html">← Retour</a>
-    </nav>
-  </header>
-
-  <main>
-
-    <!-- INFOS QCM -->
-    <div style="margin-bottom:0.8rem">
-      <div id="qcm-titre" style="font-size:1.1rem; font-weight:700; color:#2b5fd9"></div>
-      <div id="qcm-classe" class="text-petit" style="color:#555"></div>
+<header>
+  <button class="back-btn" onclick="history.back()">← Retour</button>
+  <div class="header-info">
+    <h1 id="h-titre">Chargement...</h1>
+    <p id="h-eleve">EduQuiz Afareiatu</p>
+  </div>
+  <span class="niveau-badge" id="h-niveau">⭐</span>
+</header>
+<main>
+  <div class="progress-wrap">
+    <div class="q-num" id="q-num">Q 1/5</div>
+    <div class="progress-bar"><div class="progress-fill" id="prog-fill" style="width:0%"></div></div>
+    <div class="score-live" id="score-live">✓ 0</div>
+  </div>
+  <div id="zone-question">
+    <div class="comp-badge" id="comp-badge">📘 S'approprier</div>
+    <div class="q-card">
+      <div class="q-enonce" id="q-enonce">...</div>
+      <ul class="options-list" id="options-liste"></ul>
+      <div class="feedback" id="feedback-zone"></div>
     </div>
-
-    <!-- BARRE DE PROGRESSION -->
-    <div class="progress-bar-container">
-      <div class="progress-bar" id="progress-bar" style="width:0%"></div>
+    <button class="btn-suivant" id="btn-suivant" onclick="suivant()">Question suivante ➡️</button>
+  </div>
+  <div id="zone-score">
+    <div class="score-card pop-in">
+      <div class="score-cercle" id="score-cercle">0/5</div>
+      <div class="score-titre" id="score-titre">Résultat</div>
+      <div class="score-msg" id="score-msg"></div>
+      <div class="xp-gained" id="xp-gained">⚡ +0 XP</div>
     </div>
-    <div class="question-numero" id="question-numero">Question 1 sur ?</div>
-
-    <!-- ZONE QUESTION -->
-    <div id="zone-question" class="card">
-
-      <!-- ÉNONCÉ -->
-      <div class="question-enonce" id="question-enonce">Chargement...</div>
-
-      <!-- OPTIONS -->
-      <ul class="options-liste" id="options-liste">
-        <!-- Rempli par app.js -->
-      </ul>
-
-      <!-- FEEDBACK -->
-      <div class="feedback-zone" id="feedback-zone"></div>
-
-      <!-- BOUTON SUIVANT -->
-      <div class="mt-2">
-        <button
-          class="btn btn-primaire btn-bloc"
-          id="btn-suivant"
-          style="display:none"
-        >
-          Question suivante →
-        </button>
-      </div>
-
+    <div class="comp-resume">
+      <h4>🎯 Compétences du BO</h4>
+      <div id="comp-rows"></div>
     </div>
-
-    <!-- ZONE SCORE FINAL (cachée au départ) -->
-    <div id="zone-score" class="card text-centre" style="display:none">
-
-      <h2 style="margin-bottom:0.5rem">🏁 Résultat final</h2>
-
-      <!-- Cercle score -->
-      <div class="score-cercle">
-        <div class="score-chiffre" id="score-chiffre">0</div>
-        <div class="score-total" id="score-total-txt">/ 0</div>
-      </div>
-
-      <div style="font-size:1.3rem; font-weight:700; color:#2b5fd9; margin:0.5rem 0" id="score-pct">0%</div>
-      <div id="score-message" style="font-size:0.95rem; color:#555; margin-bottom:1.2rem"></div>
-
-      <!-- Détail réponses -->
-      <div style="text-align:left; margin-bottom:1.2rem">
-        <h3 style="margin-bottom:0.6rem">Détail de tes réponses</h3>
-        <div id="detail-reponses"></div>
-      </div>
-
-      <!-- Actions -->
-      <div class="flex flex-wrap" style="justify-content:center; gap:0.8rem">
-        <button class="btn btn-secondaire" id="btn-recommencer">
-          🔄 Recommencer
-        </button>
-        <a class="btn btn-primaire" href="index.html">
-          📋 Autres QCM
-        </a>
-      </div>
-
+    <div class="detail-section">
+      <div class="detail-titre">📋 Détail des réponses</div>
+      <div id="detail-liste"></div>
     </div>
+    <div class="actions">
+      <button class="btn-action primary" onclick="recommencer()">🔄 Rejouer</button>
+      <button class="btn-action secondary" onclick="window.location.href='index.html'">🏠 Accueil</button>
+      <button class="btn-action csv" onclick="exporterPronote()">📤 Pronote CSV</button>
+    </div>
+  </div>
+</main>
+<script>
+const NIVEAUX={1:{label:'⭐ Facile',pts:1},2:{label:'⭐⭐ Moyen',pts:2},3:{label:'⭐⭐⭐ Difficile',pts:3}};
+const COMP_ICONS={"S'approprier":'📘',"Analyser/Raisonner":'🔍',"Réaliser":'⚗️',"Valider":'✅',"Communiquer":'💬'};
+const CONFETTI_COLORS=['#0077b6','#00b4d8','#0f9d58','#f29900','#d93025','#f4c430','#9c27b0'];
+let qcm,questions,idx=0,score=0,reponses=[],niveau,eleve;
+const params=new URLSearchParams(location.search);
+const fichier=params.get('qcm');
+niveau=parseInt(params.get('niveau'))||1;
 
-  </main>
+document.addEventListener('DOMContentLoaded',()=>{
+  eleve=JSON.parse(localStorage.getItem('eduquiz_eleve')||'null');
+  if(!fichier){document.querySelector('main').innerHTML='<p style="text-align:center;padding:40px">Aucun QCM. <a href="index.html">Retour</a></p>';return;}
+  document.getElementById('h-niveau').textContent=NIVEAUX[niveau].label;
+  if(eleve)document.getElementById('h-eleve').textContent=eleve.prenom+' · '+eleve.classe.replace(/(\d)e(\d)/,'$1ème $2');
+  charger();
+});
 
-  <footer>
-    Collège de Afareiatu — Physique-Chimie · Session anonyme · RGPD ✓
-  </footer>
+async function charger(){
+  try{
+    const r=await fetch('data/'+fichier);
+    if(!r.ok)throw new Error('Fichier introuvable');
+    qcm=await r.json();
+    document.getElementById('h-titre').textContent=qcm.titre||qcm.chapitre;
+    const all=qcm.questions.filter(q=>(q.niveau||1)===niveau);
+    questions=shuffle(all.length>=3?all:qcm.questions).slice(0,5);
+    idx=0;score=0;reponses=[];
+    afficherQuestion();
+  }catch(e){document.querySelector('main').innerHTML=`<p style="text-align:center;padding:40px">Erreur: ${e.message}. <a href="index.html">Retour</a></p>`;}
+}
 
-  <script src="js/app.js"></script>
+function shuffle(arr){return[...arr].sort(()=>Math.random()-.5);}
 
-  <!-- Support QCMs locaux (créés dans admin, non déployés) -->
-  <script>
-    // Si le QCM est stocké localement (préfixe __local__), on le charge depuis localStorage
-    const params = new URLSearchParams(window.location.search);
-    const fichierParam = params.get('qcm');
-    if (fichierParam && fichierParam.startsWith('__local__')) {
-      const id = fichierParam.replace('__local__', '');
-      const biblio = JSON.parse(localStorage.getItem('spc_admin_bibliotheque') || '[]');
-      const qcm = biblio.find(q => q.id === id);
-      if (qcm) {
-        // Injecter directement dans App sans fetch
-        document.addEventListener('DOMContentLoaded', () => {
-          setTimeout(() => {
-            App.qcm = qcm;
-            App.questions = qcm.questions;
-            App.indexCourant = 0;
-            App.score = 0;
-            App.reponsesDonnees = [];
-            App.afficherInfoQCM();
-            App.afficherQuestion();
-          }, 50);
-        });
-      }
-    }
-  </script>
+function afficherQuestion(){
+  if(idx>=questions.length){afficherScore();return;}
+  const q=questions[idx];
+  document.getElementById('prog-fill').style.width=(idx/questions.length*100)+'%';
+  document.getElementById('q-num').textContent='Q '+(idx+1)+'/'+questions.length;
+  document.getElementById('score-live').textContent='✓ '+score;
+  const comp=q.competence||"S'approprier";
+  document.getElementById('comp-badge').textContent=(COMP_ICONS[comp]||'📘')+' '+comp;
+  document.getElementById('q-enonce').textContent=q.enonce;
+  const liste=document.getElementById('options-liste');
+  liste.innerHTML='';
+  ['A','B','C','D'].forEach((l,i)=>{
+    if(!q.options[i])return;
+    const li=document.createElement('li');
+    const btn=document.createElement('button');
+    btn.className='opt-btn';
+    btn.innerHTML=`<span class="opt-letter">${l}</span><span>${q.options[i]}</span>`;
+    btn.addEventListener('click',()=>repondre(i,q));
+    li.appendChild(btn);liste.appendChild(li);
+  });
+  const fb=document.getElementById('feedback-zone');
+  fb.className='feedback';fb.innerHTML='';
+  document.getElementById('btn-suivant').className='btn-suivant';
+  document.getElementById('zone-question').style.display='block';
+  document.getElementById('zone-score').style.display='none';
+}
 
+function repondre(choix,q){
+  document.querySelectorAll('.opt-btn').forEach(b=>b.disabled=true);
+  const ok=choix===q.reponse;
+  if(ok){score++;confettis();}
+  document.querySelectorAll('.opt-btn').forEach((b,i)=>{
+    if(i===q.reponse)b.classList.add('correct');
+    else if(i===choix&&!ok)b.classList.add('incorrect');
+  });
+  const fb=document.getElementById('feedback-zone');
+  fb.className='feedback show '+(ok?'ok':'ko');
+  fb.innerHTML=ok?q.feedback_correct:q.feedback_incorrect;
+  document.getElementById('btn-suivant').className='btn-suivant show';
+  reponses.push({q,choix,ok});
+}
+
+function suivant(){idx++;afficherQuestion();}
+function recommencer(){location.reload();}
+
+function afficherScore(){
+  document.getElementById('zone-question').style.display='none';
+  document.getElementById('zone-score').style.display='block';
+  document.getElementById('prog-fill').style.width='100%';
+  const total=questions.length,pct=Math.round(score/total*100);
+  const xp=score*NIVEAUX[niveau].pts*10;
+  const cercle=document.getElementById('score-cercle');
+  cercle.textContent=score+'/'+total;
+  cercle.className='score-cercle pop-in '+(pct>=90?'or':pct>=60?'vert':'rouge');
+  let titre,msg;
+  if(pct===100){titre='🌟 Parfait !';msg='Score parfait ! Tu es un champion !';confettis(30);}
+  else if(pct>=80){titre='🎉 Excellent !';msg='Superbe ! Continue comme ça !';confettis(15);}
+  else if(pct>=60){titre='👍 Bien !';msg='Bon résultat ! Relis les réponses incorrectes.';}
+  else if(pct>=40){titre='📚 Courage !';msg='Revois le cours et réessaie !';}
+  else{titre='💪 Ne lâche pas !';msg='Retourne voir le cours avant de réessayer.';}
+  document.getElementById('score-titre').textContent=titre;
+  document.getElementById('score-msg').textContent=msg;
+  document.getElementById('xp-gained').textContent='⚡ +'+xp+' XP gagnés !';
+  // Compétences
+  const cs={};
+  reponses.forEach(r=>{const c=r.q.competence||"S'approprier";if(!cs[c])cs[c]={ok:0,t:0};cs[c].t++;if(r.ok)cs[c].ok++;});
+  const cr=document.getElementById('comp-rows');cr.innerHTML='';
+  Object.entries(cs).forEach(([c,s])=>{
+    const p=Math.round(s.ok/s.t*100);
+    const icon=COMP_ICONS[c]||'📘';
+    const col=p>=80?'var(--vert)':p>=50?'var(--orange)':'var(--rouge)';
+    cr.innerHTML+=`<div class="comp-row"><div class="comp-label">${icon} ${c}</div><div class="comp-bar"><div class="comp-bar-fill" style="width:${p}%;background:${col}"></div></div><div class="comp-pct">${p}%</div></div>`;
+  });
+  // Détail
+  const dl=document.getElementById('detail-liste');dl.innerHTML='';
+  reponses.forEach((r,i)=>{
+    const icon=COMP_ICONS[r.q.competence]||'📘';
+    dl.innerHTML+=`<div class="detail-item"><div>${r.ok?'✅':'❌'}</div><div><strong>Q${i+1}.</strong> ${r.q.enonce.substring(0,60)}...<br><span class="detail-comp">${icon} ${r.q.competence||"S'approprier"}</span></div></div>`;
+  });
+  sauvegarder(pct,xp,cs);
+}
+
+function sauvegarder(pct,xp,cs){
+  if(!eleve)return;
+  const key=fichier+'_n'+niveau;
+  if(!eleve.scores)eleve.scores={};
+  if(!eleve.scores[key]||pct>eleve.scores[key].pct)eleve.scores[key]={pct,date:new Date().toISOString(),competences:cs};
+  eleve.xp=(eleve.xp||0)+xp;
+  eleve.serie=pct>=60?(eleve.serie||0)+1:0;
+  eleve.serieMax=Math.max(eleve.serie||0,eleve.serieMax||0);
+  localStorage.setItem('eduquiz_eleve',JSON.stringify(eleve));
+  localStorage.setItem('eduquiz_score_'+eleve.prenom+'_'+eleve.classe,JSON.stringify({nom:eleve.prenom+' '+(eleve.nom||''),classe:eleve.classe,xp:eleve.xp}));
+}
+
+function exporterPronote(){
+  if(!eleve){alert('Connecte-toi d\'abord.');return;}
+  const d=new Date().toLocaleDateString('fr-FR');
+  let csv='Nom;Prenom;Classe;Chapitre;Niveau;Competence;Score;Note/20;Maitrise;Date\n';
+  const total=questions.length,note20=(score/total*20).toFixed(1);
+  const niv=['','Facile','Moyen','Difficile'][niveau];
+  const cs={};
+  reponses.forEach(r=>{const c=r.q.competence||"S'approprier";if(!cs[c])cs[c]={ok:0,t:0};cs[c].t++;if(r.ok)cs[c].ok++;});
+  Object.entries(cs).forEach(([c,s])=>{
+    const noteC=(s.ok/s.t*4).toFixed(1);
+    const m=s.ok/s.t>=0.8?'Maitrisé':s.ok/s.t>=0.5?'En cours':'Non maitrisé';
+    csv+=`${eleve.nom||''};${eleve.prenom};${eleve.classe.replace(/(\d)e(\d)/,'$1ème $2')};${qcm.titre};${niv};${c};${s.ok}/${s.t};${noteC}/4;${m};${d}\n`;
+  });
+  csv+=`${eleve.nom||''};${eleve.prenom};${eleve.classe.replace(/(\d)e(\d)/,'$1ème $2')};${qcm.titre};${niv};GLOBAL;${score}/${total};${note20}/20;;${d}\n`;
+  const blob=new Blob(['﻿'+csv],{type:'text/csv;charset=utf-8;'});
+  const a=document.createElement('a');a.href=URL.createObjectURL(blob);
+  a.download=`EduQuiz_${eleve.classe}_${eleve.prenom}_N${niveau}_${d.replace(/\//g,'-')}.csv`;a.click();
+}
+
+function confettis(n=10){
+  for(let i=0;i<n;i++)setTimeout(()=>{
+    const c=document.createElement('div');c.className='confetti-piece';
+    c.style.cssText=`left:${Math.random()*100}vw;top:-10px;background:${CONFETTI_COLORS[Math.floor(Math.random()*CONFETTI_COLORS.length)]};animation-duration:${.8+Math.random()*.8}s;width:${6+Math.random()*8}px;height:${6+Math.random()*8}px;`;
+    const CONFETTI_COLORS=['#0077b6','#00b4d8','#0f9d58','#f29900','#d93025','#f4c430'];
+    document.body.appendChild(c);setTimeout(()=>c.remove(),1500);
+  },i*60);
+}
+</script>
 </body>
 </html>

@@ -20,7 +20,9 @@
       "feedback_correct": "✅ L'unité SI de la masse volumique est le kg/m³.",
       "feedback_incorrect": "❌ L'unité SI de la masse volumique est le kg/m³.",
       "code_socle": "D5-3",
-      "difficulte": 1
+      "difficulte": 1,
+      "niveau": 1,
+      "competence": "S'approprier"
     },
     {
       "id": 2,
@@ -35,7 +37,9 @@
       "feedback_correct": "✅ ρ = m/V = 50/25 = 2 g/cm³.",
       "feedback_incorrect": "❌ ρ = m/V = 50/25 = 2 g/cm³.",
       "code_socle": "D5-3",
-      "difficulte": 1
+      "difficulte": 1,
+      "niveau": 1,
+      "competence": "Analyser/Raisonner"
     },
     {
       "id": 3,
@@ -50,7 +54,9 @@
       "feedback_correct": "✅ Si ρ(objet) < ρ(eau), l'objet flotte (ex : huile, bois léger…).",
       "feedback_incorrect": "❌ Si ρ(objet) < ρ(eau), l'objet flotte (ex : huile, bois léger…).",
       "code_socle": "D5-3",
-      "difficulte": 1
+      "difficulte": 1,
+      "niveau": 1,
+      "competence": "Réaliser"
     },
     {
       "id": 4,
@@ -65,7 +71,9 @@
       "feedback_correct": "✅ m = ρ × V",
       "feedback_incorrect": "❌ m = ρ × V",
       "code_socle": "D5-3",
-      "difficulte": 2
+      "difficulte": 2,
+      "niveau": 2,
+      "competence": "Valider"
     },
     {
       "id": 5,
@@ -80,7 +88,9 @@
       "feedback_correct": "✅ Comme ρ(fer) > ρ(eau), le fer coule.",
       "feedback_incorrect": "❌ Comme ρ(fer) > ρ(eau), le fer coule.",
       "code_socle": "D5-3",
-      "difficulte": 2
+      "difficulte": 2,
+      "niveau": 2,
+      "competence": "Communiquer"
     },
     {
       "id": 6,
@@ -95,7 +105,9 @@
       "feedback_correct": "✅ On plonge le solide dans l'eau d'une éprouvette et on lit la différence de volume (méthode par déplacement d'eau).",
       "feedback_incorrect": "❌ On plonge le solide dans l'eau d'une éprouvette et on lit la différence de volume (méthode par déplacement d'eau).",
       "code_socle": "D5-3",
-      "difficulte": 2
+      "difficulte": 2,
+      "niveau": 2,
+      "competence": "S'approprier"
     },
     {
       "id": 7,
@@ -110,7 +122,9 @@
       "feedback_correct": "✅ m = ρ × V = 1 g/mL × 500 mL = 500 g.",
       "feedback_incorrect": "❌ m = ρ × V = 1 g/mL × 500 mL = 500 g.",
       "code_socle": "D5-3",
-      "difficulte": 3
+      "difficulte": 3,
+      "niveau": 3,
+      "competence": "Analyser/Raisonner"
     },
     {
       "id": 8,
@@ -125,6 +139,127 @@
       "feedback_correct": "✅ Le liquide le plus dense (le plus lourd par unité de volume) se dépose en bas.",
       "feedback_incorrect": "❌ Le liquide le plus dense (le plus lourd par unité de volume) se dépose en bas.",
       "code_socle": "D5-3",
+      "difficulte": 3,
+      "niveau": 3,
+      "competence": "Réaliser"
+    },
+    {
+      "id": 9,
+      "niveau": 3,
+      "competence": "Réaliser",
+      "enonce": "Un objet a une masse de 270g et un volume de 100cm³. Sa masse volumique est :",
+      "options": [
+        "2,7 g/cm³",
+        "0,37 g/cm³",
+        "27 g/cm³",
+        "370 g/cm³"
+      ],
+      "reponse": 0,
+      "feedback_correct": "✅ ρ = m/V = 270/100 = 2,7 g/cm³. C'est la masse volumique de l'aluminium !",
+      "feedback_incorrect": "❌ ρ = m ÷ V = 270 ÷ 100 = 2,7 g/cm³. Ne pas inverser masse et volume dans la formule.",
+      "code_socle": "qcm-5e-ch03-9",
+      "difficulte": 3
+    },
+    {
+      "id": 10,
+      "niveau": 3,
+      "competence": "Analyser/Raisonner",
+      "enonce": "L'eau douce a ρ = 1,0 g/cm³ et l'eau de mer ρ = 1,025 g/cm³. Un plongeur flotte plus facilement dans :",
+      "options": [
+        "L'eau douce (moins dense)",
+        "L'eau de mer (plus dense)",
+        "C'est identique",
+        "Ça dépend de la température"
+      ],
+      "reponse": 1,
+      "feedback_correct": "✅ Plus le liquide est dense, plus il exerce une poussée d'Archimède élevée → on flotte plus facilement en mer. C'est pour ça que la Mer Morte est si célèbre !",
+      "feedback_incorrect": "❌ Plus le liquide est dense, plus la poussée d'Archimède est grande. Eau de mer (1,025) > eau douce (1,0) → on flotte mieux en mer.",
+      "code_socle": "qcm-5e-ch03-10",
+      "difficulte": 3
+    },
+    {
+      "id": 11,
+      "niveau": 3,
+      "competence": "Réaliser",
+      "enonce": "On mesure : m = 156g et V = 60cm³. Calcule ρ et identifie le matériau (Al=2,7 ; Fe=7,9 ; Cu=8,9 g/cm³)",
+      "options": [
+        "ρ=2,6 g/cm³ → Aluminium",
+        "ρ=9,36 g/cm³ → Cuivre",
+        "ρ=2,6 g/cm³ → Fer",
+        "ρ=0,38 g/cm³ → inconnu"
+      ],
+      "reponse": 0,
+      "feedback_correct": "✅ ρ = 156/60 = 2,6 g/cm³ ≈ 2,7 g/cm³ → Aluminium (légère imprécision de mesure normale en labo).",
+      "feedback_incorrect": "❌ ρ = 156 ÷ 60 = 2,6 g/cm³. Proche de 2,7 → Aluminium. Vérifie ton calcul : ne pas faire 60 ÷ 156 !",
+      "code_socle": "qcm-5e-ch03-11",
+      "difficulte": 3
+    },
+    {
+      "id": 12,
+      "niveau": 3,
+      "competence": "Analyser/Raisonner",
+      "enonce": "Une bouteille plastique vide (fermée) est posée sur l'eau. Elle flotte. Pourquoi ?",
+      "options": [
+        "Le plastique est léger",
+        "La masse volumique MOYENNE de la bouteille+air < ρ eau",
+        "L'air la pousse vers le haut",
+        "Le plastique repousse l'eau"
+      ],
+      "reponse": 1,
+      "feedback_correct": "✅ C'est la masse volumique MOYENNE (plastique + air intérieur) qui compte. L'air est très léger → ρ moyenne < 1 g/cm³ → ça flotte !",
+      "feedback_incorrect": "❌ Il faut calculer la ρ moyenne de l'objet entier (plastique + air). L'air est 1000× moins dense que l'eau → ρ moyenne très faible → flotte.",
+      "code_socle": "qcm-5e-ch03-12",
+      "difficulte": 3
+    },
+    {
+      "id": 13,
+      "niveau": 3,
+      "competence": "Communiquer",
+      "enonce": "Convertis 2,7 g/cm³ en kg/m³ :",
+      "options": [
+        "0,0027 kg/m³",
+        "2700 kg/m³",
+        "270 kg/m³",
+        "27 kg/m³"
+      ],
+      "reponse": 1,
+      "feedback_correct": "✅ 1 g/cm³ = 1000 kg/m³. Donc 2,7 g/cm³ × 1000 = 2700 kg/m³. C'est la masse volumique de l'aluminium en unités SI.",
+      "feedback_incorrect": "❌ Conversion : 1 g/cm³ = 1000 kg/m³. Multiplier par 1000 : 2,7 × 1000 = 2700 kg/m³.",
+      "code_socle": "qcm-5e-ch03-13",
+      "difficulte": 3
+    },
+    {
+      "id": 14,
+      "niveau": 3,
+      "competence": "Réaliser",
+      "enonce": "Un cube d'or de 2cm de côté a une masse de 154g. La masse volumique de l'or est environ :",
+      "options": [
+        "19,2 g/cm³",
+        "7,7 g/cm³",
+        "38,5 g/cm³",
+        "1,92 g/cm³"
+      ],
+      "reponse": 0,
+      "feedback_correct": "✅ V = 2³ = 8 cm³. ρ = 154/8 = 19,25 g/cm³ ≈ 19,3 g/cm³. L'or est effectivement très dense (ρ réelle = 19,3 g/cm³) !",
+      "feedback_incorrect": "❌ Volume du cube = côté³ = 2³ = 8 cm³. Puis ρ = m/V = 154/8 = 19,25 g/cm³. L'or est l'un des métaux les plus denses.",
+      "code_socle": "qcm-5e-ch03-14",
+      "difficulte": 3
+    },
+    {
+      "id": 15,
+      "niveau": 3,
+      "competence": "Analyser/Raisonner",
+      "enonce": "Deux liquides non miscibles sont dans un tube : huile (ρ=0,9) et eau (ρ=1,0). Quel est l'ordre de bas en haut ?",
+      "options": [
+        "Huile en bas, eau au-dessus",
+        "Eau en bas, huile au-dessus",
+        "Ils se mélangent",
+        "Ça dépend de la température"
+      ],
+      "reponse": 1,
+      "feedback_correct": "✅ Le liquide le plus dense se place en bas : eau (1,0) en bas, huile (0,9) au-dessus. Comme dans une vinaigrette !",
+      "feedback_incorrect": "❌ Le plus dense va en bas. ρ(eau)=1,0 > ρ(huile)=0,9 → eau en bas, huile en haut.",
+      "code_socle": "qcm-5e-ch03-15",
       "difficulte": 3
     }
   ]
