@@ -1,0 +1,131 @@
+{
+  "id": "qcm-5e-ch10",
+  "titre": "Lumière et vision — 5E",
+  "classe": "5e",
+  "chapitre": "Lumière et vision",
+  "auteur": "Collège Afareiatu — SPC",
+  "date": "2026-05-20",
+  "version": 1,
+  "questions": [
+    {
+      "id": 1,
+      "enonce": "Le Soleil est une source :",
+      "options": [
+        "ASecondaire",
+        "BPrimaire",
+        "CÉclairée",
+        "DRéfléchissante"
+      ],
+      "reponse": 0,
+      "feedback_correct": "✅ Le Soleil produit sa propre lumière : c'est une source primaire.",
+      "feedback_incorrect": "❌ Le Soleil produit sa propre lumière : c'est une source primaire.",
+      "code_socle": "D5-10",
+      "difficulte": 1
+    },
+    {
+      "id": 2,
+      "enonce": "La Lune est :",
+      "options": [
+        "AUne source primaire",
+        "BUne planète lumineuse",
+        "CUn objet éclairé qui renvoie la lumière du Soleil",
+        "DUne étoile"
+      ],
+      "reponse": 0,
+      "feedback_correct": "✅ La Lune ne produit pas de lumière, elle renvoie celle du Soleil.",
+      "feedback_incorrect": "❌ La Lune ne produit pas de lumière, elle renvoie celle du Soleil.",
+      "code_socle": "D5-10",
+      "difficulte": 1
+    },
+    {
+      "id": 3,
+      "enonce": "La lumière se propage :",
+      "options": [
+        "AEn zigzag",
+        "BEn cercle",
+        "CEn ligne droite",
+        "DAléatoirement"
+      ],
+      "reponse": 0,
+      "feedback_correct": "✅ Dans un milieu homogène, la lumière se propage en ligne droite.",
+      "feedback_incorrect": "❌ Dans un milieu homogène, la lumière se propage en ligne droite.",
+      "code_socle": "D5-10",
+      "difficulte": 1
+    },
+    {
+      "id": 4,
+      "enonce": "La vitesse de la lumière dans le vide est :",
+      "options": [
+        "A300 km/s",
+        "B300 000 km/s",
+        "C3 000 km/s",
+        "D30 000 000 km/s"
+      ],
+      "reponse": 0,
+      "feedback_correct": "✅ c = 300 000 km/s ≈ 3 × 10⁸ m/s dans le vide.",
+      "feedback_incorrect": "❌ c = 300 000 km/s ≈ 3 × 10⁸ m/s dans le vide.",
+      "code_socle": "D5-10",
+      "difficulte": 2
+    },
+    {
+      "id": 5,
+      "enonce": "Un objet opaque :",
+      "options": [
+        "ALaisse passer toute la lumière",
+        "BLaisse passer une partie de la lumière",
+        "CNe laisse pas passer la lumière",
+        "DProduit sa propre lumière"
+      ],
+      "reponse": 0,
+      "feedback_correct": "✅ Opaque = bloque totalement la lumière → crée une ombre.",
+      "feedback_incorrect": "❌ Opaque = bloque totalement la lumière → crée une ombre.",
+      "code_socle": "D5-10",
+      "difficulte": 2
+    },
+    {
+      "id": 6,
+      "enonce": "La pénombre se forme quand :",
+      "options": [
+        "ALa source est ponctuelle",
+        "BIl n'y a pas de source",
+        "CLa source est étendue",
+        "DL'objet est transparent"
+      ],
+      "reponse": 0,
+      "feedback_correct": "✅ Une source étendue crée une zone d'ombre et une zone de pénombre.",
+      "feedback_incorrect": "❌ Une source étendue crée une zone d'ombre et une zone de pénombre.",
+      "code_socle": "D5-10",
+      "difficulte": 2
+    },
+    {
+      "id": 7,
+      "enonce": "La preuve de la propagation rectiligne est :",
+      "options": [
+        "AL'arc-en-ciel",
+        "BLes rayons de soleil dans la poussière",
+        "CLa réfraction",
+        "DLe prisme"
+      ],
+      "reponse": 0,
+      "feedback_correct": "✅ Les rayons de soleil dans la poussière montrent des lignes droites.",
+      "feedback_incorrect": "❌ Les rayons de soleil dans la poussière montrent des lignes droites.",
+      "code_socle": "D5-10",
+      "difficulte": 3
+    },
+    {
+      "id": 8,
+      "enonce": "Un objet translucide :",
+      "options": [
+        "ABloque toute la lumière",
+        "BLaisse passer la lumière en la diffusant",
+        "CProduit de la lumière",
+        "DEst identique à un objet opaque"
+      ],
+      "reponse": 0,
+      "feedback_correct": "✅ Translucide = laisse passer la lumière mais de façon diffuse (ex: verre dépoli).",
+      "feedback_incorrect": "❌ Translucide = laisse passer la lumière mais de façon diffuse (ex: verre dépoli).",
+      "code_socle": "D5-10",
+      "difficulte": 3
+    }
+  ]
+}

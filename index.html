@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EduQuiz Afareiatu — QCM Interactifs</title>
+  <link rel="stylesheet" href="css/style.css">
+  <meta name="description" content="QCM interactifs de physique-chimie — Collège de Afareiatu">
+</head>
+<body>
+
+  <header>
+    <a class="logo" href="index.html">
+      <span>🎓</span>
+      <h1>EduQuiz Afareiatu</h1>
+    </a>
+    <nav>
+      <a href="index.html" class="active">Accueil</a>
+      <a href="admin.html">Admin</a>
+    </nav>
+  </header>
+
+  <main>
+
+    <div class="card mb-2">
+      <h2 style="margin-bottom:0.4rem">📋 QCM de révision</h2>
+      <p class="text-petit" style="color:#555">
+        Physique-Chimie — Collège de Afareiatu, Moorea
+      </p>
+    </div>
+
+    <div class="filtres" id="filtres-classes">
+      <button class="filtre-btn actif" data-classe="tous" onclick="filtrerClasse(this, 'tous')">Toutes</button>
+      <button class="filtre-btn" data-classe="5e" onclick="filtrerClasse(this, '5e')">5ème</button>
+      <button class="filtre-btn" data-classe="4e" onclick="filtrerClasse(this, '4e')">4ème</button>
+    </div>
+
+    <div class="qcm-liste" id="qcm-liste">
+      <div class="vide"><div class="icone">⏳</div><p>Chargement...</p></div>
+    </div>
+
+  </main>
+
+  <footer>
+    Collège de Afareiatu — Physique-Chimie · EduQuiz 2026
+  </footer>
+
+  <script>
+    const CATALOGUE = [
+      { fichier: "qcm-4e-ch01.json", titre: "Composition et qualité de l'air", classe: "4e", chapitre: "Ch01", nbQuestions: 8, difficulte: "⭐⭐"},
+      { fichier: "qcm-4e-ch02.json", titre: "Solubilité et purification de l'eau", classe: "4e", chapitre: "Ch02", nbQuestions: 8, difficulte: "⭐⭐"},
+      { fichier: "qcm-4e-ch03.json", titre: "Transformations chimiques", classe: "4e", chapitre: "Ch03", nbQuestions: 8, difficulte: "⭐⭐"},
+      { fichier: "qcm-4e-ch04.json", titre: "Mouvement et vitesse", classe: "4e", chapitre: "Ch04", nbQuestions: 8, difficulte: "⭐⭐"},
+      { fichier: "qcm-4e-ch05.json", titre: "Forces et interactions", classe: "4e", chapitre: "Ch05", nbQuestions: 8, difficulte: "⭐⭐"},
+      { fichier: "qcm-4e-ch06.json", titre: "Transferts et conversions d'énergie", classe: "4e", chapitre: "Ch06", nbQuestions: 8, difficulte: "⭐⭐"},
+      { fichier: "qcm-4e-ch07.json", titre: "Circuits électriques et loi d'Ohm", classe: "4e", chapitre: "Ch07", nbQuestions: 8, difficulte: "⭐⭐"},
+      { fichier: "qcm-4e-ch08.json", titre: "Propagation de la lumière", classe: "4e", chapitre: "Ch08", nbQuestions: 8, difficulte: "⭐⭐"},
+      { fichier: "qcm-4e-ch09.json", titre: "Propagation du son", classe: "4e", chapitre: "Ch09", nbQuestions: 8, difficulte: "⭐⭐"},
+      { fichier: "qcm-4e-ch10.json", titre: "Structure de l'Univers", classe: "4e", chapitre: "Ch10", nbQuestions: 8, difficulte: "⭐⭐"},
+      { fichier: "qcm-4e-ch11.json", titre: "Atomes et molécules", classe: "4e", chapitre: "Ch11", nbQuestions: 8, difficulte: "⭐⭐"},
+      { fichier: "qcm-4e-ch12.json", titre: "Réactions chimiques", classe: "4e", chapitre: "Ch12", nbQuestions: 8, difficulte: "⭐⭐"},
+      { fichier: "qcm-4e-ch13.json", titre: "Circuit électrique", classe: "4e", chapitre: "Ch13", nbQuestions: 8, difficulte: "⭐⭐"},
+      { fichier: "qcm-4e-ch14.json", titre: "Pression des fluides", classe: "4e", chapitre: "Ch14", nbQuestions: 8, difficulte: "⭐⭐"},
+      { fichier: "qcm-4e-ch15.json", titre: "Lumière et réfraction", classe: "4e", chapitre: "Ch15", nbQuestions: 8, difficulte: "⭐⭐"},
+      { fichier: "qcm-4e-ch16.json", titre: "Puissance et énergie électrique", classe: "4e", chapitre: "Ch16", nbQuestions: 8, difficulte: "⭐⭐"},
+      { fichier: "qcm-5e-ch01.json", titre: "Les états de la matière", classe: "5e", chapitre: "Ch01", nbQuestions: 8, difficulte: "⭐⭐"},
+      { fichier: "qcm-5e-ch02.json", titre: "Mélanges et solubilité", classe: "5e", chapitre: "Ch02", nbQuestions: 8, difficulte: "⭐⭐"},
+      { fichier: "qcm-5e-ch03.json", titre: "Masse volumique", classe: "5e", chapitre: "Ch03", nbQuestions: 8, difficulte: "⭐⭐"},
+      { fichier: "qcm-5e-ch04.json", titre: "Mouvements et vitesse", classe: "5e", chapitre: "Ch04", nbQuestions: 8, difficulte: "⭐⭐"},
+      { fichier: "qcm-5e-ch05.json", titre: "Forces et leurs effets", classe: "5e", chapitre: "Ch05", nbQuestions: 8, difficulte: "⭐⭐"},
+      { fichier: "qcm-5e-ch06.json", titre: "Énergie : formes et transferts", classe: "5e", chapitre: "Ch06", nbQuestions: 8, difficulte: "⭐⭐"},
+      { fichier: "qcm-5e-ch07.json", titre: "Propagation du son", classe: "5e", chapitre: "Ch07", nbQuestions: 8, difficulte: "⭐⭐"},
+      { fichier: "qcm-5e-ch08.json", titre: "Mélanges et corps purs", classe: "5e", chapitre: "Ch08", nbQuestions: 12, difficulte: "⭐⭐⭐"},
+      { fichier: "qcm-5e-ch09.json", titre: "Changements d'état", classe: "5e", chapitre: "Ch09", nbQuestions: 8, difficulte: "⭐⭐"},
+      { fichier: "qcm-5e-ch10.json", titre: "Lumière et vision", classe: "5e", chapitre: "Ch10", nbQuestions: 8, difficulte: "⭐⭐"},
+      { fichier: "qcm-5e-ch11.json", titre: "Les sons", classe: "5e", chapitre: "Ch11", nbQuestions: 8, difficulte: "⭐⭐"},
+      { fichier: "qcm-5e-ch12.json", titre: "L'énergie et ses transferts", classe: "5e", chapitre: "Ch12", nbQuestions: 8, difficulte: "⭐⭐"},
+      { fichier: "qcm-5e-ch13.json", titre: "Propagation de la lumière", classe: "5e", chapitre: "Ch13", nbQuestions: 8, difficulte: "⭐⭐"}
+    ];
+
+    let classeFiltree = 'tous';
+
+    function afficherListe() {
+      const liste = document.getElementById('qcm-liste');
+      const qcms = classeFiltree === 'tous' ? CATALOGUE : CATALOGUE.filter(q => q.classe === classeFiltree);
+
+      if (qcms.length === 0) {
+        liste.innerHTML = `<div class="vide"><div class="icone">📭</div><p>Aucun QCM pour la ${classeFiltree}.</p></div>`;
+        return;
+      }
+
+      liste.innerHTML = '';
+      qcms.forEach(qcm => {
+        const a = document.createElement('a');
+        a.className = 'qcm-item';
+        a.href = 'player.html?qcm=' + qcm.fichier;
+        a.innerHTML = `
+          <div class="qcm-item-info">
+            <h3>${qcm.titre}</h3>
+            <p>${qcm.nbQuestions} questions · ${qcm.difficulte}</p>
+          </div>
+          <span class="badge">${qcm.classe}</span>
+        `;
+        liste.appendChild(a);
+      });
+    }
+
+    function filtrerClasse(btn, classe) {
+      document.querySelectorAll('.filtre-btn').forEach(b => b.classList.remove('actif'));
+      btn.classList.add('actif');
+      classeFiltree = classe;
+      afficherListe();
+    }
+
+    document.addEventListener('DOMContentLoaded', () => afficherListe());
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lecteur QCM — SPC Afareiatu</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <a class="logo" href="index.html">
+      <span>⚗️</span>
+      <h1>SPC Afareiatu</h1>
+    </a>
+    <nav>
+      <a href="index.html">← Retour</a>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- INFOS QCM -->
+    <div style="margin-bottom:0.8rem">
+      <div id="qcm-titre" style="font-size:1.1rem; font-weight:700; color:#2b5fd9"></div>
+      <div id="qcm-classe" class="text-petit" style="color:#555"></div>
+    </div>
+
+    <!-- BARRE DE PROGRESSION -->
+    <div class="progress-bar-container">
+      <div class="progress-bar" id="progress-bar" style="width:0%"></div>
+    </div>
+    <div class="question-numero" id="question-numero">Question 1 sur ?</div>
+
+    <!-- ZONE QUESTION -->
+    <div id="zone-question" class="card">
+
+      <!-- ÉNONCÉ -->
+      <div class="question-enonce" id="question-enonce">Chargement...</div>
+
+      <!-- OPTIONS -->
+      <ul class="options-liste" id="options-liste">
+        <!-- Rempli par app.js -->
+      </ul>
+
+      <!-- FEEDBACK -->
+      <div class="feedback-zone" id="feedback-zone"></div>
+
+      <!-- BOUTON SUIVANT -->
+      <div class="mt-2">
+        <button
+          class="btn btn-primaire btn-bloc"
+          id="btn-suivant"
+          style="display:none"
+        >
+          Question suivante →
+        </button>
+      </div>
+
+    </div>
+
+    <!-- ZONE SCORE FINAL (cachée au départ) -->
+    <div id="zone-score" class="card text-centre" style="display:none">
+
+      <h2 style="margin-bottom:0.5rem">🏁 Résultat final</h2>
+
+      <!-- Cercle score -->
+      <div class="score-cercle">
+        <div class="score-chiffre" id="score-chiffre">0</div>
+        <div class="score-total" id="score-total-txt">/ 0</div>
+      </div>
+
+      <div style="font-size:1.3rem; font-weight:700; color:#2b5fd9; margin:0.5rem 0" id="score-pct">0%</div>
+      <div id="score-message" style="font-size:0.95rem; color:#555; margin-bottom:1.2rem"></div>
+
+      <!-- Détail réponses -->
+      <div style="text-align:left; margin-bottom:1.2rem">
+        <h3 style="margin-bottom:0.6rem">Détail de tes réponses</h3>
+        <div id="detail-reponses"></div>
+      </div>
+
+      <!-- Actions -->
+      <div class="flex flex-wrap" style="justify-content:center; gap:0.8rem">
+        <button class="btn btn-secondaire" id="btn-recommencer">
+          🔄 Recommencer
+        </button>
+        <a class="btn btn-primaire" href="index.html">
+          📋 Autres QCM
+        </a>
+      </div>
+
+    </div>
+
+  </main>
+
+  <footer>
+    Collège de Afareiatu — Physique-Chimie · Session anonyme · RGPD ✓
+  </footer>
+
+  <script src="js/app.js"></script>
+
+  <!-- Support QCMs locaux (créés dans admin, non déployés) -->
+  <script>
+    // Si le QCM est stocké localement (préfixe __local__), on le charge depuis localStorage
+    const params = new URLSearchParams(window.location.search);
+    const fichierParam = params.get('qcm');
+    if (fichierParam && fichierParam.startsWith('__local__')) {
+      const id = fichierParam.replace('__local__', '');
+      const biblio = JSON.parse(localStorage.getItem('spc_admin_bibliotheque') || '[]');
+      const qcm = biblio.find(q => q.id === id);
+      if (qcm) {
+        // Injecter directement dans App sans fetch
+        document.addEventListener('DOMContentLoaded', () => {
+          setTimeout(() => {
+            App.qcm = qcm;
+            App.questions = qcm.questions;
+            App.indexCourant = 0;
+            App.score = 0;
+            App.reponsesDonnees = [];
+            App.afficherInfoQCM();
+            App.afficherQuestion();
+          }, 50);
+        });
+      }
+    }
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,86 @@
+{
+  "id": "qcm-4e-masse-volumique-01",
+  "titre": "Masse volumique — Introduction",
+  "classe": "4e",
+  "chapitre": "Masse volumique",
+  "auteur": "Collège Afareiatu — SPC",
+  "date": "2026-05-20",
+  "version": 1,
+  "questions": [
+    {
+      "id": 1,
+      "enonce": "L'eau de mer a une masse volumique de 1 025 kg/m³. Qu'est-ce que cela signifie ?",
+      "options": [
+        "Un litre d'eau de mer a une masse de 1 025 g.",
+        "Un mètre cube d'eau de mer a une masse de 1 025 kg.",
+        "L'eau de mer est 1 025 fois plus lourde que l'air.",
+        "Il faut 1 025 secondes pour traverser un mètre cube."
+      ],
+      "reponse": 1,
+      "feedback_correct": "✅ Exact ! La masse volumique (ρ) est la masse d'un mètre cube de matière. Ici, 1 m³ d'eau de mer = 1 025 kg. C'est légèrement plus lourd que l'eau douce (1 000 kg/m³) à cause du sel dissous dans le lagon.",
+      "feedback_incorrect": "❌ Relis la définition. La masse volumique ρ = masse / volume. 1 m³ d'eau de mer pèse 1 025 kg. Attention : 1 litre = 0,001 m³, donc 1 litre pèse 1,025 kg.",
+      "code_socle": "D4-1",
+      "difficulte": 1
+    },
+    {
+      "id": 2,
+      "enonce": "La formule de la masse volumique est ρ = m / V. Quelle est l'unité de ρ dans le Système International ?",
+      "options": [
+        "g/L",
+        "kg/cm³",
+        "kg/m³",
+        "g/mL"
+      ],
+      "reponse": 2,
+      "feedback_correct": "✅ Bravo ! Dans le Système International, la masse est en kg et le volume en m³. Donc ρ s'exprime en kg/m³. Le g/mL et g/L sont utilisés en pratique de labo, mais pas en SI.",
+      "feedback_incorrect": "❌ L'unité SI de la masse est le kilogramme (kg) et du volume le mètre cube (m³). Donc ρ = kg/m³. Les autres unités (g/L, g/mL) ne sont pas les unités officielles du Système International.",
+      "code_socle": "D4-1",
+      "difficulte": 1
+    },
+    {
+      "id": 3,
+      "enonce": "Un caillou basaltique a une masse de 240 g et un volume de 80 cm³. Quelle est sa masse volumique ?",
+      "options": [
+        "0,33 g/cm³",
+        "3 g/cm³",
+        "320 g/cm³",
+        "160 g/cm³"
+      ],
+      "reponse": 1,
+      "feedback_correct": "✅ Parfait ! ρ = m / V = 240 g / 80 cm³ = 3 g/cm³. Le basalte est une roche volcanique dense. C'est la roche qu'on trouve sous les récifs coralliens de Polynésie !",
+      "feedback_incorrect": "❌ Applique la formule : ρ = m / V = 240 g / 80 cm³ = 3 g/cm³. Attention à ne pas inverser masse et volume : ρ = m ÷ V, pas V ÷ m.",
+      "code_socle": "D4-2",
+      "difficulte": 2
+    },
+    {
+      "id": 4,
+      "enonce": "La masse volumique de l'huile de coco est 920 kg/m³ et celle de l'eau est 1 000 kg/m³. Que se passe-t-il si on mélange ces deux liquides ?",
+      "options": [
+        "Ils se mélangent complètement.",
+        "L'huile coule sous l'eau car elle est plus légère.",
+        "L'huile flotte au-dessus de l'eau car ρ huile < ρ eau.",
+        "L'eau flotte au-dessus de l'huile car elle est transparente."
+      ],
+      "reponse": 2,
+      "feedback_correct": "✅ Très bien ! L'huile flotte car sa masse volumique (920 kg/m³) est inférieure à celle de l'eau (1 000 kg/m³). Un corps flotte quand ρ corps < ρ liquide. L'huile de coco est produite localement en Polynésie !",
+      "feedback_incorrect": "❌ C'est la masse volumique qui détermine si un objet flotte. L'huile de coco a ρ = 920 kg/m³, l'eau a ρ = 1 000 kg/m³. Puisque 920 < 1 000, l'huile se place AU-DESSUS de l'eau.",
+      "code_socle": "D4-3",
+      "difficulte": 2
+    },
+    {
+      "id": 5,
+      "enonce": "On plonge une noix de coco entière (ρ ≈ 850 kg/m³) dans l'eau de mer (ρ = 1 025 kg/m³). Que se passe-t-il ?",
+      "options": [
+        "Elle coule car elle est lourde.",
+        "Elle flotte car ρ noix < ρ eau de mer.",
+        "Elle coule car ρ noix < ρ eau de mer.",
+        "Elle se dissout dans l'eau salée."
+      ],
+      "reponse": 1,
+      "feedback_correct": "✅ Excellent ! La noix de coco flotte car ρ noix (850 kg/m³) < ρ eau de mer (1 025 kg/m³). C'est pour cette raison que les noix de coco traversent l'océan et colonisent de nouvelles îles !",
+      "feedback_incorrect": "❌ Règle : si ρ objet < ρ liquide → l'objet flotte. Ici, 850 < 1 025, donc la noix flotte. C'est grâce à cela que les noix de coco voyagent d'île en île dans le Pacifique !",
+      "code_socle": "D4-3",
+      "difficulte": 3
+    }
+  ]
+}

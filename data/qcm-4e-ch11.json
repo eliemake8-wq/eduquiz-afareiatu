@@ -1,0 +1,131 @@
+{
+  "id": "qcm-4e-ch11",
+  "titre": "Atomes et molécules — 4E",
+  "classe": "4e",
+  "chapitre": "Atomes et molécules",
+  "auteur": "Collège Afareiatu — SPC",
+  "date": "2026-05-20",
+  "version": 1,
+  "questions": [
+    {
+      "id": 1,
+      "enonce": "Un atome est constitué :",
+      "options": [
+        "AD'un noyau uniquement",
+        "BD'électrons uniquement",
+        "CD'un noyau et d'électrons",
+        "DDe molécules"
+      ],
+      "reponse": 0,
+      "feedback_correct": "✅ Atome = noyau (protons + neutrons) + électrons en orbite.",
+      "feedback_incorrect": "❌ Atome = noyau (protons + neutrons) + électrons en orbite.",
+      "code_socle": "D4-11",
+      "difficulte": 1
+    },
+    {
+      "id": 2,
+      "enonce": "Le numéro atomique Z représente :",
+      "options": [
+        "ALe nombre de neutrons",
+        "BLe nombre de protons",
+        "CLa masse de l'atome",
+        "DLe nombre d'électrons extérieurs"
+      ],
+      "reponse": 0,
+      "feedback_correct": "✅ Z = nombre de protons dans le noyau.",
+      "feedback_incorrect": "❌ Z = nombre de protons dans le noyau.",
+      "code_socle": "D4-11",
+      "difficulte": 1
+    },
+    {
+      "id": 3,
+      "enonce": "La molécule H₂O contient :",
+      "options": [
+        "A1 atome H et 2 atomes O",
+        "B3 atomes d'hydrogène",
+        "C2 atomes H et 1 atome O",
+        "D2 atomes O"
+      ],
+      "reponse": 0,
+      "feedback_correct": "✅ H₂O = 2 atomes d'hydrogène (H) et 1 atome d'oxygène (O).",
+      "feedback_incorrect": "❌ H₂O = 2 atomes d'hydrogène (H) et 1 atome d'oxygène (O).",
+      "code_socle": "D4-11",
+      "difficulte": 1
+    },
+    {
+      "id": 4,
+      "enonce": "Un cation est un ion :",
+      "options": [
+        "ANégatif",
+        "BNeutre",
+        "CPositif",
+        "DRadioactif"
+      ],
+      "reponse": 0,
+      "feedback_correct": "✅ Cation = ion positif (a perdu des électrons).",
+      "feedback_incorrect": "❌ Cation = ion positif (a perdu des électrons).",
+      "code_socle": "D4-11",
+      "difficulte": 2
+    },
+    {
+      "id": 5,
+      "enonce": "Le dioxygène O₂ est :",
+      "options": [
+        "AUn atome",
+        "BUne molécule",
+        "CUn ion",
+        "DUn mélange"
+      ],
+      "reponse": 0,
+      "feedback_correct": "✅ O₂ est une molécule diatomique composée de 2 atomes d'oxygène.",
+      "feedback_incorrect": "❌ O₂ est une molécule diatomique composée de 2 atomes d'oxygène.",
+      "code_socle": "D4-11",
+      "difficulte": 2
+    },
+    {
+      "id": 6,
+      "enonce": "La molécule de méthane CH₄ contient au total :",
+      "options": [
+        "A2 atomes",
+        "B4 atomes",
+        "C5 atomes",
+        "D8 atomes"
+      ],
+      "reponse": 0,
+      "feedback_correct": "✅ CH₄ = 1 C + 4 H = 5 atomes en tout.",
+      "feedback_incorrect": "❌ CH₄ = 1 C + 4 H = 5 atomes en tout.",
+      "code_socle": "D4-11",
+      "difficulte": 2
+    },
+    {
+      "id": 7,
+      "enonce": "Un atome neutre a autant de protons que :",
+      "options": [
+        "ADe neutrons",
+        "BD'électrons",
+        "CDe molécules",
+        "DDe noyaux"
+      ],
+      "reponse": 0,
+      "feedback_correct": "✅ Atome neutre : nb protons = nb électrons.",
+      "feedback_incorrect": "❌ Atome neutre : nb protons = nb électrons.",
+      "code_socle": "D4-11",
+      "difficulte": 3
+    },
+    {
+      "id": 8,
+      "enonce": "L'ion Na⁺ est obtenu quand le sodium :",
+      "options": [
+        "AGagne 1 électron",
+        "BPerd 1 proton",
+        "CPerd 1 électron",
+        "DGagne 1 proton"
+      ],
+      "reponse": 0,
+      "feedback_correct": "✅ Na → Na⁺ + e⁻ (perte d'un électron → charge positive).",
+      "feedback_incorrect": "❌ Na → Na⁺ + e⁻ (perte d'un électron → charge positive).",
+      "code_socle": "D4-11",
+      "difficulte": 3
+    }
+  ]
+}

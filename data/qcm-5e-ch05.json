@@ -1,0 +1,131 @@
+{
+  "id": "qcm-5e-ch05",
+  "titre": "Forces et leurs effets — 5E",
+  "classe": "5e",
+  "chapitre": "Forces et leurs effets",
+  "auteur": "Collège Afareiatu — SPC",
+  "date": "2026-05-20",
+  "version": 1,
+  "questions": [
+    {
+      "id": 1,
+      "enonce": "Une force peut modifier :",
+      "options": [
+        "ASeulement la couleur d'un objet",
+        "BLa vitesse et/ou la forme d'un objet",
+        "CUniquement la masse",
+        "DSeulement la trajectoire"
+      ],
+      "reponse": 0,
+      "feedback_correct": "✅ Une force modifie la vitesse (direction, sens, valeur) et/ou déforme l'objet.",
+      "feedback_incorrect": "❌ Une force modifie la vitesse (direction, sens, valeur) et/ou déforme l'objet.",
+      "code_socle": "D5-5",
+      "difficulte": 1
+    },
+    {
+      "id": 2,
+      "enonce": "L'unité de force est :",
+      "options": [
+        "ALe kilogramme (kg)",
+        "BLe joule (J)",
+        "CLe newton (N)",
+        "DLe pascal (Pa)"
+      ],
+      "reponse": 0,
+      "feedback_correct": "✅ La force se mesure en newton (N), avec un dynamomètre.",
+      "feedback_incorrect": "❌ La force se mesure en newton (N), avec un dynamomètre.",
+      "code_socle": "D5-5",
+      "difficulte": 1
+    },
+    {
+      "id": 3,
+      "enonce": "Le poids est :",
+      "options": [
+        "AUne masse",
+        "BUne force à distance exercée par la Terre",
+        "CUne force de contact",
+        "DUne énergie"
+      ],
+      "reponse": 0,
+      "feedback_correct": "✅ Le poids est la force gravitationnelle exercée par la Terre sur l'objet.",
+      "feedback_incorrect": "❌ Le poids est la force gravitationnelle exercée par la Terre sur l'objet.",
+      "code_socle": "D5-5",
+      "difficulte": 1
+    },
+    {
+      "id": 4,
+      "enonce": "La masse d'un objet sur la Lune comparée à la Terre :",
+      "options": [
+        "AEst plus grande",
+        "BEst plus petite",
+        "CEst identique",
+        "DEst nulle"
+      ],
+      "reponse": 0,
+      "feedback_correct": "✅ La masse est une propriété intrinsèque : elle ne change pas selon le lieu.",
+      "feedback_incorrect": "❌ La masse est une propriété intrinsèque : elle ne change pas selon le lieu.",
+      "code_socle": "D5-5",
+      "difficulte": 2
+    },
+    {
+      "id": 5,
+      "enonce": "Un objet de masse 3 kg a un poids de :",
+      "options": [
+        "A3 N",
+        "B0,3 N",
+        "C30 N",
+        "D300 N"
+      ],
+      "reponse": 0,
+      "feedback_correct": "✅ P = m × g = 3 × 10 = 30 N.",
+      "feedback_incorrect": "❌ P = m × g = 3 × 10 = 30 N.",
+      "code_socle": "D5-5",
+      "difficulte": 2
+    },
+    {
+      "id": 6,
+      "enonce": "La friction est une force :",
+      "options": [
+        "AÀ distance",
+        "BDe contact",
+        "CMagnétique",
+        "DGravitationnelle"
+      ],
+      "reponse": 0,
+      "feedback_correct": "✅ La friction nécessite un contact entre deux surfaces.",
+      "feedback_incorrect": "❌ La friction nécessite un contact entre deux surfaces.",
+      "code_socle": "D5-5",
+      "difficulte": 2
+    },
+    {
+      "id": 7,
+      "enonce": "Caractéristiques d'une force : combien en dénombre-t-on ?",
+      "options": [
+        "A2",
+        "B3",
+        "C4",
+        "D5"
+      ],
+      "reponse": 0,
+      "feedback_correct": "✅ 4 caractéristiques : point d'application, direction, sens, valeur.",
+      "feedback_incorrect": "❌ 4 caractéristiques : point d'application, direction, sens, valeur.",
+      "code_socle": "D5-5",
+      "difficulte": 3
+    },
+    {
+      "id": 8,
+      "enonce": "Sur la Lune, g = 1,6 N/kg. Le poids d'un objet de 5 kg sur la Lune est :",
+      "options": [
+        "A50 N",
+        "B5 N",
+        "C8 N",
+        "D1,6 N"
+      ],
+      "reponse": 0,
+      "feedback_correct": "✅ P = m × g = 5 × 1,6 = 8 N.",
+      "feedback_incorrect": "❌ P = m × g = 5 × 1,6 = 8 N.",
+      "code_socle": "D5-5",
+      "difficulte": 3
+    }
+  ]
+}

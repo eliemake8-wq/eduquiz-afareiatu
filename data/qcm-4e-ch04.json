@@ -1,0 +1,131 @@
+{
+  "id": "qcm-4e-ch04",
+  "titre": "Mouvement et vitesse — 4E",
+  "classe": "4e",
+  "chapitre": "Mouvement et vitesse",
+  "auteur": "Collège Afareiatu — SPC",
+  "date": "2026-05-20",
+  "version": 1,
+  "questions": [
+    {
+      "id": 1,
+      "enonce": "Un train roule à 90 km/h pendant 2 h. Distance parcourue ?",
+      "options": [
+        "45 km",
+        "90 km",
+        "180 km",
+        "360 km"
+      ],
+      "reponse": 2,
+      "feedback_correct": "✅ d = v × t = 90 × 2 = 180 km.",
+      "feedback_incorrect": "❌ d = v × t = 90 × 2 = 180 km.",
+      "code_socle": "D4-4",
+      "difficulte": 1
+    },
+    {
+      "id": 2,
+      "enonce": "72 km/h en m/s ?",
+      "options": [
+        "20 m/s",
+        "72 m/s",
+        "259 m/s",
+        "7,2 m/s"
+      ],
+      "reponse": 0,
+      "feedback_correct": "✅ 72 ÷ 3,6 = 20 m/s.",
+      "feedback_incorrect": "❌ 72 ÷ 3,6 = 20 m/s.",
+      "code_socle": "D4-4",
+      "difficulte": 1
+    },
+    {
+      "id": 3,
+      "enonce": "Sur d = f(t), une droite oblique signifie :",
+      "options": [
+        "Mouvement accéléré",
+        "Mouvement décéléré",
+        "Mouvement uniforme",
+        "Mouvement circulaire"
+      ],
+      "reponse": 2,
+      "feedback_correct": "✅ Droite sur d=f(t) → vitesse constante → mouvement uniforme.",
+      "feedback_incorrect": "❌ Droite sur d=f(t) → vitesse constante → mouvement uniforme.",
+      "code_socle": "D4-4",
+      "difficulte": 1
+    },
+    {
+      "id": 4,
+      "enonce": "Cycliste : 36 km en 1,5 h. Vitesse moyenne ?",
+      "options": [
+        "24 km/h",
+        "36 km/h",
+        "54 km/h",
+        "12 km/h"
+      ],
+      "reponse": 0,
+      "feedback_correct": "✅ v = 36/1,5 = 24 km/h.",
+      "feedback_incorrect": "❌ v = 36/1,5 = 24 km/h.",
+      "code_socle": "D4-4",
+      "difficulte": 2
+    },
+    {
+      "id": 5,
+      "enonce": "La vitesse instantanée est lue :",
+      "options": [
+        "Sur le compteur kilométrique",
+        "Sur le compteur de vitesse à un instant t",
+        "En divisant distance/temps total",
+        "Sur un graphique"
+      ],
+      "reponse": 1,
+      "feedback_correct": "✅ La vitesse instantanée est lue sur le compteur de vitesse (à un instant précis).",
+      "feedback_incorrect": "❌ La vitesse instantanée est lue sur le compteur de vitesse (à un instant précis).",
+      "code_socle": "D4-4",
+      "difficulte": 2
+    },
+    {
+      "id": 6,
+      "enonce": "Mouvement rectiligne uniforme : trajectoire ?",
+      "options": [
+        "Circulaire",
+        "En ligne droite",
+        "Curviligne",
+        "Aléatoire"
+      ],
+      "reponse": 1,
+      "feedback_correct": "✅ Rectiligne uniforme : trajectoire droite + vitesse constante.",
+      "feedback_incorrect": "❌ Rectiligne uniforme : trajectoire droite + vitesse constante.",
+      "code_socle": "D4-4",
+      "difficulte": 2
+    },
+    {
+      "id": 7,
+      "enonce": "400 m en 50 s → vitesse en m/s et km/h ?",
+      "options": [
+        "4 m/s = 14,4 km/h",
+        "8 m/s = 28,8 km/h",
+        "50 m/s = 180 km/h",
+        "0,1 m/s"
+      ],
+      "reponse": 1,
+      "feedback_correct": "✅ v = 400/50 = 8 m/s ; 8 × 3,6 = 28,8 km/h.",
+      "feedback_incorrect": "❌ v = 400/50 = 8 m/s ; 8 × 3,6 = 28,8 km/h.",
+      "code_socle": "D4-4",
+      "difficulte": 3
+    },
+    {
+      "id": 8,
+      "enonce": "Deux voitures côte à côte à la même vitesse. L'une est-elle en mouvement par rapport à l'autre ?",
+      "options": [
+        "Oui",
+        "Non, elles sont immobiles l'une par rapport à l'autre",
+        "Oui selon la direction",
+        "Impossible à dire"
+      ],
+      "reponse": 1,
+      "feedback_correct": "✅ Même vitesse, même direction → immobiles l'une par rapport à l'autre.",
+      "feedback_incorrect": "❌ Même vitesse, même direction → immobiles l'une par rapport à l'autre.",
+      "code_socle": "D4-4",
+      "difficulte": 3
+    }
+  ]
+}

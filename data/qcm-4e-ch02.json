@@ -1,0 +1,131 @@
+{
+  "id": "qcm-4e-ch02",
+  "titre": "Solubilité et purification de l'eau — 4E",
+  "classe": "4e",
+  "chapitre": "Solubilité et purification de l'eau",
+  "auteur": "Collège Afareiatu — SPC",
+  "date": "2026-05-20",
+  "version": 1,
+  "questions": [
+    {
+      "id": 1,
+      "enonce": "Quelle est la définition de la solubilité ?",
+      "options": [
+        "La vitesse de dissolution",
+        "La masse max dans 100 g de solvant à T donnée",
+        "La couleur de la solution",
+        "La proportion de solvant"
+      ],
+      "reponse": 1,
+      "feedback_correct": "✅ La solubilité est la masse maximale de soluté dissoluble dans 100 g de solvant.",
+      "feedback_incorrect": "❌ La solubilité est la masse maximale de soluté dissoluble dans 100 g de solvant.",
+      "code_socle": "D4-2",
+      "difficulte": 1
+    },
+    {
+      "id": 2,
+      "enonce": "L'eau et l'alcool (éthanol) sont :",
+      "options": [
+        "Non miscibles",
+        "Miscibles",
+        "Partiellement solubles",
+        "Immiscibles"
+      ],
+      "reponse": 1,
+      "feedback_correct": "✅ L'eau et l'éthanol sont miscibles dans toutes proportions.",
+      "feedback_incorrect": "❌ L'eau et l'éthanol sont miscibles dans toutes proportions.",
+      "code_socle": "D4-2",
+      "difficulte": 1
+    },
+    {
+      "id": 3,
+      "enonce": "Quelle technique sépare des solides d'un liquide avec un filtre ?",
+      "options": [
+        "Décantation",
+        "Distillation",
+        "Filtration",
+        "Dissolution"
+      ],
+      "reponse": 2,
+      "feedback_correct": "✅ La filtration utilise un filtre pour retenir les particules solides.",
+      "feedback_incorrect": "❌ La filtration utilise un filtre pour retenir les particules solides.",
+      "code_socle": "D4-2",
+      "difficulte": 1
+    },
+    {
+      "id": 4,
+      "enonce": "La décantation exploite :",
+      "options": [
+        "La température d'ébullition",
+        "La gravité (dépôt des particules lourdes)",
+        "La solubilité",
+        "La miscibilité"
+      ],
+      "reponse": 1,
+      "feedback_correct": "✅ La décantation exploite la gravité.",
+      "feedback_incorrect": "❌ La décantation exploite la gravité.",
+      "code_socle": "D4-2",
+      "difficulte": 2
+    },
+    {
+      "id": 5,
+      "enonce": "Si on augmente la température, que se passe-t-il pour la solubilité d'un solide dans l'eau ?",
+      "options": [
+        "Elle diminue",
+        "Elle reste constante",
+        "Elle augmente",
+        "La solution précipite"
+      ],
+      "reponse": 2,
+      "feedback_correct": "✅ En général la solubilité d'un solide augmente avec la température.",
+      "feedback_incorrect": "❌ En général la solubilité d'un solide augmente avec la température.",
+      "code_socle": "D4-2",
+      "difficulte": 2
+    },
+    {
+      "id": 6,
+      "enonce": "La distillation permet de :",
+      "options": [
+        "Filtrer les solides",
+        "Séparer deux liquides par T° d'ébullition différente",
+        "Tester CO₂",
+        "Mesurer la densité"
+      ],
+      "reponse": 1,
+      "feedback_correct": "✅ La distillation sépare les composants par vaporisation séquentielle.",
+      "feedback_incorrect": "❌ La distillation sépare les composants par vaporisation séquentielle.",
+      "code_socle": "D4-2",
+      "difficulte": 2
+    },
+    {
+      "id": 7,
+      "enonce": "Qu'est-ce qu'une solution saturée ?",
+      "options": [
+        "Très claire",
+        "On ne peut plus dissoudre de soluté",
+        "Soluté en excès non dissous",
+        "Les réponses b et c"
+      ],
+      "reponse": 3,
+      "feedback_correct": "✅ Solution saturée : limite de solubilité atteinte, excès non dissous possible.",
+      "feedback_incorrect": "❌ Solution saturée : limite de solubilité atteinte, excès non dissous possible.",
+      "code_socle": "D4-2",
+      "difficulte": 3
+    },
+    {
+      "id": 8,
+      "enonce": "Pour purifier l'eau de micro-organismes, on utilise :",
+      "options": [
+        "La décantation",
+        "Filtration sur sable uniquement",
+        "Désinfection (chlore/ozone)",
+        "La distillation"
+      ],
+      "reponse": 2,
+      "feedback_correct": "✅ La désinfection (chlore ou ozone) élimine les micro-organismes pathogènes.",
+      "feedback_incorrect": "❌ La désinfection (chlore ou ozone) élimine les micro-organismes pathogènes.",
+      "code_socle": "D4-2",
+      "difficulte": 3
+    }
+  ]
+}

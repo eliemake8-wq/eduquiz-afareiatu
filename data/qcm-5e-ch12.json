@@ -1,0 +1,131 @@
+{
+  "id": "qcm-5e-ch12",
+  "titre": "L'énergie et ses transferts — 5E",
+  "classe": "5e",
+  "chapitre": "L'énergie et ses transferts",
+  "auteur": "Collège Afareiatu — SPC",
+  "date": "2026-05-20",
+  "version": 1,
+  "questions": [
+    {
+      "id": 1,
+      "enonce": "Quelle forme d'énergie est stockée dans une batterie ?",
+      "options": [
+        "Énergie thermique",
+        "Énergie mécanique",
+        "Énergie chimique",
+        "Énergie lumineuse"
+      ],
+      "reponse": 2,
+      "feedback_correct": "✅ Une batterie stocke de l'énergie chimique, convertie en électricité lors de la décharge.",
+      "feedback_incorrect": "❌ Une batterie stocke de l'énergie chimique, convertie en électricité lors de la décharge.",
+      "code_socle": "D5-12",
+      "difficulte": 1
+    },
+    {
+      "id": 2,
+      "enonce": "Une centrale éolienne convertit principalement quelle énergie ?",
+      "options": [
+        "Énergie thermique → énergie électrique",
+        "Énergie mécanique (vent) → énergie électrique",
+        "Énergie chimique → énergie mécanique",
+        "Énergie lumineuse → énergie chimique"
+      ],
+      "reponse": 1,
+      "feedback_correct": "✅ Les éoliennes convertissent l'énergie cinétique du vent en énergie électrique.",
+      "feedback_incorrect": "❌ Les éoliennes convertissent l'énergie cinétique du vent en énergie électrique.",
+      "code_socle": "D5-12",
+      "difficulte": 1
+    },
+    {
+      "id": 3,
+      "enonce": "Que dit le principe de conservation de l'énergie ?",
+      "options": [
+        "L'énergie diminue toujours",
+        "L'énergie peut se créer",
+        "L'énergie se conserve (ne se crée ni ne se détruit)",
+        "L'énergie ne peut pas se transformer"
+      ],
+      "reponse": 2,
+      "feedback_correct": "✅ L'énergie se conserve : elle ne fait que changer de forme.",
+      "feedback_incorrect": "❌ L'énergie se conserve : elle ne fait que changer de forme.",
+      "code_socle": "D5-12",
+      "difficulte": 1
+    },
+    {
+      "id": 4,
+      "enonce": "Les énergies fossiles sont-elles renouvelables ?",
+      "options": [
+        "Oui, elles se renouvellent rapidement",
+        "Non, elles sont épuisables",
+        "Cela dépend du pays",
+        "Oui, grâce au recyclage"
+      ],
+      "reponse": 1,
+      "feedback_correct": "✅ Les énergies fossiles (pétrole, charbon, gaz) sont non renouvelables.",
+      "feedback_incorrect": "❌ Les énergies fossiles (pétrole, charbon, gaz) sont non renouvelables.",
+      "code_socle": "D5-12",
+      "difficulte": 2
+    },
+    {
+      "id": 5,
+      "enonce": "Une ampoule transforme de l'énergie électrique en :",
+      "options": [
+        "Énergie chimique uniquement",
+        "Énergie lumineuse et thermique",
+        "Énergie mécanique et thermique",
+        "Énergie lumineuse uniquement"
+      ],
+      "reponse": 1,
+      "feedback_correct": "✅ Une ampoule convertit l'électricité principalement en lumière, mais aussi en chaleur (dissipation).",
+      "feedback_incorrect": "❌ Une ampoule convertit l'électricité principalement en lumière, mais aussi en chaleur (dissipation).",
+      "code_socle": "D5-12",
+      "difficulte": 2
+    },
+    {
+      "id": 6,
+      "enonce": "La source d'énergie d'un panneau solaire photovoltaïque est :",
+      "options": [
+        "La chaleur de la Terre",
+        "L'énergie du vent",
+        "La lumière du soleil",
+        "L'énergie chimique"
+      ],
+      "reponse": 2,
+      "feedback_correct": "✅ Les panneaux solaires photovoltaïques captent l'énergie lumineuse du Soleil pour la convertir en électricité.",
+      "feedback_incorrect": "❌ Les panneaux solaires photovoltaïques captent l'énergie lumineuse du Soleil pour la convertir en électricité.",
+      "code_socle": "D5-12",
+      "difficulte": 2
+    },
+    {
+      "id": 7,
+      "enonce": "Pourquoi dit-on qu'une partie de l'énergie est \"perdue\" dans un convertisseur ?",
+      "options": [
+        "Elle disparaît complètement",
+        "Elle est dissipée sous forme de chaleur dans l'environnement",
+        "Elle est recyclée",
+        "Elle se transforme en matière"
+      ],
+      "reponse": 1,
+      "feedback_correct": "✅ En pratique, une partie de l'énergie est toujours dissipée sous forme de chaleur (non récupérable utilement).",
+      "feedback_incorrect": "❌ En pratique, une partie de l'énergie est toujours dissipée sous forme de chaleur (non récupérable utilement).",
+      "code_socle": "D5-12",
+      "difficulte": 3
+    },
+    {
+      "id": 8,
+      "enonce": "Dans la chaîne énergétique : nourriture → muscles → vélo → mouvement, quel est le convertisseur ?",
+      "options": [
+        "La nourriture",
+        "Le mouvement",
+        "Les muscles",
+        "Le vélo"
+      ],
+      "reponse": 2,
+      "feedback_correct": "✅ Les muscles convertissent l'énergie chimique (nourriture) en énergie mécanique (mouvement).",
+      "feedback_incorrect": "❌ Les muscles convertissent l'énergie chimique (nourriture) en énergie mécanique (mouvement).",
+      "code_socle": "D5-12",
+      "difficulte": 3
+    }
+  ]
+}

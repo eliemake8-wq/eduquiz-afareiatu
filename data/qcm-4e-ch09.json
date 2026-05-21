@@ -1,0 +1,131 @@
+{
+  "id": "qcm-4e-ch09",
+  "titre": "Propagation du son — 4E",
+  "classe": "4e",
+  "chapitre": "Propagation du son",
+  "auteur": "Collège Afareiatu — SPC",
+  "date": "2026-05-20",
+  "version": 1,
+  "questions": [
+    {
+      "id": 1,
+      "enonce": "Vitesse du son dans l'air à 20°C ?",
+      "options": [
+        "34 m/s",
+        "340 m/s",
+        "3400 m/s",
+        "300000 km/s"
+      ],
+      "reponse": 1,
+      "feedback_correct": "✅ v(son, air, 20°C) ≈ 340 m/s.",
+      "feedback_incorrect": "❌ v(son, air, 20°C) ≈ 340 m/s.",
+      "code_socle": "D4-9",
+      "difficulte": 1
+    },
+    {
+      "id": 2,
+      "enonce": "Son grave → fréquence :",
+      "options": [
+        "Grande",
+        "Petite amplitude",
+        "Petite fréquence",
+        "Grande vitesse"
+      ],
+      "reponse": 2,
+      "feedback_correct": "✅ Son grave = fréquence basse.",
+      "feedback_incorrect": "❌ Son grave = fréquence basse.",
+      "code_socle": "D4-9",
+      "difficulte": 1
+    },
+    {
+      "id": 3,
+      "enonce": "Le sonar mesure la profondeur en :",
+      "options": [
+        "Fréquence",
+        "Intensité échos",
+        "Temps de retour de l'écho",
+        "Vitesse du bateau"
+      ],
+      "reponse": 2,
+      "feedback_correct": "✅ d = v × t/2 (aller-retour).",
+      "feedback_incorrect": "❌ d = v × t/2 (aller-retour).",
+      "code_socle": "D4-9",
+      "difficulte": 1
+    },
+    {
+      "id": 4,
+      "enonce": "Dans quel milieu le son est le plus rapide ?",
+      "options": [
+        "L'air",
+        "L'eau",
+        "Le bois",
+        "L'acier"
+      ],
+      "reponse": 3,
+      "feedback_correct": "✅ Acier ≈ 5000 m/s.",
+      "feedback_incorrect": "❌ Acier ≈ 5000 m/s.",
+      "code_socle": "D4-9",
+      "difficulte": 2
+    },
+    {
+      "id": 5,
+      "enonce": "Tonnerre 4 s après éclair, v=340 m/s → distance orage ?",
+      "options": [
+        "85 m",
+        "340 m",
+        "1360 m",
+        "4000 m"
+      ],
+      "reponse": 2,
+      "feedback_correct": "✅ d = 340 × 4 = 1360 m.",
+      "feedback_incorrect": "❌ d = 340 × 4 = 1360 m.",
+      "code_socle": "D4-9",
+      "difficulte": 2
+    },
+    {
+      "id": 6,
+      "enonce": "Le timbre permet de :",
+      "options": [
+        "Connaître la vitesse",
+        "Distinguer deux instruments (même note)",
+        "Mesurer l'intensité",
+        "Calculer la fréquence"
+      ],
+      "reponse": 1,
+      "feedback_correct": "✅ Le timbre distingue deux instruments jouant la même note.",
+      "feedback_incorrect": "❌ Le timbre distingue deux instruments jouant la même note.",
+      "code_socle": "D4-9",
+      "difficulte": 2
+    },
+    {
+      "id": 7,
+      "enonce": "Gamme audible humaine :",
+      "options": [
+        "0 – 200 Hz",
+        "200 – 2000 Hz",
+        "20 – 20000 Hz",
+        "0 – 1 MHz"
+      ],
+      "reponse": 2,
+      "feedback_correct": "✅ 20 Hz à 20 000 Hz (20 kHz).",
+      "feedback_incorrect": "❌ 20 Hz à 20 000 Hz (20 kHz).",
+      "code_socle": "D4-9",
+      "difficulte": 3
+    },
+    {
+      "id": 8,
+      "enonce": "Son 90 dB permanent →",
+      "options": [
+        "Renforce l'ouïe",
+        "Sans effet nocif",
+        "Surdité irréversible",
+        "Mal de tête uniquement"
+      ],
+      "reponse": 2,
+      "feedback_correct": "✅ Exposition > 85 dB prolongée → surdité irréversible.",
+      "feedback_incorrect": "❌ Exposition > 85 dB prolongée → surdité irréversible.",
+      "code_socle": "D4-9",
+      "difficulte": 3
+    }
+  ]
+}

@@ -1,0 +1,131 @@
+{
+  "id": "qcm-5e-ch06",
+  "titre": "Énergie : formes et transferts — 5E",
+  "classe": "5e",
+  "chapitre": "Énergie : formes et transferts",
+  "auteur": "Collège Afareiatu — SPC",
+  "date": "2026-05-20",
+  "version": 1,
+  "questions": [
+    {
+      "id": 1,
+      "enonce": "Quand une balle roule sur le sol, elle possède une énergie :",
+      "options": [
+        "AChimique",
+        "BCinétique",
+        "CLumineuse",
+        "DPotentielle"
+      ],
+      "reponse": 0,
+      "feedback_correct": "✅ Un objet en mouvement possède de l'énergie cinétique.",
+      "feedback_incorrect": "❌ Un objet en mouvement possède de l'énergie cinétique.",
+      "code_socle": "D5-6",
+      "difficulte": 1
+    },
+    {
+      "id": 2,
+      "enonce": "L'unité d'énergie est :",
+      "options": [
+        "ALe watt (W)",
+        "BLe newton (N)",
+        "CLe joule (J)",
+        "DLe pascal (Pa)"
+      ],
+      "reponse": 0,
+      "feedback_correct": "✅ L'énergie se mesure en joule (J). Le watt est une puissance.",
+      "feedback_incorrect": "❌ L'énergie se mesure en joule (J). Le watt est une puissance.",
+      "code_socle": "D5-6",
+      "difficulte": 1
+    },
+    {
+      "id": 3,
+      "enonce": "Le principe de conservation de l'énergie dit que l'énergie :",
+      "options": [
+        "ASe crée à partir de rien",
+        "BSe détruit en chaleur",
+        "CSe transforme mais ne disparaît pas",
+        "DAugmente toujours"
+      ],
+      "reponse": 0,
+      "feedback_correct": "✅ L'énergie totale d'un système isolé reste constante.",
+      "feedback_incorrect": "❌ L'énergie totale d'un système isolé reste constante.",
+      "code_socle": "D5-6",
+      "difficulte": 1
+    },
+    {
+      "id": 4,
+      "enonce": "Une lampe transforme l'énergie électrique en :",
+      "options": [
+        "AÉnergie chimique uniquement",
+        "BÉnergie lumineuse uniquement",
+        "CÉnergie lumineuse et thermique",
+        "DÉnergie cinétique"
+      ],
+      "reponse": 0,
+      "feedback_correct": "✅ Une lampe produit de la lumière et de la chaleur (la chaleur est souvent perdue).",
+      "feedback_incorrect": "❌ Une lampe produit de la lumière et de la chaleur (la chaleur est souvent perdue).",
+      "code_socle": "D5-6",
+      "difficulte": 2
+    },
+    {
+      "id": 5,
+      "enonce": "1 kWh est égal à :",
+      "options": [
+        "A1 000 J",
+        "B3 600 J",
+        "C3 600 000 J",
+        "D1 000 000 J"
+      ],
+      "reponse": 0,
+      "feedback_correct": "✅ 1 kWh = 1 000 W × 3 600 s = 3 600 000 J.",
+      "feedback_incorrect": "❌ 1 kWh = 1 000 W × 3 600 s = 3 600 000 J.",
+      "code_socle": "D5-6",
+      "difficulte": 2
+    },
+    {
+      "id": 6,
+      "enonce": "Quelle énergie est stockée dans les aliments ?",
+      "options": [
+        "ACinétique",
+        "BLumineuse",
+        "CChimique",
+        "DSonore"
+      ],
+      "reponse": 0,
+      "feedback_correct": "✅ L'énergie des aliments est une énergie chimique libérée lors de la digestion.",
+      "feedback_incorrect": "❌ L'énergie des aliments est une énergie chimique libérée lors de la digestion.",
+      "code_socle": "D5-6",
+      "difficulte": 2
+    },
+    {
+      "id": 7,
+      "enonce": "Une énergie renouvelable est :",
+      "options": [
+        "ALe pétrole",
+        "BLe charbon",
+        "CL'énergie solaire",
+        "DLe gaz naturel"
+      ],
+      "reponse": 0,
+      "feedback_correct": "✅ L'énergie solaire est inépuisable et renouvelable.",
+      "feedback_incorrect": "❌ L'énergie solaire est inépuisable et renouvelable.",
+      "code_socle": "D5-6",
+      "difficulte": 3
+    },
+    {
+      "id": 8,
+      "enonce": "Un appareil de 100 W consommé pendant 10 s consomme :",
+      "options": [
+        "A10 J",
+        "B100 J",
+        "C1 000 J",
+        "D10 000 J"
+      ],
+      "reponse": 0,
+      "feedback_correct": "✅ E = P × t = 100 × 10 = 1 000 J.",
+      "feedback_incorrect": "❌ E = P × t = 100 × 10 = 1 000 J.",
+      "code_socle": "D5-6",
+      "difficulte": 3
+    }
+  ]
+}

@@ -1,0 +1,131 @@
+{
+  "id": "qcm-5e-ch09",
+  "titre": "Changements d'état — 5E",
+  "classe": "5e",
+  "chapitre": "Changements d'état",
+  "auteur": "Collège Afareiatu — SPC",
+  "date": "2026-05-20",
+  "version": 1,
+  "questions": [
+    {
+      "id": 1,
+      "enonce": "Lors de la fusion d'un corps pur, la température :",
+      "options": [
+        "AAugmente continuellement",
+        "BReste constante",
+        "CDiminue",
+        "DVarie aléatoirement"
+      ],
+      "reponse": 0,
+      "feedback_correct": "✅ La température reste constante pendant tout le changement d'état d'un corps pur.",
+      "feedback_incorrect": "❌ La température reste constante pendant tout le changement d'état d'un corps pur.",
+      "code_socle": "D5-9",
+      "difficulte": 1
+    },
+    {
+      "id": 2,
+      "enonce": "Le passage de l'état liquide à l'état solide s'appelle :",
+      "options": [
+        "AVaporisation",
+        "BFusion",
+        "CSolidification",
+        "DCondensation"
+      ],
+      "reponse": 0,
+      "feedback_correct": "✅ La solidification est le changement d'état liquide → solide.",
+      "feedback_incorrect": "❌ La solidification est le changement d'état liquide → solide.",
+      "code_socle": "D5-9",
+      "difficulte": 1
+    },
+    {
+      "id": 3,
+      "enonce": "L'eau bout à :",
+      "options": [
+        "A50°C",
+        "B0°C",
+        "C100°C",
+        "D37°C"
+      ],
+      "reponse": 0,
+      "feedback_correct": "✅ L'eau bout à 100°C sous pression atmosphérique normale.",
+      "feedback_incorrect": "❌ L'eau bout à 100°C sous pression atmosphérique normale.",
+      "code_socle": "D5-9",
+      "difficulte": 1
+    },
+    {
+      "id": 4,
+      "enonce": "Lors d'un changement d'état, la masse :",
+      "options": [
+        "AAugmente",
+        "BDiminue",
+        "CSe conserve",
+        "DDisparaît"
+      ],
+      "reponse": 0,
+      "feedback_correct": "✅ La masse est conservée lors d'un changement d'état physique.",
+      "feedback_incorrect": "❌ La masse est conservée lors d'un changement d'état physique.",
+      "code_socle": "D5-9",
+      "difficulte": 2
+    },
+    {
+      "id": 5,
+      "enonce": "La sublimation est le passage :",
+      "options": [
+        "ALiquide → gaz",
+        "BSolide → gaz",
+        "CGaz → liquide",
+        "DSolide → liquide"
+      ],
+      "reponse": 0,
+      "feedback_correct": "✅ La sublimation est le passage direct de l'état solide à l'état gazeux.",
+      "feedback_incorrect": "❌ La sublimation est le passage direct de l'état solide à l'état gazeux.",
+      "code_socle": "D5-9",
+      "difficulte": 2
+    },
+    {
+      "id": 6,
+      "enonce": "La condensation est le passage :",
+      "options": [
+        "ALiquide → solide",
+        "BSolide → gaz",
+        "CGaz → liquide",
+        "DLiquide → gaz"
+      ],
+      "reponse": 0,
+      "feedback_correct": "✅ La condensation = gaz → liquide. C'est l'inverse de la vaporisation.",
+      "feedback_incorrect": "❌ La condensation = gaz → liquide. C'est l'inverse de la vaporisation.",
+      "code_socle": "D5-9",
+      "difficulte": 2
+    },
+    {
+      "id": 7,
+      "enonce": "Pendant la fusion de la glace, que se passe-t-il si on continue à chauffer ?",
+      "options": [
+        "ALa température monte",
+        "BLa température reste à 0°C",
+        "CLa glace disparaît immédiatement",
+        "DLa température baisse"
+      ],
+      "reponse": 0,
+      "feedback_correct": "✅ Tant qu'il reste de la glace, la température reste à 0°C (corps pur).",
+      "feedback_incorrect": "❌ Tant qu'il reste de la glace, la température reste à 0°C (corps pur).",
+      "code_socle": "D5-9",
+      "difficulte": 3
+    },
+    {
+      "id": 8,
+      "enonce": "Un corps pur se différencie d'un mélange car :",
+      "options": [
+        "AIl est toujours liquide",
+        "BSon changement d'état se fait à température constante",
+        "CIl ne peut pas se solidifier",
+        "DSa masse varie"
+      ],
+      "reponse": 0,
+      "feedback_correct": "✅ Un corps pur change d'état à température constante, contrairement à un mélange.",
+      "feedback_incorrect": "❌ Un corps pur change d'état à température constante, contrairement à un mélange.",
+      "code_socle": "D5-9",
+      "difficulte": 3
+    }
+  ]
+}

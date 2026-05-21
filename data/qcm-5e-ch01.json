@@ -1,0 +1,131 @@
+{
+  "id": "qcm-5e-ch01",
+  "titre": "Les états de la matière — 5E",
+  "classe": "5e",
+  "chapitre": "Les états de la matière",
+  "auteur": "Collège Afareiatu — SPC",
+  "date": "2026-05-20",
+  "version": 1,
+  "questions": [
+    {
+      "id": 1,
+      "enonce": "Quel est l'état de l'eau à 20 °C et pression atmosphérique normale ?",
+      "options": [
+        "Solide",
+        "Liquide",
+        "Gazeux",
+        "Plasma"
+      ],
+      "reponse": 1,
+      "feedback_correct": "✅ L'eau est liquide entre 0 °C et 100 °C à pression normale.",
+      "feedback_incorrect": "❌ L'eau est liquide entre 0 °C et 100 °C à pression normale.",
+      "code_socle": "D5-1",
+      "difficulte": 1
+    },
+    {
+      "id": 2,
+      "enonce": "Comment appelle-t-on le passage de l'état liquide à l'état solide ?",
+      "options": [
+        "Fusion",
+        "Vaporisation",
+        "Sublimation",
+        "Solidification"
+      ],
+      "reponse": 3,
+      "feedback_correct": "✅ La solidification est le passage de l'état liquide à l'état solide.",
+      "feedback_incorrect": "❌ La solidification est le passage de l'état liquide à l'état solide.",
+      "code_socle": "D5-1",
+      "difficulte": 1
+    },
+    {
+      "id": 3,
+      "enonce": "À quelle température l'eau bout-elle (pression normale) ?",
+      "options": [
+        "50 °C",
+        "80 °C",
+        "100 °C",
+        "120 °C"
+      ],
+      "reponse": 2,
+      "feedback_correct": "✅ L'eau bout à 100 °C à pression atmosphérique normale.",
+      "feedback_incorrect": "❌ L'eau bout à 100 °C à pression atmosphérique normale.",
+      "code_socle": "D5-1",
+      "difficulte": 1
+    },
+    {
+      "id": 4,
+      "enonce": "Que se passe-t-il à la masse lors d'un changement d'état ?",
+      "options": [
+        "Elle augmente",
+        "Elle diminue",
+        "Elle se conserve",
+        "Elle varie selon l'état"
+      ],
+      "reponse": 2,
+      "feedback_correct": "✅ La masse est toujours conservée lors d'un changement d'état.",
+      "feedback_incorrect": "❌ La masse est toujours conservée lors d'un changement d'état.",
+      "code_socle": "D5-1",
+      "difficulte": 2
+    },
+    {
+      "id": 5,
+      "enonce": "Dans quel état les molécules sont-elles les plus éloignées les unes des autres ?",
+      "options": [
+        "Solide",
+        "Liquide",
+        "Gazeux",
+        "Elles sont toujours à la même distance"
+      ],
+      "reponse": 2,
+      "feedback_correct": "✅ Dans l'état gazeux, les molécules sont très éloignées et désordonnées.",
+      "feedback_incorrect": "❌ Dans l'état gazeux, les molécules sont très éloignées et désordonnées.",
+      "code_socle": "D5-1",
+      "difficulte": 2
+    },
+    {
+      "id": 6,
+      "enonce": "Le passage de l'état solide directement à l'état gazeux s'appelle :",
+      "options": [
+        "Condensation",
+        "Fusion",
+        "Sublimation",
+        "Vaporisation"
+      ],
+      "reponse": 2,
+      "feedback_correct": "✅ La sublimation est le passage direct solide → gaz (ex : neige carbonique).",
+      "feedback_incorrect": "❌ La sublimation est le passage direct solide → gaz (ex : neige carbonique).",
+      "code_socle": "D5-1",
+      "difficulte": 2
+    },
+    {
+      "id": 7,
+      "enonce": "Pendant la fusion de la glace, que peut-on dire de la température ?",
+      "options": [
+        "Elle augmente",
+        "Elle reste constante à 0 °C",
+        "Elle diminue",
+        "Elle varie aléatoirement"
+      ],
+      "reponse": 1,
+      "feedback_correct": "✅ Pendant un changement d'état, la température reste constante (palier).",
+      "feedback_incorrect": "❌ Pendant un changement d'état, la température reste constante (palier).",
+      "code_socle": "D5-1",
+      "difficulte": 3
+    },
+    {
+      "id": 8,
+      "enonce": "Laquelle de ces propriétés est caractéristique d'un liquide ?",
+      "options": [
+        "Forme propre et volume fixe",
+        "Forme variable et volume fixe",
+        "Forme et volume variables",
+        "Forme fixe et volume variable"
+      ],
+      "reponse": 1,
+      "feedback_correct": "✅ Un liquide prend la forme de son récipient mais son volume reste constant.",
+      "feedback_incorrect": "❌ Un liquide prend la forme de son récipient mais son volume reste constant.",
+      "code_socle": "D5-1",
+      "difficulte": 3
+    }
+  ]
+}

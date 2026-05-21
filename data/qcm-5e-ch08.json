@@ -1,0 +1,191 @@
+{
+  "id": "qcm-5e-ch08",
+  "titre": "Mélanges et corps purs — 5E",
+  "classe": "5e",
+  "chapitre": "Mélanges et corps purs",
+  "auteur": "Collège Afareiatu — SPC",
+  "date": "2026-05-20",
+  "version": 1,
+  "questions": [
+    {
+      "id": 1,
+      "enonce": "Qu'est-ce qu'un corps pur ?",
+      "options": [
+        "Un mélange de plusieurs substances",
+        "Une substance constituée d'un seul type de molécules ou d'atomes",
+        "Une substance qui ne se mélange pas avec l'eau",
+        "Un liquide incolore et transparent"
+      ],
+      "reponse": 1,
+      "feedback_correct": "✅ Bonne réponse : Une substance constituée d'un seul type de molécules ou d'atomes",
+      "feedback_incorrect": "❌ La bonne réponse était : Une substance constituée d'un seul type de molécules ou d'atomes",
+      "code_socle": "D5-8",
+      "difficulte": 1
+    },
+    {
+      "id": 2,
+      "enonce": "La limonade est un exemple de :",
+      "options": [
+        "Mélange homogène",
+        "Mélange hétérogène",
+        "Corps pur",
+        "Solvant pur"
+      ],
+      "reponse": 0,
+      "feedback_correct": "✅ Bonne réponse : Mélange homogène",
+      "feedback_incorrect": "❌ La bonne réponse était : Mélange homogène",
+      "code_socle": "D5-8",
+      "difficulte": 1
+    },
+    {
+      "id": 3,
+      "enonce": "Un mélange hétérogène est un mélange dans lequel :",
+      "options": [
+        "On ne distingue qu'une seule phase à l'œil nu",
+        "Il n'y a qu'un seul type de molécule",
+        "On distingue plusieurs phases ou constituants à l'œil nu",
+        "Toutes les substances sont dissoutes"
+      ],
+      "reponse": 2,
+      "feedback_correct": "✅ Bonne réponse : On distingue plusieurs phases ou constituants à l'œil nu",
+      "feedback_incorrect": "❌ La bonne réponse était : On distingue plusieurs phases ou constituants à l'œil nu",
+      "code_socle": "D5-8",
+      "difficulte": 1
+    },
+    {
+      "id": 4,
+      "enonce": "On dissout du sel dans de l'eau. Le sel est lesoluté, l'eau est lesolvant. Qu'obtient-on ?",
+      "options": [
+        "Un corps pur",
+        "Une solution (mélange homogène)",
+        "Un mélange hétérogène",
+        "De l'eau salée hétérogène"
+      ],
+      "reponse": 1,
+      "feedback_correct": "✅ Bonne réponse : Une solution (mélange homogène)",
+      "feedback_incorrect": "❌ La bonne réponse était : Une solution (mélange homogène)",
+      "code_socle": "D5-8",
+      "difficulte": 2
+    },
+    {
+      "id": 5,
+      "enonce": "Pour séparer du sable d'un mélange eau + sable, quelle technique utilise-t-on ?",
+      "options": [
+        "La distillation",
+        "La décantation",
+        "La filtration",
+        "La dissolution"
+      ],
+      "reponse": 2,
+      "feedback_correct": "✅ Bonne réponse : La filtration",
+      "feedback_incorrect": "❌ La bonne réponse était : La filtration",
+      "code_socle": "D5-8",
+      "difficulte": 2
+    },
+    {
+      "id": 6,
+      "enonce": "La distillation permet de :",
+      "options": [
+        "Séparer deux liquides miscibles ayant des températures d'ébullition différentes",
+        "Séparer un solide d'un liquide grâce à un filtre",
+        "Dissoudre un solide dans un liquide",
+        "Mélanger deux liquides non miscibles"
+      ],
+      "reponse": 0,
+      "feedback_correct": "✅ Bonne réponse : Séparer deux liquides miscibles ayant des températures d'ébullition différentes",
+      "feedback_incorrect": "❌ La bonne réponse était : Séparer deux liquides miscibles ayant des températures d'ébullition différentes",
+      "code_socle": "D5-8",
+      "difficulte": 2
+    },
+    {
+      "id": 7,
+      "enonce": "Tu observes qu'après agitation, un mélange redevient trouble avec deux couches visibles. Ce mélange est :",
+      "options": [
+        "Homogène",
+        "Hétérogène",
+        "Un corps pur",
+        "Une solution"
+      ],
+      "reponse": 1,
+      "feedback_correct": "✅ Bonne réponse : Hétérogène",
+      "feedback_incorrect": "❌ La bonne réponse était : Hétérogène",
+      "code_socle": "D5-8",
+      "difficulte": 2
+    },
+    {
+      "id": 8,
+      "enonce": "Un élève affirme : \"L'eau pure est un mélange car elle contient des molécules H₂O.\" Cette affirmation est :",
+      "options": [
+        "Vraie, car l'eau contient bien plusieurs atomes",
+        "Vraie, car H₂O est une molécule complexe",
+        "Fausse, car l'eau ne contient aucune molécule",
+        "Fausse : l'eau pure ne contient qu'un seul type de molécule → c'est un corps pur"
+      ],
+      "reponse": 3,
+      "feedback_correct": "✅ Bonne réponse : Fausse : l'eau pure ne contient qu'un seul type de molécule → c'est un corps pur",
+      "feedback_incorrect": "❌ La bonne réponse était : Fausse : l'eau pure ne contient qu'un seul type de molécule → c'est un corps pur",
+      "code_socle": "D5-8",
+      "difficulte": 2
+    },
+    {
+      "id": 9,
+      "enonce": "Lequel de ces exemples est un corps pur ?",
+      "options": [
+        "Le lait",
+        "L'air",
+        "Le dioxygène O₂",
+        "L'eau du robinet"
+      ],
+      "reponse": 2,
+      "feedback_correct": "✅ Bonne réponse : Le dioxygène O₂",
+      "feedback_incorrect": "❌ La bonne réponse était : Le dioxygène O₂",
+      "code_socle": "D5-8",
+      "difficulte": 3
+    },
+    {
+      "id": 10,
+      "enonce": "Dans la phrase \"Le sucre est lesolutédissous dans l'eau (lesolvant)\", quelle affirmation est exacte ?",
+      "options": [
+        "Le soluté est la substance dissoute, le solvant est le liquide qui dissout",
+        "Le solvant est la substance dissoute, le soluté est le liquide",
+        "Soluté et solvant sont des synonymes",
+        "Le soluté est toujours un liquide"
+      ],
+      "reponse": 0,
+      "feedback_correct": "✅ Bonne réponse : Le soluté est la substance dissoute, le solvant est le liquide qui dissout",
+      "feedback_incorrect": "❌ La bonne réponse était : Le soluté est la substance dissoute, le solvant est le liquide qui dissout",
+      "code_socle": "D5-8",
+      "difficulte": 3
+    },
+    {
+      "id": 11,
+      "enonce": "Comment appelle-t-on un mélange dans lequel on ne distingue pas les différents constituants à l'œil nu ?",
+      "options": [
+        "Mélange hétérogène",
+        "Mélange homogène",
+        "Corps pur composé",
+        "Solution saturée"
+      ],
+      "reponse": 1,
+      "feedback_correct": "✅ Bonne réponse : Mélange homogène",
+      "feedback_incorrect": "❌ La bonne réponse était : Mélange homogène",
+      "code_socle": "D5-8",
+      "difficulte": 3
+    },
+    {
+      "id": 12,
+      "enonce": "Une vinaigrette (huile + vinaigre) est un mélangehétérogène. Pour la séparer, la meilleure technique serait :",
+      "options": [
+        "La filtration",
+        "La distillation",
+        "La dissolution",
+        "La décantation"
+      ],
+      "reponse": 3,
+      "feedback_correct": "✅ Bonne réponse : La décantation",
+      "feedback_incorrect": "❌ La bonne réponse était : La décantation",
+      "code_socle": "D5-8",
+      "difficulte": 3
+    }
+  ]
+}

@@ -1,0 +1,131 @@
+{
+  "id": "qcm-4e-ch12",
+  "titre": "Réactions chimiques — 4E",
+  "classe": "4e",
+  "chapitre": "Réactions chimiques",
+  "auteur": "Collège Afareiatu — SPC",
+  "date": "2026-05-20",
+  "version": 1,
+  "questions": [
+    {
+      "id": 1,
+      "enonce": "Lors d'une réaction chimique :",
+      "options": [
+        "ALes atomes disparaissent",
+        "BLes atomes sont réarrangés pour former de nouvelles substances",
+        "CLa masse augmente",
+        "DLa température reste constante"
+      ],
+      "reponse": 0,
+      "feedback_correct": "✅ Une réaction chimique réarrange les atomes en de nouvelles molécules.",
+      "feedback_incorrect": "❌ Une réaction chimique réarrange les atomes en de nouvelles molécules.",
+      "code_socle": "D4-12",
+      "difficulte": 1
+    },
+    {
+      "id": 2,
+      "enonce": "Dans l'équation A + B → C, A et B sont :",
+      "options": [
+        "ALes produits",
+        "BLes catalyseurs",
+        "CLes réactifs",
+        "DLes résidus"
+      ],
+      "reponse": 0,
+      "feedback_correct": "✅ Les réactifs sont à gauche de la flèche.",
+      "feedback_incorrect": "❌ Les réactifs sont à gauche de la flèche.",
+      "code_socle": "D4-12",
+      "difficulte": 1
+    },
+    {
+      "id": 3,
+      "enonce": "La loi de conservation de la masse (Lavoisier) dit que :",
+      "options": [
+        "ALa masse augmente",
+        "BLa masse diminue",
+        "CLa masse totale se conserve",
+        "DLes atomes disparaissent"
+      ],
+      "reponse": 0,
+      "feedback_correct": "✅ Rien ne se perd, rien ne se crée, tout se transforme (Lavoisier).",
+      "feedback_incorrect": "❌ Rien ne se perd, rien ne se crée, tout se transforme (Lavoisier).",
+      "code_socle": "D4-12",
+      "difficulte": 1
+    },
+    {
+      "id": 4,
+      "enonce": "Dans 2H₂O, le chiffre 2 devant H₂O signifie :",
+      "options": [
+        "A2 atomes H",
+        "B2 molécules d'eau",
+        "C2 atomes O",
+        "D2 liaisons"
+      ],
+      "reponse": 0,
+      "feedback_correct": "✅ 2H₂O = 2 molécules d'eau, soit 4 H et 2 O.",
+      "feedback_incorrect": "❌ 2H₂O = 2 molécules d'eau, soit 4 H et 2 O.",
+      "code_socle": "D4-12",
+      "difficulte": 2
+    },
+    {
+      "id": 5,
+      "enonce": "La combustion du méthane : CH₄ + 2O₂ → CO₂ + 2H₂O. Le méthane est :",
+      "options": [
+        "AUn produit",
+        "BUn catalyseur",
+        "CUn réactif",
+        "DUn résidu"
+      ],
+      "reponse": 0,
+      "feedback_correct": "✅ CH₄ est à gauche de la flèche : c'est un réactif.",
+      "feedback_incorrect": "❌ CH₄ est à gauche de la flèche : c'est un réactif.",
+      "code_socle": "D4-12",
+      "difficulte": 2
+    },
+    {
+      "id": 6,
+      "enonce": "La réaction CH₄ + O₂ → CO₂ + H₂O est-elle équilibrée ?",
+      "options": [
+        "AOui",
+        "BNon, il faut 2O₂ et 2H₂O",
+        "CNon, il faut 2CH₄",
+        "DOui si on rajoute un catalyseur"
+      ],
+      "reponse": 0,
+      "feedback_correct": "✅ CH₄ + 2O₂ → CO₂ + 2H₂O (vérifier: 1C,4H,4O = 1C,4H,4O ✓).",
+      "feedback_incorrect": "❌ CH₄ + 2O₂ → CO₂ + 2H₂O (vérifier: 1C,4H,4O = 1C,4H,4O ✓).",
+      "code_socle": "D4-12",
+      "difficulte": 2
+    },
+    {
+      "id": 7,
+      "enonce": "Quelle propriété distingue une réaction chimique d'un changement d'état ?",
+      "options": [
+        "ALa couleur change",
+        "BDe nouvelles substances sont formées",
+        "CLa température varie",
+        "DLa masse change"
+      ],
+      "reponse": 0,
+      "feedback_correct": "✅ Une réaction chimique produit de nouvelles substances aux propriétés différentes.",
+      "feedback_incorrect": "❌ Une réaction chimique produit de nouvelles substances aux propriétés différentes.",
+      "code_socle": "D4-12",
+      "difficulte": 3
+    },
+    {
+      "id": 8,
+      "enonce": "On brûle 12 g de carbone avec 32 g d'oxygène. La masse de CO₂ produit est :",
+      "options": [
+        "A12 g",
+        "B32 g",
+        "C44 g",
+        "D20 g"
+      ],
+      "reponse": 0,
+      "feedback_correct": "✅ Conservation de la masse : 12 + 32 = 44 g de CO₂.",
+      "feedback_incorrect": "❌ Conservation de la masse : 12 + 32 = 44 g de CO₂.",
+      "code_socle": "D4-12",
+      "difficulte": 3
+    }
+  ]
+}

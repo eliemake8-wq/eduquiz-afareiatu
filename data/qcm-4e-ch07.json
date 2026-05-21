@@ -1,0 +1,131 @@
+{
+  "id": "qcm-4e-ch07",
+  "titre": "Circuits électriques et loi d'Ohm — 4E",
+  "classe": "4e",
+  "chapitre": "Circuits électriques et loi d'Ohm",
+  "auteur": "Collège Afareiatu — SPC",
+  "date": "2026-05-20",
+  "version": 1,
+  "questions": [
+    {
+      "id": 1,
+      "enonce": "Loi d'Ohm ?",
+      "options": [
+        "U=R+I",
+        "U=R×I",
+        "U=R/I",
+        "U=I/R"
+      ],
+      "reponse": 1,
+      "feedback_correct": "✅ U = R × I.",
+      "feedback_incorrect": "❌ U = R × I.",
+      "code_socle": "D4-7",
+      "difficulte": 1
+    },
+    {
+      "id": 2,
+      "enonce": "R=100 Ω, I=0,5 A → U ?",
+      "options": [
+        "0,05 V",
+        "50 V",
+        "200 V",
+        "100,5 V"
+      ],
+      "reponse": 1,
+      "feedback_correct": "✅ U = 100 × 0,5 = 50 V.",
+      "feedback_incorrect": "❌ U = 100 × 0,5 = 50 V.",
+      "code_socle": "D4-7",
+      "difficulte": 1
+    },
+    {
+      "id": 3,
+      "enonce": "En série, l'intensité est :",
+      "options": [
+        "Différente partout",
+        "Identique partout",
+        "Nulle",
+        "Mesurée avec voltmètre"
+      ],
+      "reponse": 1,
+      "feedback_correct": "✅ En série, I identique en tout point.",
+      "feedback_incorrect": "❌ En série, I identique en tout point.",
+      "code_socle": "D4-7",
+      "difficulte": 1
+    },
+    {
+      "id": 4,
+      "enonce": "Un ampèremètre se branche :",
+      "options": [
+        "En dérivation",
+        "En série",
+        "Entre pile et interrupteur",
+        "Indifféremment"
+      ],
+      "reponse": 1,
+      "feedback_correct": "✅ Ampèremètre en série (le courant le traverse).",
+      "feedback_incorrect": "❌ Ampèremètre en série (le courant le traverse).",
+      "code_socle": "D4-7",
+      "difficulte": 2
+    },
+    {
+      "id": 5,
+      "enonce": "En dérivation, la tension aux bornes de chaque branche est :",
+      "options": [
+        "Nulle",
+        "Différente",
+        "Identique",
+        "Impossible à mesurer"
+      ],
+      "reponse": 2,
+      "feedback_correct": "✅ En dérivation, U identique aux bornes de chaque branche.",
+      "feedback_incorrect": "❌ En dérivation, U identique aux bornes de chaque branche.",
+      "code_socle": "D4-7",
+      "difficulte": 2
+    },
+    {
+      "id": 6,
+      "enonce": "Quel composant protège contre la surintensité ?",
+      "options": [
+        "Résistance",
+        "Condensateur",
+        "Fusible/disjoncteur",
+        "Interrupteur"
+      ],
+      "reponse": 2,
+      "feedback_correct": "✅ Le fusible (ou disjoncteur) coupe en cas de surintensité.",
+      "feedback_incorrect": "❌ Le fusible (ou disjoncteur) coupe en cas de surintensité.",
+      "code_socle": "D4-7",
+      "difficulte": 2
+    },
+    {
+      "id": 7,
+      "enonce": "Pourquoi le 230 V du secteur est-il dangereux ?",
+      "options": [
+        "Il est trop froid",
+        "Il peut faire passer > 10 mA (mortel)",
+        "Il crée des UV",
+        "Il n'est pas dangereux"
+      ],
+      "reponse": 1,
+      "feedback_correct": "✅ À 230 V, le courant traversant le corps peut dépasser le seuil mortel de 10 mA.",
+      "feedback_incorrect": "❌ À 230 V, le courant traversant le corps peut dépasser le seuil mortel de 10 mA.",
+      "code_socle": "D4-7",
+      "difficulte": 3
+    },
+    {
+      "id": 8,
+      "enonce": "R=220 Ω sous 22 V → intensité ?",
+      "options": [
+        "0,01 A",
+        "0,1 A",
+        "10 A",
+        "4840 A"
+      ],
+      "reponse": 1,
+      "feedback_correct": "✅ I = U/R = 22/220 = 0,1 A.",
+      "feedback_incorrect": "❌ I = U/R = 22/220 = 0,1 A.",
+      "code_socle": "D4-7",
+      "difficulte": 3
+    }
+  ]
+}

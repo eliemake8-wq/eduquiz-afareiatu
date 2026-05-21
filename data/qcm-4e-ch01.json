@@ -1,0 +1,131 @@
+{
+  "id": "qcm-4e-ch01",
+  "titre": "Composition et qualité de l'air — 4E",
+  "classe": "4e",
+  "chapitre": "Composition et qualité de l'air",
+  "auteur": "Collège Afareiatu — SPC",
+  "date": "2026-05-20",
+  "version": 1,
+  "questions": [
+    {
+      "id": 1,
+      "enonce": "Quel gaz est le plus abondant dans l'air ?",
+      "options": [
+        "Dioxygène O₂",
+        "Dioxyde de carbone CO₂",
+        "Diazote N₂",
+        "Argon"
+      ],
+      "reponse": 2,
+      "feedback_correct": "✅ Le diazote N₂ représente environ 78 % de l'air.",
+      "feedback_incorrect": "❌ Le diazote N₂ représente environ 78 % de l'air.",
+      "code_socle": "D4-1",
+      "difficulte": 1
+    },
+    {
+      "id": 2,
+      "enonce": "Comment teste-t-on la présence de CO₂ ?",
+      "options": [
+        "Avec un thermomètre",
+        "Avec de l'eau de chaux",
+        "Avec du papier pH",
+        "Avec un aimant"
+      ],
+      "reponse": 1,
+      "feedback_correct": "✅ L'eau de chaux se trouble en présence de dioxyde de carbone.",
+      "feedback_incorrect": "❌ L'eau de chaux se trouble en présence de dioxyde de carbone.",
+      "code_socle": "D4-1",
+      "difficulte": 1
+    },
+    {
+      "id": 3,
+      "enonce": "Le méthane est un gaz à effet de serre émis notamment par :",
+      "options": [
+        "La photosynthèse",
+        "L'élevage et la décomposition",
+        "La pluie",
+        "Les éoliennes"
+      ],
+      "reponse": 1,
+      "feedback_correct": "✅ Le méthane (CH₄) est produit notamment lors de la digestion des ruminants.",
+      "feedback_incorrect": "❌ Le méthane (CH₄) est produit notamment lors de la digestion des ruminants.",
+      "code_socle": "D4-1",
+      "difficulte": 1
+    },
+    {
+      "id": 4,
+      "enonce": "Quel est le pourcentage de dioxygène dans l'air ?",
+      "options": [
+        "1 %",
+        "21 %",
+        "78 %",
+        "50 %"
+      ],
+      "reponse": 1,
+      "feedback_correct": "✅ Le dioxygène O₂ représente environ 21 % de l'air.",
+      "feedback_incorrect": "❌ Le dioxygène O₂ représente environ 21 % de l'air.",
+      "code_socle": "D4-1",
+      "difficulte": 2
+    },
+    {
+      "id": 5,
+      "enonce": "L'ozone troposphérique est un polluant :",
+      "options": [
+        "Primaire",
+        "Secondaire",
+        "Naturel et inoffensif",
+        "Bénéfique pour la santé"
+      ],
+      "reponse": 1,
+      "feedback_correct": "✅ L'ozone formé près du sol par réactions chimiques est un polluant secondaire.",
+      "feedback_incorrect": "❌ L'ozone formé près du sol par réactions chimiques est un polluant secondaire.",
+      "code_socle": "D4-1",
+      "difficulte": 2
+    },
+    {
+      "id": 6,
+      "enonce": "Que se passe-t-il si on plonge une braise dans du dioxygène pur ?",
+      "options": [
+        "Elle s'éteint",
+        "Elle se ravive et brûle vivement",
+        "Elle se refroidit",
+        "Rien"
+      ],
+      "reponse": 1,
+      "feedback_correct": "✅ Le dioxygène pur favorise la combustion : une braise se ravive.",
+      "feedback_incorrect": "❌ Le dioxygène pur favorise la combustion : une braise se ravive.",
+      "code_socle": "D4-1",
+      "difficulte": 2
+    },
+    {
+      "id": 7,
+      "enonce": "L'effet de serre naturel est-il utile à la vie sur Terre ?",
+      "options": [
+        "Non, il est toujours néfaste",
+        "Oui, il maintient +15°C en moyenne",
+        "Non, il refroidit",
+        "Oui, il produit l'oxygène"
+      ],
+      "reponse": 1,
+      "feedback_correct": "✅ L'effet de serre naturel est indispensable : sans lui, T° moyenne serait -18°C.",
+      "feedback_incorrect": "❌ L'effet de serre naturel est indispensable : sans lui, T° moyenne serait -18°C.",
+      "code_socle": "D4-1",
+      "difficulte": 3
+    },
+    {
+      "id": 8,
+      "enonce": "Les particules fines dans l'air proviennent principalement de :",
+      "options": [
+        "La photosynthèse",
+        "La combustion (moteurs, chauffage, industrie)",
+        "L'évaporation de l'eau",
+        "La production d'oxygène"
+      ],
+      "reponse": 1,
+      "feedback_correct": "✅ Les particules fines (PM2.5, PM10) viennent des moteurs diesel, chauffage au bois.",
+      "feedback_incorrect": "❌ Les particules fines (PM2.5, PM10) viennent des moteurs diesel, chauffage au bois.",
+      "code_socle": "D4-1",
+      "difficulte": 3
+    }
+  ]
+}

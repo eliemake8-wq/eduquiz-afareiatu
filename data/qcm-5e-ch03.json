@@ -1,0 +1,131 @@
+{
+  "id": "qcm-5e-ch03",
+  "titre": "Masse volumique — 5E",
+  "classe": "5e",
+  "chapitre": "Masse volumique",
+  "auteur": "Collège Afareiatu — SPC",
+  "date": "2026-05-20",
+  "version": 1,
+  "questions": [
+    {
+      "id": 1,
+      "enonce": "Quelle est l'unité de la masse volumique dans le système international ?",
+      "options": [
+        "g/L",
+        "kg/m³",
+        "g/cm",
+        "kg/L"
+      ],
+      "reponse": 1,
+      "feedback_correct": "✅ L'unité SI de la masse volumique est le kg/m³.",
+      "feedback_incorrect": "❌ L'unité SI de la masse volumique est le kg/m³.",
+      "code_socle": "D5-3",
+      "difficulte": 1
+    },
+    {
+      "id": 2,
+      "enonce": "Un objet a une masse de 50 g et un volume de 25 cm³. Quelle est sa masse volumique ?",
+      "options": [
+        "0,5 g/cm³",
+        "2 g/cm³",
+        "25 g/cm³",
+        "1 250 g/cm³"
+      ],
+      "reponse": 1,
+      "feedback_correct": "✅ ρ = m/V = 50/25 = 2 g/cm³.",
+      "feedback_incorrect": "❌ ρ = m/V = 50/25 = 2 g/cm³.",
+      "code_socle": "D5-3",
+      "difficulte": 1
+    },
+    {
+      "id": 3,
+      "enonce": "La masse volumique de l'eau est de 1 g/mL. Un objet de masse volumique 0,8 g/mL est placé dans l'eau. Que se passe-t-il ?",
+      "options": [
+        "Il coule",
+        "Il flotte",
+        "Il se dissout",
+        "Il s'évapore"
+      ],
+      "reponse": 1,
+      "feedback_correct": "✅ Si ρ(objet) < ρ(eau), l'objet flotte (ex : huile, bois léger…).",
+      "feedback_incorrect": "❌ Si ρ(objet) < ρ(eau), l'objet flotte (ex : huile, bois léger…).",
+      "code_socle": "D5-3",
+      "difficulte": 1
+    },
+    {
+      "id": 4,
+      "enonce": "Quelle formule permet de calculer la masse à partir de la masse volumique et du volume ?",
+      "options": [
+        "m = ρ / V",
+        "m = V / ρ",
+        "m = ρ × V",
+        "m = ρ + V"
+      ],
+      "reponse": 2,
+      "feedback_correct": "✅ m = ρ × V",
+      "feedback_incorrect": "❌ m = ρ × V",
+      "code_socle": "D5-3",
+      "difficulte": 2
+    },
+    {
+      "id": 5,
+      "enonce": "Un morceau de fer a une masse volumique de 7,9 g/cm³. L'eau a une masse volumique de 1 g/cm³. Que fait le fer dans l'eau ?",
+      "options": [
+        "Il flotte",
+        "Il coule",
+        "Il reste en suspension",
+        "Il fond"
+      ],
+      "reponse": 1,
+      "feedback_correct": "✅ Comme ρ(fer) > ρ(eau), le fer coule.",
+      "feedback_incorrect": "❌ Comme ρ(fer) > ρ(eau), le fer coule.",
+      "code_socle": "D5-3",
+      "difficulte": 2
+    },
+    {
+      "id": 6,
+      "enonce": "Pour mesurer le volume d'un solide irrégulier en laboratoire, on utilise :",
+      "options": [
+        "Une balance",
+        "Un thermomètre",
+        "Une éprouvette graduée (méthode de la poussée)",
+        "Un chronomètre"
+      ],
+      "reponse": 2,
+      "feedback_correct": "✅ On plonge le solide dans l'eau d'une éprouvette et on lit la différence de volume (méthode par déplacement d'eau).",
+      "feedback_incorrect": "❌ On plonge le solide dans l'eau d'une éprouvette et on lit la différence de volume (méthode par déplacement d'eau).",
+      "code_socle": "D5-3",
+      "difficulte": 2
+    },
+    {
+      "id": 7,
+      "enonce": "Une bouteille contient 500 mL d'eau. Quelle est la masse de cette eau ?",
+      "options": [
+        "50 g",
+        "250 g",
+        "500 g",
+        "1 000 g"
+      ],
+      "reponse": 2,
+      "feedback_correct": "✅ m = ρ × V = 1 g/mL × 500 mL = 500 g.",
+      "feedback_incorrect": "❌ m = ρ × V = 1 g/mL × 500 mL = 500 g.",
+      "code_socle": "D5-3",
+      "difficulte": 3
+    },
+    {
+      "id": 8,
+      "enonce": "Deux liquides ont des masses volumiques différentes. Quand on les verse ensemble sans agiter, comment se disposent-ils ?",
+      "options": [
+        "Ils se mélangent toujours",
+        "Le liquide le plus dense est en haut",
+        "Le liquide le plus dense est en bas",
+        "L'ordre dépend de la couleur"
+      ],
+      "reponse": 2,
+      "feedback_correct": "✅ Le liquide le plus dense (le plus lourd par unité de volume) se dépose en bas.",
+      "feedback_incorrect": "❌ Le liquide le plus dense (le plus lourd par unité de volume) se dépose en bas.",
+      "code_socle": "D5-3",
+      "difficulte": 3
+    }
+  ]
+}

@@ -1,0 +1,131 @@
+{
+  "id": "qcm-4e-ch16",
+  "titre": "Puissance et énergie électrique — 4E",
+  "classe": "4e",
+  "chapitre": "Puissance et énergie électrique",
+  "auteur": "Collège Afareiatu — SPC",
+  "date": "2026-05-20",
+  "version": 1,
+  "questions": [
+    {
+      "id": 1,
+      "enonce": "La formule de la puissance électrique est :",
+      "options": [
+        "AP = U + I",
+        "BP = U / I",
+        "CP = U × I",
+        "DP = U × R"
+      ],
+      "reponse": 0,
+      "feedback_correct": "✅ P = U × I (puissance = tension × intensité).",
+      "feedback_incorrect": "❌ P = U × I (puissance = tension × intensité).",
+      "code_socle": "D4-16",
+      "difficulte": 1
+    },
+    {
+      "id": 2,
+      "enonce": "L'unité de puissance électrique est :",
+      "options": [
+        "ALe volt",
+        "BL'ampère",
+        "CLe joule",
+        "DLe watt"
+      ],
+      "reponse": 0,
+      "feedback_correct": "✅ La puissance se mesure en watt (W).",
+      "feedback_incorrect": "❌ La puissance se mesure en watt (W).",
+      "code_socle": "D4-16",
+      "difficulte": 1
+    },
+    {
+      "id": 3,
+      "enonce": "Un fer à repasser de 2 000 W fonctionne sous 230 V. L'intensité est :",
+      "options": [
+        "A230 A",
+        "B2000 A",
+        "C8,7 A",
+        "D0,115 A"
+      ],
+      "reponse": 0,
+      "feedback_correct": "✅ I = P/U = 2000/230 ≈ 8,7 A.",
+      "feedback_incorrect": "❌ I = P/U = 2000/230 ≈ 8,7 A.",
+      "code_socle": "D4-16",
+      "difficulte": 1
+    },
+    {
+      "id": 4,
+      "enonce": "L'énergie consommée par un appareil de 100 W pendant 1 heure est :",
+      "options": [
+        "A100 J",
+        "B360 J",
+        "C3600 J",
+        "D360 000 J"
+      ],
+      "reponse": 0,
+      "feedback_correct": "✅ E = P×t = 100×3600 s = 360 000 J = 0,1 kWh.",
+      "feedback_incorrect": "❌ E = P×t = 100×3600 s = 360 000 J = 0,1 kWh.",
+      "code_socle": "D4-16",
+      "difficulte": 2
+    },
+    {
+      "id": 5,
+      "enonce": "1 kWh est égal à :",
+      "options": [
+        "A1 000 J",
+        "B3 600 J",
+        "C36 000 J",
+        "D3 600 000 J"
+      ],
+      "reponse": 0,
+      "feedback_correct": "✅ 1 kWh = 1 000 W × 3 600 s = 3 600 000 J.",
+      "feedback_incorrect": "❌ 1 kWh = 1 000 W × 3 600 s = 3 600 000 J.",
+      "code_socle": "D4-16",
+      "difficulte": 2
+    },
+    {
+      "id": 6,
+      "enonce": "L'effet Joule produit :",
+      "options": [
+        "ADe la lumière",
+        "BDe la chaleur",
+        "CDu mouvement",
+        "DDu son"
+      ],
+      "reponse": 0,
+      "feedback_correct": "✅ L'effet Joule = production de chaleur par le passage du courant dans une résistance.",
+      "feedback_incorrect": "❌ L'effet Joule = production de chaleur par le passage du courant dans une résistance.",
+      "code_socle": "D4-16",
+      "difficulte": 2
+    },
+    {
+      "id": 7,
+      "enonce": "Une lampe de 60 W fonctionne 10 h/j pendant 30 jours. Consommation ?",
+      "options": [
+        "A18 kWh",
+        "B1,8 kWh",
+        "C180 kWh",
+        "D0,18 kWh"
+      ],
+      "reponse": 0,
+      "feedback_correct": "✅ E = 0,060 kW × 10 × 30 = 18 kWh.",
+      "feedback_incorrect": "❌ E = 0,060 kW × 10 × 30 = 18 kWh.",
+      "code_socle": "D4-16",
+      "difficulte": 3
+    },
+    {
+      "id": 8,
+      "enonce": "La puissance Joule dans une résistance de 5 Ω traversée par 2 A est :",
+      "options": [
+        "A10 W",
+        "B4 W",
+        "C20 W",
+        "D2,5 W"
+      ],
+      "reponse": 0,
+      "feedback_correct": "✅ P_Joule = R×I² = 5×4 = 20 W.",
+      "feedback_incorrect": "❌ P_Joule = R×I² = 5×4 = 20 W.",
+      "code_socle": "D4-16",
+      "difficulte": 3
+    }
+  ]
+}

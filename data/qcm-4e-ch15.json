@@ -1,0 +1,131 @@
+{
+  "id": "qcm-4e-ch15",
+  "titre": "Lumière et réfraction — 4E",
+  "classe": "4e",
+  "chapitre": "Lumière et réfraction",
+  "auteur": "Collège Afareiatu — SPC",
+  "date": "2026-05-20",
+  "version": 1,
+  "questions": [
+    {
+      "id": 1,
+      "enonce": "La réfraction est :",
+      "options": [
+        "ALe rebond de la lumière",
+        "BLe changement de direction lors du passage entre deux milieux",
+        "CL'absorption de la lumière",
+        "DLa diffusion de la lumière"
+      ],
+      "reponse": 0,
+      "feedback_correct": "✅ La réfraction = changement de direction au passage d'une interface entre deux milieux.",
+      "feedback_incorrect": "❌ La réfraction = changement de direction au passage d'une interface entre deux milieux.",
+      "code_socle": "D4-15",
+      "difficulte": 1
+    },
+    {
+      "id": 2,
+      "enonce": "Un rayon passe de l'air (n=1) vers l'eau (n=1,33). Il :",
+      "options": [
+        "AS'éloigne de la normale",
+        "BReste dans la même direction",
+        "CSe rapproche de la normale",
+        "DEst totalement réfléchi"
+      ],
+      "reponse": 0,
+      "feedback_correct": "✅ Air → milieu plus dense (eau) → rayon se rapproche de la normale (r < i).",
+      "feedback_incorrect": "❌ Air → milieu plus dense (eau) → rayon se rapproche de la normale (r < i).",
+      "code_socle": "D4-15",
+      "difficulte": 1
+    },
+    {
+      "id": 3,
+      "enonce": "L'indice de réfraction du verre est environ :",
+      "options": [
+        "A0,5",
+        "B1",
+        "C1,5",
+        "D3"
+      ],
+      "reponse": 0,
+      "feedback_correct": "✅ n_verre ≈ 1,5. n_air ≈ 1. Plus n est grand, plus le milieu est 'optiquement dense'.",
+      "feedback_incorrect": "❌ n_verre ≈ 1,5. n_air ≈ 1. Plus n est grand, plus le milieu est 'optiquement dense'.",
+      "code_socle": "D4-15",
+      "difficulte": 1
+    },
+    {
+      "id": 4,
+      "enonce": "La loi de Snell-Descartes s'écrit :",
+      "options": [
+        "An₁×i = n₂×r",
+        "Bn₁×sin(i) = n₂×sin(r)",
+        "Csin(i)/sin(r) = n₂",
+        "Dn₁+n₂ = sin(i)+sin(r)"
+      ],
+      "reponse": 0,
+      "feedback_correct": "✅ n₁ sin(i) = n₂ sin(r).",
+      "feedback_incorrect": "❌ n₁ sin(i) = n₂ sin(r).",
+      "code_socle": "D4-15",
+      "difficulte": 2
+    },
+    {
+      "id": 5,
+      "enonce": "Pourquoi une paille semble brisée dans un verre d'eau ?",
+      "options": [
+        "ALa paille se déforme",
+        "BLa réfraction dévie les rayons lumineux",
+        "CLa réflexion",
+        "DL'absorption"
+      ],
+      "reponse": 0,
+      "feedback_correct": "✅ La réfraction à l'interface eau-air dévie les rayons, donnant l'illusion d'une paille brisée.",
+      "feedback_incorrect": "❌ La réfraction à l'interface eau-air dévie les rayons, donnant l'illusion d'une paille brisée.",
+      "code_socle": "D4-15",
+      "difficulte": 2
+    },
+    {
+      "id": 6,
+      "enonce": "La fibre optique utilise :",
+      "options": [
+        "ALa réfraction",
+        "BLa diffusion",
+        "CLa réflexion totale interne",
+        "DL'absorption"
+      ],
+      "reponse": 0,
+      "feedback_correct": "✅ La réflexion totale interne guide la lumière dans la fibre sans qu'elle en sorte.",
+      "feedback_incorrect": "❌ La réflexion totale interne guide la lumière dans la fibre sans qu'elle en sorte.",
+      "code_socle": "D4-15",
+      "difficulte": 2
+    },
+    {
+      "id": 7,
+      "enonce": "Si n₁ sin(30°) = n₂ sin(r) avec n₁=1, n₂=1,5 : sin(r) =",
+      "options": [
+        "A0,75",
+        "B0,33",
+        "C0,5",
+        "D0,25"
+      ],
+      "reponse": 0,
+      "feedback_correct": "✅ sin(r) = n₁×sin(30°)/n₂ = 1×0,5/1,5 = 0,33.",
+      "feedback_incorrect": "❌ sin(r) = n₁×sin(30°)/n₂ = 1×0,5/1,5 = 0,33.",
+      "code_socle": "D4-15",
+      "difficulte": 3
+    },
+    {
+      "id": 8,
+      "enonce": "La vitesse de la lumière dans l'eau (n=1,33) est :",
+      "options": [
+        "APlus grande que dans le vide",
+        "BÉgale à c",
+        "CPlus petite que dans le vide",
+        "DNulle"
+      ],
+      "reponse": 0,
+      "feedback_correct": "✅ n = c/v → v = c/n → v < c (la lumière ralentit dans les milieux matériels).",
+      "feedback_incorrect": "❌ n = c/v → v = c/n → v < c (la lumière ralentit dans les milieux matériels).",
+      "code_socle": "D4-15",
+      "difficulte": 3
+    }
+  ]
+}

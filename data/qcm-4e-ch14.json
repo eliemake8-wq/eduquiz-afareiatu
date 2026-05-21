@@ -1,0 +1,131 @@
+{
+  "id": "qcm-4e-ch14",
+  "titre": "Pression des fluides — 4E",
+  "classe": "4e",
+  "chapitre": "Pression des fluides",
+  "auteur": "Collège Afareiatu — SPC",
+  "date": "2026-05-20",
+  "version": 1,
+  "questions": [
+    {
+      "id": 1,
+      "enonce": "La formule de la pression est :",
+      "options": [
+        "AP = F × S",
+        "BP = F / S",
+        "CP = S / F",
+        "DP = F + S"
+      ],
+      "reponse": 0,
+      "feedback_correct": "✅ P = F/S (Force en N divisée par la surface en m²).",
+      "feedback_incorrect": "❌ P = F/S (Force en N divisée par la surface en m²).",
+      "code_socle": "D4-14",
+      "difficulte": 1
+    },
+    {
+      "id": 2,
+      "enonce": "L'unité de pression est :",
+      "options": [
+        "ALe newton (N)",
+        "BLe joule (J)",
+        "CLe pascal (Pa)",
+        "DLe watt (W)"
+      ],
+      "reponse": 0,
+      "feedback_correct": "✅ La pression se mesure en pascal (Pa) = N/m².",
+      "feedback_incorrect": "❌ La pression se mesure en pascal (Pa) = N/m².",
+      "code_socle": "D4-14",
+      "difficulte": 1
+    },
+    {
+      "id": 3,
+      "enonce": "La pression atmosphérique normale est environ :",
+      "options": [
+        "A1 000 Pa",
+        "B10 000 Pa",
+        "C100 000 Pa",
+        "D1 000 000 Pa"
+      ],
+      "reponse": 0,
+      "feedback_correct": "✅ P_atm ≈ 10⁵ Pa = 1 bar au niveau de la mer.",
+      "feedback_incorrect": "❌ P_atm ≈ 10⁵ Pa = 1 bar au niveau de la mer.",
+      "code_socle": "D4-14",
+      "difficulte": 1
+    },
+    {
+      "id": 4,
+      "enonce": "Si on double la surface de contact pour une même force, la pression :",
+      "options": [
+        "ADouble",
+        "BReste la même",
+        "CDiminue de moitié",
+        "DQuadruple"
+      ],
+      "reponse": 0,
+      "feedback_correct": "✅ P = F/S : si S×2, alors P÷2.",
+      "feedback_incorrect": "❌ P = F/S : si S×2, alors P÷2.",
+      "code_socle": "D4-14",
+      "difficulte": 2
+    },
+    {
+      "id": 5,
+      "enonce": "Le théorème de Pascal explique le fonctionnement :",
+      "options": [
+        "AD'une pompe à eau",
+        "BDes freins hydrauliques",
+        "CD'un submersible",
+        "DD'un baromètre"
+      ],
+      "reponse": 0,
+      "feedback_correct": "✅ Les freins hydrauliques transmettent la pression dans tout le circuit de freinage.",
+      "feedback_incorrect": "❌ Les freins hydrauliques transmettent la pression dans tout le circuit de freinage.",
+      "code_socle": "D4-14",
+      "difficulte": 2
+    },
+    {
+      "id": 6,
+      "enonce": "La pression à 10 m de profondeur dans l'eau (ρ=1000 kg/m³, g=10) est :",
+      "options": [
+        "A100 Pa",
+        "B1000 Pa",
+        "C10 000 Pa",
+        "D100 000 Pa"
+      ],
+      "reponse": 0,
+      "feedback_correct": "✅ P = ρgh = 1000×10×10 = 100 000 Pa (+ P_atm pour la pression absolue).",
+      "feedback_incorrect": "❌ P = ρgh = 1000×10×10 = 100 000 Pa (+ P_atm pour la pression absolue).",
+      "code_socle": "D4-14",
+      "difficulte": 2
+    },
+    {
+      "id": 7,
+      "enonce": "En plongée, plus on descend, la pression :",
+      "options": [
+        "ADiminue",
+        "BReste constante",
+        "CAugmente",
+        "DOscille"
+      ],
+      "reponse": 0,
+      "feedback_correct": "✅ P augmente avec la profondeur : P = ρgh.",
+      "feedback_incorrect": "❌ P augmente avec la profondeur : P = ρgh.",
+      "code_socle": "D4-14",
+      "difficulte": 3
+    },
+    {
+      "id": 8,
+      "enonce": "Une force de 200 N sur une surface de 0,02 m² donne une pression de :",
+      "options": [
+        "A4 Pa",
+        "B400 Pa",
+        "C4 000 Pa",
+        "D10 000 Pa"
+      ],
+      "reponse": 0,
+      "feedback_correct": "✅ P = F/S = 200/0,02 = 10 000 Pa.",
+      "feedback_incorrect": "❌ P = F/S = 200/0,02 = 10 000 Pa.",
+      "code_socle": "D4-14",
+      "difficulte": 3
+    }
+  ]
+}

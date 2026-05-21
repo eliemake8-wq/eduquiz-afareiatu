@@ -1,0 +1,131 @@
+{
+  "id": "qcm-4e-ch05",
+  "titre": "Forces et interactions — 4E",
+  "classe": "4e",
+  "chapitre": "Forces et interactions",
+  "auteur": "Collège Afareiatu — SPC",
+  "date": "2026-05-20",
+  "version": 1,
+  "questions": [
+    {
+      "id": 1,
+      "enonce": "Objet de 5 kg sur Terre (g=10 N/kg). Poids ?",
+      "options": [
+        "5 N",
+        "2 N",
+        "50 N",
+        "500 N"
+      ],
+      "reponse": 2,
+      "feedback_correct": "✅ P = 5 × 10 = 50 N.",
+      "feedback_incorrect": "❌ P = 5 × 10 = 50 N.",
+      "code_socle": "D4-5",
+      "difficulte": 1
+    },
+    {
+      "id": 2,
+      "enonce": "Différence masse / poids ?",
+      "options": [
+        "Masse = force, poids = matière",
+        "Masse en kg (quantité), poids en N (force)",
+        "Synonymes",
+        "Masse varie selon l'endroit"
+      ],
+      "reponse": 1,
+      "feedback_correct": "✅ Masse (kg) : propriété intrinsèque. Poids (N) : force gravitationnelle.",
+      "feedback_incorrect": "❌ Masse (kg) : propriété intrinsèque. Poids (N) : force gravitationnelle.",
+      "code_socle": "D4-5",
+      "difficulte": 1
+    },
+    {
+      "id": 3,
+      "enonce": "Sur la Lune (g≈1,6 N/kg), poids d'un astronaute de 80 kg ?",
+      "options": [
+        "800 N",
+        "128 N",
+        "80 N",
+        "50 N"
+      ],
+      "reponse": 1,
+      "feedback_correct": "✅ P = 80 × 1,6 = 128 N.",
+      "feedback_incorrect": "❌ P = 80 × 1,6 = 128 N.",
+      "code_socle": "D4-5",
+      "difficulte": 1
+    },
+    {
+      "id": 4,
+      "enonce": "Le frottement est une force :",
+      "options": [
+        "À distance",
+        "De contact",
+        "Gravitationnelle",
+        "Magnétique"
+      ],
+      "reponse": 1,
+      "feedback_correct": "✅ Le frottement nécessite un contact : force de contact.",
+      "feedback_incorrect": "❌ Le frottement nécessite un contact : force de contact.",
+      "code_socle": "D4-5",
+      "difficulte": 2
+    },
+    {
+      "id": 5,
+      "enonce": "La longueur d'un vecteur force représente :",
+      "options": [
+        "La direction",
+        "Le sens",
+        "La valeur (norme)",
+        "Le point d'application"
+      ],
+      "reponse": 2,
+      "feedback_correct": "✅ La longueur (à l'échelle) représente la valeur de la force.",
+      "feedback_incorrect": "❌ La longueur (à l'échelle) représente la valeur de la force.",
+      "code_socle": "D4-5",
+      "difficulte": 2
+    },
+    {
+      "id": 6,
+      "enonce": "La force magnétique d'un aimant sur un clou est :",
+      "options": [
+        "De contact",
+        "À distance",
+        "De frottement",
+        "Nulle si pas de contact"
+      ],
+      "reponse": 1,
+      "feedback_correct": "✅ La force magnétique agit à distance.",
+      "feedback_incorrect": "❌ La force magnétique agit à distance.",
+      "code_socle": "D4-5",
+      "difficulte": 2
+    },
+    {
+      "id": 7,
+      "enonce": "Unité de la force dans le SI ?",
+      "options": [
+        "kg",
+        "J",
+        "N",
+        "Pa"
+      ],
+      "reponse": 2,
+      "feedback_correct": "✅ Le Newton (N) est l'unité de force dans le SI.",
+      "feedback_incorrect": "❌ Le Newton (N) est l'unité de force dans le SI.",
+      "code_socle": "D4-5",
+      "difficulte": 3
+    },
+    {
+      "id": 8,
+      "enonce": "Un objet est en équilibre si :",
+      "options": [
+        "Aucune force ne s'exerce",
+        "La somme des forces est nulle",
+        "Il est au repos uniquement",
+        "Il se déplace à v variable"
+      ],
+      "reponse": 1,
+      "feedback_correct": "✅ Équilibre : somme vectorielle des forces = 0.",
+      "feedback_incorrect": "❌ Équilibre : somme vectorielle des forces = 0.",
+      "code_socle": "D4-5",
+      "difficulte": 3
+    }
+  ]
+}

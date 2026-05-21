@@ -1,0 +1,131 @@
+{
+  "id": "qcm-5e-ch11",
+  "titre": "Les sons — 5E",
+  "classe": "5e",
+  "chapitre": "Les sons",
+  "auteur": "Collège Afareiatu — SPC",
+  "date": "2026-05-20",
+  "version": 1,
+  "questions": [
+    {
+      "id": 1,
+      "enonce": "Un son est produit par :",
+      "options": [
+        "AUn courant électrique",
+        "BUne vibration",
+        "CUne lumière",
+        "DUn mouvement de fluide"
+      ],
+      "reponse": 0,
+      "feedback_correct": "✅ Tout son provient d'une vibration d'un objet (corde, membrane, colonne d'air…).",
+      "feedback_incorrect": "❌ Tout son provient d'une vibration d'un objet (corde, membrane, colonne d'air…).",
+      "code_socle": "D5-11",
+      "difficulte": 1
+    },
+    {
+      "id": 2,
+      "enonce": "Le son se propage :",
+      "options": [
+        "ADans le vide uniquement",
+        "BDans les milieux matériels",
+        "CUniquement dans l'air",
+        "DUniquement dans les liquides"
+      ],
+      "reponse": 0,
+      "feedback_correct": "✅ Le son a besoin d'un milieu matériel (solide, liquide, gaz) pour se propager.",
+      "feedback_incorrect": "❌ Le son a besoin d'un milieu matériel (solide, liquide, gaz) pour se propager.",
+      "code_socle": "D5-11",
+      "difficulte": 1
+    },
+    {
+      "id": 3,
+      "enonce": "La vitesse du son dans l'air à 20°C est environ :",
+      "options": [
+        "A3 400 m/s",
+        "B34 m/s",
+        "C340 m/s",
+        "D3 000 000 m/s"
+      ],
+      "reponse": 0,
+      "feedback_correct": "✅ Le son se propage à environ 340 m/s dans l'air à 20°C.",
+      "feedback_incorrect": "❌ Le son se propage à environ 340 m/s dans l'air à 20°C.",
+      "code_socle": "D5-11",
+      "difficulte": 1
+    },
+    {
+      "id": 4,
+      "enonce": "Un son grave correspond à :",
+      "options": [
+        "AUne haute fréquence",
+        "BUne faible intensité",
+        "CUne basse fréquence",
+        "DUn fort timbre"
+      ],
+      "reponse": 0,
+      "feedback_correct": "✅ Grave = basse fréquence. Aigu = haute fréquence.",
+      "feedback_incorrect": "❌ Grave = basse fréquence. Aigu = haute fréquence.",
+      "code_socle": "D5-11",
+      "difficulte": 2
+    },
+    {
+      "id": 5,
+      "enonce": "L'intensité sonore se mesure en :",
+      "options": [
+        "AHertz (Hz)",
+        "BMètres (m)",
+        "CDécibels (dB)",
+        "DNewton (N)"
+      ],
+      "reponse": 0,
+      "feedback_correct": "✅ Le décibel (dB) est l'unité de niveau sonore.",
+      "feedback_incorrect": "❌ Le décibel (dB) est l'unité de niveau sonore.",
+      "code_socle": "D5-11",
+      "difficulte": 2
+    },
+    {
+      "id": 6,
+      "enonce": "L'oreille humaine entend entre :",
+      "options": [
+        "A0 et 100 Hz",
+        "B20 Hz et 20 000 Hz",
+        "C100 Hz et 10 000 Hz",
+        "D1 Hz et 1 000 Hz"
+      ],
+      "reponse": 0,
+      "feedback_correct": "✅ Le domaine audible humain : 20 Hz – 20 000 Hz.",
+      "feedback_incorrect": "❌ Le domaine audible humain : 20 Hz – 20 000 Hz.",
+      "code_socle": "D5-11",
+      "difficulte": 2
+    },
+    {
+      "id": 7,
+      "enonce": "Au-delà de combien de dB le son devient dangereux ?",
+      "options": [
+        "A50 dB",
+        "B65 dB",
+        "C85 dB",
+        "D120 dB"
+      ],
+      "reponse": 0,
+      "feedback_correct": "✅ Au-delà de 85 dB (exposition prolongée), le son endommage l'audition.",
+      "feedback_incorrect": "❌ Au-delà de 85 dB (exposition prolongée), le son endommage l'audition.",
+      "code_socle": "D5-11",
+      "difficulte": 3
+    },
+    {
+      "id": 8,
+      "enonce": "Le timbre permet de :",
+      "options": [
+        "AMesurer la hauteur d'un son",
+        "BDistinguer deux instruments jouant la même note",
+        "CMesurer l'intensité",
+        "DCalculer la fréquence"
+      ],
+      "reponse": 0,
+      "feedback_correct": "✅ Le timbre est la 'couleur' du son propre à chaque instrument.",
+      "feedback_incorrect": "❌ Le timbre est la 'couleur' du son propre à chaque instrument.",
+      "code_socle": "D5-11",
+      "difficulte": 3
+    }
+  ]
+}

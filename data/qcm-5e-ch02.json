@@ -1,0 +1,131 @@
+{
+  "id": "qcm-5e-ch02",
+  "titre": "Mélanges et solubilité — 5E",
+  "classe": "5e",
+  "chapitre": "Mélanges et solubilité",
+  "auteur": "Collège Afareiatu — SPC",
+  "date": "2026-05-20",
+  "version": 1,
+  "questions": [
+    {
+      "id": 1,
+      "enonce": "L'eau distillée est-elle un corps pur ou un mélange ?",
+      "options": [
+        "Un mélange hétérogène",
+        "Un mélange homogène",
+        "Un corps pur",
+        "Une solution saturée"
+      ],
+      "reponse": 2,
+      "feedback_correct": "✅ L'eau distillée ne contient qu'un seul type de molécule (H₂O) : c'est un corps pur.",
+      "feedback_incorrect": "❌ L'eau distillée ne contient qu'un seul type de molécule (H₂O) : c'est un corps pur.",
+      "code_socle": "D5-2",
+      "difficulte": 1
+    },
+    {
+      "id": 2,
+      "enonce": "L'eau salée est-elle un mélange homogène ou hétérogène ?",
+      "options": [
+        "Hétérogène",
+        "Homogène",
+        "Corps pur",
+        "Solution saturée"
+      ],
+      "reponse": 1,
+      "feedback_correct": "✅ On ne distingue pas le sel dans l'eau salée à l'œil nu : c'est un mélange homogène.",
+      "feedback_incorrect": "❌ On ne distingue pas le sel dans l'eau salée à l'œil nu : c'est un mélange homogène.",
+      "code_socle": "D5-2",
+      "difficulte": 1
+    },
+    {
+      "id": 3,
+      "enonce": "Comment appelle-t-on un mélange dans lequel on distingue les différents constituants ?",
+      "options": [
+        "Corps pur",
+        "Mélange homogène",
+        "Mélange hétérogène",
+        "Solution"
+      ],
+      "reponse": 2,
+      "feedback_correct": "✅ Dans un mélange hétérogène, les constituants sont visibles à l'œil nu.",
+      "feedback_incorrect": "❌ Dans un mélange hétérogène, les constituants sont visibles à l'œil nu.",
+      "code_socle": "D5-2",
+      "difficulte": 1
+    },
+    {
+      "id": 4,
+      "enonce": "Quelle est la composition approximative du dioxygène dans l'air ?",
+      "options": [
+        "78 %",
+        "21 %",
+        "1 %",
+        "50 %"
+      ],
+      "reponse": 1,
+      "feedback_correct": "✅ L'air contient environ 21 % de dioxygène (O₂).",
+      "feedback_incorrect": "❌ L'air contient environ 21 % de dioxygène (O₂).",
+      "code_socle": "D5-2",
+      "difficulte": 2
+    },
+    {
+      "id": 5,
+      "enonce": "L'eau et l'huile sont-elles miscibles ?",
+      "options": [
+        "Oui, elles se mélangent parfaitement",
+        "Non, elles forment deux couches distinctes",
+        "Cela dépend de la température",
+        "Oui, si on les chauffe"
+      ],
+      "reponse": 1,
+      "feedback_correct": "✅ L'eau et l'huile sont non miscibles : elles forment deux phases distinctes.",
+      "feedback_incorrect": "❌ L'eau et l'huile sont non miscibles : elles forment deux phases distinctes.",
+      "code_socle": "D5-2",
+      "difficulte": 2
+    },
+    {
+      "id": 6,
+      "enonce": "Qu'est-ce qu'une solution saturée ?",
+      "options": [
+        "Une solution très diluée",
+        "Une solution dans laquelle on ne peut plus dissoudre de soluté",
+        "Un mélange hétérogène",
+        "Une solution sans solvant"
+      ],
+      "reponse": 1,
+      "feedback_correct": "✅ Une solution saturée est une solution où la quantité maximale de soluté est dissoute.",
+      "feedback_incorrect": "❌ Une solution saturée est une solution où la quantité maximale de soluté est dissoute.",
+      "code_socle": "D5-2",
+      "difficulte": 2
+    },
+    {
+      "id": 7,
+      "enonce": "Le lait est-il un corps pur ?",
+      "options": [
+        "Oui, il contient uniquement de l'eau",
+        "Non, c'est un mélange hétérogène",
+        "Non, c'est un mélange homogène",
+        "Oui, car il semble uniforme"
+      ],
+      "reponse": 1,
+      "feedback_correct": "✅ Le lait est un mélange hétérogène (on peut observer des particules sous microscope).",
+      "feedback_incorrect": "❌ Le lait est un mélange hétérogène (on peut observer des particules sous microscope).",
+      "code_socle": "D5-2",
+      "difficulte": 3
+    },
+    {
+      "id": 8,
+      "enonce": "Lorsqu'on dissout du sucre dans l'eau, qu'obtient-on ?",
+      "options": [
+        "Un mélange hétérogène",
+        "Un corps pur",
+        "Une solution homogène",
+        "Une suspension"
+      ],
+      "reponse": 2,
+      "feedback_correct": "✅ On obtient une solution sucrée, qui est un mélange homogène.",
+      "feedback_incorrect": "❌ On obtient une solution sucrée, qui est un mélange homogène.",
+      "code_socle": "D5-2",
+      "difficulte": 3
+    }
+  ]
+}

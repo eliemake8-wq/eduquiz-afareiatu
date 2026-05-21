@@ -1,0 +1,131 @@
+{
+  "id": "qcm-4e-ch03",
+  "titre": "Transformations chimiques — 4E",
+  "classe": "4e",
+  "chapitre": "Transformations chimiques",
+  "auteur": "Collège Afareiatu — SPC",
+  "date": "2026-05-20",
+  "version": 1,
+  "questions": [
+    {
+      "id": 1,
+      "enonce": "Que dit la loi de conservation de la masse ?",
+      "options": [
+        "Masse produits > réactifs",
+        "Masse réactifs = masse produits",
+        "Masse disparaît",
+        "Dépend de T°"
+      ],
+      "reponse": 1,
+      "feedback_correct": "✅ Loi de Lavoisier : rien ne se perd, rien ne se crée, tout se transforme.",
+      "feedback_incorrect": "❌ Loi de Lavoisier : rien ne se perd, rien ne se crée, tout se transforme.",
+      "code_socle": "D4-3",
+      "difficulte": 1
+    },
+    {
+      "id": 2,
+      "enonce": "La combustion complète du carbone produit :",
+      "options": [
+        "CO",
+        "CO₂",
+        "H₂O",
+        "N₂"
+      ],
+      "reponse": 1,
+      "feedback_correct": "✅ C + O₂ → CO₂ (combustion complète).",
+      "feedback_incorrect": "❌ C + O₂ → CO₂ (combustion complète).",
+      "code_socle": "D4-3",
+      "difficulte": 1
+    },
+    {
+      "id": 3,
+      "enonce": "Lors d'une réaction acide-base, que se forme-t-il ?",
+      "options": [
+        "Gaz explosif",
+        "Sel + eau",
+        "Précipité métallique",
+        "CO₂ uniquement"
+      ],
+      "reponse": 1,
+      "feedback_correct": "✅ Acide + base → sel + eau (neutralisation).",
+      "feedback_incorrect": "❌ Acide + base → sel + eau (neutralisation).",
+      "code_socle": "D4-3",
+      "difficulte": 1
+    },
+    {
+      "id": 4,
+      "enonce": "La rouille du fer est un exemple de :",
+      "options": [
+        "Combustion",
+        "Réaction acide-base",
+        "Corrosion",
+        "Dissolution"
+      ],
+      "reponse": 2,
+      "feedback_correct": "✅ La rouille se forme par corrosion (réaction du fer avec eau et O₂).",
+      "feedback_incorrect": "❌ La rouille se forme par corrosion (réaction du fer avec eau et O₂).",
+      "code_socle": "D4-3",
+      "difficulte": 2
+    },
+    {
+      "id": 5,
+      "enonce": "Comment reconnaître qu'une réaction chimique a eu lieu ?",
+      "options": [
+        "La masse a changé",
+        "Changement couleur, gaz, précipité…",
+        "La matière a disparu",
+        "Les réactifs sont toujours là"
+      ],
+      "reponse": 1,
+      "feedback_correct": "✅ Les signes observables : changement couleur, dégagement gaz, précipité, T°.",
+      "feedback_incorrect": "❌ Les signes observables : changement couleur, dégagement gaz, précipité, T°.",
+      "code_socle": "D4-3",
+      "difficulte": 2
+    },
+    {
+      "id": 6,
+      "enonce": "Lors d'une réaction chimique, les atomes :",
+      "options": [
+        "Se créent",
+        "Se détruisent",
+        "Se réarrangent sans changer en nombre",
+        "Grossissent"
+      ],
+      "reponse": 2,
+      "feedback_correct": "✅ Les atomes se réarrangent mais leur nombre total est conservé.",
+      "feedback_incorrect": "❌ Les atomes se réarrangent mais leur nombre total est conservé.",
+      "code_socle": "D4-3",
+      "difficulte": 2
+    },
+    {
+      "id": 7,
+      "enonce": "HCl + NaOH → NaCl + H₂O est une réaction :",
+      "options": [
+        "Combustion",
+        "Acide-base",
+        "Corrosion",
+        "Vaporisation"
+      ],
+      "reponse": 1,
+      "feedback_correct": "✅ HCl (acide) + NaOH (base) → NaCl + H₂O : réaction acide-base.",
+      "feedback_incorrect": "❌ HCl (acide) + NaOH (base) → NaCl + H₂O : réaction acide-base.",
+      "code_socle": "D4-3",
+      "difficulte": 3
+    },
+    {
+      "id": 8,
+      "enonce": "Si on brûle 12 g de C avec 32 g d'O₂, quelle masse de CO₂ obtient-on ?",
+      "options": [
+        "12 g",
+        "22 g",
+        "44 g",
+        "32 g"
+      ],
+      "reponse": 2,
+      "feedback_correct": "✅ Conservation de la masse : 12 + 32 = 44 g de CO₂.",
+      "feedback_incorrect": "❌ Conservation de la masse : 12 + 32 = 44 g de CO₂.",
+      "code_socle": "D4-3",
+      "difficulte": 3
+    }
+  ]
+}

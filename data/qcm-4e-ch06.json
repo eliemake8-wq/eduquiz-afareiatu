@@ -1,0 +1,131 @@
+{
+  "id": "qcm-4e-ch06",
+  "titre": "Transferts et conversions d'énergie — 4E",
+  "classe": "4e",
+  "chapitre": "Transferts et conversions d'énergie",
+  "auteur": "Collège Afareiatu — SPC",
+  "date": "2026-05-20",
+  "version": 1,
+  "questions": [
+    {
+      "id": 1,
+      "enonce": "Une centrale hydraulique convertit :",
+      "options": [
+        "Chimique→électrique",
+        "Mécanique (eau)→électrique",
+        "Thermique→mécanique",
+        "Lumineuse→électrique"
+      ],
+      "reponse": 1,
+      "feedback_correct": "✅ Centrale hydraulique : énergie mécanique de l'eau → électricité.",
+      "feedback_incorrect": "❌ Centrale hydraulique : énergie mécanique de l'eau → électricité.",
+      "code_socle": "D4-6",
+      "difficulte": 1
+    },
+    {
+      "id": 2,
+      "enonce": "Rendement 30 %, 1000 J fournis → énergie utile ?",
+      "options": [
+        "30 J",
+        "300 J",
+        "700 J",
+        "1000 J"
+      ],
+      "reponse": 1,
+      "feedback_correct": "✅ E_utile = 0,30 × 1000 = 300 J.",
+      "feedback_incorrect": "❌ E_utile = 0,30 × 1000 = 300 J.",
+      "code_socle": "D4-6",
+      "difficulte": 1
+    },
+    {
+      "id": 3,
+      "enonce": "La conduction thermique est un transfert :",
+      "options": [
+        "Par courant",
+        "Par force mécanique",
+        "Par contact entre corps à T° différentes",
+        "Par ondes lumineuses"
+      ],
+      "reponse": 2,
+      "feedback_correct": "✅ Conduction : transfert de chaleur par contact.",
+      "feedback_incorrect": "❌ Conduction : transfert de chaleur par contact.",
+      "code_socle": "D4-6",
+      "difficulte": 1
+    },
+    {
+      "id": 4,
+      "enonce": "Quelle affirmation sur l'énergie est correcte ?",
+      "options": [
+        "Elle se détruit lors d'une conversion",
+        "Elle peut se créer",
+        "Elle se conserve toujours",
+        "Elle disparaît dans le vide"
+      ],
+      "reponse": 2,
+      "feedback_correct": "✅ Conservation de l'énergie : loi fondamentale.",
+      "feedback_incorrect": "❌ Conservation de l'énergie : loi fondamentale.",
+      "code_socle": "D4-6",
+      "difficulte": 2
+    },
+    {
+      "id": 5,
+      "enonce": "Principal problème des moteurs thermiques ?",
+      "options": [
+        "Ne produisent pas d'utile",
+        "Dissipent beaucoup en chaleur",
+        "Consomment de l'électricité",
+        "Nécessitent de l'eau"
+      ],
+      "reponse": 1,
+      "feedback_correct": "✅ Moteurs thermiques : rendement ≈30%, 70% dissipé en chaleur.",
+      "feedback_incorrect": "❌ Moteurs thermiques : rendement ≈30%, 70% dissipé en chaleur.",
+      "code_socle": "D4-6",
+      "difficulte": 2
+    },
+    {
+      "id": 6,
+      "enonce": "Une pile crée-t-elle de l'énergie ?",
+      "options": [
+        "Oui",
+        "Non, elle convertit énergie chimique → électrique",
+        "Oui (énergie ambiante)",
+        "Non, elle stocke du courant"
+      ],
+      "reponse": 1,
+      "feedback_correct": "✅ Une pile convertit l'énergie chimique stockée en électricité.",
+      "feedback_incorrect": "❌ Une pile convertit l'énergie chimique stockée en électricité.",
+      "code_socle": "D4-6",
+      "difficulte": 2
+    },
+    {
+      "id": 7,
+      "enonce": "Le rayonnement solaire est un transfert :",
+      "options": [
+        "Par conduction",
+        "Par convection",
+        "Par rayonnement (ondes EM)",
+        "Par travail mécanique"
+      ],
+      "reponse": 2,
+      "feedback_correct": "✅ Le Soleil transfère son énergie par rayonnement électromagnétique.",
+      "feedback_incorrect": "❌ Le Soleil transfère son énergie par rayonnement électromagnétique.",
+      "code_socle": "D4-6",
+      "difficulte": 3
+    },
+    {
+      "id": 8,
+      "enonce": "Ampoule LED : rendement 80 %, reçoit 10 W → puissance lumineuse ?",
+      "options": [
+        "1 W",
+        "2 W",
+        "8 W",
+        "10 W"
+      ],
+      "reponse": 2,
+      "feedback_correct": "✅ P = 0,80 × 10 = 8 W.",
+      "feedback_incorrect": "❌ P = 0,80 × 10 = 8 W.",
+      "code_socle": "D4-6",
+      "difficulte": 3
+    }
+  ]
+}

@@ -1,0 +1,131 @@
+{
+  "id": "qcm-4e-ch10",
+  "titre": "Structure de l'Univers — 4E",
+  "classe": "4e",
+  "chapitre": "Structure de l'Univers",
+  "auteur": "Collège Afareiatu — SPC",
+  "date": "2026-05-20",
+  "version": 1,
+  "questions": [
+    {
+      "id": 1,
+      "enonce": "Qu'est-ce qu'une année-lumière ?",
+      "options": [
+        "Une durée de 1 an",
+        "La distance parcourue par la lumière en 1 an",
+        "La vitesse de la lumière",
+        "La distance Terre-Soleil"
+      ],
+      "reponse": 1,
+      "feedback_correct": "✅ Bonne réponse : La distance parcourue par la lumière en 1 an",
+      "feedback_incorrect": "❌ La bonne réponse était : La distance parcourue par la lumière en 1 an",
+      "code_socle": "D4-10",
+      "difficulte": 1
+    },
+    {
+      "id": 2,
+      "enonce": "Combien de planètes compte le système solaire ?",
+      "options": [
+        "7",
+        "8",
+        "9",
+        "10"
+      ],
+      "reponse": 1,
+      "feedback_correct": "✅ Bonne réponse : 8",
+      "feedback_incorrect": "❌ La bonne réponse était : 8",
+      "code_socle": "D4-10",
+      "difficulte": 1
+    },
+    {
+      "id": 3,
+      "enonce": "Quelle est l'étoile la plus proche du Soleil ?",
+      "options": [
+        "Sirius",
+        "Bételgeuse",
+        "Proxima du Centaure",
+        "Andromède"
+      ],
+      "reponse": 2,
+      "feedback_correct": "✅ Bonne réponse : Proxima du Centaure",
+      "feedback_incorrect": "❌ La bonne réponse était : Proxima du Centaure",
+      "code_socle": "D4-10",
+      "difficulte": 1
+    },
+    {
+      "id": 4,
+      "enonce": "La lumière du Soleil met combien de temps pour atteindre la Terre ?",
+      "options": [
+        "8 secondes",
+        "8 minutes",
+        "8 heures",
+        "8 jours"
+      ],
+      "reponse": 1,
+      "feedback_correct": "✅ Bonne réponse : 8 minutes",
+      "feedback_incorrect": "❌ La bonne réponse était : 8 minutes",
+      "code_socle": "D4-10",
+      "difficulte": 2
+    },
+    {
+      "id": 5,
+      "enonce": "Notre galaxie s'appelle :",
+      "options": [
+        "Andromède",
+        "le Grand Nuage de Magellan",
+        "la Voie Lactée",
+        "l'Univers"
+      ],
+      "reponse": 2,
+      "feedback_correct": "✅ Bonne réponse : la Voie Lactée",
+      "feedback_incorrect": "❌ La bonne réponse était : la Voie Lactée",
+      "code_socle": "D4-10",
+      "difficulte": 2
+    },
+    {
+      "id": 6,
+      "enonce": "Quelle est la valeur approximative de la vitesse de la lumière ?",
+      "options": [
+        "3 × 10⁵ m/s",
+        "3 × 10⁸ m/s",
+        "3 × 10¹⁰ m/s",
+        "3 × 10⁶ m/s"
+      ],
+      "reponse": 1,
+      "feedback_correct": "✅ Bonne réponse : 3 × 10⁸ m/s",
+      "feedback_incorrect": "❌ La bonne réponse était : 3 × 10⁸ m/s",
+      "code_socle": "D4-10",
+      "difficulte": 2
+    },
+    {
+      "id": 7,
+      "enonce": "Quand on observe une étoile à 500 al, on voit sa lumière :",
+      "options": [
+        "Telle qu'elle est maintenant",
+        "Telle qu'elle était il y a 500 ans",
+        "Telle qu'elle sera dans 500 ans",
+        "Dupliquée 500 fois"
+      ],
+      "reponse": 1,
+      "feedback_correct": "✅ Bonne réponse : Telle qu'elle était il y a 500 ans",
+      "feedback_incorrect": "❌ La bonne réponse était : Telle qu'elle était il y a 500 ans",
+      "code_socle": "D4-10",
+      "difficulte": 3
+    },
+    {
+      "id": 8,
+      "enonce": "Qu'est-ce qu'une comète ?",
+      "options": [
+        "Une planète gazeuse",
+        "Un satellite artificiel",
+        "Une boule de glace et de poussière à queue lumineuse",
+        "Une galaxie lointaine"
+      ],
+      "reponse": 2,
+      "feedback_correct": "✅ Bonne réponse : Une boule de glace et de poussière à queue lumineuse",
+      "feedback_incorrect": "❌ La bonne réponse était : Une boule de glace et de poussière à queue lumineuse",
+      "code_socle": "D4-10",
+      "difficulte": 3
+    }
+  ]
+}

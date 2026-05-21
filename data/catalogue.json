@@ -1,0 +1,234 @@
+[
+  {
+    "fichier": "qcm-4e-ch01.json",
+    "titre": "Composition et qualité de l'air — 4E",
+    "classe": "4e",
+    "chapitre": "Composition et qualité de l'air",
+    "nbQuestions": 8,
+    "difficulte": "⭐⭐"
+  },
+  {
+    "fichier": "qcm-4e-ch02.json",
+    "titre": "Solubilité et purification de l'eau — 4E",
+    "classe": "4e",
+    "chapitre": "Solubilité et purification de l'eau",
+    "nbQuestions": 8,
+    "difficulte": "⭐⭐"
+  },
+  {
+    "fichier": "qcm-4e-ch03.json",
+    "titre": "Transformations chimiques — 4E",
+    "classe": "4e",
+    "chapitre": "Transformations chimiques",
+    "nbQuestions": 8,
+    "difficulte": "⭐⭐"
+  },
+  {
+    "fichier": "qcm-4e-ch04.json",
+    "titre": "Mouvement et vitesse — 4E",
+    "classe": "4e",
+    "chapitre": "Mouvement et vitesse",
+    "nbQuestions": 8,
+    "difficulte": "⭐⭐"
+  },
+  {
+    "fichier": "qcm-4e-ch05.json",
+    "titre": "Forces et interactions — 4E",
+    "classe": "4e",
+    "chapitre": "Forces et interactions",
+    "nbQuestions": 8,
+    "difficulte": "⭐⭐"
+  },
+  {
+    "fichier": "qcm-4e-ch06.json",
+    "titre": "Transferts et conversions d'énergie — 4E",
+    "classe": "4e",
+    "chapitre": "Transferts et conversions d'énergie",
+    "nbQuestions": 8,
+    "difficulte": "⭐⭐"
+  },
+  {
+    "fichier": "qcm-4e-ch07.json",
+    "titre": "Circuits électriques et loi d'Ohm — 4E",
+    "classe": "4e",
+    "chapitre": "Circuits électriques et loi d'Ohm",
+    "nbQuestions": 8,
+    "difficulte": "⭐⭐"
+  },
+  {
+    "fichier": "qcm-4e-ch08.json",
+    "titre": "Propagation de la lumière — 4E",
+    "classe": "4e",
+    "chapitre": "Propagation de la lumière",
+    "nbQuestions": 8,
+    "difficulte": "⭐⭐"
+  },
+  {
+    "fichier": "qcm-4e-ch09.json",
+    "titre": "Propagation du son — 4E",
+    "classe": "4e",
+    "chapitre": "Propagation du son",
+    "nbQuestions": 8,
+    "difficulte": "⭐⭐"
+  },
+  {
+    "fichier": "qcm-4e-ch10.json",
+    "titre": "Structure de l'Univers — 4E",
+    "classe": "4e",
+    "chapitre": "Structure de l'Univers",
+    "nbQuestions": 8,
+    "difficulte": "⭐⭐"
+  },
+  {
+    "fichier": "qcm-4e-ch11.json",
+    "titre": "Atomes et molécules — 4E",
+    "classe": "4e",
+    "chapitre": "Atomes et molécules",
+    "nbQuestions": 8,
+    "difficulte": "⭐⭐"
+  },
+  {
+    "fichier": "qcm-4e-ch12.json",
+    "titre": "Réactions chimiques — 4E",
+    "classe": "4e",
+    "chapitre": "Réactions chimiques",
+    "nbQuestions": 8,
+    "difficulte": "⭐⭐"
+  },
+  {
+    "fichier": "qcm-4e-ch13.json",
+    "titre": "Circuit électrique — 4E",
+    "classe": "4e",
+    "chapitre": "Circuit électrique",
+    "nbQuestions": 8,
+    "difficulte": "⭐⭐"
+  },
+  {
+    "fichier": "qcm-4e-ch14.json",
+    "titre": "Pression des fluides — 4E",
+    "classe": "4e",
+    "chapitre": "Pression des fluides",
+    "nbQuestions": 8,
+    "difficulte": "⭐⭐"
+  },
+  {
+    "fichier": "qcm-4e-ch15.json",
+    "titre": "Lumière et réfraction — 4E",
+    "classe": "4e",
+    "chapitre": "Lumière et réfraction",
+    "nbQuestions": 8,
+    "difficulte": "⭐⭐"
+  },
+  {
+    "fichier": "qcm-4e-ch16.json",
+    "titre": "Puissance et énergie électrique — 4E",
+    "classe": "4e",
+    "chapitre": "Puissance et énergie électrique",
+    "nbQuestions": 8,
+    "difficulte": "⭐⭐"
+  },
+  {
+    "fichier": "qcm-5e-ch01.json",
+    "titre": "Les états de la matière — 5E",
+    "classe": "5e",
+    "chapitre": "Les états de la matière",
+    "nbQuestions": 8,
+    "difficulte": "⭐⭐"
+  },
+  {
+    "fichier": "qcm-5e-ch02.json",
+    "titre": "Mélanges et solubilité — 5E",
+    "classe": "5e",
+    "chapitre": "Mélanges et solubilité",
+    "nbQuestions": 8,
+    "difficulte": "⭐⭐"
+  },
+  {
+    "fichier": "qcm-5e-ch03.json",
+    "titre": "Masse volumique — 5E",
+    "classe": "5e",
+    "chapitre": "Masse volumique",
+    "nbQuestions": 8,
+    "difficulte": "⭐⭐"
+  },
+  {
+    "fichier": "qcm-5e-ch04.json",
+    "titre": "Mouvements et vitesse — 5E",
+    "classe": "5e",
+    "chapitre": "Mouvements et vitesse",
+    "nbQuestions": 8,
+    "difficulte": "⭐⭐"
+  },
+  {
+    "fichier": "qcm-5e-ch05.json",
+    "titre": "Forces et leurs effets — 5E",
+    "classe": "5e",
+    "chapitre": "Forces et leurs effets",
+    "nbQuestions": 8,
+    "difficulte": "⭐⭐"
+  },
+  {
+    "fichier": "qcm-5e-ch06.json",
+    "titre": "Énergie : formes et transferts — 5E",
+    "classe": "5e",
+    "chapitre": "Énergie : formes et transferts",
+    "nbQuestions": 8,
+    "difficulte": "⭐⭐"
+  },
+  {
+    "fichier": "qcm-5e-ch07.json",
+    "titre": "Propagation du son — 5E",
+    "classe": "5e",
+    "chapitre": "Propagation du son",
+    "nbQuestions": 8,
+    "difficulte": "⭐⭐"
+  },
+  {
+    "fichier": "qcm-5e-ch08.json",
+    "titre": "Mélanges et corps purs — 5E",
+    "classe": "5e",
+    "chapitre": "Mélanges et corps purs",
+    "nbQuestions": 12,
+    "difficulte": "⭐⭐⭐"
+  },
+  {
+    "fichier": "qcm-5e-ch09.json",
+    "titre": "Changements d'état — 5E",
+    "classe": "5e",
+    "chapitre": "Changements d'état",
+    "nbQuestions": 8,
+    "difficulte": "⭐⭐"
+  },
+  {
+    "fichier": "qcm-5e-ch10.json",
+    "titre": "Lumière et vision — 5E",
+    "classe": "5e",
+    "chapitre": "Lumière et vision",
+    "nbQuestions": 8,
+    "difficulte": "⭐⭐"
+  },
+  {
+    "fichier": "qcm-5e-ch11.json",
+    "titre": "Les sons — 5E",
+    "classe": "5e",
+    "chapitre": "Les sons",
+    "nbQuestions": 8,
+    "difficulte": "⭐⭐"
+  },
+  {
+    "fichier": "qcm-5e-ch12.json",
+    "titre": "L'énergie et ses transferts — 5E",
+    "classe": "5e",
+    "chapitre": "L'énergie et ses transferts",
+    "nbQuestions": 8,
+    "difficulte": "⭐⭐"
+  },
+  {
+    "fichier": "qcm-5e-ch13.json",
+    "titre": "Propagation de la lumière — 5E",
+    "classe": "5e",
+    "chapitre": "Propagation de la lumière",
+    "nbQuestions": 8,
+    "difficulte": "⭐⭐"
+  }
+]

@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin QCM — SPC Afareiatu</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    /* === MODAL === */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.5);
+      z-index: 100;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+    }
+    .modal-overlay.visible { display: flex; }
+    .modal-contenu {
+      background: #fff;
+      border-radius: 16px;
+      padding: 1.5rem;
+      width: 100%;
+      max-width: 560px;
+      max-height: 90vh;
+      overflow-y: auto;
+      box-shadow: 0 8px 40px rgba(0,0,0,0.25);
+    }
+    .modal-entete {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1.2rem;
+    }
+    code {
+      background: #f0f0f0;
+      padding: 0.1rem 0.4rem;
+      border-radius: 4px;
+      font-size: 0.85rem;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <a class="logo" href="index.html">
+      <span>⚗️</span>
+      <h1>SPC Afareiatu</h1>
+    </a>
+    <nav>
+      <a href="index.html">← Accueil</a>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- ALERTE GLOBALE -->
+    <div id="zone-alerte" class="alerte" style="display:none"></div>
+
+    <!-- ONGLETS -->
+    <div class="filtres mb-2">
+      <button class="filtre-btn actif" onclick="afficherOnglet('editeur', this)">✏️ Éditeur</button>
+      <button class="filtre-btn" onclick="afficherOnglet('bibliotheque', this)">📚 Bibliothèque</button>
+      <button class="filtre-btn" onclick="afficherOnglet('resultats', this)">📊 Résultats</button>
+    </div>
+
+    <!-- ======================== -->
+    <!-- ONGLET ÉDITEUR           -->
+    <!-- ======================== -->
+    <div id="editeur">
+
+      <!-- MÉTA QCM -->
+      <div class="card mb-2">
+        <div class="card-titre">📝 Informations du QCM</div>
+        <form id="form-meta">
+          <div class="form-groupe">
+            <label class="form-label" for="meta-titre">Titre du QCM *</label>
+            <input class="form-input" id="meta-titre" type="text"
+              placeholder="ex: Masse volumique — Introduction" required>
+          </div>
+          <div class="flex flex-wrap">
+            <div class="form-groupe" style="flex:1; min-width:140px">
+              <label class="form-label" for="meta-classe">Classe *</label>
+              <select class="form-select" id="meta-classe">
+                <option value="5e">5e</option>
+                <option value="4e" selected>4e</option>
+                <option value="3e">3e</option>
+              </select>
+            </div>
+            <div class="form-groupe" style="flex:2; min-width:200px">
+              <label class="form-label" for="meta-chapitre">Chapitre *</label>
+              <input class="form-input" id="meta-chapitre" type="text"
+                placeholder="ex: Masse volumique">
+            </div>
+          </div>
+          <div class="form-groupe">
+            <label class="form-label" for="meta-auteur">Auteur</label>
+            <input class="form-input" id="meta-auteur" type="text"
+              value="Collège Afareiatu — SPC">
+          </div>
+        </form>
+      </div>
+
+      <!-- LISTE QUESTIONS -->
+      <div class="card mb-2">
+        <div class="card-titre" style="justify-content:space-between">
+          <span>❓ Questions</span>
+          <button class="btn btn-primaire" style="padding:0.5rem 1rem; font-size:0.9rem"
+            onclick="Admin.ouvrirFormQuestion()">
+            + Ajouter
+          </button>
+        </div>
+        <div id="questions-liste">
+          <!-- Rempli par admin.js -->
+        </div>
+      </div>
+
+      <!-- ACTIONS QCM -->
+      <div class="flex flex-wrap">
+        <button class="btn btn-vert" onclick="Admin.sauvegarderQCM()">💾 Sauvegarder</button>
+        <button class="btn btn-secondaire" onclick="Admin.exporterQCMCourant()">⬇️ Exporter JSON</button>
+        <button class="btn btn-secondaire" onclick="Admin.nouveauQCM()">🆕 Nouveau</button>
+        <label class="btn btn-secondaire" style="cursor:pointer">
+          📂 Importer JSON
+          <input type="file" id="import-json" accept=".json" style="display:none">
+        </label>
+      </div>
+
+    </div>
+
+    <!-- ======================== -->
+    <!-- ONGLET BIBLIOTHÈQUE      -->
+    <!-- ======================== -->
+    <div id="bibliotheque" style="display:none">
+      <div class="card">
+        <div class="card-titre">📚 QCM sauvegardés</div>
+        <div id="biblio-liste">
+          <!-- Rempli par admin.js -->
+        </div>
+      </div>
+
+      <div class="card mt-2">
+        <div class="card-titre">📌 Comment déployer un QCM ?</div>
+        <ol style="padding-left:1.2rem; font-size:0.9rem; line-height:2">
+          <li>Crée et sauvegarde un QCM dans l'éditeur</li>
+          <li>Clique ⬇️ "Exporter JSON" → copie le fichier dans <code>data/</code></li>
+          <li>Ajoute le QCM dans <code>index.html</code> dans le tableau <code>CATALOGUE</code></li>
+          <li>Redéploie : <code>netlify deploy --prod --dir=.</code></li>
+        </ol>
+      </div>
+    </div>
+
+    <!-- ======================== -->
+    <!-- ONGLET RÉSULTATS         -->
+    <!-- ======================== -->
+    <div id="resultats" style="display:none">
+      <div class="card mb-2">
+        <div class="card-titre">📊 Résultats des élèves</div>
+        <p class="text-petit" style="color:#555; margin-bottom:1rem">
+          Les résultats sont stockés anonymement sur cet appareil.
+          Pour les récupérer : ouvre cette page sur le même navigateur que les élèves.
+        </p>
+        <div id="stats-resume" style="margin-bottom:1rem">
+          <!-- Rempli ci-dessous -->
+        </div>
+        <div class="flex flex-wrap">
+          <button class="btn btn-primaire" onclick="Admin.exporterResultatsCSV()">
+            📥 Exporter CSV
+          </button>
+          <button class="btn btn-rouge" onclick="Admin.effacerResultats()">
+            🗑️ Effacer résultats
+          </button>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-titre">📋 Derniers résultats</div>
+        <div id="table-resultats"></div>
+      </div>
+    </div>
+
+  </main>
+
+  <footer>
+    Collège de Afareiatu — SPC · Données anonymes · RGPD ✓
+  </footer>
+
+  <!-- ======================== -->
+  <!-- MODAL QUESTION           -->
+  <!-- ======================== -->
+  <div class="modal-overlay" id="modal-question">
+    <div class="modal-contenu">
+      <div class="modal-entete">
+        <h2 id="modal-titre">Nouvelle question</h2>
+        <button class="btn-icone" onclick="Admin.fermerModal()" style="font-size:1.2rem">✕</button>
+      </div>
+
+      <form id="form-question" onsubmit="return false">
+
+        <div class="form-groupe">
+          <label class="form-label">Énoncé de la question *</label>
+          <textarea class="form-textarea" id="q-enonce"
+            placeholder="Écris ta question ici... (≤15 mots conseillé pour REP+)"
+            rows="3"></textarea>
+        </div>
+
+        <div class="form-groupe">
+          <label class="form-label">Options de réponse — coche la bonne réponse ✓</label>
+          <div class="option-admin">
+            <input type="radio" name="q-reponse" value="0">
+            <span style="font-weight:700; min-width:22px">A.</span>
+            <input class="form-input" id="q-option-0" type="text" placeholder="Option A *">
+          </div>
+          <div class="option-admin">
+            <input type="radio" name="q-reponse" value="1">
+            <span style="font-weight:700; min-width:22px">B.</span>
+            <input class="form-input" id="q-option-1" type="text" placeholder="Option B *">
+          </div>
+          <div class="option-admin">
+            <input type="radio" name="q-reponse" value="2">
+            <span style="font-weight:700; min-width:22px">C.</span>
+            <input class="form-input" id="q-option-2" type="text" placeholder="Option C *">
+          </div>
+          <div class="option-admin">
+            <input type="radio" name="q-reponse" value="3">
+            <span style="font-weight:700; min-width:22px">D.</span>
+            <input class="form-input" id="q-option-3" type="text" placeholder="Option D *">
+          </div>
+          <p class="text-petit mt-1" style="color:#888">
+            🔘 Coche le bouton radio à gauche de la bonne réponse
+          </p>
+        </div>
+
+        <div class="form-groupe">
+          <label class="form-label">Feedback si CORRECTE * (3-5 lignes recommandées)</label>
+          <textarea class="form-textarea" id="q-feedback-correct"
+            placeholder="Explique pourquoi c'est correct. Donne un exemple polynésien si possible."
+            rows="3"></textarea>
+          <p class="text-petit mt-1" style="color:#888">
+            Le préfixe ✅ sera ajouté automatiquement.
+          </p>
+        </div>
+
+        <div class="form-groupe">
+          <label class="form-label">Feedback si INCORRECTE * (3-5 lignes recommandées)</label>
+          <textarea class="form-textarea" id="q-feedback-incorrect"
+            placeholder="Explique l'erreur et donne la bonne explication."
+            rows="3"></textarea>
+          <p class="text-petit mt-1" style="color:#888">
+            Le préfixe ❌ sera ajouté automatiquement.
+          </p>
+        </div>
+
+        <div class="flex">
+          <div class="form-groupe" style="flex:1">
+            <label class="form-label">Code socle</label>
+            <input class="form-input" id="q-code-socle" type="text"
+              placeholder="ex: D4-1">
+          </div>
+          <div class="form-groupe" style="flex:1">
+            <label class="form-label">Difficulté</label>
+            <select class="form-select" id="q-difficulte">
+              <option value="1">⭐ Facile</option>
+              <option value="2">⭐⭐ Moyen</option>
+              <option value="3">⭐⭐⭐ Difficile</option>
+              <option value="4">⭐⭐⭐⭐ Expert</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="flex mt-2">
+          <button class="btn btn-vert" onclick="Admin.sauvegarderQuestion()">
+            ✓ Valider la question
+          </button>
+          <button class="btn btn-secondaire" onclick="Admin.fermerModal()">
+            Annuler
+          </button>
+        </div>
+
+      </form>
+    </div>
+  </div>
+
+  <script src="js/admin.js"></script>
+
+  <script>
+    // === ONGLETS ===
+    function afficherOnglet(id, btn) {
+      ['editeur', 'bibliotheque', 'resultats'].forEach(o => {
+        document.getElementById(o).style.display = (o === id) ? 'block' : 'none';
+      });
+      document.querySelectorAll('.filtre-btn').forEach(b => b.classList.remove('actif'));
+      btn.classList.add('actif');
+
+      if (id === 'resultats') afficherStatsResultats();
+      if (id === 'bibliotheque') Admin.afficherBibliotheque();
+    }
+
+    // === STATS RÉSULTATS ===
+    function afficherStatsResultats() {
+      const resultats = JSON.parse(localStorage.getItem('spc_resultats') || '[]');
+      const resume = document.getElementById('stats-resume');
+      const table = document.getElementById('table-resultats');
+
+      if (resultats.length === 0) {
+        resume.innerHTML = '<p class="text-petit" style="color:#888">Aucun résultat enregistré.</p>';
+        table.innerHTML = '';
+        return;
+      }
+
+      const total = resultats.length;
+      const moyPct = Math.round(resultats.reduce((s, r) => s + r.pct, 0) / total);
+      resume.innerHTML = `
+        <div class="flex flex-wrap">
+          <div class="badge">${total} session(s)</div>
+          <div class="badge vert">Moyenne : ${moyPct}%</div>
+        </div>`;
+
+      // Table des 20 derniers
+      const derniers = resultats.slice(-20).reverse();
+      let html = '<table style="width:100%; border-collapse:collapse; font-size:0.85rem">';
+      html += '<tr style="border-bottom:2px solid #eee"><th style="text-align:left;padding:0.4rem">QCM</th><th>Classe</th><th>Score</th><th>Date</th></tr>';
+      derniers.forEach(r => {
+        const d = new Date(r.date).toLocaleDateString('fr-FR');
+        const couleur = r.pct >= 80 ? '#1a9e4a' : r.pct >= 50 ? '#f08c00' : '#d93232';
+        html += `<tr style="border-bottom:1px solid #f0f0f0">
+          <td style="padding:0.4rem">${r.qcmTitre.substring(0, 30)}...</td>
+          <td style="text-align:center">${r.classe}</td>
+          <td style="text-align:center; color:${couleur}; font-weight:700">${r.pct}%</td>
+          <td style="text-align:center; color:#888">${d}</td>
+        </tr>`;
+      });
+      html += '</table>';
+      table.innerHTML = html;
+    }
+  </script>
+
+</body>
+</html>

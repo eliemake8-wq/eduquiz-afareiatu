@@ -1,0 +1,131 @@
+{
+  "id": "qcm-5e-ch04",
+  "titre": "Mouvements et vitesse — 5E",
+  "classe": "5e",
+  "chapitre": "Mouvements et vitesse",
+  "auteur": "Collège Afareiatu — SPC",
+  "date": "2026-05-20",
+  "version": 1,
+  "questions": [
+    {
+      "id": 1,
+      "enonce": "Un véhicule parcourt 120 km en 2 heures. Quelle est sa vitesse moyenne ?",
+      "options": [
+        "30 km/h",
+        "60 km/h",
+        "120 km/h",
+        "240 km/h"
+      ],
+      "reponse": 1,
+      "feedback_correct": "✅ v = d/t = 120/2 = 60 km/h.",
+      "feedback_incorrect": "❌ v = d/t = 120/2 = 60 km/h.",
+      "code_socle": "D5-4",
+      "difficulte": 1
+    },
+    {
+      "id": 2,
+      "enonce": "La trajectoire d'une bille roulant en ligne droite est :",
+      "options": [
+        "Circulaire",
+        "Curviligne",
+        "Rectiligne",
+        "Parabolique"
+      ],
+      "reponse": 2,
+      "feedback_correct": "✅ La trajectoire en ligne droite est une trajectoire rectiligne.",
+      "feedback_incorrect": "❌ La trajectoire en ligne droite est une trajectoire rectiligne.",
+      "code_socle": "D5-4",
+      "difficulte": 1
+    },
+    {
+      "id": 3,
+      "enonce": "Un mouvement uniforme est un mouvement dont la vitesse est :",
+      "options": [
+        "Nulle",
+        "Constante",
+        "Variable",
+        "Très rapide"
+      ],
+      "reponse": 1,
+      "feedback_correct": "✅ Dans un mouvement uniforme, la vitesse reste constante.",
+      "feedback_incorrect": "❌ Dans un mouvement uniforme, la vitesse reste constante.",
+      "code_socle": "D5-4",
+      "difficulte": 1
+    },
+    {
+      "id": 4,
+      "enonce": "1 m/s est égal à combien de km/h ?",
+      "options": [
+        "1 km/h",
+        "3,6 km/h",
+        "10 km/h",
+        "100 km/h"
+      ],
+      "reponse": 1,
+      "feedback_correct": "✅ 1 m/s = 3,6 km/h (multiplication par 3,6).",
+      "feedback_incorrect": "❌ 1 m/s = 3,6 km/h (multiplication par 3,6).",
+      "code_socle": "D5-4",
+      "difficulte": 2
+    },
+    {
+      "id": 5,
+      "enonce": "Un cycliste roule à 18 km/h pendant 30 minutes. Quelle distance parcourt-il ?",
+      "options": [
+        "9 km",
+        "18 km",
+        "36 km",
+        "54 km"
+      ],
+      "reponse": 0,
+      "feedback_correct": "✅ d = v × t = 18 × 0,5 = 9 km (30 min = 0,5 h).",
+      "feedback_incorrect": "❌ d = v × t = 18 × 0,5 = 9 km (30 min = 0,5 h).",
+      "code_socle": "D5-4",
+      "difficulte": 2
+    },
+    {
+      "id": 6,
+      "enonce": "La Terre tourne autour du Soleil. Quel type de trajectoire décrit-elle (approximation) ?",
+      "options": [
+        "Rectiligne",
+        "Curviligne irrégulière",
+        "Circulaire (ou elliptique)",
+        "En zigzag"
+      ],
+      "reponse": 2,
+      "feedback_correct": "✅ La Terre décrit approximativement une trajectoire circulaire (en réalité légèrement elliptique).",
+      "feedback_incorrect": "❌ La Terre décrit approximativement une trajectoire circulaire (en réalité légèrement elliptique).",
+      "code_socle": "D5-4",
+      "difficulte": 2
+    },
+    {
+      "id": 7,
+      "enonce": "Un passager dans un train en marche est-il en mouvement par rapport au siège voisin ?",
+      "options": [
+        "Oui, il se déplace à la même vitesse que le train",
+        "Non, il est immobile par rapport au siège",
+        "Oui, il va plus vite que le train",
+        "Cela dépend de la direction"
+      ],
+      "reponse": 1,
+      "feedback_correct": "✅ Par rapport au siège voisin (même référentiel : le train), le passager est immobile.",
+      "feedback_incorrect": "❌ Par rapport au siège voisin (même référentiel : le train), le passager est immobile.",
+      "code_socle": "D5-4",
+      "difficulte": 3
+    },
+    {
+      "id": 8,
+      "enonce": "Quelle formule permet de trouver la durée du trajet ?",
+      "options": [
+        "t = d × v",
+        "t = v / d",
+        "t = d / v",
+        "t = d + v"
+      ],
+      "reponse": 2,
+      "feedback_correct": "✅ En rearrangeant v = d/t, on obtient t = d/v.",
+      "feedback_incorrect": "❌ En rearrangeant v = d/t, on obtient t = d/v.",
+      "code_socle": "D5-4",
+      "difficulte": 3
+    }
+  ]
+}

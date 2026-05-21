@@ -1,0 +1,131 @@
+{
+  "id": "qcm-5e-ch07",
+  "titre": "Propagation du son — 5E",
+  "classe": "5e",
+  "chapitre": "Propagation du son",
+  "auteur": "Collège Afareiatu — SPC",
+  "date": "2026-05-20",
+  "version": 1,
+  "questions": [
+    {
+      "id": 1,
+      "enonce": "Le son peut-il se propager dans le vide ?",
+      "options": [
+        "Oui, à 340 m/s",
+        "Oui, mais plus lentement",
+        "Non, il a besoin d'un milieu matériel",
+        "Oui, à la vitesse de la lumière"
+      ],
+      "reponse": 2,
+      "feedback_correct": "✅ Le son est une vibration mécanique : il ne peut pas se propager dans le vide.",
+      "feedback_incorrect": "❌ Le son est une vibration mécanique : il ne peut pas se propager dans le vide.",
+      "code_socle": "D5-7",
+      "difficulte": 1
+    },
+    {
+      "id": 2,
+      "enonce": "La vitesse du son dans l'air à 20 °C est d'environ :",
+      "options": [
+        "34 m/s",
+        "340 m/s",
+        "3 400 m/s",
+        "340 000 m/s"
+      ],
+      "reponse": 1,
+      "feedback_correct": "✅ La vitesse du son dans l'air à 20 °C est d'environ 340 m/s.",
+      "feedback_incorrect": "❌ La vitesse du son dans l'air à 20 °C est d'environ 340 m/s.",
+      "code_socle": "D5-7",
+      "difficulte": 1
+    },
+    {
+      "id": 3,
+      "enonce": "La hauteur d'un son est liée à :",
+      "options": [
+        "Son intensité (en dB)",
+        "Sa fréquence (en Hz)",
+        "Sa vitesse",
+        "Sa durée"
+      ],
+      "reponse": 1,
+      "feedback_correct": "✅ La hauteur (grave/aigu) d'un son est liée à sa fréquence.",
+      "feedback_incorrect": "❌ La hauteur (grave/aigu) d'un son est liée à sa fréquence.",
+      "code_socle": "D5-7",
+      "difficulte": 1
+    },
+    {
+      "id": 4,
+      "enonce": "Dans quel milieu le son se propage-t-il le plus vite ?",
+      "options": [
+        "L'air",
+        "L'eau",
+        "Les solides (ex : acier)",
+        "Le vide"
+      ],
+      "reponse": 2,
+      "feedback_correct": "✅ Le son se propage plus vite dans les solides que dans les liquides et les gaz.",
+      "feedback_incorrect": "❌ Le son se propage plus vite dans les solides que dans les liquides et les gaz.",
+      "code_socle": "D5-7",
+      "difficulte": 2
+    },
+    {
+      "id": 5,
+      "enonce": "On voit un éclair et on entend le tonnerre 5 s plus tard. À quelle distance est l'orage ? (v_son ≈ 340 m/s)",
+      "options": [
+        "170 m",
+        "680 m",
+        "1 700 m",
+        "3 400 m"
+      ],
+      "reponse": 2,
+      "feedback_correct": "✅ d = v × t = 340 × 5 = 1 700 m = 1,7 km.",
+      "feedback_incorrect": "❌ d = v × t = 340 × 5 = 1 700 m = 1,7 km.",
+      "code_socle": "D5-7",
+      "difficulte": 2
+    },
+    {
+      "id": 6,
+      "enonce": "L'intensité sonore se mesure en :",
+      "options": [
+        "Hz (hertz)",
+        "dB (décibels)",
+        "m/s",
+        "V (volts)"
+      ],
+      "reponse": 1,
+      "feedback_correct": "✅ L'intensité sonore se mesure en décibels (dB).",
+      "feedback_incorrect": "❌ L'intensité sonore se mesure en décibels (dB).",
+      "code_socle": "D5-7",
+      "difficulte": 2
+    },
+    {
+      "id": 7,
+      "enonce": "Les ultrasons sont des sons :",
+      "options": [
+        "De fréquence inférieure à 20 Hz",
+        "De fréquence entre 20 Hz et 20 000 Hz",
+        "De fréquence supérieure à 20 000 Hz",
+        "Perceptibles par l'oreille humaine"
+      ],
+      "reponse": 2,
+      "feedback_correct": "✅ Les ultrasons ont une fréquence supérieure à 20 000 Hz : ils ne sont pas audibles par l'humain.",
+      "feedback_incorrect": "❌ Les ultrasons ont une fréquence supérieure à 20 000 Hz : ils ne sont pas audibles par l'humain.",
+      "code_socle": "D5-7",
+      "difficulte": 3
+    },
+    {
+      "id": 8,
+      "enonce": "L'échographie médicale utilise des ultrasons. Quel principe exploite-t-elle ?",
+      "options": [
+        "La réfraction",
+        "La réflexion des ultrasons sur les organes",
+        "La vitesse de la lumière",
+        "L'absorption sonore"
+      ],
+      "reponse": 1,
+      "feedback_correct": "✅ L'échographie envoie des ultrasons qui se réfléchissent sur les organes ; l'analyse des échos forme une image.",
+      "feedback_incorrect": "❌ L'échographie envoie des ultrasons qui se réfléchissent sur les organes ; l'analyse des échos forme une image.",
+      "code_socle": "D5-7",
+      "difficulte": 3
+    }
+  ]
+}
