@@ -124,11 +124,26 @@ header{background:linear-gradient(135deg,#0077b6,#00b4d8);color:#fff;padding:20p
 .vide{text-align:center;padding:40px;color:#aaa;}
 .vide .icone{font-size:2.5rem;margin-bottom:8px;}
 
+/* LANDING PROF/ÉLÈVE */
+#ecran-landing{max-width:480px;margin:60px auto;padding:0 16px;text-align:center;}
+.landing-titre{font-size:1.6rem;font-weight:800;color:var(--ocean);margin-bottom:8px;}
+.landing-sous{font-size:.9rem;color:#666;margin-bottom:36px;}
+.landing-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+.landing-card{background:#fff;border-radius:20px;padding:32px 20px;box-shadow:var(--ombre);
+  cursor:pointer;transition:.25s;border:2.5px solid transparent;text-decoration:none;color:var(--texte);}
+.landing-card:hover{transform:translateY(-4px);box-shadow:0 8px 30px rgba(0,119,182,.2);}
+.landing-card.eleve:hover,.landing-card.eleve.sel{border-color:var(--ocean);}
+.landing-card.prof:hover,.landing-card.prof.sel{border-color:var(--vert);}
+.landing-icon{font-size:3rem;margin-bottom:12px;}
+.landing-card h3{font-size:1.1rem;font-weight:800;margin-bottom:6px;}
+.landing-card p{font-size:.8rem;color:#777;}
+
 /* RESPONSIVE */
 @media(max-width:520px){
   .qcm-grid{grid-template-columns:1fr;}
   .stats-row{flex-wrap:wrap;}
   .niveau-grid{grid-template-columns:1fr;}
+  .landing-grid{grid-template-columns:1fr;}
 }
 </style>
 </head>
@@ -145,8 +160,27 @@ header{background:linear-gradient(135deg,#0077b6,#00b4d8);color:#fff;padding:20p
   <button id="btn-deconnexion" onclick="deconnecter()" style="display:none">🚪 Changer</button>
 </header>
 
+<!-- ÉCRAN LANDING -->
+<div id="ecran-landing" style="display:none">
+  <div class="emoji-top" style="font-size:3rem;text-align:center;margin-top:48px;">🌺</div>
+  <h2 class="landing-titre" style="text-align:center;margin-top:8px;">EduQuiz Afareiatu</h2>
+  <p class="landing-sous">Qui es-tu ?</p>
+  <div class="landing-grid">
+    <div class="landing-card eleve" onclick="choisirEleve()">
+      <div class="landing-icon">🎓</div>
+      <h3>Élève</h3>
+      <p>Révise tes chapitres et gagne des XP !</p>
+    </div>
+    <div class="landing-card prof" onclick="choisirProf()">
+      <div class="landing-icon">👨‍🏫</div>
+      <h3>Professeur</h3>
+      <p>Suivi des élèves en temps réel</p>
+    </div>
+  </div>
+</div>
+
 <!-- ÉCRAN INSCRIPTION -->
-<div id="ecran-inscription">
+<div id="ecran-inscription" style="display:none">
   <div class="card-inscription">
     <div class="emoji-top">🎓</div>
     <h2>Bienvenue sur EduQuiz !</h2>
@@ -294,8 +328,17 @@ let eleve = null, filtreCourant = 'tous', qcmChoisi = null;
 window.addEventListener('DOMContentLoaded', () => {
   const saved = localStorage.getItem('eduquiz_eleve');
   if (saved) { eleve = JSON.parse(saved); afficherApp(); }
-  else { document.getElementById('ecran-inscription').style.display = 'block'; }
+  else { document.getElementById('ecran-landing').style.display = 'block'; }
 });
+
+function choisirEleve() {
+  document.getElementById('ecran-landing').style.display = 'none';
+  document.getElementById('ecran-inscription').style.display = 'block';
+}
+
+function choisirProf() {
+  window.location.href = 'admin.html';
+}
 
 // ─── INSCRIPTION ───
 function inscrire() {
@@ -318,7 +361,7 @@ function deconnecter() {
   if (!confirm('Changer d\'élève ? Les scores sont sauvegardés.')) return;
   eleve = null; localStorage.removeItem('eduquiz_eleve');
   document.getElementById('ecran-app').style.display = 'none';
-  document.getElementById('ecran-inscription').style.display = 'block';
+  document.getElementById('ecran-landing').style.display = 'block';
   document.getElementById('btn-deconnexion').style.display = 'none';
 }
 
