@@ -103,6 +103,15 @@ header{background:linear-gradient(135deg,#0077b6,#00b4d8);color:#fff;padding:20p
 .niveau-btn.n2:hover,.niveau-btn.n2.sel{border-color:#f29900;background:#fff3e0;}
 .niveau-btn.n3:hover,.niveau-btn.n3.sel{border-color:#d93025;background:#fce8e6;}
 .btn-cancel{background:none;border:none;color:#999;font-size:.85rem;cursor:pointer;margin-top:8px;}
+/* RESSOURCES MODAL */
+.ressources-section{border-top:1px solid #eee;margin-top:16px;padding-top:14px;}
+.ressources-titre{font-size:.78rem;font-weight:700;color:#aaa;text-transform:uppercase;
+  letter-spacing:.08em;margin-bottom:10px!important;}
+.ressources-liens{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;}
+.ressources-liens a{flex:1;min-width:80px;padding:8px 6px;border-radius:10px;
+  text-decoration:none;font-size:.8rem;font-weight:700;border:1.5px solid #e0e3e8;
+  color:#444;background:#f8f9fa;transition:.15s;}
+.ressources-liens a:hover{background:var(--ocean-cl);border-color:var(--ocean);color:var(--ocean);}
 
 /* BADGES */
 .badges-section{background:#fff;border-radius:16px;padding:20px 24px;
@@ -311,40 +320,49 @@ header{background:linear-gradient(135deg,#0077b6,#00b4d8);color:#fff;padding:20p
       </button>
     </div>
     <button class="btn-cancel" onclick="document.getElementById('modal-niveau').classList.remove('visible')">Annuler</button>
+    <div class="ressources-section">
+      <p class="ressources-titre">📚 Ressources du chapitre</p>
+      <div class="ressources-liens">
+        <a id="lien-cours" href="#" target="_blank">📖 Cours</a>
+        <a id="lien-exercices" href="#" target="_blank">✏️ Exercices</a>
+        <a id="lien-fiche" href="#" target="_blank">📄 Fiche</a>
+        <a id="lien-flashcards" href="#" target="_blank" style="display:none">🃏 Flashcards</a>
+      </div>
+    </div>
   </div>
 </div>
 
 <script>
 const CATALOGUE = [
-  {f:"qcm-4e-ch01.json",t:"Composition et qualité de l'air",cl:"4e",ch:"Ch01"},
-  {f:"qcm-4e-ch02.json",t:"Solubilité et purification de l'eau",cl:"4e",ch:"Ch02"},
-  {f:"qcm-4e-ch03.json",t:"Transformations chimiques",cl:"4e",ch:"Ch03"},
-  {f:"qcm-4e-ch04.json",t:"Mouvement et vitesse",cl:"4e",ch:"Ch04"},
-  {f:"qcm-4e-ch05.json",t:"Forces et interactions",cl:"4e",ch:"Ch05"},
-  {f:"qcm-4e-ch06.json",t:"Transferts et conversions d'énergie",cl:"4e",ch:"Ch06"},
-  {f:"qcm-4e-ch07.json",t:"Circuits électriques et loi d'Ohm",cl:"4e",ch:"Ch07"},
-  {f:"qcm-4e-ch08.json",t:"Propagation de la lumière",cl:"4e",ch:"Ch08"},
-  {f:"qcm-4e-ch09.json",t:"Propagation du son",cl:"4e",ch:"Ch09"},
-  {f:"qcm-4e-ch10.json",t:"Structure de l'Univers",cl:"4e",ch:"Ch10"},
-  {f:"qcm-4e-ch11.json",t:"Atomes et molécules",cl:"4e",ch:"Ch11"},
-  {f:"qcm-4e-ch12.json",t:"Réactions chimiques",cl:"4e",ch:"Ch12"},
-  {f:"qcm-4e-ch13.json",t:"Circuit électrique",cl:"4e",ch:"Ch13"},
-  {f:"qcm-4e-ch14.json",t:"Pression des fluides",cl:"4e",ch:"Ch14"},
-  {f:"qcm-4e-ch15.json",t:"Lumière et réfraction",cl:"4e",ch:"Ch15"},
-  {f:"qcm-4e-ch16.json",t:"Puissance et énergie électrique",cl:"4e",ch:"Ch16"},
-  {f:"qcm-5e-ch01.json",t:"Les états de la matière",cl:"5e",ch:"Ch01"},
-  {f:"qcm-5e-ch02.json",t:"Mélanges et solubilité",cl:"5e",ch:"Ch02"},
-  {f:"qcm-5e-ch03.json",t:"Masse volumique",cl:"5e",ch:"Ch03"},
-  {f:"qcm-5e-ch04.json",t:"Mouvements et vitesse",cl:"5e",ch:"Ch04"},
-  {f:"qcm-5e-ch05.json",t:"Forces et leurs effets",cl:"5e",ch:"Ch05"},
-  {f:"qcm-5e-ch06.json",t:"Énergie : formes et transferts",cl:"5e",ch:"Ch06"},
-  {f:"qcm-5e-ch07.json",t:"Propagation du son",cl:"5e",ch:"Ch07"},
-  {f:"qcm-5e-ch08.json",t:"Mélanges et corps purs",cl:"5e",ch:"Ch08"},
-  {f:"qcm-5e-ch09.json",t:"Changements d'état",cl:"5e",ch:"Ch09"},
-  {f:"qcm-5e-ch10.json",t:"Lumière et vision",cl:"5e",ch:"Ch10"},
-  {f:"qcm-5e-ch11.json",t:"Les sons",cl:"5e",ch:"Ch11"},
-  {f:"qcm-5e-ch12.json",t:"L'énergie et ses transferts",cl:"5e",ch:"Ch12"},
-  {f:"qcm-5e-ch13.json",t:"Propagation de la lumière",cl:"5e",ch:"Ch13"}
+  {f:"qcm-4e-ch01.json",t:"Composition et qualité de l'air",cl:"4e",ch:"Ch01",dir:"Ch01_Qualite_Air",flash:true},
+  {f:"qcm-4e-ch02.json",t:"Solubilité et purification de l'eau",cl:"4e",ch:"Ch02",dir:"Ch02_Solubilite_Eau",flash:true},
+  {f:"qcm-4e-ch03.json",t:"Transformations chimiques",cl:"4e",ch:"Ch03",dir:"Ch03_Transformations_Chimiques",flash:true},
+  {f:"qcm-4e-ch04.json",t:"Mouvement et vitesse",cl:"4e",ch:"Ch04",dir:"Ch04_Mouvement_Vitesse",flash:true},
+  {f:"qcm-4e-ch05.json",t:"Forces et interactions",cl:"4e",ch:"Ch05",dir:"Ch05_Forces_Interactions",flash:true},
+  {f:"qcm-4e-ch06.json",t:"Transferts et conversions d'énergie",cl:"4e",ch:"Ch06",dir:"Ch06_Energie_Transferts",flash:true},
+  {f:"qcm-4e-ch07.json",t:"Circuits électriques et loi d'Ohm",cl:"4e",ch:"Ch07",dir:"Ch07_Circuits_Electriques",flash:true},
+  {f:"qcm-4e-ch08.json",t:"Propagation de la lumière",cl:"4e",ch:"Ch08",dir:"Ch08_Lumiere",flash:true},
+  {f:"qcm-4e-ch09.json",t:"Propagation du son",cl:"4e",ch:"Ch09",dir:"Ch09_Son",flash:true},
+  {f:"qcm-4e-ch10.json",t:"Structure de l'Univers",cl:"4e",ch:"Ch10",dir:"Ch10_Univers",flash:true},
+  {f:"qcm-4e-ch11.json",t:"Atomes et molécules",cl:"4e",ch:"Ch11",dir:"Ch11_Atomes_Molecules",flash:true},
+  {f:"qcm-4e-ch12.json",t:"Réactions chimiques",cl:"4e",ch:"Ch12",dir:"Ch12_Reactions_Chimiques",flash:true},
+  {f:"qcm-4e-ch13.json",t:"Circuit électrique",cl:"4e",ch:"Ch13",dir:"Ch13_Circuit_Electrique",flash:true},
+  {f:"qcm-4e-ch14.json",t:"Pression des fluides",cl:"4e",ch:"Ch14",dir:"Ch14_Pression_Fluides",flash:true},
+  {f:"qcm-4e-ch15.json",t:"Lumière et réfraction",cl:"4e",ch:"Ch15",dir:"Ch15_Lumiere_Refraction",flash:true},
+  {f:"qcm-4e-ch16.json",t:"Puissance et énergie électrique",cl:"4e",ch:"Ch16",dir:"Ch16_Puissance_Energie",flash:true},
+  {f:"qcm-5e-ch01.json",t:"Les états de la matière",cl:"5e",ch:"Ch01",dir:"Ch01_Etats_Matiere",flash:true},
+  {f:"qcm-5e-ch02.json",t:"Mélanges et solubilité",cl:"5e",ch:"Ch02",dir:"Ch02_Melanges_Solubilite",flash:true},
+  {f:"qcm-5e-ch03.json",t:"Masse volumique",cl:"5e",ch:"Ch03",dir:"Ch03_Masse_Volume",flash:true},
+  {f:"qcm-5e-ch04.json",t:"Mouvements et vitesse",cl:"5e",ch:"Ch04",dir:"Ch04_Mouvements_Vitesse",flash:true},
+  {f:"qcm-5e-ch05.json",t:"Forces et leurs effets",cl:"5e",ch:"Ch05",dir:"Ch05_Forces_Effets",flash:true},
+  {f:"qcm-5e-ch06.json",t:"Énergie : formes et transferts",cl:"5e",ch:"Ch06",dir:"Ch06_Energie",flash:true},
+  {f:"qcm-5e-ch07.json",t:"Propagation du son",cl:"5e",ch:"Ch07",dir:"Ch07_Son",flash:true},
+  {f:"qcm-5e-ch08.json",t:"Mélanges et corps purs",cl:"5e",ch:"Ch08",dir:"Ch08_Melanges_Corps_Purs",flash:true},
+  {f:"qcm-5e-ch09.json",t:"Changements d'état",cl:"5e",ch:"Ch09",dir:"Ch09_Etats_Matiere",flash:true},
+  {f:"qcm-5e-ch10.json",t:"Lumière et vision",cl:"5e",ch:"Ch10",dir:"Ch10_Lumiere_Vision",flash:true},
+  {f:"qcm-5e-ch11.json",t:"Les sons",cl:"5e",ch:"Ch11",dir:"Ch11_Les_Sons",flash:true},
+  {f:"qcm-5e-ch12.json",t:"L'énergie et ses transferts",cl:"5e",ch:"Ch12",dir:"Ch12_Energie",flash:true},
+  {f:"qcm-5e-ch13.json",t:"Propagation de la lumière",cl:"5e",ch:"Ch13",dir:"Ch13_Lumiere",flash:true}
 ];
 
 const AVATARS = ['😊','🦁','🐠','🌺','🦋','🐢','🦈','🌴','⭐','🚀','🔥','💎'];
@@ -508,6 +526,15 @@ function ouvrirModal(qcm) {
   qcmChoisi = qcm;
   document.getElementById('modal-titre-qcm').textContent = qcm.t;
   document.getElementById('modal-sous-titre').textContent = qcm.ch + ' · Quel niveau veux-tu tenter ?';
+  // Liens ressources (SPMAN déployé sur GitHub Pages)
+  const niv = qcm.cl === '4e' ? '4eme' : '5eme';
+  const base = `https://eliemake8-wq.github.io/SPMAN/${niv}/${qcm.dir}/`;
+  document.getElementById('lien-cours').href = base + 'cours.html';
+  document.getElementById('lien-exercices').href = base + 'exercices.html';
+  document.getElementById('lien-fiche').href = base + 'fiche.html';
+  const flashEl = document.getElementById('lien-flashcards');
+  if (qcm.flash) { flashEl.href = base + 'flashcards.html'; flashEl.style.display = ''; }
+  else { flashEl.style.display = 'none'; }
   document.getElementById('modal-niveau').classList.add('visible');
 }
 function fermerModal(e) {
