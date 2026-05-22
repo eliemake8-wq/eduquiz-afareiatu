@@ -686,7 +686,7 @@ function ouvrirModal(qcm) {
   document.getElementById('lien-exercices').href = base+'exercices.html';
   document.getElementById('lien-fiche').href = base+'fiche.html';
   const flashEl = document.getElementById('lien-flashcards');
-  if(qcm.flash){flashEl.href=base+'flashcards.html';flashEl.style.display='';}
+  if(qcm.flash){flashEl.href='flashcards.html?qcm='+qcm.f;flashEl.style.display='';}
   else flashEl.style.display='none';
   document.getElementById('modal-niveau').classList.add('visible');
 }
