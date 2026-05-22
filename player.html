@@ -242,6 +242,7 @@ main{max-width:680px;margin:0 auto;padding:16px 16px 80px;}
     <div class="actions">
       <button class="btn-action primary" onclick="recommencer()">🔄 Rejouer</button>
       <button class="btn-action secondary" onclick="window.location.href='index.html'">🏠 Accueil</button>
+      <button class="btn-action secondary" id="btn-flashcards" onclick="ouvrirFlashcards()">🃏 Flashcards</button>
       <button class="btn-action csv" onclick="exporterPronote()">📤 Pronote CSV</button>
     </div>
   </div>
@@ -503,6 +504,7 @@ function showXpFlash(txt) {
 
 function suivant() { idx++; afficherQuestion(); }
 function recommencer() { location.reload(); }
+function ouvrirFlashcards() { window.location.href = 'flashcards.html?qcm='+fichier; }
 
 // ─── SCORE FINAL ───
 function afficherScore() {

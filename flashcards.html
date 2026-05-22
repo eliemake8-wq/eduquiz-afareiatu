@@ -199,6 +199,7 @@
       justify-content: center;
       gap: 8px;
       padding: 0 16px 8px;
+      flex-wrap: wrap;
     }
     .btn-shuffle {
       background: var(--orange-cl);
@@ -211,6 +212,22 @@
       cursor: pointer;
     }
     .btn-shuffle:hover { background: var(--orange); color: white; }
+    .btn-mode {
+      background: var(--bleu-cl);
+      color: var(--bleu);
+      border: 1px solid var(--bleu);
+      border-radius: 8px;
+      padding: 7px 16px;
+      font-size: .85rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background .2s, color .2s;
+    }
+    .btn-mode.actif {
+      background: var(--bleu);
+      color: white;
+    }
+    .btn-mode:hover { background: var(--bleu); color: white; }
 
     /* SCORE */
     .score-bar {
@@ -278,6 +295,8 @@
 <!-- SHUFFLE & SCORE -->
 <div class="shuffle-bar" style="margin-top:12px">
   <button class="btn-shuffle" onclick="FC.melanger()">🔀 Mélanger</button>
+  <button class="btn-mode" id="btn-mode-qcm" onclick="FC.setMode('qcm')" title="Recto = question, verso = réponse">❓ Mode QCM</button>
+  <button class="btn-mode" id="btn-mode-def" onclick="FC.setMode('def')" title="Recto = terme/concept, verso = définition">📖 Mode Définitions</button>
 </div>
 <div class="score-bar">
   <span class="badge-su">✅ Sus : <span id="nb-su">0</span></span>
@@ -334,6 +353,7 @@ const FC = {
   retournee: false,
   scores: { su: 0, re: 0 },
   resultats: [],
+  mode: 'qcm', // 'qcm' ou 'def'
 
   async init() {
     try {
@@ -346,6 +366,7 @@ const FC = {
       document.getElementById('fc-classe').textContent = data.classe;
       this.toutes = data.questions;
       this.questions = [...this.toutes];
+      this.setMode('qcm');
       this.afficher();
     } catch(e) {
       document.getElementById('compteur').textContent = '⚠️ Erreur : ' + e.message;
@@ -361,20 +382,45 @@ const FC = {
     return a;
   },
 
+  setMode(mode) {
+    this.mode = mode;
+    document.getElementById('btn-mode-qcm').classList.toggle('actif', mode === 'qcm');
+    document.getElementById('btn-mode-def').classList.toggle('actif', mode === 'def');
+    // Mettre à jour labels recto/verso
+    const rectoLabel = document.querySelector('.recto .label');
+    const versoLabel = document.querySelector('.verso .label');
+    if (mode === 'def') {
+      rectoLabel.textContent = '🔑 Terme / Concept';
+      versoLabel.textContent = '📖 Définition';
+    } else {
+      rectoLabel.textContent = '❓ Question';
+      versoLabel.textContent = '✅ Réponse';
+    }
+    // Reset flip et réafficher
+    this.retournee = false;
+    document.getElementById('carte').classList.remove('retournee');
+    document.getElementById('eval-zone').classList.remove('visible');
+    this.afficher();
+  },
+
   afficher() {
     const q = this.questions[this.index];
     const total = this.questions.length;
     const num = this.index + 1;
-
-    // Recto
-    document.getElementById('recto-question').textContent = q.enonce;
-
-    // Verso
     const bonneReponse = q.options[q.reponse];
-    document.getElementById('verso-reponse').textContent = bonneReponse;
-    // Nettoyer le feedback (enlever ✅ ❌ du début)
     const expl = (q.feedback_correct || '').replace(/^[✅❌]\s*/, '');
-    document.getElementById('verso-explication').textContent = expl;
+
+    if (this.mode === 'def') {
+      // Recto = terme (bonne réponse), Verso = question + explication
+      document.getElementById('recto-question').textContent = bonneReponse;
+      document.getElementById('verso-reponse').textContent = q.enonce;
+      document.getElementById('verso-explication').textContent = expl;
+    } else {
+      // Mode QCM (défaut) : Recto = question, Verso = réponse + explication
+      document.getElementById('recto-question').textContent = q.enonce;
+      document.getElementById('verso-reponse').textContent = bonneReponse;
+      document.getElementById('verso-explication').textContent = expl;
+    }
 
     // Compteur
     document.getElementById('compteur').textContent = 'Carte ' + num + ' / ' + total;
