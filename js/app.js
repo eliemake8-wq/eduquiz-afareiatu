@@ -37,12 +37,24 @@ const App = {
     return sid;
   },
 
+  // ==============================
+  // MÉLANGE (Fisher-Yates)
+  // ==============================
+  shuffleArray(arr) {
+    const a = [...arr];
+    for (let i = a.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [a[i], a[j]] = [a[j], a[i]];
+    }
+    return a;
+  },
+
   async chargerQCM(fichier) {
     try {
       const resp = await fetch('data/' + fichier);
       if (!resp.ok) throw new Error('Fichier introuvable');
       this.qcm = await resp.json();
-      this.questions = this.qcm.questions;
+      this.questions = this.shuffleArray(this.qcm.questions);
       this.indexCourant = 0;
       this.score = 0;
       this.reponsesDonnees = [];
